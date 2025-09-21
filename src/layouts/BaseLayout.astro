@@ -1,0 +1,735 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  author?: string;
+  publishDate?: Date;
+  modifiedDate?: Date;
+}
+
+const {
+  title,
+  description = "Privacy-First Surveys, Quizzes, and Forms",
+  canonical,
+  ogImage,
+  author,
+  publishDate,
+  modifiedDate
+} = Astro.props;
+
+const currentUrl = new URL(Astro.request.url);
+const canonicalUrl = canonical || currentUrl.href;
+const defaultOgImage = "/images/og-default.png";
+---
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+  <link rel="profile" href="https://gmpg.org/xfn/11">
+
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonicalUrl}>
+
+  <!-- Open Graph -->
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={canonicalUrl}>
+  <meta property="og:site_name" content="Shout.com">
+  <meta property="og:image" content={ogImage || defaultOgImage}>
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@ShoutSurveys">
+  {author && <meta name="author" content={author}>}
+
+  <!-- Article meta for blog posts -->
+  {publishDate && (
+    <meta property="article:published_time" content={publishDate.toISOString()}>
+  )}
+  {modifiedDate && (
+    <meta property="article:modified_time" content={modifiedDate.toISOString()}>
+  )}
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+
+<body class="wp-theme-blocksy"
+      data-link="type-2"
+      data-prefix="single_page"
+      data-header="type-1:sticky:auto"
+      data-footer="type-1"
+      itemscope="itemscope"
+      itemtype="https://schema.org/WebPage">
+
+  <!-- Skip link for accessibility -->
+  <a class="skip-link screen-reader-text" href="#main">Skip to content</a>
+
+  <!-- Header -->
+  <header id="header" class="ct-header" data-id="type-1" itemscope itemtype="https://schema.org/WPHeader">
+    <div data-device="desktop" data-transparent="">
+      <div class="ct-sticky-container">
+        <div data-sticky="auto-hide">
+          <div data-row="middle" data-column-set="3" data-transparent-row="yes">
+            <div class="ct-container">
+              <!-- Logo column -->
+              <div data-column="start" data-placements="1">
+                <div data-items="primary">
+                  <div class="site-branding" data-id="logo">
+                    <a href="/" class="site-logo-container" rel="home">
+                      <img src="/images/logo.svg" class="default-logo" alt="Shout.com">
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Navigation column -->
+              <div data-column="middle">
+                <nav id="header-menu-1" class="header-menu-1 menu-container" data-id="menu">
+                  <ul id="menu-main-menu" class="menu">
+                    <li class="menu-item menu-item-has-children">
+                      <a href="#" class="ct-menu-link">Product</a>
+                      <ul class="sub-menu">
+                        <li><a href="/survey-maker/" class="ct-menu-link">Survey Maker</a></li>
+                        <li><a href="/quiz-builder/" class="ct-menu-link">Quiz Builder</a></li>
+                        <li><a href="/form-builder/" class="ct-menu-link">Form Builder</a></li>
+                      </ul>
+                    </li>
+                    <li class="menu-item">
+                      <a href="/pricing/" class="ct-menu-link">Pricing</a>
+                    </li>
+                    <li class="menu-item menu-item-has-children">
+                      <a href="#" class="ct-menu-link">Resources</a>
+                      <ul class="sub-menu">
+                        <li><a href="/blog/" class="ct-menu-link">Blog</a></li>
+                        <li><a href="/help/" class="ct-menu-link">Help Center</a></li>
+                      </ul>
+                    </li>
+                    <li class="menu-item">
+                      <a href="/contact/" class="ct-menu-link">Contact</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+
+              <!-- CTA column -->
+              <div data-column="end">
+                <div class="ct-header-cta">
+                  <a href="/signup/" class="ct-button">Start Free Trial</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main" class="site-main hfeed">
+    <slot />
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="ct-footer" data-id="type-1" itemscope itemtype="https://schema.org/WPFooter">
+    <!-- Middle row with widget columns -->
+    <div data-row="middle">
+      <div class="ct-container" data-columns-divider="md">
+        <div data-column="widget-area-1">
+          <div class="site-branding">
+            <a href="/" class="site-logo-container">
+              <img src="/images/logo.svg" alt="Shout.com">
+            </a>
+          </div>
+          <p>Privacy-first surveys, quizzes, and forms for modern businesses.</p>
+        </div>
+
+        <div data-column="widget-area-2">
+          <h3>Products</h3>
+          <ul>
+            <li><a href="/survey-maker/">Survey Maker</a></li>
+            <li><a href="/quiz-builder/">Quiz Builder</a></li>
+            <li><a href="/form-builder/">Form Builder</a></li>
+          </ul>
+        </div>
+
+        <div data-column="widget-area-3">
+          <h3>Solutions</h3>
+          <ul>
+            <li><a href="/lead-generation/">Lead Generation</a></li>
+            <li><a href="/customer-feedback/">Customer Feedback</a></li>
+            <li><a href="/employee-surveys/">Employee Surveys</a></li>
+          </ul>
+        </div>
+
+        <div data-column="widget-area-4">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="/privacy/">Privacy Policy</a></li>
+            <li><a href="/terms/">Terms of Service</a></li>
+            <li><a href="/security/">Security</a></li>
+          </ul>
+        </div>
+
+        <div data-column="widget-area-5">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/blog/">Blog</a></li>
+          </ul>
+        </div>
+
+        <div data-column="widget-area-6">
+          <h3>Comparisons</h3>
+          <ul>
+            <li><a href="/vs-typeform/">vs Typeform</a></li>
+            <li><a href="/vs-surveymonkey/">vs SurveyMonkey</a></li>
+            <li><a href="/vs-google-forms/">vs Google Forms</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom row with copyright and social -->
+    <div data-row="bottom">
+      <div class="ct-container">
+        <div data-column="copyright">
+          <div class="ct-footer-copyright">
+            <p>All Rights Reserved © 2025 Shout.com</p>
+          </div>
+        </div>
+        <div data-column="socials">
+          <div class="ct-footer-socials">
+            <a href="https://twitter.com/ShoutSurveys" aria-label="Twitter">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+              </svg>
+            </a>
+            <a href="https://linkedin.com/company/shoutsurveys" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    /* Base Styles */
+    :root {
+      --primary-color: #FB7258;
+      --secondary-color: #F74D67;
+      --text-color: #0e0c1b;
+      --text-light: #6e6d76;
+      --background: #ffffff;
+      --background-light: #FBFBFB;
+      --border-color: #DFDFE2;
+    }
+
+    /* Font Awesome Icon Styling */
+    .feature-icon i,
+    .benefit-icon i,
+    .contact-icon i {
+      font-size: 3.5rem;
+      color: #FB7258;
+    }
+
+    .feature-icon,
+    .benefit-icon,
+    .contact-icon {
+      margin-bottom: 1.5rem;
+    }
+
+    .info-item h4 i {
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+      color: #FB7258;
+    }
+
+    body {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text-color);
+      background: var(--background);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .skip-link:focus {
+      position: absolute;
+      left: 6px;
+      top: 7px;
+      z-index: 999999;
+      width: auto;
+      height: auto;
+      padding: 8px 16px;
+      background: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    /* Header Styles */
+    .ct-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--background);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .ct-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .site-logo-container img {
+      height: 40px;
+      width: auto;
+    }
+
+    .menu {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 2rem;
+    }
+
+    .menu-item {
+      position: relative;
+    }
+
+    .ct-menu-link {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      padding: 0.5rem 0;
+      transition: color 0.2s;
+    }
+
+    .ct-menu-link:hover {
+      color: var(--primary-color);
+    }
+
+    .sub-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      padding: 1rem 0;
+      min-width: 200px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.2s;
+    }
+
+    .menu-item:hover .sub-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .sub-menu li {
+      padding: 0 1rem;
+    }
+
+    .sub-menu .ct-menu-link {
+      display: block;
+      padding: 0.5rem 0;
+      color: var(--text-light);
+    }
+
+    .ct-button {
+      background: var(--primary-color);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .ct-button:hover {
+      background: var(--secondary-color);
+    }
+
+    /* Main Content */
+    .site-main {
+      min-height: 50vh;
+    }
+
+    /* Footer Styles */
+    .ct-footer {
+      background: var(--background-light);
+      border-top: 1px solid var(--border-color);
+      margin-top: 4rem;
+    }
+
+    .ct-footer [data-row="middle"] {
+      padding: 3rem 0;
+    }
+
+    .ct-footer [data-row="middle"] .ct-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      height: auto;
+      align-items: start;
+    }
+
+    .ct-footer h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+
+    .ct-footer ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .ct-footer ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .ct-footer ul a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .ct-footer ul a:hover {
+      color: var(--primary-color);
+    }
+
+    .ct-footer [data-row="bottom"] {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .ct-footer [data-row="bottom"] .ct-container {
+      height: auto;
+      justify-content: space-between;
+    }
+
+    .ct-footer-copyright {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .ct-footer-socials {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .ct-footer-socials a {
+      color: var(--text-light);
+      transition: color 0.2s;
+    }
+
+    .ct-footer-socials a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Product Page Styles */
+    .product-page .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .product-page section {
+      padding: 4rem 0;
+    }
+
+    /* Hero Section for Product Pages */
+    .product-page .hero-section {
+      background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+      padding: 5rem 2rem;
+    }
+
+    .product-page .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .product-page .hero-text {
+      text-align: left;
+    }
+
+    .product-page .hero-image {
+      text-align: center;
+    }
+
+    .product-page .hero-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+
+    .product-page .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .product-page .hero-title strong {
+      color: var(--primary-color);
+    }
+
+    .product-page .hero-subtitle {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .product-page .hero-headline {
+      font-size: 1.8rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .product-page .hero-description {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2.5rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .product-page .hero-cta {
+      margin-top: 2rem;
+    }
+
+    .product-page .btn-primary, .product-page .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 0.5rem;
+      transition: all 0.2s;
+    }
+
+    .product-page .btn-primary {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .product-page .btn-primary:hover {
+      background: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+
+    .product-page .btn-secondary {
+      background: white;
+      color: var(--text-color);
+      border: 2px solid var(--border-color);
+    }
+
+    .product-page .btn-secondary:hover {
+      border-color: var(--primary-color);
+      transform: translateY(-2px);
+    }
+
+    .product-page .trial-info {
+      margin-top: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+    }
+
+    /* Product Page Section Headings */
+    .product-page h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--text-color);
+    }
+
+    /* Product Page Feature Grids */
+    .product-page .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .product-page .feature-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+
+    .product-page .feature-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .product-page .feature-card h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+
+    .product-page .feature-card p {
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* Product Page Benefits Grid */
+    .product-page .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .product-page .benefit-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .product-page .benefit-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .product-page .benefit-card p {
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* Product Page CTA Sections */
+    .product-page .final-cta-section {
+      background: var(--background-light);
+      text-align: center;
+    }
+
+    .product-page .final-cta-section p {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+    }
+
+    .product-page .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive for Product Pages */
+    @media (max-width: 768px) {
+      .product-page .hero-section {
+        padding: 3rem 1rem;
+      }
+
+      .product-page .hero-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+      }
+
+      .product-page .hero-text {
+        text-align: center;
+      }
+
+      .product-page .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-page .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-page .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .product-page .btn-primary, .product-page .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu {
+        display: none; /* Will implement mobile menu later */
+      }
+
+      .ct-footer [data-row="middle"] .ct-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .ct-footer [data-row="bottom"] .ct-container {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+    }
+  </style>
+</body>
+</html>

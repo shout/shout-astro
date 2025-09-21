@@ -1,0 +1,238 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import CustomerLogos from "../components/customer-logos.astro";
+import Features from "../components/features.astro";
+---
+
+<AstroshipLayout
+  title="Online Quiz Builder with Automated Scoring - Shout.com"
+  description="Engage your audience, test students and capture leads with Shout's online quiz builder. Scores are calculated automatically."
+>
+  <Container>
+    <!-- Hero Section -->
+    <section class="py-20">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+            Build quizzes that <span class="text-primary">challenge</span> and engage
+          </h1>
+          <p class="text-xl text-primary font-semibold mt-4">Quiz Builder</p>
+          <p class="text-lg mt-4 text-gray-600 max-w-xl">
+            Create interactive quizzes with automatic scoring, conditional logic, and detailed analytics. Perfect for education, lead generation, and audience engagement.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 mt-6">
+            <Button href="/signup/">Start Your Free Trial</Button>
+            <Button variant="outline" href="/demo/">Book a Demo</Button>
+          </div>
+          <p class="text-gray-600 text-sm mt-2">14-day Free Trial • No Credit Card Required</p>
+        </div>
+        <div class="hidden lg:block">
+          <div class="bg-slate-900 rounded-lg p-6 shadow-lg">
+            <img
+              src="/images/2022/10/survey-hero-nofonts.svg"
+              alt="Quiz Builder Interface"
+              class="w-full h-auto max-w-md"
+              width="500"
+              height="400"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Logos -->
+    <CustomerLogos />
+
+    <!-- Integrated Solutions -->
+    <Features />
+
+    <!-- Features Section -->
+    <section class="py-16">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Everything you need to create engaging quizzes</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <div class="text-3xl mb-4">🧮</div>
+          <h3 class="text-xl font-semibold mb-3">Automatic Scoring</h3>
+          <p class="text-gray-600">Let the system calculate scores automatically based on your quiz logic. Support for weighted questions and custom scoring methods.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <div class="text-3xl mb-4">❓</div>
+          <h3 class="text-xl font-semibold mb-3">Multiple Question Types</h3>
+          <p class="text-gray-600">Choose from multiple choice, true/false, rating scales, and more. Mix different question types in a single quiz.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <div class="text-3xl mb-4">🛣️</div>
+          <h3 class="text-xl font-semibold mb-3">Conditional Logic</h3>
+          <p class="text-gray-600">Create dynamic quiz paths where the next question depends on previous answers. Perfect for personalized experiences.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <div class="text-3xl mb-4">⏰</div>
+          <h3 class="text-xl font-semibold mb-3">Time Limits</h3>
+          <p class="text-gray-600">Set time limits for the entire quiz or individual questions. Great for assessments and competitive quizzes.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <div class="text-3xl mb-4">📊</div>
+          <h3 class="text-xl font-semibold mb-3">Instant Results</h3>
+          <p class="text-gray-600">Show results immediately or after submission. Customize result pages with personalized feedback and next steps.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <div class="text-3xl mb-4">📱</div>
+          <h3 class="text-xl font-semibold mb-3">Mobile Optimized</h3>
+          <p class="text-gray-600">All quizzes work perfectly on any device. Responsive design ensures great user experience everywhere.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Perfect for every use case</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white rounded-lg p-6 text-center hover:shadow-md transition-shadow">
+          <div class="text-4xl mb-4">🎓</div>
+          <h3 class="text-lg font-semibold mb-3 text-primary">Education</h3>
+          <p class="text-gray-600">Create assessments, homework assignments, and interactive learning materials for students.</p>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 text-center hover:shadow-md transition-shadow">
+          <div class="text-4xl mb-4">🎯</div>
+          <h3 class="text-lg font-semibold mb-3 text-primary">Lead Generation</h3>
+          <p class="text-gray-600">Capture qualified leads with personality quizzes, assessments, and interactive content.</p>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 text-center hover:shadow-md transition-shadow">
+          <div class="text-4xl mb-4">👥</div>
+          <h3 class="text-lg font-semibold mb-3 text-primary">Team Building</h3>
+          <p class="text-gray-600">Engage your team with fun quizzes, training assessments, and knowledge checks.</p>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 text-center hover:shadow-md transition-shadow">
+          <div class="text-4xl mb-4">❤️</div>
+          <h3 class="text-lg font-semibold mb-3 text-primary">Entertainment</h3>
+          <p class="text-gray-600">Create viral quizzes for social media, personality tests, and fun interactive content.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz Building Features -->
+    <section class="py-16">
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <div>
+          <h2 class="text-3xl lg:text-4xl font-bold mb-6">Professional Quiz Design</h2>
+          <p class="text-lg text-gray-600 mb-6">
+            Create quizzes that reflect your brand with customizable themes, fonts, and layouts. Add your logo, choose colors, and make every quiz uniquely yours.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+              <span class="text-gray-600">Custom themes and branding</span>
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+              <span class="text-gray-600">Rich media integration</span>
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+              <span class="text-gray-600">Mobile-responsive design</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <img
+            src="/images/2024/01/David-Hollinshead-Survey-Created-With-Shout.png"
+            alt="Quiz design interface"
+            class="w-full h-auto rounded-lg shadow-lg"
+          />
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="lg:order-2">
+          <h2 class="text-3xl lg:text-4xl font-bold mb-6">Smart Scoring & Results</h2>
+          <p class="text-lg text-gray-600 mb-6">
+            Create dynamic quizzes with automatic scoring, personalized results, and conditional logic that adapts to each respondent's answers.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+              <span class="text-gray-600">Automatic score calculation</span>
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+              <span class="text-gray-600">Personalized result pages</span>
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+              <span class="text-gray-600">Conditional question logic</span>
+            </li>
+          </ul>
+        </div>
+        <div class="lg:order-1">
+          <img
+            src="/images/2024/01/Survey-Funnel-Pain-Points-Question.png"
+            alt="Quiz scoring and results interface"
+            class="w-full h-auto rounded-lg shadow-lg"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Distribution Methods -->
+    <section class="py-16 bg-gray-50">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Share your quizzes everywhere</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white rounded-lg p-6 text-center hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">🔗</div>
+          <h3 class="text-lg font-semibold mb-3">Direct Links</h3>
+          <p class="text-gray-600">Share a simple link via email, social media, or messaging apps</p>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 text-center hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">💻</div>
+          <h3 class="text-lg font-semibold mb-3">Website Embed</h3>
+          <p class="text-gray-600">Embed directly into your website with responsive iframe code</p>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 text-center hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">📤</div>
+          <h3 class="text-lg font-semibold mb-3">Social Sharing</h3>
+          <p class="text-gray-600">Built-in social sharing buttons for maximum reach</p>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 text-center hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">📱</div>
+          <h3 class="text-lg font-semibold mb-3">QR Codes</h3>
+          <p class="text-gray-600">Generate QR codes for offline marketing and events</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-16">
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to build your first quiz?</h2>
+        <p class="text-lg text-gray-600 mb-8">Start creating engaging quizzes that drive results for your business.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/signup/">Start Your 14-Day Free Trial</Button>
+          <Button variant="outline" href="/demo/">Book a Demo</Button>
+        </div>
+      </div>
+    </section>
+
+  </Container>
+</AstroshipLayout>

@@ -1,0 +1,322 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import CustomerLogos from "../components/customer-logos.astro";
+import Features from "../components/features.astro";
+---
+
+<AstroshipLayout
+  title="Compliant Form Builder For Lead Generation - Shout.com"
+  description="Generate leads from your website, register guests for an event and build your email list with our online form builder."
+>
+  <Container>
+    <!-- Hero Section -->
+    <section class="py-20">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+            Form Builder
+          </h1>
+          <h2 class="text-2xl text-primary font-semibold mt-4 mb-4">Generate leads & grow your audience</h2>
+          <p class="text-lg text-gray-600 max-w-xl">
+            A quick and easy form builder for capturing contacts and collecting data.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 mt-6">
+            <Button href="/signup/">Build a Form</Button>
+            <Button variant="outline" href="/pricing/">Plans & Pricing</Button>
+          </div>
+        </div>
+        <div class="hidden lg:block">
+          <div class="bg-slate-900 rounded-lg p-6 shadow-lg">
+            <img
+              src="/images/2022/10/survey-hero-nofonts.svg"
+              alt="Customizable Online Form Builder Interface"
+              class="w-full h-auto max-w-md"
+              width="500"
+              height="400"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Logos -->
+    <CustomerLogos />
+
+    <!-- Integrated Solutions -->
+    <Features />
+
+    <!-- Form Builder Features Section -->
+    <section class="py-16">
+      <div class="text-center mb-4">
+        <p class="text-primary font-semibold text-sm uppercase tracking-wide">FORM BUILDER FEATURES</p>
+      </div>
+      <div class="text-center mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Building online forms has never been easier</h2>
+        <p class="text-lg mt-4 text-gray-600 max-w-3xl mx-auto">
+          Take advantage of features that allow you to build online forms quickly and make the most of the contact data you collect.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <div class="text-3xl mb-4">📋</div>
+          <h3 class="text-xl font-semibold mb-3">Grow your contact lists</h3>
+          <p class="text-gray-600">Connect forms to your contact list in the app to add contacts to groups, update custom fields, and track survey responses.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <div class="text-3xl mb-4">🏠</div>
+          <h3 class="text-xl font-semibold mb-3">Accurate address collection</h3>
+          <p class="text-gray-600">Reduce friction in your forms by allowing respondents to enter their Zip or Postcode and select their address from a list.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <div class="text-3xl mb-4">⚡</div>
+          <h3 class="text-xl font-semibold mb-3">One-click templates</h3>
+          <p class="text-gray-600">Collect all the data you need with our fully customizable contact form, or take advantage of individual email, number, and website fields.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <div class="text-3xl mb-4">✅</div>
+          <h3 class="text-xl font-semibold mb-3">Ensure you're compliant</h3>
+          <p class="text-gray-600">Group contacts based on the types of campaigns they've asked to receive and track the lawful basis for processing their data.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <div class="text-3xl mb-4">🔒</div>
+          <h3 class="text-xl font-semibold mb-3">Record consent</h3>
+          <p class="text-gray-600">When linking forms to explicit consent groups, a consent question is added to your form. This records consent to the contact's profile.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <div class="text-3xl mb-4">🎯</div>
+          <h3 class="text-xl font-semibold mb-3">Personalize forms</h3>
+          <p class="text-gray-600">Use merge tags to pass contact information stored in custom fields into surveys, quizzes, and forms to personalize their experience.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Optimization Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Optimize your forms, capture more data</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg p-8 shadow-sm">
+          <h3 class="text-xl font-semibold mb-3">Beautiful designs for brand consistency</h3>
+          <p class="text-gray-600">Create forms that match your brand with customizable themes, colors, and styling options.</p>
+        </div>
+
+        <div class="bg-white rounded-lg p-8 shadow-sm">
+          <h3 class="text-xl font-semibold mb-3">Track forms to measure success</h3>
+          <p class="text-gray-600">Monitor form performance with detailed analytics and conversion tracking.</p>
+        </div>
+
+        <div class="bg-white rounded-lg p-8 shadow-sm">
+          <h3 class="text-xl font-semibold mb-3">Mobile optimized forms to reduce friction</h3>
+          <p class="text-gray-600">Ensure your forms work perfectly on all devices with responsive design.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CRM Integration Section -->
+    <section class="py-16">
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <div>
+          <h2 class="text-3xl lg:text-4xl font-bold mb-6">Professional Form Design</h2>
+          <p class="text-lg text-gray-600 mb-6">
+            Create forms that reflect your brand with customizable themes, fonts, and layouts. Add your logo, choose colors, and make every form uniquely yours.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+              <span class="text-gray-600">Custom branding and themes</span>
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+              <span class="text-gray-600">Logo and image integration</span>
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+              <span class="text-gray-600">Mobile-responsive design</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <img
+            src="/images/2024/03/Client-Information-Questions.png"
+            alt="Form design interface"
+            class="w-full h-auto rounded-lg shadow-lg"
+          />
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="lg:order-2">
+          <h2 class="text-3xl lg:text-4xl font-bold mb-6">Integrated CRM & Compliance</h2>
+          <p class="text-lg text-gray-600 mb-6">
+            Stay compliant with GDPR while building relationships with an integrated CRM that tracks consent and manages contact data automatically.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+              <span class="text-gray-600">Automatic consent tracking</span>
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+              <span class="text-gray-600">Centralized contact management</span>
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+              <span class="text-gray-600">Data validation and quality</span>
+            </li>
+          </ul>
+        </div>
+        <div class="lg:order-1">
+          <img
+            src="/images/2024/01/Lead-Magnet-Funnel.png"
+            alt="CRM and compliance interface"
+            class="w-full h-auto rounded-lg shadow-lg"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Administration Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Simplify administration and reporting</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg p-8 shadow-sm">
+          <h3 class="text-xl font-semibold mb-3">Stop missing form submissions</h3>
+          <p class="text-gray-600">No more calls to IT support! Get reliable form processing with instant notifications and backup systems.</p>
+        </div>
+
+        <div class="bg-white rounded-lg p-8 shadow-sm">
+          <h3 class="text-xl font-semibold mb-3">Transform data into action</h3>
+          <p class="text-gray-600">Turn form submissions into actionable insights with powerful reporting and analytics tools.</p>
+        </div>
+
+        <div class="bg-white rounded-lg p-8 shadow-sm">
+          <h3 class="text-xl font-semibold mb-3">Sharable reports and dashboards</h3>
+          <p class="text-gray-600">Keep stakeholders updated with easy-to-share reports and real-time dashboards.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Categories -->
+    <section class="py-16">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Comprehensive form building features</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <h3 class="text-lg font-semibold mb-4 text-primary">Branding & Teams</h3>
+          <ul class="space-y-2">
+            <li class="flex items-center text-gray-600">
+              <span class="text-primary mr-2">✓</span>
+              Collaborate as a team
+            </li>
+            <li class="flex items-center text-gray-600">
+              <span class="text-primary mr-2">✓</span>
+              Remove Shout branding
+            </li>
+            <li class="flex items-center text-gray-600">
+              <span class="text-primary mr-2">✓</span>
+              Custom form domain
+            </li>
+            <li class="flex items-center text-gray-600">
+              <span class="text-primary mr-2">✓</span>
+              Customizable designs
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <h3 class="text-lg font-semibold mb-4 text-primary">Personalization</h3>
+          <ul class="space-y-2">
+            <li class="flex items-center text-gray-600">
+              <span class="text-primary mr-2">✓</span>
+              Conditional logic
+            </li>
+            <li class="flex items-center text-gray-600">
+              <span class="text-primary mr-2">✓</span>
+              Answer piping
+            </li>
+            <li class="flex items-center text-gray-600">
+              <span class="text-primary mr-2">✓</span>
+              Dynamic content
+            </li>
+            <li class="flex items-center text-gray-600">
+              <span class="text-primary mr-2">✓</span>
+              Custom fields
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <h3 class="text-lg font-semibold mb-4 text-primary">Managing Contacts</h3>
+          <ul class="space-y-2">
+            <li class="flex items-center text-gray-600">
+              <span class="text-primary mr-2">✓</span>
+              Contact segmentation
+            </li>
+            <li class="flex items-center text-gray-600">
+              <span class="text-primary mr-2">✓</span>
+              Group management
+            </li>
+            <li class="flex items-center text-gray-600">
+              <span class="text-primary mr-2">✓</span>
+              Contact profiles
+            </li>
+            <li class="flex items-center text-gray-600">
+              <span class="text-primary mr-2">✓</span>
+              Data export
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <h3 class="text-lg font-semibold mb-4 text-primary">Compliance</h3>
+          <ul class="space-y-2">
+            <li class="flex items-center text-gray-600">
+              <span class="text-primary mr-2">✓</span>
+              GDPR compliance
+            </li>
+            <li class="flex items-center text-gray-600">
+              <span class="text-primary mr-2">✓</span>
+              Consent management
+            </li>
+            <li class="flex items-center text-gray-600">
+              <span class="text-primary mr-2">✓</span>
+              Data protection
+            </li>
+            <li class="flex items-center text-gray-600">
+              <span class="text-primary mr-2">✓</span>
+              Audit trails
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-16 bg-gray-50">
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to start growing your contact list?</h2>
+        <p class="text-lg text-gray-600 mb-8">Our integrated CRM is available with all plans. Unlimited contact storage, no extra fees, no hidden costs.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/signup/">Start Your 14-Day Free Trial</Button>
+          <Button variant="outline" href="/demo/">Book a Demo</Button>
+        </div>
+      </div>
+    </section>
+
+  </Container>
+</AstroshipLayout>

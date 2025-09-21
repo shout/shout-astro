@@ -1,0 +1,512 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact Us - Shout.com"
+  description="Get in touch with our team. Book a demo, ask questions, or learn more about our privacy-first survey platform."
+>
+  <div class="contact-page">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="hero-title">Get in Touch</h1>
+        <p class="hero-subtitle">
+          Have questions about Shout? Want to see our platform in action? We're here to help.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Options Section -->
+    <section class="contact-options-section">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Demo Request -->
+          <div class="contact-card featured">
+            <div class="contact-icon"><i class="fas fa-tv"></i></div>
+            <h3>Book a Demo</h3>
+            <p>See our privacy-first survey software in action. A member of our team will show you how to use Shout to create surveys, manage contacts, and analyze data.</p>
+            <a href="/demo/" class="btn-primary">Schedule Demo</a>
+          </div>
+
+          <!-- Sales Inquiry -->
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fas fa-briefcase"></i></div>
+            <h3>Sales Inquiries</h3>
+            <p>Ready to get started or have questions about our plans? Our sales team can help you choose the right solution for your business.</p>
+            <a href="mailto:sales@shout.com" class="btn-secondary">Contact Sales</a>
+          </div>
+
+          <!-- Support -->
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fas fa-tools"></i></div>
+            <h3>Customer Support</h3>
+            <p>Already a customer? Get help with your account, technical questions, or billing inquiries from our support team.</p>
+            <a href="/help/" class="btn-secondary">Get Support</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+      <div class="container">
+        <div class="form-wrapper">
+          <div class="form-content">
+            <h2>Send us a message</h2>
+            <p>Fill out the form below and we'll get back to you within 24 hours.</p>
+
+            <form class="contact-form" action="/contact/submit" method="POST">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName">First Name *</label>
+                  <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name *</label>
+                  <input type="text" id="lastName" name="lastName" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+
+              <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company">
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject *</label>
+                <select id="subject" name="subject" required>
+                  <option value="">Please select...</option>
+                  <option value="demo">Request a Demo</option>
+                  <option value="sales">Sales Inquiry</option>
+                  <option value="support">Technical Support</option>
+                  <option value="billing">Billing Question</option>
+                  <option value="partnership">Partnership Opportunity</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" rows="5" required placeholder="Tell us how we can help you..."></textarea>
+              </div>
+
+              <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="newsletter" value="yes">
+                  <span class="checkmark"></span>
+                  I'd like to receive updates about Shout features and news
+                </label>
+              </div>
+
+              <div class="form-group">
+                <button type="submit" class="btn-primary">Send Message</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="contact-info">
+            <h3>Other ways to reach us</h3>
+
+            <div class="info-item">
+              <h4><i class="fas fa-envelope"></i> Email</h4>
+              <p><a href="mailto:hello@shout.com">hello@shout.com</a></p>
+            </div>
+
+            <div class="info-item">
+              <h4><i class="fas fa-comment"></i> Live Chat</h4>
+              <p>Available Monday-Friday, 9 AM - 5 PM GMT</p>
+            </div>
+
+            <div class="info-item">
+              <h4><i class="fas fa-share-alt"></i> Social Media</h4>
+              <div class="social-links">
+                <a href="https://twitter.com/ShoutSurveys" target="_blank" rel="noopener">Twitter</a>
+                <a href="https://linkedin.com/company/shoutsurveys" target="_blank" rel="noopener">LinkedIn</a>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <h4><i class="fas fa-building"></i> Office</h4>
+              <p>
+                Shout.com<br>
+                United Kingdom<br>
+                <em>Remote-first company</em>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h4>How quickly can I get started?</h4>
+            <p>You can start using Shout immediately with our 14-day free trial. No credit card required, and you'll have access to all Pro features.</p>
+          </div>
+
+          <div class="faq-item">
+            <h4>Do you offer training?</h4>
+            <p>Yes! We provide comprehensive onboarding, documentation, and can arrange personalized training sessions for your team.</p>
+          </div>
+
+          <div class="faq-item">
+            <h4>Is my data secure?</h4>
+            <p>Absolutely. We use enterprise-grade security with UK-based servers, ISO certification, and built-in GDPR compliance.</p>
+          </div>
+
+          <div class="faq-item">
+            <h4>Can you help migrate from another platform?</h4>
+            <p>Yes, our team can assist with migrating your surveys, contacts, and data from other survey platforms.</p>
+          </div>
+
+          <div class="faq-item">
+            <h4>What support do you offer?</h4>
+            <p>We provide email support for all users, with priority support and dedicated success managers for Business plan customers.</p>
+          </div>
+
+          <div class="faq-item">
+            <h4>Do you offer discounts for nonprofits?</h4>
+            <p>Yes! Schools and nonprofits can save 48% on our Pro plan. Contact us for more information about eligibility.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  section {
+    padding: 4rem 0;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    background: linear-gradient(135deg, #FBFBFB 0%, #F4F4F5 100%);
+    text-align: center;
+    padding: 5rem 2rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+  }
+
+  .hero-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* Contact Options */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .contact-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  }
+
+  .contact-card.featured {
+    border: 2px solid var(--primary-color);
+    transform: scale(1.02);
+  }
+
+  .contact-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-card h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+  }
+
+  .contact-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  /* Buttons */
+  .btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background: var(--primary-color);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background: white;
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+  }
+
+  /* Contact Form Section */
+  .contact-form-section {
+    background: var(--background-light);
+  }
+
+  .form-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+  }
+
+  .form-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+  }
+
+  .form-content p {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+
+  .contact-form {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+  }
+
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+  }
+
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: normal !important;
+  }
+
+  .checkbox-label input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+  }
+
+  .form-group button {
+    width: 100%;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+
+  /* Contact Info */
+  .contact-info {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    height: fit-content;
+  }
+
+  .contact-info h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+  }
+
+  .info-item {
+    margin-bottom: 2rem;
+  }
+
+  .info-item h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+  }
+
+  .info-item p {
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  .info-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  .info-item a:hover {
+    text-decoration: underline;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .social-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .social-links a:hover {
+    color: var(--secondary-color);
+  }
+
+  /* FAQ Section */
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .faq-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+
+  .faq-item h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+  }
+
+  .faq-item p {
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-section {
+      padding: 3rem 1rem;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-card.featured {
+      transform: scale(1);
+    }
+
+    .form-wrapper {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

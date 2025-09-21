@@ -1,0 +1,795 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Sectionhead from "../components/sectionhead.astro";
+import PricingCard from "../components/pricing-card.astro";
+
+const pricing = [
+  {
+    name: "Starter",
+    price: "Free",
+    popular: false,
+    features: [
+      "Up to 100 responses per month",
+      "3 active surveys",
+      "Basic question types",
+      "Email support",
+      "Standard templates",
+      "Basic reporting",
+    ],
+    button: {
+      text: "Get Started",
+      link: "https://identity.shout.com/Account/Register",
+    },
+  },
+  {
+    name: "Professional",
+    price: {
+      monthly: "$49",
+      annual: "$39",
+      discount: "20%",
+      original: "$59",
+    },
+    popular: true,
+    features: [
+      "Unlimited responses",
+      "Unlimited surveys",
+      "All question types",
+      "Logic & branching",
+      "Custom branding",
+      "Advanced analytics",
+      "Priority support",
+      "API access",
+    ],
+    button: {
+      text: "Start Free Trial",
+      link: "https://identity.shout.com/Account/Register",
+    },
+  },
+  {
+    name: "Enterprise",
+    price: "Custom",
+    popular: false,
+    features: [
+      "Everything in Professional",
+      "Dedicated account manager",
+      "Custom integrations",
+      "SSO & SAML",
+      "Advanced security features",
+      "SLA guarantee",
+      "24/7 phone support",
+      "On-premise deployment option",
+    ],
+    button: {
+      text: "Contact Sales",
+      link: "/contact",
+    },
+  },
+];
+---
+
+<AstroshipLayout title="Pricing - Shout.com">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Simple, Transparent Pricing</Fragment>
+      <Fragment slot="desc">
+        Choose the perfect plan for your needs. Always flexible to scale up or down.
+      </Fragment>
+    </Sectionhead>
+
+    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-screen-lg mt-12">
+      {pricing.map((item) => <PricingCard plan={item} />)}
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="mt-24">
+      <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12">
+        Frequently Asked Questions
+      </h2>
+
+      <div class="max-w-3xl mx-auto space-y-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Can I change plans anytime?</h3>
+          <p class="text-gray-600">
+            Yes, you can upgrade or downgrade your plan at any time. Changes will be reflected in your next billing cycle.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Is there a free trial?</h3>
+          <p class="text-gray-600">
+            Yes! All paid plans come with a 14-day free trial. No credit card required to start.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold mb-2">What happens to my data if I cancel?</h3>
+          <p class="text-gray-600">
+            Your data remains accessible for 30 days after cancellation. You can export all your data at any time.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Do you offer discounts for non-profits?</h3>
+          <p class="text-gray-600">
+            Yes, we offer special pricing for registered non-profit organizations. Contact our sales team for details.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature Comparison Table -->
+    <div class="mt-24">
+      <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12">
+        Compare Plans
+      </h2>
+
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
+            <tr>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Features
+              </th>
+              <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Free Trial (Pro)
+              </th>
+              <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Essentials
+              </th>
+              <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Pro
+              </th>
+              <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Business
+              </th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+            <!-- Usage -->
+            <tr class="bg-gray-50">
+              <td colspan="5" class="px-6 py-3 text-sm font-semibold text-gray-900">
+                Usage
+              </td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Surveys</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Forms</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Quizzes</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Calculators</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">3</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">0</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">3</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">3</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Responses</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">20 per project</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">CRM contacts</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Questions</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Users</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">3</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">1</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">3</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">5 (or 10)</td>
+            </tr>
+
+            <!-- Building -->
+            <tr class="bg-gray-50">
+              <td colspan="5" class="px-6 py-3 text-sm font-semibold text-gray-900">
+                Building
+              </td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Question logic</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Over 20 question types</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Single question per page forms</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Multi-question per page forms</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Themes & design customization</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Images & videos</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Answer randomization</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Custom exit pages</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Progress bar</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Mandatory questions</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Answer validation</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Net Promoter Score</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center"></td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Text & answer piping</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center"></td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Hidden fields</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center"></td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Address auto-fill</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center"></td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">A/B testing</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center"></td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Redirect to URL on completion</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center"></td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Remove Shout branding</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center"></td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center"></td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center"></td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+
+            <!-- Collecting responses -->
+            <tr class="bg-gray-50">
+              <td colspan="5" class="px-6 py-3 text-sm font-semibold text-gray-900">
+                Collecting responses
+              </td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">URL link</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">QR code</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Email invitations</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">250</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">3000 per month</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">5000 per month</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">7000 per month</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Integrated CRM</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Response tracking</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Web embed</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Pop up forms</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Slideout forms</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Audience (purchase responses)</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center"></td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Advanced targeting (Audience)</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center"></td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center"></td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Custom URL slug</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center"></td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center"></td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center"></td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Host forms on your domain</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center"></td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center"></td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center"></td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+
+            <!-- Reports & analysis -->
+            <tr class="bg-gray-50">
+              <td colspan="5" class="px-6 py-3 text-sm font-semibold text-gray-900">
+                Reports & analysis
+              </td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Charts and graphs</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Cross-tabulation</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Custom reports</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Hide and Group answers</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Make reports public (URL link)</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Segment by CRM data</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Individual responses</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Tracked responses</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Export as PDF</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Export as spreadsheet</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">NPS chart</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center"></td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Collaborate on reports</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center"></td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✔</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Questions per survey</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">10</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Team members</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">1</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">5</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+            </tr>
+
+            <!-- Question Types -->
+            <tr class="bg-gray-50">
+              <td colspan="5" class="px-6 py-3 text-sm font-semibold text-gray-900">
+                Question Types & Logic
+              </td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Basic question types</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Advanced question types</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Logic & branching</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">A/B testing</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Text & answer piping</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+
+            <!-- Customization -->
+            <tr class="bg-gray-50">
+              <td colspan="5" class="px-6 py-3 text-sm font-semibold text-gray-900">
+                Customization & Branding
+              </td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Standard templates</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Custom branding</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Remove Shout branding</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Custom domain</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+
+            <!-- Distribution -->
+            <tr class="bg-gray-50">
+              <td colspan="5" class="px-6 py-3 text-sm font-semibold text-gray-900">
+                Distribution & Collection
+              </td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Email invitations</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">100/month</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">5,000/month</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">Unlimited</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Web embed</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Pop-ups & slide-outs</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">QR codes</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+
+            <!-- Analytics & Reporting -->
+            <tr class="bg-gray-50">
+              <td colspan="5" class="px-6 py-3 text-sm font-semibold text-gray-900">
+                Analytics & Reporting
+              </td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Basic reporting</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Advanced analytics</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Cross-tabulation</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Export to PDF/Excel</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Real-time results</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+
+            <!-- Integrations -->
+            <tr class="bg-gray-50">
+              <td colspan="5" class="px-6 py-3 text-sm font-semibold text-gray-900">
+                Integrations & API
+              </td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Basic integrations</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">API access</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Webhooks</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Custom integrations</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+
+            <!-- Security & Compliance -->
+            <tr class="bg-gray-50">
+              <td colspan="5" class="px-6 py-3 text-sm font-semibold text-gray-900">
+                Security & Compliance
+              </td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">SSL encryption</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">GDPR compliant</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">SSO & SAML</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Advanced security features</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">On-premise deployment</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+
+            <!-- Support -->
+            <tr class="bg-gray-50">
+              <td colspan="5" class="px-6 py-3 text-sm font-semibold text-gray-900">
+                Support
+              </td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Email support</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Priority support</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">24/7 phone support</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">Dedicated account manager</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 text-sm text-gray-900">SLA guarantee</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">-</td>
+              <td class="px-6 py-4 text-sm text-gray-500 text-center">✓</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Trust Badges -->
+    <div class="mt-20 text-center">
+      <p class="text-sm text-gray-500 mb-4">Trusted by over 10,000 organizations worldwide</p>
+      <div class="flex justify-center items-center gap-8 flex-wrap">
+        <span class="text-gray-400 font-semibold">GDPR Compliant</span>
+        <span class="text-gray-400 font-semibold">SOC 2 Type II</span>
+        <span class="text-gray-400 font-semibold">ISO 27001</span>
+        <span class="text-gray-400 font-semibold">HIPAA Ready</span>
+      </div>
+    </div>
+  </Container>
+</AstroshipLayout>

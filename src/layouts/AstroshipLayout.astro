@@ -1,0 +1,75 @@
+---
+import { SEO } from "astro-seo";
+import Footer from "../components/footer.astro";
+import Navbar from "../components/navbar/navbar.astro";
+import "@fontsource-variable/inter/index.css";
+import "../styles/global.css";
+
+export interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+const resolvedImageWithDomain = new URL(
+  "/images/opengraph.jpg",
+  Astro.site
+).toString();
+
+const {
+  title,
+  description = "Privacy-First Surveys, Quizzes, and Forms - Shout.com",
+  canonical,
+  ogImage
+} = Astro.props;
+
+const makeTitle = title
+  ? title + " | " + "Shout.com"
+  : "Shout.com - Privacy-First Surveys, Quizzes, and Forms";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <SEO
+      title={makeTitle}
+      description={description}
+      canonical={canonical || canonicalURL}
+      twitter={{
+        creator: "@ShoutSurveys",
+        site: "@ShoutSurveys",
+        card: "summary_large_image",
+      }}
+      openGraph={{
+        basic: {
+          url: canonical || canonicalURL,
+          type: "website",
+          title: makeTitle,
+          image: ogImage || resolvedImageWithDomain,
+        },
+        image: {
+          alt: "Shout.com - Privacy-First Surveys",
+        },
+      }}
+    />
+  </head>
+  <body>
+    <Navbar />
+    <slot />
+    <Footer />
+    <style is:global>
+      /* Improve Page speed */
+      img {
+        content-visibility: auto;
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+---
+// @ts-ignore
+import { Icon } from "astro-icon/components";
+
+const features = [
+  {
+    title: "Survey Maker",
+    description:
+      "Create surveys for CX, PX, & EX research with 12+ question types including NPS, multiple choice, and matrix questions.",
+    icon: "bx:poll",
+  },
+  {
+    title: "Quiz Builder",
+    description:
+      "Build engaging quizzes with automatic scoring, conditional logic, and detailed analytics. Perfect for education and lead generation.",
+    icon: "bx:book",
+  },
+  {
+    title: "Form Builder",
+    description:
+      "Generate leads with powerful forms that capture contacts and collect data with built-in validation and GDPR compliance.",
+    icon: "bx:edit",
+  },
+  {
+    title: "Privacy-First",
+    description:
+      "Built from the ground up with privacy and compliance in mind. Track lawful basis for processing and record consent automatically.",
+    icon: "bx:shield",
+  },
+  {
+    title: "Integrated CRM",
+    description:
+      "Import contacts, send email invitations, and track data with our fully integrated CRM system. No additional costs.",
+    icon: "bx:group",
+  },
+  {
+    title: "Team Collaboration",
+    description:
+      "Share surveys with team members, collaborate on reports, and maintain separate dashboards with role-based access control.",
+    icon: "bx:user",
+  },
+];
+---
+
+<div class="pt-16">
+  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+    Integrated solutions for every need
+  </h2>
+  <p class="text-lg mt-4 text-slate-600">
+    With Shout, you can do more than create surveys. Perform assessments, capture leads, and manage experiences. All with your compliance in mind.
+  </p>
+</div>
+
+<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 pb-16 gap-16">
+  {
+    features.map((item) => (
+      <div class="flex gap-4 items-start">
+        <div class="mt-1 bg-black rounded-full  p-2 w-8 h-8 shrink-0">
+          <Icon class="text-white" name={item.icon} />
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg">{item.title}</h3>{" "}
+          <p class="text-slate-500 mt-2 leading-relaxed">{item.description}</p>
+        </div>
+      </div>
+    ))
+  }
+</div>

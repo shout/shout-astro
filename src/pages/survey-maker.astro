@@ -1,0 +1,478 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+import CustomerLogos from "../components/customer-logos.astro";
+import Features from "../components/features.astro";
+---
+
+<AstroshipLayout
+  title="A Survey Maker Built for Privacy & Compliance - Shout.com"
+  description="Conduct research and collect data with features to bolster your compliance. Start your 14-day Free Trial today, no credit card required."
+>
+  <Container>
+    <!-- Hero Section -->
+    <section class="py-20">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+            Make surveys to <span class="text-primary">shout</span> about
+          </h1>
+          <p class="text-lg mt-4 text-gray-600 max-w-xl">
+            Surveys that work flawlessly across devices, with reports that are integrated with your research CRM for complete drill-down.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 mt-6">
+            <Button href="/signup/">Start your Free Trial</Button>
+            <p class="text-gray-600 text-sm self-center">14-day Free Trial • No Credit Card Required</p>
+          </div>
+        </div>
+        <div class="hidden lg:block">
+          <img
+            src="/images/survey-hero.jpg"
+            alt="Survey Maker With Customizable Designs And Question Logic"
+            class="w-full h-auto max-w-md rounded-lg"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Question Types Section -->
+    <section class="pt-16 pb-16">
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Everything you need to make surveys</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Whether you're collecting customer feedback or measuring employee satisfaction, Shout has all the question types you'll need to build surveys quickly and easily.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:poll" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">NPS</h3>
+          </div>
+          <p class="text-gray-600">Measure customer satisfaction and calculate your Net Promoter Score.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:checkbox-checked" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Multiple Choice</h3>
+          </div>
+          <p class="text-gray-600">Ask respondents to choose from a set list of answer choices.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:slider" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Scales & Sliders</h3>
+          </div>
+          <p class="text-gray-600">Gauge opinions and attitudes along a numbered scale or slider.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:grid-alt" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Matrix</h3>
+          </div>
+          <p class="text-gray-600">Learn the extent to which people agree or disagree with a statement.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:sort" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Order Ranking</h3>
+          </div>
+          <p class="text-gray-600">Determine the importance of answer options based on their order ranking.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:calendar" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Dates</h3>
+          </div>
+          <p class="text-gray-600">A calendar based question type to collect dates, times, and date ranges.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:image" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Picture Choice</h3>
+          </div>
+          <p class="text-gray-600">Add images to multiple choice questions for a more engaging experience.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:hash" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Numeric</h3>
+          </div>
+          <p class="text-gray-600">Collect numeric values as integers, decimals, currency, and respondent age.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:id-card" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Contact Form</h3>
+          </div>
+          <p class="text-gray-600">A pre-built contact form for collecting contact information from respondents.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:list-ul" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Drop Down Lists</h3>
+          </div>
+          <p class="text-gray-600">Save space when you have more answer options with drop down lists.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:text" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Text Boxes</h3>
+          </div>
+          <p class="text-gray-600">Collect open feedback from respondents with validated text fields.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:star" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Star Ratings</h3>
+          </div>
+          <p class="text-gray-600">Ask respondents to evaluate a statement or provide a rating along a scale of stars.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:pen" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">eSignatures</h3>
+          </div>
+          <p class="text-gray-600">Collect digital signatures for forms and agreements with secure signature capture.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:map" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Address Lookup</h3>
+          </div>
+          <p class="text-gray-600">Auto-complete address fields with intelligent address lookup and validation.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:brain" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">AI Question Writing</h3>
+          </div>
+          <p class="text-gray-600">Generate effective survey questions automatically using artificial intelligence.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:shield" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">GDPR Consent</h3>
+          </div>
+          <p class="text-gray-600">Record and manage consent with GDPR-compliant checkboxes and data handling.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:toggle-left" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Binary Choice</h3>
+          </div>
+          <p class="text-gray-600">Simple yes/no, true/false, or agree/disagree question types for quick decisions.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:data" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">External API Data</h3>
+          </div>
+          <p class="text-gray-600">Integrate with external systems and APIs to pre-populate or validate survey data.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:test-tube" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">A/B Split Testing</h3>
+          </div>
+          <p class="text-gray-600">Test different survey versions to optimize response rates and data quality.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:group" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Contact Records</h3>
+          </div>
+          <p class="text-gray-600">Mini CRM for storing and managing contact lists with survey response tracking.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Logos -->
+    <CustomerLogos />
+
+    <!-- Integrated Solutions -->
+    <Features />
+
+    <!-- Building Surveys Features -->
+    <section class="pt-16 pb-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="mb-12">
+          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Building surveys</h2>
+          <p class="text-lg mt-4 text-gray-600">
+            Make surveys personal to you and your respondents.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Take full control of your survey design</h3>
+              <p class="text-gray-600 text-lg">
+                Completely customize themes, edit fonts, embed videos, and add images to make surveys that increase engagement.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Put your brand at the heart of everything</h3>
+              <p class="text-gray-600 text-lg">
+                Add your logo and brand colors to ensure you're always at the forefront of your respondents' minds.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Build unique pathways for respondents</h3>
+              <p class="text-gray-600 text-lg">
+                Ensure respondents are only asked questions that are relevant to their experience using question logic and add a personal touch to your content with text piping.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:pl-8">
+          <img
+            src="/images/2022/11/Survey-Maker-With-Customizable-Design.png"
+            alt="Survey Maker With Customizable Designs And Question Logic"
+            class="w-full h-auto rounded-lg shadow-lg"
+            loading="lazy"
+          />
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best Reasons To Choose Shout -->
+    <section class="py-16">
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight text-primary">Best Reasons To Choose Shout</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Collecting feedback to make better business decisions has never been easier. Our intuitive tools are loved by millions of users all over the world.
+        </p>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        <div class="text-center">
+          <div class="text-4xl font-bold text-primary mb-2">21+</div>
+          <div class="text-lg text-gray-600">Years of Experience</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold text-primary mb-2">3 million+</div>
+          <div class="text-lg text-gray-600">Happy Users</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold text-primary mb-2">100%</div>
+          <div class="text-lg text-gray-600">Satisfaction</div>
+        </div>
+      </div>
+
+      <!-- Testimonials -->
+      <div class="grid md:grid-cols-2 gap-8 mb-16">
+        <div class="bg-white rounded-lg p-8 shadow-lg border border-gray-100">
+          <div class="flex items-center mb-4">
+            <img src="/images/2022/05/user-avatar-2.webp" alt="Ron Elias" class="w-16 h-16 rounded-full mr-4" />
+            <div>
+              <h4 class="font-semibold text-lg">Ron Elias</h4>
+              <p class="text-gray-600">B2B Copywriter - Freelance</p>
+            </div>
+          </div>
+          <div class="flex mb-4">
+            <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
+            <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
+            <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
+            <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
+            <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
+          </div>
+          <p class="text-gray-700 italic">"Interactive and really easy to use Software. The builder is seamless, and the question types are perfect. I love the way I can structure surveys in quick and easy way."</p>
+        </div>
+        <div class="bg-white rounded-lg p-8 shadow-lg border border-gray-100">
+          <div class="flex items-center mb-4">
+            <img src="/images/2022/05/user-avatar-1.webp" alt="Oana Frant" class="w-16 h-16 rounded-full mr-4" />
+            <div>
+              <h4 class="font-semibold text-lg">Oana Frant</h4>
+              <p class="text-gray-600">Consultant – World Bank</p>
+            </div>
+          </div>
+          <div class="flex mb-4">
+            <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
+            <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
+            <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
+            <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
+            <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
+          </div>
+          <p class="text-gray-700 italic">"Shout offers multiple options for customization. Moreover, our projects look perfect on any device. If you want a platform that does most of the work for you, including automatic reporting, go with Shout."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shout out! -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="mb-12">
+          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Shout out!</h2>
+          <p class="text-lg mt-4 text-gray-600">
+            Conduct your own surveys and reach respondents with one flexible app.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg p-8 shadow-sm border border-gray-200 text-center">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:envelope" class="w-20 h-20 text-blue-600" />
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Email invitations</h3>
+          <p class="text-gray-600">Send personalized email invitations to your contact list with tracking</p>
+        </div>
+        <div class="bg-white rounded-lg p-8 shadow-sm border border-gray-200 text-center">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:chevron-right-circle" class="w-20 h-20 text-blue-600" />
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Slideout Surveys</h3>
+          <p class="text-gray-600">Slideout surveys appear from the sides when triggered to capture visitor feedback</p>
+        </div>
+        <div class="bg-white rounded-lg p-8 shadow-sm border border-gray-200 text-center">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:qr" class="w-20 h-20 text-blue-600" />
+          </div>
+          <h3 class="text-xl font-semibold mb-3">QR code</h3>
+          <p class="text-gray-600">Generate QR codes for easy survey access from mobile devices</p>
+        </div>
+        <div class="bg-white rounded-lg p-8 shadow-sm border border-gray-200 text-center">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:code-alt" class="w-20 h-20 text-blue-600" />
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Web embed</h3>
+          <p class="text-gray-600">Embed surveys directly into your website or blog</p>
+        </div>
+        <div class="bg-white rounded-lg p-8 shadow-sm border border-gray-200 text-center">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:link" class="w-20 h-20 text-blue-600" />
+          </div>
+          <h3 class="text-xl font-semibold mb-3">URL link</h3>
+          <p class="text-gray-600">Share survey links via social media, SMS, or any platform</p>
+        </div>
+        <div class="bg-white rounded-lg p-8 shadow-sm border border-gray-200 text-center">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:window" class="w-20 h-20 text-blue-600" />
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Popups</h3>
+          <p class="text-gray-600">Popup surveys on your website to capture visitor feedback</p>
+        </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Survey Reports -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="mb-12">
+          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Survey reports</h2>
+          <p class="text-lg mt-4 text-gray-600">
+            Wield powerful reporting tools to extract every insight.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Create multiple views of your data</h3>
+              <p class="text-gray-600 text-lg">
+                Easily identify trends and patterns in your survey results with segmentation & cross-tabulation tools and save these views as separate reports.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Share results with decision makers</h3>
+              <p class="text-gray-600 text-lg">
+                Export your data as a spreadsheet and PDF or share access to your digital report with stakeholders with a URL link.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Measure the performance of email surveys</h3>
+              <p class="text-gray-600 text-lg">
+                When sharing a survey by email invitation, you'll have access to industry-standard metrics to track the success of campaigns.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:pl-8">
+          <img
+            src="/images/2022/11/Real-Time-Survey-Data.png"
+            alt="Analyze Survey Reports In Real Time"
+            class="w-full h-auto rounded-lg shadow-lg"
+            loading="lazy"
+          />
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Features -->
+    <section class="py-16">
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">The perfect survey maker for teams</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Collaborate on surveys and reports with your colleagues.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Share the features of your plan</h3>
+              <p class="text-gray-600 text-lg">
+                Invite your colleagues to join your team in the app to share all the features of your plan and consolidate data ownership under a single (admin) user.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Encourage compliance</h3>
+              <p class="text-gray-600 text-lg">
+                Team accounts ensure people only have access to data needed to perform their role. Ensuring you and your team are meeting accepted compliance standards.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Drive growth as a team</h3>
+              <p class="text-gray-600 text-lg">
+                Surveys can be shared to the dashboard of any other team member, allowing you to create online surveys and collect data together.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:pl-8">
+          <img
+            src="/images/2022/11/Survey-Maker-With-Team-Collaboration.png"
+            alt="Collaboration On Surveys With Your Team Members"
+            class="w-full h-auto rounded-lg shadow-lg"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Final CTA -->
+    <section class="py-16">
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to create your first survey?</h2>
+        <p class="text-lg text-gray-600 mb-8">Join thousands of businesses using Shout to collect feedback and make data-driven decisions.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/signup/">Start your Free Trial</Button>
+          <Button variant="outline" href="/demo/">Book a Demo</Button>
+        </div>
+      </div>
+    </section>
+
+  </Container>
+</AstroshipLayout>

@@ -1,0 +1,46 @@
+---
+import Link from "./ui/link.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<main
+  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
+  <div class="py-6 md:order-1 hidden md:block">
+    <img
+      src="/images/survey-hero.jpg"
+      alt="Survey Builder Interface"
+      class="w-full h-auto max-w-lg rounded-lg"
+      loading="eager"
+    />
+  </div>
+  <div>
+    <h1
+      class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+      Create surveys to <strong class="text-primary">shout</strong> about
+    </h1>
+    <p class="text-lg mt-4 text-slate-600 max-w-xl">
+      Privacy-focused survey software with compliance built in. Collect feedback,
+      improve experiences and perform assessments in a secure and compliant app.
+    </p>
+
+
+    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+      <Link
+        href="https://identity.shout.com/Account/Register"
+        class="flex gap-2 items-center justify-center">
+        <Icon class="text-white w-5 h-5" name="bx:envelope" />
+        Sign up by email
+      </Link>
+      <Link
+        size="lg"
+        style="outline"
+        href="https://identity.shout.com/Account/Login?googleLogin=true"
+        class="flex gap-2 items-center justify-center">
+        <Icon class="w-5 h-5" name="simple-icons:google" />
+        Sign up with Google
+      </Link>
+    </div>
+
+    <p class="text-sm text-slate-500 mt-3">14-Day Free Trial • No Credit Card Required</p>
+  </div>
+</main>
