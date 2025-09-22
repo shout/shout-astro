@@ -193,6 +193,29 @@ When updating additional pages:
 - **Build:** `npm run build`
 - **Extract new content:** `python3 convert_all_html.py`
 
+### ⚠️ IMPORTANT: Git Repository Location
+
+**The git repository is located at:** `/home/david/RiderProjects/shout-website/shout-astro/`
+
+**NOT in the nested shout-astro subdirectory!**
+
+When committing changes:
+```bash
+# ✅ CORRECT - Go to the actual git root
+cd /home/david/RiderProjects/shout-website/shout-astro
+git add .
+git commit -m "Your commit message"
+
+# ❌ WRONG - Don't try to commit from the nested directory
+cd /home/david/RiderProjects/shout-website/shout-astro/shout-astro
+git add .  # This will fail - not a git repo
+```
+
+**Directory structure:**
+- `/home/david/RiderProjects/shout-website/shout-astro/` - **Git repository root**
+- `/home/david/RiderProjects/shout-website/shout-astro/src/` - Source files
+- `/home/david/RiderProjects/shout-website/shout-astro/shout-astro/` - Nested directory (not git root)
+
 ### Development Workflow
 
 ⚠️ **IMPORTANT: Always check for Astro errors after making changes**
