@@ -1,0 +1,34 @@
+---
+export interface FAQ {
+  question: string;
+  answer: string; // HTML string for complex answers
+}
+
+export interface Props {
+  title: string;
+  faqs: FAQ[];
+}
+
+const { title, faqs } = Astro.props;
+import { Icon } from "astro-icon/components";
+---
+
+<section class="pt-16 pb-16">
+  <div class="mb-12">
+    <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">{title}</h2>
+  </div>
+
+  <div>
+    <div class="divide-y divide-gray-200">
+      {faqs.map((faq) => (
+        <details class="py-6 group">
+          <summary class="cursor-pointer hover:text-primary font-semibold text-lg flex items-center justify-between">
+            {faq.question}
+            <Icon name="bx:chevron-down" class="w-5 h-5 transition-transform group-open:rotate-180" />
+          </summary>
+          <div class="pt-4 text-gray-600" set:html={faq.answer} />
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

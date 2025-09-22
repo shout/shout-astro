@@ -1,0 +1,297 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+import CustomerLogos from "../components/customer-logos.astro";
+import Features from "../components/features.astro";
+---
+
+<AstroshipLayout
+  title="Customer Satisfaction Surveys - Shout.com"
+  description="Customer satisfaction surveys give you the tools to improve customer experience, increase retention, and build better relationships."
+>
+  <Container>
+    <!-- Hero Section with Image -->
+    <section class="py-20">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+            Customer Satisfaction <span class="text-primary">Surveys</span>
+          </h1>
+          <p class="text-lg mt-4 text-gray-600 max-w-xl">
+            Customer satisfaction surveys give you the tools to improve customer experience, increase retention, and build better relationships.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 mt-6">
+            <Button href="/signup/">Start your Free Trial</Button>
+            <p class="text-gray-600 text-sm self-center">14-day Free Trial • No Credit Card Required</p>
+          </div>
+        </div>
+        <div class="hidden lg:block">
+          <img
+            src="/images/2022/11/Customer-Satisfaction-Surveys.svg"
+            alt="Customer Satisfaction Surveys"
+            class="w-full h-auto max-w-md rounded-lg"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Satisfaction Features Section -->
+    <section class="pt-16 pb-16">
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Everything you need for customer satisfaction</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Create comprehensive customer satisfaction surveys to measure, track, and improve your customer experience.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:smile" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">CSAT Surveys</h3>
+          </div>
+          <p class="text-gray-600">Measure customer satisfaction with standardized CSAT metrics.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:poll" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Net Promoter Score</h3>
+          </div>
+          <p class="text-gray-600">Track customer loyalty with NPS surveys and benchmarking.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:heart" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Customer Effort Score</h3>
+          </div>
+          <p class="text-gray-600">Measure how easy it is for customers to get help and support.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:message-detail" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Feedback Collection</h3>
+          </div>
+          <p class="text-gray-600">Collect detailed feedback with open-ended questions.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:time" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Post-Purchase Surveys</h3>
+          </div>
+          <p class="text-gray-600">Capture feedback immediately after purchase or interaction.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:support" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Support Satisfaction</h3>
+          </div>
+          <p class="text-gray-600">Measure satisfaction with customer support interactions.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:shopping-bag" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Product Satisfaction</h3>
+          </div>
+          <p class="text-gray-600">Gather feedback on specific products and services.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:store" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Store Experience</h3>
+          </div>
+          <p class="text-gray-600">Evaluate in-store or online shopping experience.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:trending-up" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Trend Tracking</h3>
+          </div>
+          <p class="text-gray-600">Track satisfaction trends over time with comparative reports.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:target-lock" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Targeted Surveys</h3>
+          </div>
+          <p class="text-gray-600">Send surveys to specific customer segments and demographics.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:mobile" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Mobile Friendly</h3>
+          </div>
+          <p class="text-gray-600">Optimized for mobile devices to capture feedback anywhere.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:bell" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Alert System</h3>
+          </div>
+          <p class="text-gray-600">Get instant alerts for low satisfaction scores and negative feedback.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:chart" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Satisfaction Metrics</h3>
+          </div>
+          <p class="text-gray-600">Track key metrics like CSAT, NPS, and CES in one dashboard.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:export" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Data Export</h3>
+          </div>
+          <p class="text-gray-600">Export satisfaction data for further analysis and reporting.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:palette" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Brand Customization</h3>
+          </div>
+          <p class="text-gray-600">Customize surveys with your brand colors, logos, and styling.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:shield" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Data Privacy</h3>
+          </div>
+          <p class="text-gray-600">Ensure customer data privacy with GDPR-compliant surveys.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Logos -->
+    <CustomerLogos />
+
+    <!-- Integrated Solutions -->
+    <Features />
+
+    <!-- Improve Customer Experience Section -->
+    <section class="pt-16 pb-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="mb-12">
+          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Improve customer experience with actionable insights</h2>
+          <p class="text-lg mt-4 text-gray-600">
+            Transform customer feedback into actionable improvements that drive satisfaction and loyalty.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:line-chart" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Measure Performance</h3>
+            </div>
+            <p class="text-gray-600">Track customer satisfaction metrics over time and benchmark against industry standards.</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:search-alt" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Identify Issues</h3>
+            </div>
+            <p class="text-gray-600">Discover pain points and areas for improvement through detailed feedback analysis.</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:check-circle" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Take Action</h3>
+            </div>
+            <p class="text-gray-600">Implement changes based on customer feedback and measure the impact on satisfaction.</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:refresh" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Continuous Improvement</h3>
+            </div>
+            <p class="text-gray-600">Create a feedback loop for ongoing customer experience enhancement.</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:group" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Team Alignment</h3>
+            </div>
+            <p class="text-gray-600">Share customer insights across teams to align everyone on customer needs.</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:trophy" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Build Loyalty</h3>
+            </div>
+            <p class="text-gray-600">Increase customer retention and loyalty through improved satisfaction scores.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Survey Types Section -->
+    <section class="pt-16 pb-16">
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Types of customer satisfaction surveys</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Choose the right survey type for your specific customer feedback needs.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow text-center">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:star" class="w-16 h-16 text-primary" />
+          </div>
+          <h3 class="text-xl font-semibold text-primary mb-3">Post-Purchase Surveys</h3>
+          <p class="text-gray-600">Capture feedback immediately after a purchase to measure satisfaction with the buying experience.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow text-center">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:phone" class="w-16 h-16 text-primary" />
+          </div>
+          <h3 class="text-xl font-semibold text-primary mb-3">Support Surveys</h3>
+          <p class="text-gray-600">Evaluate customer support interactions and identify areas for service improvement.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow text-center">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:calendar-event" class="w-16 h-16 text-primary" />
+          </div>
+          <h3 class="text-xl font-semibold text-primary mb-3">Periodic Surveys</h3>
+          <p class="text-gray-600">Send regular surveys to track satisfaction trends and long-term customer sentiment.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow text-center">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:exit" class="w-16 h-16 text-primary" />
+          </div>
+          <h3 class="text-xl font-semibold text-primary mb-3">Exit Surveys</h3>
+          <p class="text-gray-600">Understand why customers leave and gather insights to improve retention.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow text-center">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:rocket" class="w-16 h-16 text-primary" />
+          </div>
+          <h3 class="text-xl font-semibold text-primary mb-3">Product Launch Surveys</h3>
+          <p class="text-gray-600">Gather feedback on new products and features to guide future development.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow text-center">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:milestone" class="w-16 h-16 text-primary" />
+          </div>
+          <h3 class="text-xl font-semibold text-primary mb-3">Milestone Surveys</h3>
+          <p class="text-gray-600">Survey customers at key moments in their journey to track satisfaction evolution.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-16">
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to improve customer satisfaction?</h2>
+        <p class="text-lg text-gray-600 mb-8">Start measuring and improving your customer experience with professional satisfaction surveys.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/signup/">Start your Free Trial</Button>
+          <Button variant="outline" href="/demo/">Book a Demo</Button>
+        </div>
+      </div>
+    </section>
+
+  </Container>
+</AstroshipLayout>

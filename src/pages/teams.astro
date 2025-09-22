@@ -1,0 +1,404 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+import CustomerLogos from "../components/customer-logos.astro";
+import Features from "../components/features.astro";
+---
+
+<AstroshipLayout
+  title="Grow your Business as a Team - Shout.com"
+  description="Invite your colleagues to join your Shout team, share the features of your plan, centralize billing, and collaborate on surveys and reports."
+>
+  <Container>
+    <!-- Hero Section (no image) -->
+    <section class="pt-16 pb-16">
+      <div class="mb-12">
+        <h1 class="text-5xl lg:text-6xl font-bold lg:tracking-tight">Collaborate, share features, and grow together with <span class="text-primary">Shout teams</span></h1>
+        <p class="text-lg mt-4 text-gray-600 max-w-3xl">
+          Share the features of your plan with colleagues, collaborate on surveys, and get results faster.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 mt-6">
+          <Button href="/signup/">Start your Free Trial</Button>
+          <Button variant="outline" href="/pricing/">Plans & Pricing</Button>
+        </div>
+        <p class="text-sm text-gray-500 mt-4">14-Day Free Trial • Cancel Anytime • No Credit Card Required</p>
+      </div>
+    </section>
+
+    <!-- Streamline team projects Section -->
+    <section class="pt-16 pb-16">
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Streamline team projects</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Reduce the workload of individuals and speed up project run times by collaborating with your team on creation, analysis and contact management.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <Icon name="bx:poll" class="w-12 h-12 text-primary mb-4" />
+          <h3 class="text-xl font-bold mb-3">Surveys</h3>
+          <p class="text-gray-600 mb-4">Create surveys, analyze results and compile professional reports.</p>
+          <a href="/survey-maker/" class="text-primary hover:underline flex items-center">
+            Survey maker <Icon name="bx:right-arrow-alt" class="w-5 h-5 ml-1" />
+          </a>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <Icon name="bx:trophy" class="w-12 h-12 text-primary mb-4" />
+          <h3 class="text-xl font-bold mb-3">Quizzes</h3>
+          <p class="text-gray-600 mb-4">Craft eye-catching quizzes to test, assess, evaluate, and engage your audiences.</p>
+          <a href="/quiz-builder/" class="text-primary hover:underline flex items-center">
+            Quiz builder <Icon name="bx:right-arrow-alt" class="w-5 h-5 ml-1" />
+          </a>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <Icon name="bx:clipboard" class="w-12 h-12 text-primary mb-4" />
+          <h3 class="text-xl font-bold mb-3">Forms</h3>
+          <p class="text-gray-600 mb-4">Build online forms to grow your email lists and collect information about your audience.</p>
+          <a href="/form-builder/" class="text-primary hover:underline flex items-center">
+            Form builder <Icon name="bx:right-arrow-alt" class="w-5 h-5 ml-1" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Logos -->
+    <CustomerLogos />
+
+    <!-- Protecting your organizations' data -->
+    <section class="pt-16 pb-16">
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Protecting your organizations' data</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Ensure that project data is only accessed by relevant team members and remain compliant with the GDPR, UK-GDPR, and CCPA.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg border border-gray-200 p-6">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:file" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold">Sign a DPA</h3>
+          </div>
+          <p class="text-gray-600">Review our processes for protecting the data we process on your behalf.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:lock" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold">Private dashboards</h3>
+          </div>
+          <p class="text-gray-600">All team users' projects and reports are set to private by default.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:group" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold">Manage your team</h3>
+          </div>
+          <p class="text-gray-600">Admins can change team details and delete accounts when colleagues leave.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:data" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold">Consolidate data control</h3>
+          </div>
+          <p class="text-gray-600">Organization admins will assume control of all data collected by team users.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:user-circle" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold">Separate personal data</h3>
+          </div>
+          <p class="text-gray-600">Separate PII from your survey responses to maintain anonymity.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:shield" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold">Track lawful processing</h3>
+          </div>
+          <p class="text-gray-600">Group contacts based on the lawful basis for processing their data and record consent.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Give your team the advantage -->
+    <section class="pt-16 pb-16 bg-gray-50">
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Give your team the advantage</h2>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Share the features of your plan</h3>
+              <p class="text-gray-600 text-lg">
+                Inviting colleagues to join your Shout team enables them to use all the features of your plan.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Collaborate on all projects</h3>
+              <p class="text-gray-600 text-lg">
+                Share your projects with other users and collaborate on surveys, quizzes, forms, email invitations, and reports as a team.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Purge account data</h3>
+              <p class="text-gray-600 text-lg">
+                If an employee leaves your company, you don't want any uncertainty about the data in their account. Admins can purge any user in their team, ensuring you're always compliant.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:pl-8">
+          <img
+            src="/images/2022/11/Team-Collaboration.png"
+            alt="Collaborate On Surveys, Quizzes, And Forms As A Team"
+            class="w-full h-auto rounded-lg shadow-lg"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Team plans and pricing -->
+    <section class="pt-16 pb-16">
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Team plans and pricing</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Here at Shout, we provide three plans that support teams and businesses. And if you ever need more users, just contact us and we'll add them to your plan.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Pro Plan -->
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <h3 class="text-2xl font-bold mb-2">Pro</h3>
+          <p class="text-gray-600 mb-4">Perfect for small teams and professionals</p>
+          <div class="mb-6">
+            <span class="text-4xl font-bold">$25</span>
+            <span class="text-gray-600">/month</span>
+            <p class="text-sm text-gray-500 mt-2">paid monthly</p>
+          </div>
+          <Button href="/signup/" size="md" class="w-full mb-6">Start Free Trial (Pro)</Button>
+          <ul class="space-y-3 text-gray-600">
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>Unlimited responses</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>3 users</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>Filters & cross-tabs</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>5000 emails per month</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>Redirect upon completion</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>Question logic</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>Text piping</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>3 active calculators</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Business 5 users -->
+        <div class="bg-white rounded-lg border-2 border-primary p-8 hover:shadow-lg transition-shadow relative">
+          <span class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm">Most Popular</span>
+          <h3 class="text-2xl font-bold mb-2">Business (5 users)</h3>
+          <p class="text-gray-600 mb-4">The gold standard for compliance</p>
+          <div class="mb-6">
+            <span class="text-4xl font-bold">$59</span>
+            <span class="text-gray-600">/month</span>
+            <p class="text-sm text-gray-500 mt-2">paid annually</p>
+          </div>
+          <Button href="/signup/" size="md" class="w-full mb-6">Start Free Trial (Pro)</Button>
+          <ul class="space-y-3 text-gray-600">
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>All Pro features</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>5 users</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>Remove Shout branding</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>7000 emails per month</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>Custom Domain</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>Custom survey link</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>Pseudonymization</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>3 active calculators</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Business 10 users -->
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <h3 class="text-2xl font-bold mb-2">Business (10 users)</h3>
+          <p class="text-gray-600 mb-4">More users for larger teams</p>
+          <div class="mb-6">
+            <span class="text-4xl font-bold">$99</span>
+            <span class="text-gray-600">/month</span>
+            <p class="text-sm text-gray-500 mt-2">paid annually</p>
+          </div>
+          <Button href="/signup/" size="md" class="w-full mb-6">Start Free Trial (Pro)</Button>
+          <ul class="space-y-3 text-gray-600">
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>All Pro features</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>10 users</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>Remove Shout branding</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>7000 emails per month</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>Custom domain</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>Custom survey link</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>Pseudonymization</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="bx:check" class="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+              <span>3 active calculators</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teams FAQs -->
+    <section class="pt-16 pb-16">
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Teams FAQs</h2>
+      </div>
+
+      <div>
+        <div class="divide-y divide-gray-200">
+          <!-- FAQ 1 -->
+          <details class="py-6 group">
+            <summary class="cursor-pointer hover:text-primary font-semibold text-lg flex items-center justify-between">
+              What's the difference between admin users and team users?
+              <Icon name="bx:chevron-down" class="w-5 h-5 transition-transform group-open:rotate-180" />
+            </summary>
+            <div class="pt-4 text-gray-600">
+              <p class="mb-4">Admin users are the primary user for your Shout team, they're responsible for:</p>
+              <ul class="list-disc list-inside mb-4">
+                <li>Managing subscriptions and billing</li>
+                <li>Taking ownership of data collected by team users</li>
+                <li>Inviting and managing team user accounts</li>
+              </ul>
+              <p class="mb-4">Depending on the plan you're subscribed to, Admin's will be able to access team user accounts from their own accounts in the app.</p>
+              <p>Team users are those invited by admins to join their Shout team. All features of the admin's plan are accessible to team users from the word go.</p>
+              <p class="mt-4">Projects (surveys, quizzes, and forms) can be shared between all your team members to collaborate on building and analysis.</p>
+            </div>
+          </details>
+
+          <!-- FAQ 2 -->
+          <details class="py-6 group">
+            <summary class="cursor-pointer hover:text-primary font-semibold text-lg flex items-center justify-between">
+              Will my team members be able to see my surveys?
+              <Icon name="bx:chevron-down" class="w-5 h-5 transition-transform group-open:rotate-180" />
+            </summary>
+            <div class="pt-4 text-gray-600">
+              <p class="mb-4">By default, all user accounts are private. So, no one will be able to see your surveys or data until they are shared via the collaboration features.</p>
+              <p>Access can be revoked to projects at any time.</p>
+            </div>
+          </details>
+
+          <!-- FAQ 3 -->
+          <details class="py-6 group">
+            <summary class="cursor-pointer hover:text-primary font-semibold text-lg flex items-center justify-between">
+              How many team users can I have?
+              <Icon name="bx:chevron-down" class="w-5 h-5 transition-transform group-open:rotate-180" />
+            </summary>
+            <div class="pt-4 text-gray-600">
+              <p class="mb-4">The number of team users you'll be able to invite to your Shout team is dependent on the plan you subscribe to:</p>
+              <p class="mb-2">The Research plan is intended for individuals, so doesn't come with any team users as standard.</p>
+              <p class="mb-2">The Marketing plan comes with 3 users (1 admin and 2 team users).</p>
+              <p class="mb-2">The Compliance plan comes with 5 users (1 admin and 4 team users) or 10 users (1 admin and 9 team users).</p>
+              <p>The Enterprise plan can be configured for 10 users or more, get in touch for a custom quote.</p>
+            </div>
+          </details>
+
+          <!-- FAQ 4 -->
+          <details class="py-6 group">
+            <summary class="cursor-pointer hover:text-primary font-semibold text-lg flex items-center justify-between">
+              Are team users limited in any way?
+              <Icon name="bx:chevron-down" class="w-5 h-5 transition-transform group-open:rotate-180" />
+            </summary>
+            <div class="pt-4 text-gray-600">
+              <p class="mb-4">Not at all!</p>
+              <p>Team users aren't treated any differently in the app. You'll have access to all the features and tools available to your admin and will be able to create as many projects as your heart desires.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Integrated Solutions -->
+    <Features />
+
+    <!-- Final CTA -->
+    <section class="py-16">
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to work as a team?</h2>
+        <p class="text-lg text-gray-600 mb-8">Start collaborating with your colleagues on surveys and research projects.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/signup/">Start your Free Trial</Button>
+          <Button variant="outline" href="/demo/">Book a Demo</Button>
+        </div>
+      </div>
+    </section>
+
+  </Container>
+</AstroshipLayout>

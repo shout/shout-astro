@@ -1,0 +1,36 @@
+---
+export interface Step {
+  number: number;
+  title: string;
+  description: string;
+}
+
+export interface Props {
+  title: string;
+  description?: string;
+  steps: Step[];
+}
+
+const { title, description, steps } = Astro.props;
+---
+
+<section class="pt-16 pb-16">
+  <div class="mb-12">
+    <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">{title}</h2>
+    {description && (
+      <p class="text-lg mt-4 text-gray-600">
+        {description}
+      </p>
+    )}
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-8">
+    {steps.map((step) => (
+      <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+        <div class="text-4xl font-bold text-primary mb-4">{step.number}</div>
+        <h3 class="text-xl font-bold mb-3">{step.title}</h3>
+        <p class="text-gray-600">{step.description}</p>
+      </div>
+    ))}
+  </div>
+</section>

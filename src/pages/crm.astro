@@ -1,0 +1,186 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+import CustomerLogos from "../components/customer-logos.astro";
+import Features from "../components/features.astro";
+import FAQSection from "../components/faq-section.astro";
+import NumberedSteps from "../components/numbered-steps.astro";
+
+const crmFaqs = [
+  {
+    question: "Is the CRM included in all plans?",
+    answer: "<p class='mb-4'>Yes!</p><p>Shout CRM is included with all our plans, and you can even get started with it on your Free Trial. All CRM features will be available across all plans, so you'll be able to import contacts, group, segment, and clean email lists regardless of your subscription.</p>"
+  },
+  {
+    question: "What is Shout CRM used for?",
+    answer: "<p class='mb-4'>Shout CRM makes experience management a breeze for team and small businesses. Simply upload your existing contacts and start collecting feedback on their experiences with your company, products and services.</p><p class='mb-4'>Group contacts as customers, employees and other stakeholders to conduct CX, PX, and EX survey campaigns with the same audience without crossing any wires. SHOUT is a privacy-first platform, meaning all our tools are built with compliance and your data protection in mind.</p><p class='mb-4'>Segment contacts based on feedback they've given to create even more targeted groups.</p><p>Need an example? Imagine you've conducted a Net Promoter Score survey to identify your most loyal customers. You can filter your contacts by those survey responses and create segments for your Promoters, Passives, and Detractors. Allowing you to follow up with targeted surveys to start improving experiences for the latter two.</p>"
+  },
+  {
+    question: "Is there a limit on the number of contacts I can store?",
+    answer: "<p class='mb-4'>There's no limit to the number of contacts you can store in the app, so you can continue to grow your email lists without concern.</p><p class='mb-4'>However, each plan does have a cap for how many email invitations can be sent per month.</p><ul class='list-disc list-inside'><li>Research: 3000 email invitations per 30 rolling days.</li><li>Marketing: 5000 email invitations per 30 rolling days.</li><li>Compliance: 7000 email invitations per 30 rolling days.</li><li>Enterprise: Get in touch to arrange a bespoke package.</li></ul>"
+  },
+  {
+    question: "How is Shout CRM compliant?",
+    answer: "<p class='mb-4'>We pride ourselves on the features we provide to ensure all your activity in the app is as compliant as possible with the GDPR, UK-GDPR, and CCPA. Let's get into some of the specific ways we help you do that.</p><h4 class='font-semibold mb-2 mt-4'>Tracking Lawful Basis for Processing Contact Data</h4><p class='mb-4'>When creating contact groups, you are prompted to assign a lawful basis for processing the data of those contacts. This allows you to record your compliance activities in the app and provide proof to any authority or data subject that may request that information.</p><p class='mb-4'>These lawful basis include:</p><ul class='list-disc list-inside mb-4'><li>Legitimate Interests</li><li>Consent</li><li>Contract</li><li>Legal Obligation</li><li>Vital Interests</li><li>Public Task</li></ul><h4 class='font-semibold mb-2 mt-4'>Track and Record Consent</h4><p class='mb-4'>When collecting new contact information with forms that requires the Consent lawful basis for processing data, we'll automatically add a consent question that records consent given to contact profiles.</p><h4 class='font-semibold mb-2 mt-4'>Cookieless Surveys and Quizzes</h4><p class='mb-4'>By default, all projects you create with Shout are cookieless. Meaning, you don't have to worry about any tracking that isn't set up explicitly by you or your team.</p><h4 class='font-semibold mb-2 mt-4'>Private Team Dashboards</h4><p class='mb-4'>Inviting colleagues to your Shout team doesn't mean that surveys and quizzes are shared between all users. Team dashboards are private by default, meaning no one has access to data that isn't required to perform their role. And when you do share projects with team users, access can be revoked at any time.</p><h4 class='font-semibold mb-2 mt-4'>Admin Controls and Access</h4><p class='mb-4'>The primary user in a Shout team is the admin. These users will retain ownership over all data collected by team users, so you don't need to worry about who has ownership if an employee leaves your company. Admins can add and remove team users from the Team dashboard, and purge all data associated with an account.</p><p>They will also be able to access team user account from their own to perform audits and provide feedback to their team.</p>"
+  }
+];
+
+const crmSteps = [
+  {
+    number: 1,
+    title: "Grow your contact list",
+    description: "Import your existing contact lists and capture leads with forms whilst tracking the lawful basis for processing their data."
+  },
+  {
+    number: 2,
+    title: "Understand your audience",
+    description: "Craft bespoke email invitations and send targeted surveys to learn more about your audience segments."
+  },
+  {
+    number: 3,
+    title: "Inform business decisions",
+    description: "Harness powerful filter and crosstab tools to transform raw survey data into actionable insights for your business."
+  }
+];
+---
+
+<AstroshipLayout
+  title="Integrated CRM for Research Contacts - Shout.com"
+  description="Import your survey contacts, organize them into groups, track the lawful basis for processing their data, and send custom email invitations."
+>
+  <Container>
+    <!-- Hero Section (no image) -->
+    <section class="pt-16 pb-16">
+      <div class="mb-12">
+        <h1 class="text-5xl lg:text-6xl font-bold lg:tracking-tight">Connect feedback to your contacts in our <span class="text-primary">integrated CRM</span></h1>
+        <p class="text-lg mt-4 text-gray-600 max-w-3xl">
+          Manage contacts, send targeted surveys, and track your lawful basis for processing data.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 mt-6">
+          <Button href="/signup/">Start your Free Trial</Button>
+          <Button variant="outline" href="/pricing/">Plans & Pricing</Button>
+        </div>
+        <p class="text-sm text-gray-500 mt-4">14-Day Free Trial • Cancel Anytime • No Credit Card Required</p>
+      </div>
+    </section>
+
+    <!-- Build lasting relationships Section -->
+    <NumberedSteps
+      title="Build lasting relationships with Shout's CRM"
+      description="Use feedback to create better experiences for your customers, employees, and other stakeholders."
+      steps={crmSteps}
+    />
+
+    <!-- Customer Logos -->
+    <CustomerLogos />
+
+    <!-- Full control over your contacts and campaigns -->
+    <section class="pt-16 pb-16">
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Full control over your contacts and campaigns</h2>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <div>
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Connect all your contact data</h3>
+              <p class="text-gray-600 text-lg">
+                Import existing contacts to the CRM and capture leads with forms. Create custom fields to add more information about your audience and personalize surveys & emails.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Store contacts compliantly and record consent</h3>
+              <p class="text-gray-600 text-lg">
+                Assign all contact groups a lawful basis for processing data (e.g., Legitimate Interests or Contract), collect consent from contacts and record it to their CRM profiles.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Send bespoke email invitations</h3>
+              <p class="text-gray-600 text-lg">
+                Craft beautiful email invitations for your surveys, quizzes, and forms and send them to targeted audience segments.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:pl-8">
+          <img
+            src="/images/2022/11/Group-CRM-Contacts.png"
+            alt="Group CRM Contacts And Track Lawful Basis For Processing Data"
+            class="w-full h-auto rounded-lg shadow-lg"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Multiple views of your CRM data -->
+    <section class="pt-16 pb-16 bg-gray-50">
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Multiple views of your CRM data</h2>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="lg:pr-8">
+          <img
+            src="/images/2022/11/CRM-Contact-Profiles.png"
+            alt="Track Individual Experiences With Contact Profiles"
+            class="w-full h-auto rounded-lg shadow-lg"
+            loading="lazy"
+          />
+        </div>
+
+        <div>
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Drill down to contact-level data</h3>
+              <p class="text-gray-600 text-lg">
+                Access individual profiles for CRM contacts to view activity logs that illustrate their interactions with email invitations and surveys.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Get a holistic view of your contacts</h3>
+              <p class="text-gray-600 text-lg">
+                Get a birds-eye view of your audience in the contacts dashboard and track the performance of email invitations with individual groups and segments.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Re-organize your CRM based on any data</h3>
+              <p class="text-gray-600 text-lg">
+                Create targeted groups and segments based on email engagement metrics, survey responses, demographic information and much more.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- CRM FAQs -->
+    <FAQSection title="CRM FAQs" faqs={crmFaqs} />
+
+
+    <!-- Integrated Solutions -->
+    <Features />
+
+    <!-- Final CTA -->
+    <section class="py-16">
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to organize your contacts?</h2>
+        <p class="text-lg text-gray-600 mb-8">Start managing your research contacts with our integrated CRM today.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/signup/">Start your Free Trial</Button>
+          <Button variant="outline" href="/demo/">Book a Demo</Button>
+        </div>
+      </div>
+    </section>
+
+  </Container>
+</AstroshipLayout>

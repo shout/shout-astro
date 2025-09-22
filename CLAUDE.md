@@ -60,25 +60,25 @@ shout-astro/                    # Main project directory
 
 ## Important File Reading Guidelines
 
-### ⚠️ Reading Large Extracted Files Efficiently
+### ⚠️ Reading Extracted Markdown Files
 
-The extracted markdown files in `/extracted_content/` are VERY LARGE (some 60k+ tokens). **Never use Grep tool for content searching** - it's inefficient and wastes time.
+The extracted markdown files in `/extracted_content/` contain the complete content from the original site pages. These files vary in size but typically contain structured content that should be read in full to understand the complete page structure.
 
-**ALWAYS use Read tool with offset and limit parameters:**
+**ALWAYS read markdown files completely:**
 
 ```bash
-# ❌ DON'T DO THIS (wastes time)
-Grep pattern="table" path="/extracted_content/pricing_pricing.md"
+# ✅ CORRECT - Read the entire file to get all content
+Read file_path="/extracted_content/pricing_pricing.md"
 
-# ✅ DO THIS INSTEAD (efficient)
+# ❌ AVOID - Don't use offset/limit for initial reads of markdown files
 Read file_path="/extracted_content/pricing_pricing.md" offset=150 limit=100
 ```
 
-**Best practices for large file reading:**
-1. **Start with small chunks:** Read 50-100 lines at a time
-2. **Use strategic offsets:** Jump to likely content locations
-3. **Read sequentially:** Use previous read results to determine next offset
-4. **Search for structure:** Look for markdown headers (#) and table markers (|)
+**Best practices for reading extracted content:**
+1. **Read files completely:** Always read the full markdown file first to understand the complete structure
+2. **Don't use Grep:** Never use Grep tool for searching markdown content - it's inefficient
+3. **Look for structure:** Pay attention to markdown headers (#), lists, and tables
+4. **Preserve content:** When migrating content, preserve the exact headings, descriptions, and structure from the original
 
 ### File Organization Notes
 

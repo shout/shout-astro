@@ -1,0 +1,398 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+import CustomerLogos from "../components/customer-logos.astro";
+import Features from "../components/features.astro";
+---
+
+<AstroshipLayout
+  title="Custom Calculator Builder: Create Interactive Lead Magnets - Shout"
+  description="Build a custom calculator and embed it on your website in just a few clicks. Boost engagement, qualify leads, and increase traffic to pages."
+>
+  <Container>
+    <!-- Hero Section -->
+    <section class="py-20">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+            Custom Calculator <span class="text-primary">Builder</span>
+          </h1>
+          <p class="text-lg mt-4 text-gray-600 max-w-xl">
+            Build interactive calculators and embed them on your website in just a few clicks.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 mt-6">
+            <Button href="/signup/">Create a Custom Calculator</Button>
+            <p class="text-gray-600 text-sm self-center">14-day Free Trial • No Credit Card Required</p>
+          </div>
+        </div>
+        <div class="hidden lg:block">
+          <img
+            src="/images/2023/09/Build-A-Custom-Calculator.png"
+            alt="Quick And Easy Custom Calculator Builder"
+            class="w-full h-auto max-w-md rounded-lg"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Calculator Features Section -->
+    <section class="pt-16 pb-16">
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Everything you need to build calculators</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          From basic calculations to complex formulas, create interactive calculators that boost engagement and generate leads.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:calculator" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Formula Builder</h3>
+          </div>
+          <p class="text-gray-600">Build complex formulas with our intuitive visual formula builder.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:code-alt" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">No-Code Solution</h3>
+          </div>
+          <p class="text-gray-600">Create calculators without writing a single line of code.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:math" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Advanced Math</h3>
+          </div>
+          <p class="text-gray-600">Support for complex mathematical operations and functions.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:table" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Data Import</h3>
+          </div>
+          <p class="text-gray-600">Import datasets and reference external data in your calculations.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:slider" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Input Controls</h3>
+          </div>
+          <p class="text-gray-600">Sliders, dropdowns, text fields, and numeric inputs.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:chart" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Visual Results</h3>
+          </div>
+          <p class="text-gray-600">Display results with charts, graphs, and visual elements.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:money" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Financial Calculations</h3>
+          </div>
+          <p class="text-gray-600">Mortgage, loan, ROI, and other financial calculators.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:line-chart" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Marketing ROI</h3>
+          </div>
+          <p class="text-gray-600">Calculate marketing metrics and return on investment.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:health" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Health & Fitness</h3>
+          </div>
+          <p class="text-gray-600">BMI, calorie, and other health-related calculators.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:home" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Real Estate</h3>
+          </div>
+          <p class="text-gray-600">Property value, mortgage, and real estate calculators.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:cog" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Engineering</h3>
+          </div>
+          <p class="text-gray-600">Technical calculations for engineering and scientific use.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:car" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Automotive</h3>
+          </div>
+          <p class="text-gray-600">Car loan, fuel efficiency, and automotive calculators.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:user" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Lead Capture</h3>
+          </div>
+          <p class="text-gray-600">Capture leads through calculator interactions and results.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:mobile" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Mobile Responsive</h3>
+          </div>
+          <p class="text-gray-600">Calculators work perfectly on all devices and screen sizes.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:palette" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Custom Branding</h3>
+          </div>
+          <p class="text-gray-600">Customize colors, fonts, and add your logo for brand consistency.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:code-block" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Embed Anywhere</h3>
+          </div>
+          <p class="text-gray-600">Easily embed calculators on your website with simple code.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:data" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Analytics</h3>
+          </div>
+          <p class="text-gray-600">Track calculator usage and user interactions with detailed analytics.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:download" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Export Results</h3>
+          </div>
+          <p class="text-gray-600">Allow users to download or email calculation results.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:shield" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Secure & Private</h3>
+          </div>
+          <p class="text-gray-600">All calculations are secure with data privacy protection.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:refresh" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Real-time Updates</h3>
+          </div>
+          <p class="text-gray-600">Calculations update instantly as users change inputs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Logos -->
+    <CustomerLogos />
+
+    <!-- Integrated Solutions -->
+    <Features />
+
+    <!-- No-fuss Calculator Builder Section -->
+    <section class="pt-16 pb-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="mb-12">
+          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">No-fuss custom calculator builder</h2>
+          <p class="text-lg mt-4 text-gray-600">
+            Create simple and complex calculators without writing a single line of code.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:code-alt" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Take code out of the equation</h3>
+            </div>
+            <p class="text-gray-600">Our calculator builder lets you create simple and complex calculators without writing a single line of code. Focus on your ideas, not on syntax.</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:calculator" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Build formulas in just a few clicks</h3>
+            </div>
+            <p class="text-gray-600">Our user-friendly builder allows you to design intricate formulas quickly. Just select your questions, choose your operators, and calculate your results.</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:table" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Import your own datasets</h3>
+            </div>
+            <p class="text-gray-600">Create more complex calculators by switching to our Excel-style spreadsheets, where you can import and reference datasets to build formulas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calculator Types Section -->
+    <section class="pt-16 pb-16">
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Create any type of custom calculator</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          From basic calculations to complex formulas, Shout has everything you need to create a custom calculator for your website.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow text-center">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:money" class="w-16 h-16 text-primary" />
+          </div>
+          <h3 class="text-xl font-semibold text-primary mb-3">Finance</h3>
+          <p class="text-gray-600">Mortgage calculators, loan calculators, ROI calculators, and investment tools.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow text-center">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:line-chart" class="w-16 h-16 text-primary" />
+          </div>
+          <h3 class="text-xl font-semibold text-primary mb-3">Marketing</h3>
+          <p class="text-gray-600">Lead value calculators, CAC calculators, marketing ROI, and conversion tools.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow text-center">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:health" class="w-16 h-16 text-primary" />
+          </div>
+          <h3 class="text-xl font-semibold text-primary mb-3">Health & Fitness</h3>
+          <p class="text-gray-600">BMI calculators, calorie calculators, fitness tracking, and health assessments.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow text-center">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:home" class="w-16 h-16 text-primary" />
+          </div>
+          <h3 class="text-xl font-semibold text-primary mb-3">Real Estate</h3>
+          <p class="text-gray-600">Property value calculators, mortgage estimators, and rental yield calculators.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow text-center">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:cog" class="w-16 h-16 text-primary" />
+          </div>
+          <h3 class="text-xl font-semibold text-primary mb-3">Engineering</h3>
+          <p class="text-gray-600">Technical calculations, unit converters, and engineering formulas.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow text-center">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:car" class="w-16 h-16 text-primary" />
+          </div>
+          <h3 class="text-xl font-semibold text-primary mb-3">Automotive</h3>
+          <p class="text-gray-600">Car loan calculators, fuel efficiency, and vehicle cost estimators.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lead Generation Section -->
+    <section class="pt-16 pb-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="mb-12">
+          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Boost lead generation & engagement</h2>
+          <p class="text-lg mt-4 text-gray-600">
+            Interactive calculators are powerful lead magnets that provide immediate value to your visitors.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="space-y-8">
+              <div>
+                <h3 class="text-2xl font-bold mb-4">Capture qualified leads</h3>
+                <p class="text-gray-600 text-lg">
+                  Require email addresses to reveal calculation results and build your prospect database with engaged leads.
+                </p>
+              </div>
+
+              <div>
+                <h3 class="text-2xl font-bold mb-4">Increase website engagement</h3>
+                <p class="text-gray-600 text-lg">
+                  Interactive calculators keep visitors on your site longer and provide immediate value that builds trust.
+                </p>
+              </div>
+
+              <div>
+                <h3 class="text-2xl font-bold mb-4">Drive traffic to key pages</h3>
+                <p class="text-gray-600 text-lg">
+                  Use calculators as content marketing tools to attract visitors and guide them to your service pages.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:pl-8">
+            <img
+              src="/images/2023/09/Generate-Leads-With-Custom-Calculators.png"
+              alt="Increase Lead Generation With Custom Calculators"
+              class="w-full h-auto rounded-lg shadow-lg"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Display Section -->
+    <section class="pt-16 pb-16">
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Display results instantly</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Show calculation results in real-time with customizable displays and export options.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Real-time calculations</h3>
+              <p class="text-gray-600 text-lg">
+                Results update instantly as users change inputs, providing immediate feedback and engagement.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Visual result displays</h3>
+              <p class="text-gray-600 text-lg">
+                Present results with charts, graphs, and formatted displays that are easy to understand.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Export and share results</h3>
+              <p class="text-gray-600 text-lg">
+                Allow users to download PDF reports or email results for future reference.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:pl-8">
+          <img
+            src="/images/2023/09/Instant-Web-Calculator-Results.png"
+            alt="Show Interactive Calculator Results Instantly"
+            class="w-full h-auto rounded-lg shadow-lg"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-16">
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to create your first calculator?</h2>
+        <p class="text-lg text-gray-600 mb-8">Join thousands of businesses using Shout to generate leads and engage customers with interactive calculators.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/signup/">Create a Custom Calculator</Button>
+          <Button variant="outline" href="/demo/">Book a Demo</Button>
+        </div>
+      </div>
+    </section>
+
+  </Container>
+</AstroshipLayout>
