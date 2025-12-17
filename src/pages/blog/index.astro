@@ -1,5 +1,6 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import AstroshipLayout from '../../layouts/AstroshipLayout.astro';
+import Container from '../../components/container.astro';
 import { getCollection } from 'astro:content';
 
 // Get all blog posts and sort by publish date (newest first)
@@ -9,52 +10,55 @@ const sortedPosts = allPosts.sort((a, b) =>
 );
 ---
 
-<BaseLayout
+<AstroshipLayout
   title="Blog - Shout.com"
   description="Keep up to date with the Shout blog to learn about how you can use feedback to transform your business."
 >
-  <div class="blog-index">
-    <div class="container">
-      <!-- Header -->
-      <header class="blog-header">
-        <div class="breadcrumb">
-          <a href="/">Home</a>
-          <span>›</span>
-          <span>Blog</span>
-        </div>
-
-        <h1>Latest News</h1>
-        <p class="blog-description">
+  <!-- Hero Section -->
+  <section class="py-20">
+    <Container>
+      <div class="text-center max-w-3xl mx-auto">
+        <h1 class="text-5xl lg:text-6xl font-bold lg:tracking-tight mb-6">
+          Latest News
+        </h1>
+        <p class="text-lg text-gray-600">
           Keep up to date with the Shout blog to learn about how you can use feedback to transform your business.
         </p>
-      </header>
+      </div>
+    </Container>
+  </section>
 
-      <!-- Featured Post -->
-      {sortedPosts.length > 0 && (
-        <section class="featured-post">
-          <article class="featured-card">
+  <!-- Featured Post -->
+  {sortedPosts.length > 0 && (
+    <section class="py-16 bg-gray-50">
+      <Container>
+        <article class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="grid lg:grid-cols-2 gap-0">
             {sortedPosts[0].data.image && (
-              <div class="featured-image">
+              <div class="aspect-video lg:aspect-auto overflow-hidden">
                 <img
                   src={sortedPosts[0].data.image.src}
                   alt={sortedPosts[0].data.image.alt}
+                  class="w-full h-full object-cover"
                   loading="eager"
                 />
               </div>
             )}
-            <div class="featured-content">
+            <div class="p-8 lg:p-12 flex flex-col justify-center">
               {sortedPosts[0].data.category && (
-                <span class="category-tag">{sortedPosts[0].data.category}</span>
+                <span class="inline-block bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide mb-4 w-fit">
+                  {sortedPosts[0].data.category}
+                </span>
               )}
-              <h2>
-                <a href={`/blog/${sortedPosts[0].slug}/`}>
+              <h2 class="text-2xl lg:text-3xl font-bold mb-4">
+                <a href={`/blog/${sortedPosts[0].slug}/`} class="text-gray-900 hover:text-primary transition-colors">
                   {sortedPosts[0].data.title}
                 </a>
               </h2>
-              <p class="excerpt">{sortedPosts[0].data.description}</p>
-              <div class="post-meta">
+              <p class="text-gray-600 text-lg mb-6 line-clamp-3">{sortedPosts[0].data.description}</p>
+              <div class="flex flex-wrap gap-4 text-sm text-gray-500">
                 {sortedPosts[0].data.author && (
-                  <span class="author">By {sortedPosts[0].data.author}</span>
+                  <span class="font-medium">By {sortedPosts[0].data.author}</span>
                 )}
                 <time datetime={sortedPosts[0].data.publishDate.toISOString()}>
                   {sortedPosts[0].data.publishDate.toLocaleDateString('en-US', {
@@ -64,44 +68,49 @@ const sortedPosts = allPosts.sort((a, b) =>
                   })}
                 </time>
                 {sortedPosts[0].data.readingTime && (
-                  <span class="reading-time">{sortedPosts[0].data.readingTime}</span>
+                  <span>{sortedPosts[0].data.readingTime}</span>
                 )}
               </div>
             </div>
-          </article>
-        </section>
-      )}
+          </div>
+        </article>
+      </Container>
+    </section>
+  )}
 
-      <!-- All Posts Grid -->
-      <section class="all-posts">
-        <h2 class="section-title">All Articles</h2>
-        <div class="posts-grid">
+  <!-- All Posts Grid -->
+  {sortedPosts.length > 1 && (
+    <section class="py-16">
+      <Container>
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-12">All Articles</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {sortedPosts.slice(1).map((post) => (
-            <article class="post-card">
+            <article class="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
               {post.data.image && (
-                <div class="post-image">
-                  <a href={`/blog/${post.slug}/`}>
-                    <img
-                      src={post.data.image.src}
-                      alt={post.data.image.alt}
-                      loading="lazy"
-                    />
-                  </a>
-                </div>
+                <a href={`/blog/${post.slug}/`} class="block aspect-video overflow-hidden">
+                  <img
+                    src={post.data.image.src}
+                    alt={post.data.image.alt}
+                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                </a>
               )}
-              <div class="post-content">
+              <div class="p-6">
                 {post.data.category && (
-                  <span class="category-tag">{post.data.category}</span>
+                  <span class="inline-block bg-primary text-white text-xs font-semibold px-2 py-0.5 rounded-full uppercase tracking-wide mb-3">
+                    {post.data.category}
+                  </span>
                 )}
-                <h3>
-                  <a href={`/blog/${post.slug}/`}>
+                <h3 class="text-xl font-semibold mb-2">
+                  <a href={`/blog/${post.slug}/`} class="text-gray-900 hover:text-primary transition-colors">
                     {post.data.title}
                   </a>
                 </h3>
-                <p class="excerpt">{post.data.description}</p>
-                <div class="post-meta">
+                <p class="text-gray-600 text-sm mb-4 line-clamp-2">{post.data.description}</p>
+                <div class="flex flex-wrap gap-3 text-xs text-gray-500">
                   {post.data.author && (
-                    <span class="author">By {post.data.author}</span>
+                    <span class="font-medium">By {post.data.author}</span>
                   )}
                   <time datetime={post.data.publishDate.toISOString()}>
                     {post.data.publishDate.toLocaleDateString('en-US', {
@@ -110,355 +119,40 @@ const sortedPosts = allPosts.sort((a, b) =>
                       day: 'numeric'
                     })}
                   </time>
-                  {post.data.readingTime && (
-                    <span class="reading-time">{post.data.readingTime}</span>
-                  )}
                 </div>
               </div>
             </article>
           ))}
         </div>
-      </section>
+      </Container>
+    </section>
+  )}
 
-      <!-- Newsletter Signup -->
-      <section class="newsletter-signup">
-        <div class="newsletter-content">
-          <h2>Stay Updated</h2>
-          <p>Get the latest insights on surveys, feedback, and digital marketing delivered to your inbox.</p>
-          <form class="newsletter-form">
-            <input type="email" placeholder="Enter your email address" required>
-            <button type="submit" class="btn-primary">Subscribe</button>
-          </form>
+  <!-- No Posts Message -->
+  {sortedPosts.length === 0 && (
+    <section class="py-16">
+      <Container>
+        <div class="text-center py-16">
+          <p class="text-gray-600 text-lg">No blog posts yet. Check back soon!</p>
         </div>
-      </section>
-    </div>
-  </div>
-</BaseLayout>
+      </Container>
+    </section>
+  )}
 
-<style>
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-
-  .blog-index {
-    padding: 2rem 0 4rem;
-  }
-
-  /* Header */
-  .blog-header {
-    text-align: center;
-    margin-bottom: 4rem;
-  }
-
-  .breadcrumb {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    margin-bottom: 1rem;
-  }
-
-  .breadcrumb a {
-    color: var(--primary-color);
-    text-decoration: none;
-  }
-
-  .breadcrumb a:hover {
-    text-decoration: underline;
-  }
-
-  .breadcrumb span {
-    margin: 0 0.5rem;
-  }
-
-  .blog-header h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
-    color: var(--text-color);
-    margin-bottom: 1rem;
-  }
-
-  .blog-description {
-    font-size: 1.2rem;
-    color: var(--text-light);
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  /* Featured Post */
-  .featured-post {
-    margin-bottom: 4rem;
-  }
-
-  .featured-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    background: white;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-
-  .featured-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
-  }
-
-  .featured-image {
-    overflow: hidden;
-  }
-
-  .featured-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s;
-  }
-
-  .featured-card:hover .featured-image img {
-    transform: scale(1.05);
-  }
-
-  .featured-content {
-    padding: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .featured-content h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    line-height: 1.3;
-  }
-
-  .featured-content h2 a {
-    color: var(--text-color);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .featured-content h2 a:hover {
-    color: var(--primary-color);
-  }
-
-  .category-tag {
-    background: var(--primary-color);
-    color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 1rem;
-    display: inline-block;
-  }
-
-  .excerpt {
-    color: var(--text-light);
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-  }
-
-  .post-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    font-size: 0.9rem;
-    color: var(--text-light);
-  }
-
-  .author {
-    font-weight: 600;
-  }
-
-  /* All Posts */
-  .all-posts {
-    margin-bottom: 4rem;
-  }
-
-  .section-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--text-color);
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-
-  .posts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-  }
-
-  .post-card {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .post-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-  }
-
-  .post-image {
-    overflow: hidden;
-    height: 200px;
-  }
-
-  .post-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s;
-  }
-
-  .post-card:hover .post-image img {
-    transform: scale(1.05);
-  }
-
-  .post-content {
-    padding: 1.5rem;
-  }
-
-  .post-content h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-    line-height: 1.4;
-  }
-
-  .post-content h3 a {
-    color: var(--text-color);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .post-content h3 a:hover {
-    color: var(--primary-color);
-  }
-
-  .post-content .excerpt {
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-  }
-
-  .post-content .post-meta {
-    font-size: 0.85rem;
-    gap: 0.75rem;
-  }
-
-  /* Newsletter Signup */
-  .newsletter-signup {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
-    padding: 3rem;
-    border-radius: 16px;
-    text-align: center;
-  }
-
-  .newsletter-content h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
-
-  .newsletter-content p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-  }
-
-  .newsletter-form {
-    display: flex;
-    max-width: 400px;
-    margin: 0 auto;
-    gap: 1rem;
-  }
-
-  .newsletter-form input {
-    flex: 1;
-    padding: 0.75rem 1rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-  }
-
-  .newsletter-form input:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
-  }
-
-  .newsletter-form .btn-primary {
-    background: white;
-    color: var(--primary-color);
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-
-  .newsletter-form .btn-primary:hover {
-    background: #f0f0f0;
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .container {
-      padding: 0 1rem;
-    }
-
-    .featured-card {
-      grid-template-columns: 1fr;
-    }
-
-    .featured-image {
-      height: 250px;
-    }
-
-    .featured-content {
-      padding: 2rem 1.5rem;
-    }
-
-    .posts-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .newsletter-form {
-      flex-direction: column;
-    }
-
-    .newsletter-form input,
-    .newsletter-form .btn-primary {
-      width: 100%;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .featured-content {
-      padding: 1.5rem;
-    }
-
-    .featured-content h2 {
-      font-size: 1.5rem;
-    }
-
-    .post-content {
-      padding: 1rem;
-    }
-
-    .newsletter-signup {
-      padding: 2rem 1.5rem;
-    }
-  }
-</style>
+  <!-- CTA Section -->
+  <section class="py-16 bg-gray-50">
+    <Container>
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">
+          Ready to transform your feedback?
+        </h2>
+        <p class="text-lg text-gray-600 mb-8">
+          Start collecting actionable insights with Shout's powerful survey tools.
+        </p>
+        <a href="/signup/" class="inline-block bg-black text-white px-6 py-3 rounded-md font-semibold hover:bg-gray-800 transition-colors">
+          Start Your Free Trial
+        </a>
+      </div>
+    </Container>
+  </section>
+</AstroshipLayout>

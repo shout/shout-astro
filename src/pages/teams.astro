@@ -11,9 +11,9 @@ import Features from "../components/features.astro";
   title="Grow your Business as a Team - Shout.com"
   description="Invite your colleagues to join your Shout team, share the features of your plan, centralize billing, and collaborate on surveys and reports."
 >
-  <Container>
-    <!-- Hero Section (no image) -->
-    <section class="pt-16 pb-16">
+  <!-- Hero Section (no image) -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="mb-12">
         <h1 class="text-5xl lg:text-6xl font-bold lg:tracking-tight">Collaborate, share features, and grow together with <span class="text-primary">Shout teams</span></h1>
         <p class="text-lg mt-4 text-gray-600 max-w-3xl">
@@ -25,10 +25,12 @@ import Features from "../components/features.astro";
         </div>
         <p class="text-sm text-gray-500 mt-4">14-Day Free Trial • Cancel Anytime • No Credit Card Required</p>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Streamline team projects Section -->
-    <section class="pt-16 pb-16">
+  <!-- Streamline team projects Section -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Streamline team projects</h2>
         <p class="text-lg mt-4 text-gray-600">
@@ -62,13 +64,15 @@ import Features from "../components/features.astro";
           </a>
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Customer Logos -->
-    <CustomerLogos />
+  <!-- Customer Logos -->
+  <CustomerLogos />
 
-    <!-- Protecting your organizations' data -->
-    <section class="pt-16 pb-16">
+  <!-- Protecting your organizations' data -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Protecting your organizations' data</h2>
         <p class="text-lg mt-4 text-gray-600">
@@ -120,10 +124,12 @@ import Features from "../components/features.astro";
           <p class="text-gray-600">Group contacts based on the lawful basis for processing their data and record consent.</p>
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Give your team the advantage -->
-    <section class="pt-16 pb-16 bg-gray-50">
+  <!-- Give your team the advantage -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Give your team the advantage</h2>
       </div>
@@ -163,10 +169,12 @@ import Features from "../components/features.astro";
           />
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Team plans and pricing -->
-    <section class="pt-16 pb-16">
+  <!-- Team plans and pricing -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Team plans and pricing</h2>
         <p class="text-lg mt-4 text-gray-600">
@@ -314,10 +322,12 @@ import Features from "../components/features.astro";
           </ul>
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Teams FAQs -->
-    <section class="pt-16 pb-16">
+  <!-- Teams FAQs -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Teams FAQs</h2>
       </div>
@@ -383,13 +393,15 @@ import Features from "../components/features.astro";
           </details>
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Integrated Solutions -->
-    <Features />
+  <!-- Integrated Solutions -->
+  <Features />
 
-    <!-- Final CTA -->
-    <section class="py-16">
+  <!-- Final CTA -->
+  <section class="py-16">
+    <Container>
       <div class="text-center max-w-4xl mx-auto">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to work as a team?</h2>
         <p class="text-lg text-gray-600 mb-8">Start collaborating with your colleagues on surveys and research projects.</p>
@@ -398,7 +410,7 @@ import Features from "../components/features.astro";
           <Button variant="outline" href="/demo/">Book a Demo</Button>
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-  </Container>
 </AstroshipLayout>

@@ -11,9 +11,9 @@ import Features from "../components/features.astro";
   title="Compliant Form Builder For Lead Generation - Shout.com"
   description="Generate leads from your website, register guests for an event and build your email list with our online form builder."
 >
-  <Container>
-    <!-- Hero Section -->
-    <section class="py-20">
+  <!-- Hero Section -->
+  <section class="py-20">
+    <Container>
       <div class="grid lg:grid-cols-2 gap-10 items-center">
         <div>
           <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
@@ -36,10 +36,12 @@ import Features from "../components/features.astro";
           />
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Form Features Section -->
-    <section class="pt-16 pb-16">
+  <!-- Form Features Section -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Everything you need to build forms</h2>
         <p class="text-lg mt-4 text-gray-600">
@@ -189,17 +191,18 @@ import Features from "../components/features.astro";
           <p class="text-gray-600">Connect forms to your CRM, email marketing, and other tools.</p>
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Customer Logos -->
-    <CustomerLogos />
+  <!-- Customer Logos -->
+  <CustomerLogos />
 
-    <!-- Integrated Solutions -->
-    <Features />
+  <!-- Integrated Solutions -->
+  <Features />
 
-    <!-- Generate leads & grow your audience Section -->
-    <section class="pt-16 pb-16 bg-gray-50">
-      <div class="container mx-auto px-4">
+  <!-- Generate leads & grow your audience Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
         <div class="mb-12">
           <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Generate leads & grow your audience</h2>
           <p class="text-lg mt-4 text-gray-600">
@@ -242,11 +245,12 @@ import Features from "../components/features.astro";
             />
           </div>
         </div>
-      </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Building online forms Section -->
-    <section class="pt-16 pb-16">
+  <!-- Building online forms Section -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Building online forms has never been easier</h2>
         <p class="text-lg mt-4 text-gray-600">
@@ -298,11 +302,12 @@ import Features from "../components/features.astro";
           <p class="text-gray-600">Export form submissions to CSV, Excel, or integrate with your favorite tools.</p>
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Integrated CRM Section -->
-    <section class="pt-16 pb-16 bg-gray-50">
-      <div class="container mx-auto px-4">
+  <!-- Integrated CRM Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
         <div class="mb-12">
           <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">An integrated CRM, to build relationships</h2>
           <p class="text-lg mt-4 text-gray-600">
@@ -345,11 +350,12 @@ import Features from "../components/features.astro";
             />
           </div>
         </div>
-      </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Administration and Reporting Section -->
-    <section class="pt-16 pb-16">
+  <!-- Administration and Reporting Section -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Simplify administration and reporting</h2>
         <p class="text-lg mt-4 text-gray-600">
@@ -392,10 +398,12 @@ import Features from "../components/features.astro";
           />
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Final CTA -->
-    <section class="py-16">
+  <!-- Final CTA -->
+  <section class="py-16">
+    <Container>
       <div class="text-center max-w-4xl mx-auto">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to start capturing leads?</h2>
         <p class="text-lg text-gray-600 mb-8">Join thousands of businesses using Shout to generate leads and grow their audience.</p>
@@ -404,7 +412,7 @@ import Features from "../components/features.astro";
           <Button variant="outline" href="/demo/">Book a Demo</Button>
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-  </Container>
 </AstroshipLayout>

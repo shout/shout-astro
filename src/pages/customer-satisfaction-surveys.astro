@@ -11,9 +11,9 @@ import Features from "../components/features.astro";
   title="Customer Satisfaction Surveys - Shout.com"
   description="Customer satisfaction surveys give you the tools to improve customer experience, increase retention, and build better relationships."
 >
-  <Container>
-    <!-- Hero Section with Image -->
-    <section class="py-20">
+  <!-- Hero Section with Image -->
+  <section class="py-20">
+    <Container>
       <div class="grid lg:grid-cols-2 gap-10 items-center">
         <div>
           <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
@@ -36,10 +36,12 @@ import Features from "../components/features.astro";
           />
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Customer Satisfaction Features Section -->
-    <section class="pt-16 pb-16">
+  <!-- Customer Satisfaction Features Section -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Everything you need for customer satisfaction</h2>
         <p class="text-lg mt-4 text-gray-600">
@@ -161,17 +163,18 @@ import Features from "../components/features.astro";
           <p class="text-gray-600">Ensure customer data privacy with GDPR-compliant surveys.</p>
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Customer Logos -->
-    <CustomerLogos />
+  <!-- Customer Logos -->
+  <CustomerLogos />
 
-    <!-- Integrated Solutions -->
-    <Features />
+  <!-- Integrated Solutions -->
+  <Features />
 
-    <!-- Improve Customer Experience Section -->
-    <section class="pt-16 pb-16 bg-gray-50">
-      <div class="container mx-auto px-4">
+  <!-- Improve Customer Experience Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
         <div class="mb-12">
           <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Improve customer experience with actionable insights</h2>
           <p class="text-lg mt-4 text-gray-600">
@@ -223,11 +226,12 @@ import Features from "../components/features.astro";
             <p class="text-gray-600">Increase customer retention and loyalty through improved satisfaction scores.</p>
           </div>
         </div>
-      </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Survey Types Section -->
-    <section class="pt-16 pb-16">
+  <!-- Survey Types Section -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Types of customer satisfaction surveys</h2>
         <p class="text-lg mt-4 text-gray-600">
@@ -279,10 +283,12 @@ import Features from "../components/features.astro";
           <p class="text-gray-600">Survey customers at key moments in their journey to track satisfaction evolution.</p>
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Final CTA -->
-    <section class="py-16">
+  <!-- Final CTA -->
+  <section class="py-16">
+    <Container>
       <div class="text-center max-w-4xl mx-auto">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to improve customer satisfaction?</h2>
         <p class="text-lg text-gray-600 mb-8">Start measuring and improving your customer experience with professional satisfaction surveys.</p>
@@ -291,7 +297,7 @@ import Features from "../components/features.astro";
           <Button variant="outline" href="/demo/">Book a Demo</Button>
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-  </Container>
 </AstroshipLayout>

@@ -12,9 +12,9 @@ import BestReasons from "../components/best-reasons.astro";
   title="A Survey Maker Built for Privacy & Compliance - Shout.com"
   description="Conduct research and collect data with features to bolster your compliance. Start your 14-day Free Trial today, no credit card required."
 >
-  <Container>
-    <!-- Hero Section -->
-    <section class="py-20">
+  <!-- Hero Section -->
+  <section class="py-20">
+    <Container>
       <div class="grid lg:grid-cols-2 gap-10 items-center">
         <div>
           <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
@@ -37,10 +37,12 @@ import BestReasons from "../components/best-reasons.astro";
           />
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Question Types Section -->
-    <section class="pt-16 pb-16">
+  <!-- Question Types Section -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Everything you need to make surveys</h2>
         <p class="text-lg mt-4 text-gray-600">
@@ -190,17 +192,18 @@ import BestReasons from "../components/best-reasons.astro";
           <p class="text-gray-600">Mini CRM for storing and managing contact lists with survey response tracking.</p>
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Customer Logos -->
-    <CustomerLogos />
+  <!-- Customer Logos -->
+  <CustomerLogos />
 
-    <!-- Integrated Solutions -->
-    <Features />
+  <!-- Integrated Solutions -->
+  <Features />
 
-    <!-- Building Surveys Features -->
-    <section class="pt-16 pb-16 bg-gray-50">
-      <div class="container mx-auto px-4">
+  <!-- Building Surveys Features -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
         <div class="mb-12">
           <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Building surveys</h2>
           <p class="text-lg mt-4 text-gray-600">
@@ -242,16 +245,16 @@ import BestReasons from "../components/best-reasons.astro";
             loading="lazy"
           />
         </div>
-        </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Best Reasons To Choose Shout -->
-    <BestReasons />
+  <!-- Best Reasons To Choose Shout -->
+  <BestReasons />
 
-    <!-- Shout out! -->
-    <section class="py-16 bg-gray-50">
-      <div class="container mx-auto px-4">
+  <!-- Shout out! -->
+  <section class="py-16 bg-gray-50">
+    <Container>
         <div class="mb-12">
           <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Shout out!</h2>
           <p class="text-lg mt-4 text-gray-600">
@@ -302,14 +305,13 @@ import BestReasons from "../components/best-reasons.astro";
           <h3 class="text-xl font-semibold mb-3">Popups</h3>
           <p class="text-gray-600">Popup surveys on your website to capture visitor feedback</p>
         </div>
-        </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-
-    <!-- Survey Reports -->
-    <section class="py-16 bg-gray-50">
-      <div class="container mx-auto px-4">
+  <!-- Survey Reports -->
+  <section class="py-16 bg-gray-50">
+    <Container>
         <div class="mb-12">
           <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Survey reports</h2>
           <p class="text-lg mt-4 text-gray-600">
@@ -351,12 +353,13 @@ import BestReasons from "../components/best-reasons.astro";
             loading="lazy"
           />
         </div>
-        </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Team Features -->
-    <section class="py-16">
+  <!-- Team Features -->
+  <section class="py-16">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">The perfect survey maker for teams</h2>
         <p class="text-lg mt-4 text-gray-600">
@@ -399,11 +402,12 @@ import BestReasons from "../components/best-reasons.astro";
           />
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-
-    <!-- Final CTA -->
-    <section class="py-16">
+  <!-- Final CTA -->
+  <section class="py-16">
+    <Container>
       <div class="text-center max-w-4xl mx-auto">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to create your first survey?</h2>
         <p class="text-lg text-gray-600 mb-8">Join thousands of businesses using Shout to collect feedback and make data-driven decisions.</p>
@@ -412,7 +416,6 @@ import BestReasons from "../components/best-reasons.astro";
           <Button variant="outline" href="/demo/">Book a Demo</Button>
         </div>
       </div>
-    </section>
-
-  </Container>
+    </Container>
+  </section>
 </AstroshipLayout>

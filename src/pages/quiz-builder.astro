@@ -11,9 +11,9 @@ import Features from "../components/features.astro";
   title="Online Quiz Builder with Automated Scoring - Shout.com"
   description="Engage your audience, test students and capture leads with Shout's online quiz builder. Scores are calculated automatically."
 >
-  <Container>
-    <!-- Hero Section -->
-    <section class="py-20">
+  <!-- Hero Section -->
+  <section class="py-20">
+    <Container>
       <div class="grid lg:grid-cols-2 gap-10 items-center">
         <div>
           <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
@@ -36,10 +36,12 @@ import Features from "../components/features.astro";
           />
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Quiz Features Section -->
-    <section class="pt-16 pb-16">
+  <!-- Quiz Features Section -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Everything you need to build quizzes</h2>
         <p class="text-lg mt-4 text-gray-600">
@@ -189,17 +191,18 @@ import Features from "../components/features.astro";
           <p class="text-gray-600">Collaborate with team members on quiz creation and management.</p>
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Customer Logos -->
-    <CustomerLogos />
+  <!-- Customer Logos -->
+  <CustomerLogos />
 
-    <!-- Integrated Solutions -->
-    <Features />
+  <!-- Integrated Solutions -->
+  <Features />
 
-    <!-- Interactive quizzes Section -->
-    <section class="pt-16 pb-16 bg-gray-50">
-      <div class="container mx-auto px-4">
+  <!-- Interactive quizzes Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
         <div class="mb-12">
           <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Interactive quizzes with automated scoring</h2>
           <p class="text-lg mt-4 text-gray-600">
@@ -242,11 +245,12 @@ import Features from "../components/features.astro";
             />
           </div>
         </div>
-      </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Assess, engage, train Section -->
-    <section class="pt-16 pb-16">
+  <!-- Assess, engage, train Section -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Assess, engage, train, and test with online quizzes</h2>
         <p class="text-lg mt-4 text-gray-600">
@@ -298,11 +302,12 @@ import Features from "../components/features.astro";
           <p class="text-gray-600">Add gamification elements to increase participation and motivation.</p>
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Getting answers Section -->
-    <section class="pt-16 pb-16 bg-gray-50">
-      <div class="container mx-auto px-4">
+  <!-- Getting answers Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
         <div class="mb-12">
           <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Getting answers to your quiz questions</h2>
           <p class="text-lg mt-4 text-gray-600">
@@ -354,11 +359,12 @@ import Features from "../components/features.astro";
             <p class="text-gray-600">Display quizzes as popups on your website to capture visitor attention.</p>
           </div>
         </div>
-      </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Automated Scoring Section -->
-    <section class="pt-16 pb-16">
+  <!-- Automated Scoring Section -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Automate scoring and quiz feedback</h2>
         <p class="text-lg mt-4 text-gray-600">
@@ -401,11 +407,12 @@ import Features from "../components/features.astro";
           />
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Privacy Section -->
-    <section class="pt-16 pb-16 bg-gray-50">
-      <div class="container mx-auto px-4">
+  <!-- Privacy Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
         <div class="mb-12">
           <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">A privacy-first quiz builder</h2>
           <p class="text-lg mt-4 text-gray-600">
@@ -436,11 +443,12 @@ import Features from "../components/features.astro";
             <p class="text-gray-600">All quiz data is encrypted and stored securely with UK-based servers.</p>
           </div>
         </div>
-      </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Advanced Reporting Section -->
-    <section class="pt-16 pb-16">
+  <!-- Advanced Reporting Section -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Advanced reporting at every level</h2>
         <p class="text-lg mt-4 text-gray-600">
@@ -483,10 +491,12 @@ import Features from "../components/features.astro";
           />
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Final CTA -->
-    <section class="py-16">
+  <!-- Final CTA -->
+  <section class="py-16">
+    <Container>
       <div class="text-center max-w-4xl mx-auto">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to create your first quiz?</h2>
         <p class="text-lg text-gray-600 mb-8">Join thousands of organizations using Shout to assess, engage, and generate leads with interactive quizzes.</p>
@@ -495,7 +505,6 @@ import Features from "../components/features.astro";
           <Button variant="outline" href="/demo/">Book a Demo</Button>
         </div>
       </div>
-    </section>
-
-  </Container>
+    </Container>
+  </section>
 </AstroshipLayout>

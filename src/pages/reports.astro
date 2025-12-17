@@ -12,9 +12,9 @@ import BestReasons from "../components/best-reasons.astro";
   title="Survey Insights Reports - Shout.com"
   description="With Shout's survey insights reports get an overview of your responses, filter and compare data sets, and share results with stakeholders."
 >
-  <Container>
-    <!-- Hero Section -->
-    <section class="pt-16 pb-16">
+  <!-- Hero Section -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="grid lg:grid-cols-2 gap-10 items-center">
         <div>
           <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
@@ -37,10 +37,12 @@ import BestReasons from "../components/best-reasons.astro";
           />
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Insights & Report Features -->
-    <section class="pt-16 pb-16">
+  <!-- Insights & Report Features -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="text-center mb-4">
         <p class="text-primary font-semibold text-sm uppercase tracking-wide">INSIGHTS & REPORT FEATURES</p>
       </div>
@@ -100,13 +102,15 @@ import BestReasons from "../components/best-reasons.astro";
           <p class="text-gray-600">All you need to do is apply points to your quiz questions, and we'll calculate respondent scores automatically.</p>
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Customer Logos -->
-    <CustomerLogos />
+  <!-- Customer Logos -->
+  <CustomerLogos />
 
-    <!-- Take Full Control Section -->
-    <section class="pt-16 pb-16 bg-gray-50">
+  <!-- Take Full Control Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Take full control of your data</h2>
       </div>
@@ -146,13 +150,15 @@ import BestReasons from "../components/best-reasons.astro";
           />
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Best Reasons To Choose Shout -->
-    <BestReasons />
+  <!-- Best Reasons To Choose Shout -->
+  <BestReasons />
 
-    <!-- Never Miss a Response -->
-    <section class="pt-16 pb-16 bg-gray-50">
+  <!-- Never Miss a Response -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Never miss a response with Shout</h2>
       </div>
@@ -192,10 +198,12 @@ import BestReasons from "../components/best-reasons.astro";
           />
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Powering compliance for teams & businesses -->
-    <section class="pt-16 pb-16">
+  <!-- Powering compliance for teams & businesses -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Powering compliance for teams & businesses</h2>
         <p class="text-lg mt-4 text-gray-600">
@@ -234,13 +242,15 @@ import BestReasons from "../components/best-reasons.astro";
         <p class="text-lg text-gray-600 mb-6">Shout is built with compliance in mind, gearing all our tools to make data collection as risk free as possible for you.</p>
         <Button href="/security-compliance/" variant="outline">Security and Compliance</Button>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Integrated Solutions -->
-    <Features />
+  <!-- Integrated Solutions -->
+  <Features />
 
-    <!-- Final CTA -->
-    <section class="py-16 bg-gray-50">
+  <!-- Final CTA -->
+  <section class="py-16 bg-gray-50">
+    <Container>
       <div class="text-center max-w-4xl mx-auto">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to gain rich insights from your data?</h2>
         <p class="text-lg text-gray-600 mb-8">Start creating detailed views of your data, identify patterns and trends, and share results with stakeholders.</p>
@@ -248,7 +258,6 @@ import BestReasons from "../components/best-reasons.astro";
           <Button href="/signup/">Start Your Free Trial</Button>
         </div>
       </div>
-    </section>
-
-  </Container>
+    </Container>
+  </section>
 </AstroshipLayout>

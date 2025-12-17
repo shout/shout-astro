@@ -8,8 +8,8 @@ import { Icon } from "astro-icon/components";
   title="Security & Compliance - Shout.com"
   description="Everything you need to know about how Shout protects your data and ensures that we're compliant with data protection regulations globally."
 >
-  <Container>
-    <div class="py-16">
+  <section class="py-16">
+    <Container>
       <!-- Hero Section -->
       <div class="max-w-4xl mx-auto mb-16 text-center">
         <h1 class="text-4xl lg:text-5xl font-bold mb-6">Security & Compliance</h1>
@@ -54,9 +54,13 @@ import { Icon } from "astro-icon/components";
           </div>
         </div>
       </div>
+    </Container>
+  </section>
 
-      <!-- Core Security Section -->
-      <div class="max-w-5xl mx-auto mb-16">
+  <!-- Core Security Section -->
+  <section class="pb-16">
+    <Container>
+      <div class="max-w-5xl mx-auto">
         <h2 class="text-3xl lg:text-4xl font-bold mb-12">Core Security Infrastructure</h2>
 
         <div class="grid md:grid-cols-2 gap-8 mb-12">
@@ -157,9 +161,13 @@ import { Icon } from "astro-icon/components";
           </div>
         </div>
       </div>
+    </Container>
+  </section>
 
-      <!-- Zero-Trust Framework Section -->
-      <div class="max-w-4xl mx-auto mb-16">
+  <!-- Zero-Trust Framework Section -->
+  <section class="pb-16">
+    <Container>
+      <div class="max-w-4xl mx-auto">
         <h2 class="text-3xl lg:text-4xl font-bold mb-12">Zero-Trust Security Framework</h2>
 
         <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-8 border border-blue-200 mb-8">
@@ -202,9 +210,13 @@ import { Icon } from "astro-icon/components";
           </div>
         </div>
       </div>
+    </Container>
+  </section>
 
-      <!-- Compliance Features Section -->
-      <div class="max-w-5xl mx-auto mb-16">
+  <!-- Compliance Features Section -->
+  <section class="pb-16">
+    <Container>
+      <div class="max-w-5xl mx-auto">
         <h2 class="text-3xl lg:text-4xl font-bold mb-12">Built-In Compliance Features</h2>
 
         <div class="grid md:grid-cols-2 gap-8">
@@ -269,9 +281,13 @@ import { Icon } from "astro-icon/components";
           </div>
         </div>
       </div>
+    </Container>
+  </section>
 
-      <!-- Legal Documents Section -->
-      <div class="max-w-5xl mx-auto mb-16">
+  <!-- Legal Documents Section -->
+  <section class="pb-16">
+    <Container>
+      <div class="max-w-5xl mx-auto">
         <h2 class="text-3xl lg:text-4xl font-bold mb-12">Legal Documents</h2>
 
         <div class="grid md:grid-cols-2 gap-8">
@@ -316,8 +332,12 @@ import { Icon } from "astro-icon/components";
           </a>
         </div>
       </div>
+    </Container>
+  </section>
 
-      <!-- Contact Section -->
+  <!-- Contact Section -->
+  <section class="pb-16">
+    <Container>
       <div class="max-w-4xl mx-auto bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg p-12 text-white">
         <h2 class="text-3xl lg:text-4xl font-bold mb-4">Need More Information?</h2>
         <p class="text-lg mb-8 opacity-95">
@@ -334,6 +354,6 @@ import { Icon } from "astro-icon/components";
           </a>
         </div>
       </div>
-    </div>
-  </Container>
+    </Container>
+  </section>
 </AstroshipLayout>
