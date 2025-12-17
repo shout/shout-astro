@@ -1,0 +1,329 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<AstroshipLayout
+  title="Lead Generation Calculator | Free Calculator - Shout.com"
+  description="Use our free lead generation calculator to determine how many website visitors and leads you'll need to capture to meet your revenue goals."
+>
+  <!-- Hero Section -->
+  <section class="py-20">
+    <Container>
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+            Lead Generation <span class="text-primary">Calculator</span>
+          </h1>
+          <p class="text-lg mt-4 text-gray-600 max-w-xl">
+            Determine how many website visitors and leads you need to meet your revenue goals.
+          </p>
+        </div>
+        <div class="hidden lg:flex justify-center items-center">
+          <div class="w-24 h-24 text-primary">
+            <Icon name="bx:trending-up" class="w-full h-full" />
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Calculator Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Calculate leads needed</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Enter your metrics to see how many leads you need for revenue goals.
+        </p>
+      </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 max-w-2xl">
+          <div class="space-y-6">
+            <!-- Revenue Goal Input -->
+            <div>
+              <label for="revenueGoal" class="block text-lg font-semibold mb-2">Revenue Goal ($)</label>
+              <input
+                type="number"
+                id="revenueGoal"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="Enter your revenue target"
+                min="0"
+                step="1000"
+              />
+              <p class="text-sm text-gray-500 mt-2">Your target revenue for the period</p>
+            </div>
+
+            <!-- Average Deal Value Input -->
+            <div>
+              <label for="avgDealValue" class="block text-lg font-semibold mb-2">Average Deal Value ($)</label>
+              <input
+                type="number"
+                id="avgDealValue"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="Enter average sale amount"
+                min="0"
+                step="100"
+              />
+              <p class="text-sm text-gray-500 mt-2">Average value of each customer sale</p>
+            </div>
+
+            <!-- Conversion Rate Input -->
+            <div>
+              <label for="conversionRate" class="block text-lg font-semibold mb-2">Conversion Rate (%)</label>
+              <input
+                type="number"
+                id="conversionRate"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="Enter conversion rate"
+                min="0"
+                max="100"
+                step="0.1"
+              />
+              <p class="text-sm text-gray-500 mt-2">What % of leads convert to customers (e.g., 5 for 5%)</p>
+            </div>
+
+            <!-- Visitor to Lead Conversion Input -->
+            <div>
+              <label for="visitorLeadRate" class="block text-lg font-semibold mb-2">Visitor to Lead Rate (%)</label>
+              <input
+                type="number"
+                id="visitorLeadRate"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="Enter lead capture rate"
+                min="0"
+                max="100"
+                step="0.1"
+              />
+              <p class="text-sm text-gray-500 mt-2">What % of visitors become leads (e.g., 2 for 2%)</p>
+            </div>
+
+            <!-- Calculate Button -->
+            <button
+              id="calculateBtn"
+              onclick="calculateLeadGen()"
+              class="w-full bg-primary text-white font-semibold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity mt-8"
+            >
+              Calculate Leads Needed
+            </button>
+          </div>
+
+          <!-- Results Section -->
+          <div id="results" class="mt-12 hidden">
+            <div class="bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg p-8 border border-primary/20">
+              <h3 class="text-lg font-semibold mb-6">To Meet Your Goal</h3>
+
+              <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-white rounded-lg p-6 border border-primary/20">
+                  <p class="text-sm text-gray-600 font-semibold mb-2">Leads Needed</p>
+                  <div class="text-4xl font-bold text-primary">
+                    <span id="leadsNeeded">0</span>
+                  </div>
+                </div>
+                <div class="bg-white rounded-lg p-6 border border-primary/20">
+                  <p class="text-sm text-gray-600 font-semibold mb-2">Website Visitors Needed</p>
+                  <div class="text-4xl font-bold text-primary">
+                    <span id="visitorsNeeded">0</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-6 mt-6 pt-6 border-t border-gray-200">
+                <div class="text-center">
+                  <p class="text-gray-600 mb-2">Based on <span id="conversionDisplay">0</span>% conversion rate</p>
+                  <p class="text-sm text-gray-500">Leads to Customer</p>
+                </div>
+                <div class="text-center">
+                  <p class="text-gray-600 mb-2">Based on <span id="visitorDisplay">0</span>% visitor-to-lead rate</p>
+                  <p class="text-sm text-gray-500">Visitor to Lead</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </Container>
+  </section>
+
+  <!-- Formula Section -->
+  <section class="pt-16 pb-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">How lead generation is calculated</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Work backwards from your revenue goal to find required visitors and leads.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="bg-gray-50 rounded-lg p-8 border border-gray-200">
+            <h3 class="text-2xl font-bold mb-6">Lead Generation Formula</h3>
+            <div class="bg-white rounded-lg p-6 border border-primary/20 mb-6">
+              <div class="space-y-4 text-sm">
+                <p><strong>Leads Needed = Revenue / Avg Deal Value / (Conversion Rate / 100)</strong></p>
+                <p><strong>Visitors = Leads / (Visitor-to-Lead Rate / 100)</strong></p>
+              </div>
+            </div>
+            <div class="space-y-4">
+              <div>
+                <h4 class="font-semibold mb-2">Step 1: Calculate Leads</h4>
+                <p class="text-gray-600">
+                  Divide revenue goal by average deal value, then by conversion rate
+                </p>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-2">Step 2: Calculate Visitors</h4>
+                <p class="text-gray-600">
+                  Divide leads needed by visitor-to-lead conversion rate
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:math" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold">Example</h3>
+            </div>
+            <p class="text-gray-600 mb-4">
+              Revenue goal: $100K, Avg deal: $5K, Conversion: 10%, Lead capture: 2%
+            </p>
+            <ul class="text-gray-600 space-y-2 text-sm">
+              <li>Leads needed: 100K ÷ 5K ÷ 0.1 = 200 leads</li>
+              <li>Visitors: 200 ÷ 0.02 = 10,000 visitors</li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:info-circle" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold">Key Metrics</h3>
+            </div>
+            <ul class="text-gray-600 space-y-2 text-sm">
+              <li>Lead capture rate: Typical 1-5%</li>
+              <li>Sales conversion: Typical 5-20%</li>
+              <li>Avg deal: Industry specific</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Shout Features Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Boost lead generation with Shout</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Use our tools to capture leads and understand your conversion metrics.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:calculator" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold text-primary">Custom Calculators</h3>
+            </div>
+            <p class="text-gray-600">Create lead magnets with interactive calculators.</p>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:help-circle" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold text-primary">Lead Quizzes</h3>
+            </div>
+            <p class="text-gray-600">Build quizzes that capture contact information.</p>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:edit" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold text-primary">Smart Forms</h3>
+            </div>
+            <p class="text-gray-600">Create forms with progressive profiling.</p>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:filter" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold text-primary">Lead Segmentation</h3>
+            </div>
+            <p class="text-gray-600">Automatically segment leads by behavior and responses.</p>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:data" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold text-primary">Analytics & Tracking</h3>
+            </div>
+            <p class="text-gray-600">Track lead sources and conversion metrics.</p>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:plug-alt" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold text-primary">CRM Integration</h3>
+            </div>
+            <p class="text-gray-600">Automatically send leads to your CRM system.</p>
+          </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16">
+    <Container>
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to generate more leads?</h2>
+        <p class="text-lg text-gray-600 mb-8">Start building lead magnets and capturing qualified prospects with Shout's tools.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/signup/">Build Lead Magnet</Button>
+          <Button variant="outline" href="/custom-calculator-builder/">Learn More</Button>
+        </div>
+      </div>
+    </Container>
+  </section>
+</AstroshipLayout>
+
+<script is:inline>
+function calculateLeadGen() {
+  const revenueGoal = parseFloat(document.getElementById('revenueGoal').value) || 0;
+  const avgDealValue = parseFloat(document.getElementById('avgDealValue').value) || 0;
+  const conversionRate = parseFloat(document.getElementById('conversionRate').value) || 0;
+  const visitorLeadRate = parseFloat(document.getElementById('visitorLeadRate').value) || 0;
+
+  if (revenueGoal === 0 || avgDealValue === 0 || conversionRate === 0 || visitorLeadRate === 0) {
+    alert('Please fill in all fields');
+    return;
+  }
+
+  // Calculate leads needed
+  const leadsNeeded = Math.ceil(revenueGoal / avgDealValue / (conversionRate / 100));
+
+  // Calculate visitors needed
+  const visitorsNeeded = Math.ceil(leadsNeeded / (visitorLeadRate / 100));
+
+  // Update results
+  document.getElementById('leadsNeeded').textContent = leadsNeeded.toLocaleString();
+  document.getElementById('visitorsNeeded').textContent = visitorsNeeded.toLocaleString();
+  document.getElementById('conversionDisplay').textContent = conversionRate.toFixed(1);
+  document.getElementById('visitorDisplay').textContent = visitorLeadRate.toFixed(1);
+  document.getElementById('results').classList.remove('hidden');
+
+  // Scroll to results
+  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Allow Enter key to calculate
+document.getElementById('visitorLeadRate').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    calculateLeadGen();
+  }
+});
+</script>

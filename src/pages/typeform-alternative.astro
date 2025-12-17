@@ -1,0 +1,243 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<AstroshipLayout
+  title="Typeform Alternative - Shout.com"
+  description="Create more than just forms with Shout, a robust Typeform alternative with integrated CRM, unlimited responses, and lower costs."
+>
+  <section class="py-16">
+    <Container>
+      <!-- Hero Section -->
+      <div class="max-w-4xl mx-auto mb-16">
+        <h1 class="text-4xl lg:text-5xl font-bold mb-6">A Typeform Alternative With More, For Less</h1>
+        <p class="text-xl text-gray-600 mb-8">
+          Collect more responses, grow your contact list, and save 38% on average per year with this compliant Typeform alternative.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="https://identity.shout.com/Account/Register" class="inline-flex items-center justify-center gap-2 px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+            <Icon name="bx:play" class="w-5 h-5" />
+            Start Your Free Trial
+          </a>
+          <a href="/pricing/" class="inline-flex items-center justify-center gap-2 px-8 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition">
+            <Icon name="bx:dollar" class="w-5 h-5" />
+            Plans & Pricing
+          </a>
+        </div>
+      </div>
+
+      <!-- Key Feature Section -->
+      <div class="max-w-4xl mx-auto mb-16">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-12">Ask More Than Just One Question Per Page</h2>
+        <p class="text-lg text-gray-600 mb-12">
+          While asking one question at a time can increase completion rates, there are benefits to being able to add multiple questions to the same page. With Shout, you can switch seamlessly between traditional and conversational surveys at the click of a button.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+          <div class="bg-green-50 rounded-lg p-6 border border-green-200">
+            <div class="flex items-center gap-3 mb-3">
+              <Icon name="bx:check" class="w-6 h-6 text-green-600" />
+              <h3 class="font-semibold text-lg">Shout</h3>
+            </div>
+            <p class="text-gray-700">Multiple questions per page or conversational mode with full control</p>
+          </div>
+
+          <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+            <div class="flex items-center gap-3 mb-3">
+              <Icon name="bx:x" class="w-6 h-6 text-gray-400" />
+              <h3 class="font-semibold text-lg">Typeform</h3>
+            </div>
+            <p class="text-gray-700">Limited to one question per page only</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Integrated CRM Section -->
+      <div class="max-w-4xl mx-auto mb-16">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-12">Collect and Manage Contacts With Our Integrated CRM</h2>
+        <p class="text-lg text-gray-600 mb-12">
+          Import contacts into Shout's CRM and generate leads with customizable forms. Pass information you collect into custom fields and build a single point of knowledge for your audience.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <div class="bg-white rounded-lg border border-gray-200 p-6">
+            <h3 class="font-semibold text-lg mb-4 flex items-center gap-2">
+              <Icon name="bx:check-circle" class="w-6 h-6 text-green-600" />
+              Shout
+            </h3>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <Icon name="bx:plus" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                <span>Group contacts by lawful basis for processing data (e.g. Legitimate Interests)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <Icon name="bx:plus" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                <span>Collect explicit consent from contacts and record it to profiles</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <Icon name="bx:plus" class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                <span>Purge PII from survey reports when processing deletion requests</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-gray-50 rounded-lg border border-gray-200 p-6">
+            <h3 class="font-semibold text-lg mb-4 flex items-center gap-2">
+              <Icon name="bx:x-circle" class="w-6 h-6 text-gray-400" />
+              Typeform
+            </h3>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <Icon name="bx:minus" class="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                <span>No built-in CRM features</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <Icon name="bx:minus" class="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                <span>Requires third-party integrations for contact management</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <Icon name="bx:minus" class="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" />
+                <span>Limited compliance features</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Advanced Analytics Section -->
+      <div class="max-w-4xl mx-auto mb-16">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-12">No Need to Share Data With Third-Parties to Analyze Data</h2>
+        <p class="text-lg text-gray-600 mb-12">
+          Shout has filters and crosstabs built into reports to help you identify patterns and trends in your data, without the need to justify data transfers to third-parties.
+        </p>
+
+        <div class="bg-blue-50 rounded-lg p-8 border border-blue-200">
+          <h3 class="text-xl font-semibold mb-6">Shout's Advanced Reporting</h3>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-start gap-3">
+              <Icon name="bx:check" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+              <span class="text-gray-700">Segment results based on more than just time and device</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <Icon name="bx:check" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+              <span class="text-gray-700">Filter reports based on question answers, location, CRM data, and email metrics</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <Icon name="bx:check" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+              <span class="text-gray-700">Export data in multiple formats for further analysis</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <Icon name="bx:check" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+              <span class="text-gray-700">Create custom report layouts with your branding</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Pricing Comparison -->
+      <div class="max-w-4xl mx-auto mb-16">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-12">Collect More Responses With Shout</h2>
+        <p class="text-lg text-gray-600 mb-12">
+          Choose Shout as a Typeform alternative to save 38% per year, collect unlimited survey responses, and create more than one type of form.
+        </p>
+
+        <div class="overflow-x-auto rounded-lg border border-gray-200">
+          <table class="w-full">
+            <thead>
+              <tr class="bg-gray-50 border-b">
+                <th class="px-6 py-4 text-left font-semibold">Feature</th>
+                <th class="px-6 py-4 text-center font-semibold">
+                  <div class="flex items-center justify-center gap-2">
+                    <Icon name="bx:check" class="w-5 h-5 text-green-600" />
+                    Shout
+                  </div>
+                </th>
+                <th class="px-6 py-4 text-center font-semibold">Typeform</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y">
+              <tr>
+                <td class="px-6 py-4">Starting Price</td>
+                <td class="px-6 py-4 text-center font-semibold">12.99/month</td>
+                <td class="px-6 py-4 text-center">21/month</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4">Essentials vs Basic - Responses/Month</td>
+                <td class="px-6 py-4 text-center font-semibold">Unlimited</td>
+                <td class="px-6 py-4 text-center">100/month</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4">Business vs Elite - Responses/Month</td>
+                <td class="px-6 py-4 text-center font-semibold">Unlimited</td>
+                <td class="px-6 py-4 text-center">10k/month</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4">Annual Savings</td>
+                <td class="px-6 py-4 text-center" colspan="2">
+                  <span class="text-green-600 font-semibold">Save 38% on average</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Why Shout Section -->
+      <div class="max-w-4xl mx-auto mb-16">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-12">Why Choose Shout?</h2>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-blue-50 rounded-lg p-6 border border-blue-200">
+            <div class="flex items-center gap-3 mb-3">
+              <Icon name="bx:refresh" class="w-6 h-6 text-blue-600" />
+              <h3 class="text-lg font-semibold">No Annual Response Limits</h3>
+            </div>
+            <p class="text-gray-700">Your commitment to us means we don't apply arbitrary limits to your surveys, quizzes, or forms.</p>
+          </div>
+
+          <div class="bg-blue-50 rounded-lg p-6 border border-blue-200">
+            <div class="flex items-center gap-3 mb-3">
+              <Icon name="bx:lock" class="w-6 h-6 text-blue-600" />
+              <h3 class="text-lg font-semibold">Compliance Built-In</h3>
+            </div>
+            <p class="text-gray-700">Shout was built to make compliance easier for anyone collecting data and contacts.</p>
+          </div>
+
+          <div class="bg-blue-50 rounded-lg p-6 border border-blue-200">
+            <div class="flex items-center gap-3 mb-3">
+              <Icon name="bx:headphone" class="w-6 h-6 text-blue-600" />
+              <h3 class="text-lg font-semibold">Fantastic Support</h3>
+            </div>
+            <p class="text-gray-700">Our support staff are experts in all Shout products, ready to answer your questions.</p>
+          </div>
+
+          <div class="bg-blue-50 rounded-lg p-6 border border-blue-200">
+            <div class="flex items-center gap-3 mb-3">
+              <Icon name="bx:brush" class="w-6 h-6 text-blue-600" />
+              <h3 class="text-lg font-semibold">Full Design Control</h3>
+            </div>
+            <p class="text-gray-700">Customize surveys, quizzes, and forms to match your website design and branding.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="max-w-4xl mx-auto bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg p-12 text-white text-center">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-4">Unlimited Responses and More Features at a Lower Cost</h2>
+        <p class="text-lg mb-8 opacity-95">14 Day Free Trial • Cancel Anytime • No Credit Card Required</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://identity.shout.com/Account/Register" class="inline-flex items-center justify-center gap-2 px-8 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition">
+            <Icon name="bx:play" class="w-5 h-5" />
+            Start Your Free Trial
+          </a>
+          <a href="/pricing/" class="inline-flex items-center justify-center gap-2 px-8 py-3 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:bg-opacity-10 transition">
+            <Icon name="bx:dollar" class="w-5 h-5" />
+            Plans and Pricing
+          </a>
+        </div>
+      </div>
+    </Container>
+  </section>
+</AstroshipLayout>

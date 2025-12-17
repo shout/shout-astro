@@ -1,0 +1,330 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<AstroshipLayout
+  title="NPS Calculator: Calculate Your Net Promoter Score [Free] - Shout"
+  description="Use our NPS calculator to calculate your Net Promoter Score. All you need is your Promoters, Passives & Detractors. We'll do the rest."
+>
+  <!-- Hero Section -->
+  <section class="py-20">
+    <Container>
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+            NPS <span class="text-primary">Calculator</span>
+          </h1>
+          <p class="text-lg mt-4 text-gray-600 max-w-xl">
+            Calculate your Net Promoter Score instantly. Measure customer loyalty to identify your biggest fans with Shout's free NPS calculator.
+          </p>
+        </div>
+        <div class="hidden lg:flex justify-center items-center">
+          <div class="w-24 h-24 text-primary">
+            <Icon name="bx:poll" class="w-full h-full" />
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Calculator Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+        <div class="mb-12">
+          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Calculate your NPS</h2>
+          <p class="text-lg mt-4 text-gray-600">
+            Enter your respondent counts and we'll calculate your Net Promoter Score instantly.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 max-w-2xl">
+          <div class="space-y-6">
+            <!-- Promoters Input -->
+            <div>
+              <label for="promoters" class="block text-lg font-semibold mb-2">Promoters (9-10)</label>
+              <input
+                type="number"
+                id="promoters"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="Enter number of promoters"
+                min="0"
+              />
+              <p class="text-sm text-gray-500 mt-2">Your happiest customers who act as advocates</p>
+            </div>
+
+            <!-- Passives Input -->
+            <div>
+              <label for="passives" class="block text-lg font-semibold mb-2">Passives (7-8)</label>
+              <input
+                type="number"
+                id="passives"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="Enter number of passives"
+                min="0"
+              />
+              <p class="text-sm text-gray-500 mt-2">Fans of your business but not motivated to advocate</p>
+            </div>
+
+            <!-- Detractors Input -->
+            <div>
+              <label for="detractors" class="block text-lg font-semibold mb-2">Detractors (0-6)</label>
+              <input
+                type="number"
+                id="detractors"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="Enter number of detractors"
+                min="0"
+              />
+              <p class="text-sm text-gray-500 mt-2">Unhappy customers with poor experiences</p>
+            </div>
+
+            <!-- Calculate Button -->
+            <button
+              id="calculateBtn"
+              onclick="calculateNPS()"
+              class="w-full bg-primary text-white font-semibold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity mt-8"
+            >
+              Calculate NPS Score
+            </button>
+          </div>
+
+          <!-- Results Section -->
+          <div id="results" class="mt-12 hidden">
+            <div class="bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg p-8 border border-primary/20">
+              <h3 class="text-lg font-semibold mb-4">Your NPS Score</h3>
+              <div class="text-5xl font-bold text-primary mb-2">
+                <span id="npsResult">0</span>
+              </div>
+              <p id="npsInterpretation" class="text-gray-600 text-lg mb-6"></p>
+
+              <div class="grid md:grid-cols-3 gap-6 mt-8">
+                <div class="bg-white rounded-lg p-4 text-center border border-gray-200">
+                  <div class="text-3xl font-bold text-primary mb-2">
+                    <span id="promotersPercent">0</span>%
+                  </div>
+                  <p class="text-gray-600 font-semibold">Promoters</p>
+                </div>
+                <div class="bg-white rounded-lg p-4 text-center border border-gray-200">
+                  <div class="text-3xl font-bold text-gray-600 mb-2">
+                    <span id="passivesPercent">0</span>%
+                  </div>
+                  <p class="text-gray-600 font-semibold">Passives</p>
+                </div>
+                <div class="bg-white rounded-lg p-4 text-center border border-gray-200">
+                  <div class="text-3xl font-bold text-red-500 mb-2">
+                    <span id="detractorsPercent">0</span>%
+                  </div>
+                  <p class="text-gray-600 font-semibold">Detractors</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </Container>
+  </section>
+
+  <!-- Formula Section -->
+  <section class="pt-16 pb-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">How NPS is calculated</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          NPS uses a simple formula that measures the percentage difference between promoters and detractors.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="bg-gray-50 rounded-lg p-8 border border-gray-200">
+            <h3 class="text-2xl font-bold mb-6">NPS Formula</h3>
+            <div class="bg-white rounded-lg p-6 border border-primary/20 mb-6">
+              <p class="text-lg text-gray-700 text-center">
+                <strong>NPS = Promoters % - Detractors %</strong>
+              </p>
+            </div>
+            <div class="space-y-4">
+              <div>
+                <h4 class="font-semibold mb-2">Step 1: Calculate Percentages</h4>
+                <p class="text-gray-600">
+                  Promoters % = (Promoters / Total Responses) × 100
+                </p>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-2">Step 2: Calculate Detractors Percentage</h4>
+                <p class="text-gray-600">
+                  Detractors % = (Detractors / Total Responses) × 100
+                </p>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-2">Step 3: Subtract Detractors from Promoters</h4>
+                <p class="text-gray-600">
+                  NPS = Promoters % - Detractors %
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:star" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold">What is a Good NPS Score?</h3>
+            </div>
+            <p class="text-gray-600">
+              NPS ranges from -100 to +100. Scores above 0 are generally considered good, with higher scores indicating stronger customer loyalty.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:trending-up" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold">Score Breakdown</h3>
+            </div>
+            <ul class="text-gray-600 space-y-2">
+              <li>0-20: Good</li>
+              <li>21-50: Very Good</li>
+              <li>51-80: Excellent</li>
+              <li>Above 80: World Class</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Shout Features Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+        <div class="mb-12">
+          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Automate your NPS calculation with Shout</h2>
+          <p class="text-lg mt-4 text-gray-600">
+            Skip manual calculations and collect NPS scores automatically with our survey platform.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:poll" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold text-primary">Pre-built NPS Question</h3>
+            </div>
+            <p class="text-gray-600">Add our NPS question to your survey and start measuring customer loyalty today.</p>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:calculator" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold text-primary">Auto-Calculate NPS</h3>
+            </div>
+            <p class="text-gray-600">We calculate your NPS automatically and categorize responses into segments.</p>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:filter" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold text-primary">Segment Results</h3>
+            </div>
+            <p class="text-gray-600">Filter by Promoters, Passives, and Detractors to identify your loyal customers.</p>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:palette" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold text-primary">Custom Branding</h3>
+            </div>
+            <p class="text-gray-600">Add your logo and customize designs to match your brand identity.</p>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:shield" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold text-primary">Collect Consent</h3>
+            </div>
+            <p class="text-gray-600">Collect explicit consent before following up with customers for feedback.</p>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:star" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold text-primary">Collect Testimonials</h3>
+            </div>
+            <p class="text-gray-600">Ask promoters for reviews and testimonials to use as social proof.</p>
+          </div>
+        </div>
+    </Container>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16">
+    <Container>
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to measure customer loyalty?</h2>
+        <p class="text-lg text-gray-600 mb-8">Start collecting NPS responses and identifying your brand advocates today with Shout.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/signup/">Create NPS Survey</Button>
+          <Button variant="outline" href="/nps-surveys/">Learn More</Button>
+        </div>
+      </div>
+    </Container>
+  </section>
+</AstroshipLayout>
+
+<script is:inline>
+function calculateNPS() {
+  const promoters = parseInt(document.getElementById('promoters').value) || 0;
+  const passives = parseInt(document.getElementById('passives').value) || 0;
+  const detractors = parseInt(document.getElementById('detractors').value) || 0;
+
+  const total = promoters + passives + detractors;
+
+  if (total === 0) {
+    alert('Please enter at least one response');
+    return;
+  }
+
+  const promotersPercent = (promoters / total) * 100;
+  const passivesPercent = (passives / total) * 100;
+  const detractorsPercent = (detractors / total) * 100;
+
+  const nps = Math.round(promotersPercent - detractorsPercent);
+
+  // Update results
+  document.getElementById('npsResult').textContent = nps;
+  document.getElementById('promotersPercent').textContent = Math.round(promotersPercent);
+  document.getElementById('passivesPercent').textContent = Math.round(passivesPercent);
+  document.getElementById('detractorsPercent').textContent = Math.round(detractorsPercent);
+
+  // Interpretation
+  let interpretation = '';
+  if (nps > 80) {
+    interpretation = 'World Class - Your customers are highly loyal and likely to recommend you';
+  } else if (nps > 50) {
+    interpretation = 'Excellent - Strong customer loyalty and satisfaction';
+  } else if (nps > 20) {
+    interpretation = 'Very Good - Good level of customer satisfaction';
+  } else if (nps > 0) {
+    interpretation = 'Good - Your customers generally recommend you';
+  } else if (nps === 0) {
+    interpretation = 'Neutral - Equal balance of promoters and detractors';
+  } else {
+    interpretation = 'Needs Improvement - Focus on reducing detractors';
+  }
+
+  document.getElementById('npsInterpretation').textContent = interpretation;
+  document.getElementById('results').classList.remove('hidden');
+
+  // Scroll to results
+  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Allow Enter key to calculate
+document.getElementById('detractors').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    calculateNPS();
+  }
+});
+</script>

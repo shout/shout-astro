@@ -50,9 +50,9 @@ const crmSteps = [
   title="Integrated CRM for Research Contacts - Shout.com"
   description="Import your survey contacts, organize them into groups, track the lawful basis for processing their data, and send custom email invitations."
 >
-  <Container>
-    <!-- Hero Section (no image) -->
-    <section class="pt-16 pb-16">
+  <!-- Hero Section (no image) -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="mb-12">
         <h1 class="text-5xl lg:text-6xl font-bold lg:tracking-tight">Connect feedback to your contacts in our <span class="text-primary">integrated CRM</span></h1>
         <p class="text-lg mt-4 text-gray-600 max-w-3xl">
@@ -64,20 +64,30 @@ const crmSteps = [
         </div>
         <p class="text-sm text-gray-500 mt-4">14-Day Free Trial • Cancel Anytime • No Credit Card Required</p>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Build lasting relationships Section -->
-    <NumberedSteps
+  <!-- Build lasting relationships Section -->
+  <section>
+    <Container>
+      <NumberedSteps
       title="Build lasting relationships with Shout's CRM"
       description="Use feedback to create better experiences for your customers, employees, and other stakeholders."
       steps={crmSteps}
-    />
+      />
+    </Container>
+  </section>
 
-    <!-- Customer Logos -->
-    <CustomerLogos />
+  <!-- Customer Logos -->
+  <section>
+    <Container>
+      <CustomerLogos />
+    </Container>
+  </section>
 
-    <!-- Full control over your contacts and campaigns -->
-    <section class="pt-16 pb-16">
+  <!-- Full control over your contacts and campaigns -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Full control over your contacts and campaigns</h2>
       </div>
@@ -117,10 +127,12 @@ const crmSteps = [
           />
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Multiple views of your CRM data -->
-    <section class="pt-16 pb-16 bg-gray-50">
+  <!-- Multiple views of your CRM data -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Multiple views of your CRM data</h2>
       </div>
@@ -160,18 +172,26 @@ const crmSteps = [
           </div>
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
+  <!-- CRM FAQs -->
+  <section>
+    <Container>
+      <FAQSection title="CRM FAQs" faqs={crmFaqs} />
+    </Container>
+  </section>
 
-    <!-- CRM FAQs -->
-    <FAQSection title="CRM FAQs" faqs={crmFaqs} />
+  <!-- Integrated Solutions -->
+  <section>
+    <Container>
+      <Features />
+    </Container>
+  </section>
 
-
-    <!-- Integrated Solutions -->
-    <Features />
-
-    <!-- Final CTA -->
-    <section class="py-16">
+  <!-- Final CTA -->
+  <section class="py-16">
+    <Container>
       <div class="text-center max-w-4xl mx-auto">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to organize your contacts?</h2>
         <p class="text-lg text-gray-600 mb-8">Start managing your research contacts with our integrated CRM today.</p>
@@ -180,7 +200,6 @@ const crmSteps = [
           <Button variant="outline" href="/demo/">Book a Demo</Button>
         </div>
       </div>
-    </section>
-
-  </Container>
+    </Container>
+  </section>
 </AstroshipLayout>

@@ -1,0 +1,235 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+import CustomerLogos from "../components/customer-logos.astro";
+import Features from "../components/features.astro";
+---
+
+<AstroshipLayout
+  title="NPS Surveys - Measure Customer Loyalty - Shout.com"
+  description="NPS surveys allow you to measure customer loyalty, an essential metric for improving customer experience and increasing retention."
+>
+  <!-- Hero Section -->
+  <section class="py-20">
+    <Container>
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+            Net Promoter Score <span class="text-primary">Surveys</span>
+          </h1>
+          <p class="text-lg mt-4 text-gray-600 max-w-xl">
+            Identify your most loyal customers and measure customer loyalty to increase retention with NPS surveys.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 mt-6">
+            <Button href="/signup/">Start your Free Trial</Button>
+            <p class="text-gray-600 text-sm self-center">14-day Free Trial • No Credit Card Required</p>
+          </div>
+        </div>
+        <div class="hidden lg:block">
+          <img
+            src="/images/2022/11/NPS-Surveys.svg"
+            alt="NPS Surveys"
+            class="w-full h-auto max-w-md rounded-lg"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Features Section -->
+  <section class="pt-16 pb-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Calculate NPS with a single question</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          It can't be easier to calculate your Net Promoter Score and identify your advocates than with Shout.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:poll" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">One-click NPS Question</h3>
+          </div>
+          <p class="text-gray-600">Drop our tailor-made NPS question type into your surveys and we'll calculate your Net Promoter Score for you.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:target-lock" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Target Your Advocates</h3>
+          </div>
+          <p class="text-gray-600">Segment your CRM contacts based on whether they were promoters, passives, or detractors and send targeted surveys.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:trending-up" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Benchmark Your NPS</h3>
+          </div>
+          <p class="text-gray-600">Conduct recurring NPS surveys with your customers over time and use crosstabs to measure your success.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:network-chart" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Integrated CRM</h3>
+          </div>
+          <p class="text-gray-600">Import your customers to our CRM, group them based on any variable, and send customizable email invitations.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:globe" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Use Your Own Domain</h3>
+          </div>
+          <p class="text-gray-600">Host surveys on your own website domain to ensure your branding is consistent.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:palette" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Brand Everything</h3>
+          </div>
+          <p class="text-gray-600">Put your brand front-and-center by adding your logo, customizing designs, and white labelling surveys.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Customer Logos -->
+  <CustomerLogos />
+
+    <!-- Integrated Solutions -->
+    <Features />
+
+  <!-- Reduce Churn Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+        <div class="mb-12">
+          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Reduce churn and build loyalty with feedback</h2>
+          <p class="text-lg mt-4 text-gray-600">
+            Identify your most loyal customers and transform them into brand advocates.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:calculator" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Automate NPS Calculation</h3>
+            </div>
+            <p class="text-gray-600">Simply drop in the NPS question and we'll not only calculate your score, but also break down responses into promoters, passives, and detractors.</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:git-branch" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Segment Customers by Loyalty</h3>
+            </div>
+            <p class="text-gray-600">Use filters and crosstabs to create segmented reports for NPS ratings and ask your most loyal customers for reviews and testimonials.</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:alarm-exclamation" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Identify Unsatisfied Customers</h3>
+            </div>
+            <p class="text-gray-600">Create segments for your most unsatisfied customers and analyze open feedback to find out how to repair those relationships.</p>
+          </div>
+        </div>
+    </Container>
+  </section>
+
+  <!-- Distribution Methods Section -->
+  <section class="pt-16 pb-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Collect feedback throughout the customer journey</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Share your NPS surveys across multiple channels to reach your customers where they are.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg border border-gray-200 p-6 text-center hover:shadow-md transition-shadow">
+          <Icon name="bx:envelope" class="w-12 h-12 text-primary mx-auto mb-4" />
+          <h3 class="text-lg font-semibold text-primary mb-2">Email Invitations</h3>
+          <p class="text-gray-600">Send personalized NPS surveys via email to your entire customer base.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 text-center hover:shadow-md transition-shadow">
+          <Icon name="bx:qr" class="w-12 h-12 text-primary mx-auto mb-4" />
+          <h3 class="text-lg font-semibold text-primary mb-2">QR Code</h3>
+          <p class="text-gray-600">Generate QR codes to collect NPS feedback in-store or at events.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 text-center hover:shadow-md transition-shadow">
+          <Icon name="bx:link" class="w-12 h-12 text-primary mx-auto mb-4" />
+          <h3 class="text-lg font-semibold text-primary mb-2">URL Link</h3>
+          <p class="text-gray-600">Share survey links via text, chat, or any communication channel.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 text-center hover:shadow-md transition-shadow">
+          <Icon name="bx:code" class="w-12 h-12 text-primary mx-auto mb-4" />
+          <h3 class="text-lg font-semibold text-primary mb-2">Web Embed</h3>
+          <p class="text-gray-600">Embed NPS surveys directly into your website.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 text-center hover:shadow-md transition-shadow">
+          <Icon name="bx:notification" class="w-12 h-12 text-primary mx-auto mb-4" />
+          <h3 class="text-lg font-semibold text-primary mb-2">Pop-ups</h3>
+          <p class="text-gray-600">Display pop-up surveys at the right time in the customer journey.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 text-center hover:shadow-md transition-shadow">
+          <Icon name="bx:group" class="w-12 h-12 text-primary mx-auto mb-4" />
+          <h3 class="text-lg font-semibold text-primary mb-2">Shout Audience</h3>
+          <p class="text-gray-600">Purchase NPS survey responses from our audience panel.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Compliance Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+        <div class="mb-12">
+          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Compliance built in, for teams of any size</h2>
+          <p class="text-lg mt-4 text-gray-600">
+            Collect NPS feedback while maintaining full GDPR compliance and data security.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:network-chart" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Manage Customers Compliantly</h3>
+            </div>
+            <p class="text-gray-600">Import your customers and group them based on custom variables and your lawful basis for processing their data.</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:user-check" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Collaborate Securely</h3>
+            </div>
+            <p class="text-gray-600">All your surveys are private by default, but can be shared with team members to enable collaboration.</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:shield" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Separate PII from Data</h3>
+            </div>
+            <p class="text-gray-600">Our pseudonymization feature allows you to collect personal information and track responses whilst keeping survey response anonymous.</p>
+          </div>
+        </div>
+    </Container>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16">
+    <Container>
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to increase customer loyalty?</h2>
+        <p class="text-lg text-gray-600 mb-8">Start measuring and improving customer loyalty with professional NPS surveys today.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/signup/">Start your Free Trial</Button>
+          <Button variant="outline" href="/demo/">Book a Demo</Button>
+        </div>
+      </div>
+    </Container>
+  </section>
+</AstroshipLayout>

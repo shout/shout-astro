@@ -1,0 +1,346 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<AstroshipLayout
+  title="SaaS Valuation Calculator | Free Calculator - Shout.com"
+  description="Use Shout's SaaS valuation calculator to get an estimated valuation for your SaaS company. It's completely free, no contact details needed."
+>
+  <!-- Hero Section -->
+  <section class="py-20">
+    <Container>
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+            SaaS Valuation <span class="text-primary">Calculator</span>
+          </h1>
+          <p class="text-lg mt-4 text-gray-600 max-w-xl">
+            Get an estimated valuation for your SaaS company based on industry metrics and multiples.
+          </p>
+        </div>
+        <div class="hidden lg:flex justify-center items-center">
+          <div class="w-24 h-24 text-primary">
+            <Icon name="bx:building" class="w-full h-full" />
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Calculator Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+        <div class="mb-12">
+          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Calculate SaaS valuation</h2>
+          <p class="text-lg mt-4 text-gray-600">
+            Enter your financial metrics to estimate your company valuation.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 max-w-2xl">
+          <div class="space-y-6">
+            <!-- Annual Revenue Input -->
+            <div>
+              <label for="annualRevenue" class="block text-lg font-semibold mb-2">Annual Recurring Revenue (ARR) ($)</label>
+              <input
+                type="number"
+                id="annualRevenue"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="Enter your annual recurring revenue"
+                min="0"
+                step="10000"
+              />
+              <p class="text-sm text-gray-500 mt-2">Your predictable annual revenue</p>
+            </div>
+
+            <!-- Growth Rate Input -->
+            <div>
+              <label for="growthRate" class="block text-lg font-semibold mb-2">Annual Growth Rate (%)</label>
+              <input
+                type="number"
+                id="growthRate"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="Enter your growth rate (e.g., 50 for 50%)"
+                min="0"
+                step="5"
+              />
+              <p class="text-sm text-gray-500 mt-2">Your year-over-year revenue growth percentage</p>
+            </div>
+
+            <!-- Rule of 40 Input (Optional) -->
+            <div>
+              <label for="margin" class="block text-lg font-semibold mb-2">Net Profit Margin (%)</label>
+              <input
+                type="number"
+                id="margin"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="Enter your net profit margin (e.g., -10 for -10%)"
+                step="1"
+              />
+              <p class="text-sm text-gray-500 mt-2">Your profitability percentage (can be negative)</p>
+            </div>
+
+            <!-- Valuation Multiple Input -->
+            <div>
+              <label for="multiple" class="block text-lg font-semibold mb-2">Revenue Multiple</label>
+              <input
+                type="number"
+                id="multiple"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder="Enter revenue multiple (e.g., 8 for 8x)"
+                min="1"
+                step="0.5"
+              />
+              <p class="text-sm text-gray-500 mt-2">SaaS multiples typically range from 3x-10x (higher for growth)</p>
+            </div>
+
+            <!-- Calculate Button -->
+            <button
+              id="calculateBtn"
+              onclick="calculateValuation()"
+              class="w-full bg-primary text-white font-semibold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity mt-8"
+            >
+              Calculate Valuation
+            </button>
+          </div>
+
+          <!-- Results Section -->
+          <div id="results" class="mt-12 hidden">
+            <div class="bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg p-8 border border-primary/20">
+              <h3 class="text-lg font-semibold mb-4">Estimated Company Valuation</h3>
+              <div class="text-4xl font-bold text-primary mb-2">
+                $<span id="valuationResult">0</span>M
+              </div>
+              <p class="text-gray-600 text-lg mb-6">Based on <span id="multipleDisplay">8</span>x revenue multiple</p>
+
+              <div class="grid md:grid-cols-2 gap-6 mt-8">
+                <div class="bg-white rounded-lg p-4 border border-gray-200">
+                  <p class="text-gray-600 font-semibold mb-2">Your ARR</p>
+                  <div class="text-2xl font-bold text-gray-700">
+                    $<span id="arrDisplay">0</span>M
+                  </div>
+                </div>
+                <div class="bg-white rounded-lg p-4 border border-gray-200">
+                  <p class="text-gray-600 font-semibold mb-2">Growth Score</p>
+                  <div class="text-2xl font-bold text-primary">
+                    <span id="growthScore">0</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-white rounded-lg p-4 border border-gray-200 mt-6">
+                <p id="valuationInterpretation" class="text-gray-700"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </Container>
+  </section>
+
+  <!-- Formula Section -->
+  <section class="pt-16 pb-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">How SaaS valuation is calculated</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          SaaS companies are typically valued using revenue multiples based on growth and profitability.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="bg-gray-50 rounded-lg p-8 border border-gray-200">
+            <h3 class="text-2xl font-bold mb-6">SaaS Valuation Formula</h3>
+            <div class="bg-white rounded-lg p-6 border border-primary/20 mb-6">
+              <p class="text-lg text-gray-700 text-center">
+                <strong>Valuation = ARR × Revenue Multiple</strong>
+              </p>
+            </div>
+            <div class="space-y-4">
+              <div>
+                <h4 class="font-semibold mb-2">Revenue Multiples</h4>
+                <p class="text-gray-600 text-sm">
+                  Higher growth and profitability justify higher multiples. The "Rule of 40" suggests adding growth rate and profit margin should equal 40% for a well-valued company.
+                </p>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-2">Rule of 40 Score</h4>
+                <p class="text-gray-600 text-sm">
+                  Score = Growth Rate + Profit Margin
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:chart" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold">Typical Multiples</h3>
+            </div>
+            <ul class="text-gray-600 space-y-2 text-sm">
+              <li>Early stage (0-50% growth): 3-5x</li>
+              <li>Growth stage (50-100% growth): 6-8x</li>
+              <li>Mature/Profitable: 5-15x</li>
+              <li>Enterprise/Category leaders: 15-30x</li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:info-circle" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold">Important Notes</h3>
+            </div>
+            <p class="text-gray-600 text-sm">
+              This is an estimation based on market multiples. Actual valuations depend on customer quality, retention rate, churn, expansion revenue, and other factors.
+            </p>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Shout Features Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+        <div class="mb-12">
+          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Grow your SaaS metrics with Shout</h2>
+          <p class="text-lg mt-4 text-gray-600">
+            Use our tools to improve customer satisfaction, retention, and growth metrics.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:poll" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold text-primary">NPS Surveys</h3>
+            </div>
+            <p class="text-gray-600">Measure customer loyalty and identify expansion opportunities.</p>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:smile" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold text-primary">CSAT Surveys</h3>
+            </div>
+            <p class="text-gray-600">Track satisfaction to reduce churn and improve retention.</p>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:edit" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold text-primary">Feedback Collection</h3>
+            </div>
+            <p class="text-gray-600">Gather user feedback to improve product and increase ARR.</p>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:data" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold text-primary">Analytics Dashboard</h3>
+            </div>
+            <p class="text-gray-600">Track key metrics and cohort analysis to optimize growth.</p>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:user-pin" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold text-primary">CRM Integration</h3>
+            </div>
+            <p class="text-gray-600">Connect feedback to your sales and customer success teams.</p>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:calculator" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="text-lg font-semibold text-primary">Custom Calculators</h3>
+            </div>
+            <p class="text-gray-600">Build product ROI calculators to improve sales conversion.</p>
+          </div>
+        </div>
+    </Container>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16">
+    <Container>
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to increase your valuation?</h2>
+        <p class="text-lg text-gray-600 mb-8">Start gathering customer feedback to improve metrics and accelerate your SaaS growth.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/signup/">Get Started</Button>
+          <Button variant="outline" href="/survey-maker/">Learn More</Button>
+        </div>
+      </div>
+    </Container>
+  </section>
+</AstroshipLayout>
+
+<script is:inline>
+function calculateValuation() {
+  const annualRevenue = parseFloat(document.getElementById('annualRevenue').value) || 0;
+  const growthRate = parseFloat(document.getElementById('growthRate').value) || 0;
+  const margin = parseFloat(document.getElementById('margin').value) || 0;
+  const multiple = parseFloat(document.getElementById('multiple').value) || 8;
+
+  if (annualRevenue === 0) {
+    alert('Please enter your annual recurring revenue');
+    return;
+  }
+
+  // Calculate Rule of 40 score
+  const ruleOf40Score = growthRate + margin;
+
+  // Adjust multiple based on Rule of 40 if user provided it
+  let adjustedMultiple = multiple;
+  if (margin !== 0 || growthRate !== 0) {
+    // If Rule of 40 score is low, lower the multiple
+    if (ruleOf40Score < 30) {
+      adjustedMultiple = multiple * 0.7; // 30% discount
+    } else if (ruleOf40Score < 40) {
+      adjustedMultiple = multiple * 0.85; // 15% discount
+    } else if (ruleOf40Score > 50) {
+      adjustedMultiple = multiple * 1.2; // 20% premium
+    }
+  }
+
+  // Calculate valuation
+  const valuation = (annualRevenue * adjustedMultiple) / 1000000; // Convert to millions
+  const arrInMillions = annualRevenue / 1000000;
+
+  // Determine interpretation
+  let interpretation = '';
+  if (ruleOf40Score >= 50) {
+    interpretation = 'Excellent metrics - Well-positioned for funding and high valuations';
+  } else if (ruleOf40Score >= 40) {
+    interpretation = 'Strong metrics - Attractive to investors';
+  } else if (ruleOf40Score >= 30) {
+    interpretation = 'Good growth - Continue optimizing profitability';
+  } else {
+    interpretation = 'Growing - Focus on either increasing growth or improving margins';
+  }
+
+  // Update results
+  document.getElementById('valuationResult').textContent = valuation.toFixed(1);
+  document.getElementById('multipleDisplay').textContent = adjustedMultiple.toFixed(1);
+  document.getElementById('arrDisplay').textContent = arrInMillions.toFixed(2);
+  document.getElementById('growthScore').textContent = ruleOf40Score.toFixed(0);
+  document.getElementById('valuationInterpretation').textContent = interpretation;
+  document.getElementById('results').classList.remove('hidden');
+
+  // Scroll to results
+  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Allow Enter key to calculate
+document.getElementById('multiple').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    calculateValuation();
+  }
+});
+</script>

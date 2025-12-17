@@ -1,0 +1,226 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+import CustomerLogos from "../components/customer-logos.astro";
+import Features from "../components/features.astro";
+---
+
+<AstroshipLayout
+  title="360-Degree Feedback Surveys - Shout.com"
+  description="Conduct appraisals of employees, colleagues, and supervisors with 360-degree feedback surveys to evaluate their performance and behaviour."
+>
+  <!-- Hero Section -->
+  <section class="py-20">
+    <Container>
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+            360-Degree Feedback <span class="text-primary">Surveys</span>
+          </h1>
+          <p class="text-lg mt-4 text-gray-600 max-w-xl">
+            Empower your team with 360-reviews. Collect anonymous feedback from co-workers, supervisors, and other employees.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 mt-6">
+            <Button href="/signup/">Start your Free Trial</Button>
+            <p class="text-gray-600 text-sm self-center">14-day Free Trial • No Credit Card Required</p>
+          </div>
+        </div>
+        <div class="hidden lg:block">
+          <img
+            src="/images/2022/11/360-Degree-Feedback-Surveys.svg"
+            alt="360-Degree Feedback Surveys"
+            class="w-full h-auto max-w-md rounded-lg"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Features Section -->
+  <section class="pt-16 pb-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Review performance and scale your business</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Robust features to encourage compliance and protect employee data whilst collecting actionable feedback.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:check-shield" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Compliant Contact Management</h3>
+          </div>
+          <p class="text-gray-600">Import employees to the CRM, group them based on role or seniority, and track the lawful basis for processing their data.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:file" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Detailed 360 Reports</h3>
+          </div>
+          <p class="text-gray-600">Review 360-degree feedback in real time with automated reporting and share results with stakeholders with a single click.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:hide" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Anonymous Responses</h3>
+          </div>
+          <p class="text-gray-600">All responses are anonymous by default, encouraging open and honest 360 feedback from peers and managers.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:filter" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Create Review Segments</h3>
+          </div>
+          <p class="text-gray-600">Segment reports into self-assessments, peer reviews, and manager feedback with flexible filters.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:palette" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Brand Surveys and Emails</h3>
+          </div>
+          <p class="text-gray-600">Add your logo and customize the designs of 360 surveys and email invitations to align with your brand guidelines.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:mask" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Pseudonymize Responses</h3>
+          </div>
+          <p class="text-gray-600">Separate personal information from 360 feedback in order to track who's responded, whilst keeping those responses anonymous.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Customer Logos -->
+  <CustomerLogos />
+
+  <!-- Integrated Solutions -->
+  <Features />
+
+  <!-- Improve Performance Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Improve employee performance with 360-degree feedback</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Collect the right data and maximize response rates with targeted 360 surveys.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:list-check" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Collect the Right Data</h3>
+          </div>
+          <p class="text-gray-600">Create professional 360 feedback surveys with access to over 20 question types, including ratings, matrices, and text fields.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:git-branch" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">One Survey for Any Review Type</h3>
+          </div>
+          <p class="text-gray-600">Use question logic to send respondents to different sets of questions based on whether they're performing a self-assessment or reviewing a peer.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:trending-up" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Maximize Response Rates</h3>
+          </div>
+          <p class="text-gray-600">Send email reminders to employees who're yet to submit an assessment, track open and click-rates, and tailor subject lines.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Deliver Tailored Feedback Section -->
+  <section class="pt-16 pb-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Deliver tailored feedback with 360 reports</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Generate comprehensive reports that provide actionable insights for employee development.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:aperture" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Identify Blind Spots</h3>
+          </div>
+          <p class="text-gray-600">Use advanced segmenting and cross-tabulation tools to spot gaps in an employee's knowledge and compare self-assessments to other responses.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:trending-up" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Measure Development Over Time</h3>
+          </div>
+          <p class="text-gray-600">Benchmark employee experience and performance over time with recurring surveys to create an actionable career development plan.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:user-circle" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Personalize Reports</h3>
+            </div>
+          <p class="text-gray-600">Generate separate reports for colleagues, managers, and self-assessors to offer multiple views of an employee's performance.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Compliance Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Compliance built in, for teams of any size</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Collect 360 feedback while maintaining full GDPR compliance and data security.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:network-chart" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Integrated CRM for Employees</h3>
+          </div>
+          <p class="text-gray-600">Import your colleagues to your CRM and group them based on department, role, and seniority for easy management.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:group" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Team Collaboration</h3>
+          </div>
+          <p class="text-gray-600">Choose a plan geared for teams of all sizes, create 360-degree surveys together, and analyze reviews as a team.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:lock" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Collect Data Compliantly</h3>
+          </div>
+          <p class="text-gray-600">With Shout, all responses are anonymous by default. Respondents are only identified if you want them to be.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16">
+    <Container>
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to collect 360 degree feedback?</h2>
+        <p class="text-lg text-gray-600 mb-8">14-Day Free Trial • No Credit Card Required</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/signup/">Start your Free Trial</Button>
+          <Button variant="outline" href="/demo/">Book a Demo</Button>
+        </div>
+      </div>
+    </Container>
+  </section>
+</AstroshipLayout>

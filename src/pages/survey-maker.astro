@@ -5,6 +5,7 @@ import Button from "../components/ui/button.astro";
 import { Icon } from "astro-icon/components";
 import CustomerLogos from "../components/customer-logos.astro";
 import Features from "../components/features.astro";
+import BestReasons from "../components/best-reasons.astro";
 ---
 
 <AstroshipLayout
@@ -246,68 +247,7 @@ import Features from "../components/features.astro";
     </section>
 
     <!-- Best Reasons To Choose Shout -->
-    <section class="py-16">
-      <div class="mb-12">
-        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight text-primary">Best Reasons To Choose Shout</h2>
-        <p class="text-lg mt-4 text-gray-600">
-          Collecting feedback to make better business decisions has never been easier. Our intuitive tools are loved by millions of users all over the world.
-        </p>
-      </div>
-
-      <!-- Stats -->
-      <div class="grid md:grid-cols-3 gap-8 mb-16">
-        <div class="text-center">
-          <div class="text-4xl font-bold text-primary mb-2">21+</div>
-          <div class="text-lg text-gray-600">Years of Experience</div>
-        </div>
-        <div class="text-center">
-          <div class="text-4xl font-bold text-primary mb-2">3 million+</div>
-          <div class="text-lg text-gray-600">Happy Users</div>
-        </div>
-        <div class="text-center">
-          <div class="text-4xl font-bold text-primary mb-2">100%</div>
-          <div class="text-lg text-gray-600">Satisfaction</div>
-        </div>
-      </div>
-
-      <!-- Testimonials -->
-      <div class="grid md:grid-cols-2 gap-8 mb-16">
-        <div class="bg-white rounded-lg p-8 shadow-lg border border-gray-100">
-          <div class="flex items-center mb-4">
-            <img src="/images/2022/05/user-avatar-2.webp" alt="Ron Elias" class="w-16 h-16 rounded-full mr-4" />
-            <div>
-              <h4 class="font-semibold text-lg">Ron Elias</h4>
-              <p class="text-gray-600">B2B Copywriter - Freelance</p>
-            </div>
-          </div>
-          <div class="flex mb-4">
-            <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
-            <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
-            <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
-            <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
-            <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
-          </div>
-          <p class="text-gray-700 italic">"Interactive and really easy to use Software. The builder is seamless, and the question types are perfect. I love the way I can structure surveys in quick and easy way."</p>
-        </div>
-        <div class="bg-white rounded-lg p-8 shadow-lg border border-gray-100">
-          <div class="flex items-center mb-4">
-            <img src="/images/2022/05/user-avatar-1.webp" alt="Oana Frant" class="w-16 h-16 rounded-full mr-4" />
-            <div>
-              <h4 class="font-semibold text-lg">Oana Frant</h4>
-              <p class="text-gray-600">Consultant – World Bank</p>
-            </div>
-          </div>
-          <div class="flex mb-4">
-            <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
-            <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
-            <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
-            <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
-            <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
-          </div>
-          <p class="text-gray-700 italic">"Shout offers multiple options for customization. Moreover, our projects look perfect on any device. If you want a platform that does most of the work for you, including automatic reporting, go with Shout."</p>
-        </div>
-      </div>
-    </section>
+    <BestReasons />
 
     <!-- Shout out! -->
     <section class="py-16 bg-gray-50">

@@ -206,15 +206,14 @@ cd /home/david/RiderProjects/shout-website/shout-astro
 git add .
 git commit -m "Your commit message"
 
-# ❌ WRONG - Don't try to commit from the nested directory
-cd /home/david/RiderProjects/shout-website/shout-astro/shout-astro
-git add .  # This will fail - not a git repo
+# ❌ WRONG - Don't try to commit from a subdirectory
+cd /home/david/RiderProjects/shout-website/shout-astro/src
+git add .  # This will fail - not at git root
 ```
 
 **Directory structure:**
 - `/home/david/RiderProjects/shout-website/shout-astro/` - **Git repository root**
 - `/home/david/RiderProjects/shout-website/shout-astro/src/` - Source files
-- `/home/david/RiderProjects/shout-website/shout-astro/shout-astro/` - Nested directory (not git root)
 
 ### Development Workflow
 

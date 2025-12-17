@@ -1,0 +1,245 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<AstroshipLayout
+  title="Privacy Policy - Shout.com"
+  description="Shout.com Privacy Policy. Learn how we collect, use, and protect your personal data in compliance with GDPR, CCPA, and other regulations."
+>
+  <section class="py-16">
+    <Container>
+      <div class="max-w-4xl mx-auto">
+      <div class="mb-12">
+        <h1 class="text-4xl lg:text-5xl font-bold mb-4">Privacy Policy</h1>
+        <p class="text-lg text-gray-600">
+          Last Updated: December 2024
+        </p>
+      </div>
+
+      <!-- Quick Navigation -->
+      <div class="bg-blue-50 rounded-lg p-6 mb-12">
+        <h2 class="font-semibold mb-4">Privacy Topics</h2>
+        <ul class="space-y-2 text-sm grid grid-cols-1 sm:grid-cols-2">
+          <li><a href="#information-we-collect" class="text-blue-600 hover:underline">Information We Collect</a></li>
+          <li><a href="#how-we-use" class="text-blue-600 hover:underline">How We Use Information</a></li>
+          <li><a href="#legal-basis" class="text-blue-600 hover:underline">Legal Basis for Processing</a></li>
+          <li><a href="#data-retention" class="text-blue-600 hover:underline">Data Retention</a></li>
+          <li><a href="#data-rights" class="text-blue-600 hover:underline">Your Data Rights</a></li>
+          <li><a href="#contact" class="text-blue-600 hover:underline">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="prose prose-lg max-w-none space-y-8">
+        <!-- Overview Section -->
+        <section>
+          <div class="flex gap-4 mb-4">
+            <Icon name="bx:check-shield" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+            <div>
+              <h2 class="text-2xl font-bold mb-4">Our Privacy Commitment</h2>
+              <p class="text-gray-700 mb-4">
+                At Shout.com, we believe that privacy is a fundamental right. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal data when you use our Service.
+              </p>
+              <p class="text-gray-700">
+                Shout is a privacy-first platform, meaning data protection and security is engineered into all of our tools. We are compliant with the GDPR, UK-GDPR, CCPA, and other international data protection regulations.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Information We Collect Section -->
+        <section id="information-we-collect">
+          <div class="flex gap-4 mb-4">
+            <Icon name="bx:info-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+            <div>
+              <h2 class="text-2xl font-bold mb-4">Information We Collect</h2>
+              <h3 class="text-xl font-semibold mt-6 mb-3">Information You Provide</h3>
+              <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 mb-4">
+                <li>Account registration information (name, email, organization)</li>
+                <li>Payment and billing information</li>
+                <li>Survey responses and form submissions</li>
+                <li>Customer service communications</li>
+                <li>Profile and preference information</li>
+              </ul>
+
+              <h3 class="text-xl font-semibold mt-6 mb-3">Information Collected Automatically</h3>
+              <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 mb-4">
+                <li>Log data (IP address, browser type, pages visited)</li>
+                <li>Device information (type, operating system)</li>
+                <li>Usage analytics</li>
+                <li>Cookies and similar tracking technologies</li>
+              </ul>
+
+              <h3 class="text-xl font-semibold mt-6 mb-3">Information from Third Parties</h3>
+              <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                <li>Payment processors</li>
+                <li>Social media platforms (if connected)</li>
+                <li>Analytics providers</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- How We Use Information Section -->
+        <section id="how-we-use">
+          <div class="flex gap-4 mb-4">
+            <Icon name="bx:check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+            <div>
+              <h2 class="text-2xl font-bold mb-4">How We Use Your Information</h2>
+              <p class="text-gray-700 mb-4">
+                We use the information we collect for the following purposes:
+              </p>
+              <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 mb-4">
+                <li>To provide, maintain, and improve our Service</li>
+                <li>To process your account and transactions</li>
+                <li>To send administrative information and service updates</li>
+                <li>To respond to your inquiries and provide customer support</li>
+                <li>To enforce our Terms of Use and other agreements</li>
+                <li>To prevent fraud and unauthorized access</li>
+                <li>To comply with legal obligations</li>
+              </ul>
+              <p class="bg-yellow-50 border-l-4 border-yellow-400 p-4 text-gray-700">
+                <strong>[LEGAL REVIEW REQUIRED]</strong> - Ensure all data use purposes align with your actual business practices and have appropriate consent mechanisms in place.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Legal Basis Section -->
+        <section id="legal-basis">
+          <div class="flex gap-4 mb-4">
+            <Icon name="bx:book-open" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+            <div>
+              <h2 class="text-2xl font-bold mb-4">Legal Basis for Processing (GDPR)</h2>
+              <p class="text-gray-700 mb-4">
+                Under the GDPR, we process your personal data based on one or more of the following legal bases:
+              </p>
+              <div class="space-y-4">
+                <div class="border-l-4 border-blue-400 pl-4">
+                  <h3 class="font-semibold mb-2">Contractual Necessity</h3>
+                  <p class="text-gray-700">To provide our Service and fulfill your requests</p>
+                </div>
+                <div class="border-l-4 border-blue-400 pl-4">
+                  <h3 class="font-semibold mb-2">Legitimate Interests</h3>
+                  <p class="text-gray-700">To improve our Service, prevent fraud, and ensure security</p>
+                </div>
+                <div class="border-l-4 border-blue-400 pl-4">
+                  <h3 class="font-semibold mb-2">Consent</h3>
+                  <p class="text-gray-700">Where you have explicitly consented to marketing communications</p>
+                </div>
+                <div class="border-l-4 border-blue-400 pl-4">
+                  <h3 class="font-semibold mb-2">Legal Obligation</h3>
+                  <p class="text-gray-700">To comply with applicable laws and regulations</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Data Retention Section -->
+        <section id="data-retention">
+          <div class="flex gap-4 mb-4">
+            <Icon name="bx:time-five" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+            <div>
+              <h2 class="text-2xl font-bold mb-4">Data Retention</h2>
+              <p class="text-gray-700 mb-4">
+                We retain your personal data for as long as necessary to provide our Service and fulfill the purposes outlined in this Privacy Policy. Retention periods vary depending on the type of data:
+              </p>
+              <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 mb-4">
+                <li>Account data: Retained while your account is active and for [X years] after termination</li>
+                <li>Transaction data: Retained for [X years] for tax and accounting purposes</li>
+                <li>Survey responses: Retained according to your retention settings</li>
+                <li>Log data: Typically retained for [X days/months]</li>
+              </ul>
+              <p class="text-gray-700">
+                You may request deletion of your data at any time, subject to legal and contractual obligations. See "Your Data Rights" below.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Data Rights Section -->
+        <section id="data-rights">
+          <div class="flex gap-4 mb-4">
+            <Icon name="bx:key" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+            <div>
+              <h2 class="text-2xl font-bold mb-4">Your Data Rights</h2>
+              <p class="text-gray-700 mb-4">
+                Depending on where you are located, you may have the following rights regarding your personal data:
+              </p>
+
+              <h3 class="text-xl font-semibold mt-6 mb-3">GDPR Rights (EU/UK/EEA)</h3>
+              <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 mb-6">
+                <li><strong>Right of Access:</strong> Request a copy of your personal data</li>
+                <li><strong>Right to Rectification:</strong> Correct inaccurate data</li>
+                <li><strong>Right to Erasure:</strong> Request deletion of your data</li>
+                <li><strong>Right to Restrict Processing:</strong> Limit how we use your data</li>
+                <li><strong>Right to Data Portability:</strong> Receive your data in a portable format</li>
+                <li><strong>Right to Object:</strong> Object to certain processing activities</li>
+              </ul>
+
+              <h3 class="text-xl font-semibold mt-6 mb-3">CCPA Rights (California)</h3>
+              <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 mb-6">
+                <li><strong>Right to Know:</strong> What personal information is collected and how it's used</li>
+                <li><strong>Right to Delete:</strong> Request deletion of collected information</li>
+                <li><strong>Right to Opt-Out:</strong> Opt out of the sale or sharing of your data</li>
+                <li><strong>Right to Non-Discrimination:</strong> Not be discriminated against for exercising your rights</li>
+              </ul>
+
+              <p class="bg-yellow-50 border-l-4 border-yellow-400 p-4 text-gray-700">
+                <strong>[LEGAL REVIEW REQUIRED]</strong> - Data retention periods and rights implementations must be verified for your specific jurisdiction and data handling practices.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Data Security Section -->
+        <section>
+          <div class="flex gap-4 mb-4">
+            <Icon name="bx:lock" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+            <div>
+              <h2 class="text-2xl font-bold mb-4">Data Security</h2>
+              <p class="text-gray-700 mb-4">
+                We implement comprehensive security measures to protect your personal data, including:
+              </p>
+              <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                <li>Encryption in transit (TLS 1.2+) and at rest (AES 128+)</li>
+                <li>Regular security audits and penetration testing</li>
+                <li>Access controls and role-based permissions</li>
+                <li>Secure data centers with ISO 27001:2013 certification</li>
+                <li>Backup and disaster recovery procedures</li>
+              </ul>
+              <p class="text-gray-700 mt-4">
+                For more detailed security information, please see our <a href="/security/" class="text-blue-600 hover:underline">Security Policy</a>.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="mt-12 bg-gray-50 rounded-lg p-8 border border-gray-200">
+          <h2 class="text-2xl font-bold mb-4">Privacy Inquiries</h2>
+          <p class="text-gray-700 mb-6">
+            If you have any questions about this Privacy Policy or how we handle your data, please contact us.
+          </p>
+          <div class="space-y-4 mb-6">
+            <div>
+              <h3 class="font-semibold mb-2">Data Protection Officer</h3>
+              <p class="text-gray-700">Email: <a href="mailto:dpo@shout.com" class="text-blue-600 hover:underline">dpo@shout.com</a></p>
+            </div>
+            <div>
+              <h3 class="font-semibold mb-2">General Inquiries</h3>
+              <p class="text-gray-700">Email: <a href="mailto:help@shout.com" class="text-blue-600 hover:underline">help@shout.com</a></p>
+            </div>
+          </div>
+          <a href="/contact/" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+            <Icon name="bx:message-dots" class="w-5 h-5" />
+            Contact Us
+          </a>
+        </section>
+      </div>
+      </div>
+    </Container>
+  </section>
+</AstroshipLayout>

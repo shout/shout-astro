@@ -1,0 +1,226 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+import CustomerLogos from "../components/customer-logos.astro";
+import Features from "../components/features.astro";
+---
+
+<AstroshipLayout
+  title="Market Research Surveys - Shout.com"
+  description="Market research surveys allow you to collect detailed insights to help you make informed decisions and optimize your marketing strategies."
+>
+  <!-- Hero Section -->
+  <section class="py-20">
+    <Container>
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+            Market Research <span class="text-primary">Surveys</span>
+          </h1>
+          <p class="text-lg mt-4 text-gray-600 max-w-xl">
+            Learn everything about your target market. Collect actionable data, reduce risk in decision making, and boost your ROI.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 mt-6">
+            <Button href="/signup/">Start your Free Trial</Button>
+            <p class="text-gray-600 text-sm self-center">14-day Free Trial • No Credit Card Required</p>
+          </div>
+        </div>
+        <div class="hidden lg:block">
+          <img
+            src="/images/2022/11/Market-Research-Surveys.svg"
+            alt="Market Research Surveys"
+            class="w-full h-auto max-w-md rounded-lg"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Features Section -->
+  <section class="pt-16 pb-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Make informed decisions with market research</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Gain insights to improve customer experience and optimize your marketing strategies.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:user-plus" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Capture New Leads</h3>
+          </div>
+          <p class="text-gray-600">Capture leads with forms, record consent, group contacts, and track the legal basis for processing their data.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:line-chart" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Spot Market Trends</h3>
+          </div>
+          <p class="text-gray-600">Use crosstabs and flexible filters to identify patterns and trends in your market research data.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:globe" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Target Respondents Globally</h3>
+          </div>
+          <p class="text-gray-600">Find survey respondents all over the world to power your research and make data-driven decisions.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:palette" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Brand Everything</h3>
+          </div>
+          <p class="text-gray-600">Add logos, customize designs, use a custom domain and white label surveys to remove all Shout branding.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:adjust" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Personalize Experiences</h3>
+          </div>
+          <p class="text-gray-600">Send respondents to relevant questions with logic and personalize survey content with merge tags.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:share-alt" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Multichannel Distribution</h3>
+          </div>
+          <p class="text-gray-600">Share surveys in any way that works for you, including email invitations, URL link, web embed, QR code, and more.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Customer Logos -->
+  <CustomerLogos />
+
+    <!-- Integrated Solutions -->
+    <Features />
+
+  <!-- Get Answers Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+        <div class="mb-12">
+          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Get the answers you need to scale your business</h2>
+          <p class="text-lg mt-4 text-gray-600">
+            Perform advanced market research with A/B testing and comprehensive measurement tools.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:shuffle" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Split Test Content</h3>
+            </div>
+            <p class="text-gray-600">Perform A/B tests with sections of text, images, and videos to determine what performs best with respondents.</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:poll" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Measure Customer Loyalty with NPS</h3>
+            </div>
+            <p class="text-gray-600">Identify your promoters, passives, and detractors with a single question, and we'll calculate your Net Promoter Score for you.</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:star" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Collect Social Proof</h3>
+            </div>
+            <p class="text-gray-600">Use tailor made question types to ask your happiest customers for reviews and testimonials of your products and services.</p>
+          </div>
+        </div>
+    </Container>
+  </section>
+
+  <!-- Tracking Data Section -->
+  <section class="pt-16 pb-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Seamlessly track and monitor your data</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Get a complete view of your market research data with advanced filtering and analysis tools.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:show" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Take Control of Your Data</h3>
+          </div>
+          <p class="text-gray-600">Get a bird's-eye view of your data, drill down into individual responses, and identify patterns and trends.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:send" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Track Responses and Send Reminders</h3>
+          </div>
+          <p class="text-gray-600">See who's responded to your survey and send reminders to contacts who're yet to do so.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:envelope-open" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Monitor Email Engagement Rates</h3>
+          </div>
+          <p class="text-gray-600">Craft beautiful email invitations, track responses, send reminders, and monitor the performance of campaigns.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Compliance Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+        <div class="mb-12">
+          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Fully compliant market research</h2>
+          <p class="text-lg mt-4 text-gray-600">
+            Conduct market research while maintaining GDPR compliance and data privacy.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:shield" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Store Contacts Compliantly</h3>
+            </div>
+            <p class="text-gray-600">Assign a lawful basis like Consent or Legitimate Interests to groups for compliant contact management.</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:lock" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Data Access Controls</h3>
+            </div>
+            <p class="text-gray-600">Surveys are private by default. Share with relevant team members to enable collaboration on market research.</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:mask" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Preserve Anonymity</h3>
+            </div>
+            <p class="text-gray-600">Enable pseudonymization to store PII separately from survey responses whilst still tracking responses.</p>
+          </div>
+        </div>
+    </Container>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16">
+    <Container>
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Conduct market research with Shout</h2>
+        <p class="text-lg text-gray-600 mb-8">Create market research surveys with an app that enables collaboration, supports compliance, and encourages customization.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/signup/">Start your Free Trial</Button>
+          <Button variant="outline" href="/demo/">Book a Demo</Button>
+        </div>
+      </div>
+    </Container>
+  </section>
+</AstroshipLayout>

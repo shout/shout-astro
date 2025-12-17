@@ -1,19 +1,98 @@
-<footer class="my-20">
-  <p class="text-center text-sm text-slate-500">
-    Copyright © {new Date().getFullYear()} Shout.com. All rights reserved.
-  </p>
-  <!--
-    Can we ask you a favor 🙏
-    Please keep this backlink on your website if possible.
-    or Purchase a commercial license from https://web3templates.com
-  -->
-  <p class="text-center text-xs text-slate-500 mt-1">
-    Made by <a
-      href="https://web3templates.com"
-      target="_blank"
-      rel="noopener"
-      class="hover:underline">
-      Web3Templates
-    </a>
-  </p>
+---
+import Container from "./container.astro";
+
+const footerLinks = {
+  mainLinks: {
+    title: "Main Links",
+    links: [
+      { label: "Pricing", path: "/pricing/" },
+      { label: "About", path: "/about/" },
+      { label: "Blog", path: "/blog/" },
+      { label: "Help Docs", path: "/help/" },
+      { label: "Compliance", path: "/security-compliance/" },
+      { label: "Customers", path: "/customers/" },
+    ],
+  },
+  products: {
+    title: "Products",
+    links: [
+      { label: "Survey Maker", path: "/survey-maker/" },
+      { label: "Quiz Builder", path: "/quiz-builder/" },
+      { label: "Form Builder", path: "/form-builder/" },
+      { label: "Custom Calculator", path: "/custom-calculator-builder/" },
+      { label: "Shout Audience", path: "/audience/" },
+      { label: "Shout CRM", path: "/crm/" },
+      { label: "Shout Teams", path: "/teams/" },
+    ],
+  },
+  solutions: {
+    title: "Solutions",
+    links: [
+      { label: "360 Degree Feedback", path: "/360-degree-feedback-surveys/" },
+      { label: "Customer Satisfaction", path: "/customer-satisfaction-surveys/" },
+      { label: "Employee Satisfaction", path: "/employee-satisfaction-surveys/" },
+      { label: "Market Research", path: "/market-research-surveys/" },
+      { label: "Event Surveys", path: "/event-surveys/" },
+      { label: "NPS Surveys", path: "/nps-surveys/" },
+      { label: "Students", path: "/student-surveys/" },
+      { label: "Non-Profits", path: "/non-profit-surveys/" },
+    ],
+  },
+  legal: {
+    title: "Legal",
+    links: [
+      { label: "Terms of Use", path: "/terms/" },
+      { label: "Privacy Policy", path: "/privacy/" },
+      { label: "Security Policy", path: "/security/" },
+      { label: "Cookie Policy", path: "/cookies/" },
+    ],
+  },
+  comparisons: {
+    title: "Comparisons",
+    links: [
+      { label: "SurveyMonkey Alternative", path: "/surveymonkey-alternative/" },
+      { label: "Typeform Alternative", path: "/typeform-alternative/" },
+      { label: "Smart Survey Alternative", path: "/smart-survey-alternative/" },
+    ],
+  },
+};
+
+const sections = Object.values(footerLinks);
+---
+
+<footer class="bg-gray-50 border-t border-gray-200">
+  <Container>
+    <div class="py-12">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+        {sections.map((section) => (
+          <div>
+            <h3 class="font-semibold text-gray-900 mb-4">{section.title}</h3>
+            <ul class="space-y-2">
+              {section.links.map((link) => (
+                <li>
+                  <a
+                    href={link.path}
+                    class="text-sm text-gray-600 hover:text-primary transition-colors">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="border-t border-gray-200 py-6">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="flex items-center gap-4">
+          <a href="/" class="flex items-center">
+            <img src="/images/logo.svg" alt="Shout.com" class="h-8 w-auto">
+          </a>
+        </div>
+        <p class="text-sm text-gray-500">
+          Copyright © {new Date().getFullYear()} Shout.com. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </Container>
 </footer>

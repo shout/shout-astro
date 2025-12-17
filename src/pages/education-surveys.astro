@@ -1,0 +1,226 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+import CustomerLogos from "../components/customer-logos.astro";
+import Features from "../components/features.astro";
+---
+
+<AstroshipLayout
+  title="Education Surveys for Teachers, Staff and Students - Shout.com"
+  description="Education surveys are a great way to measure satisfaction, evaluate performance, and collect feedback from staff, teachers, parents."
+>
+  <!-- Hero Section -->
+  <section class="py-20">
+    <Container>
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+            Education <span class="text-primary">Surveys</span>
+          </h1>
+          <p class="text-lg mt-4 text-gray-600 max-w-xl">
+            Measure staff and student satisfaction. Listen to the student voice, evaluate staff performance, and collect feedback from teachers, pupils and parents.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 mt-6">
+            <Button href="/signup/">Start your Free Trial</Button>
+            <p class="text-gray-600 text-sm self-center">14-day Free Trial • No Credit Card Required</p>
+          </div>
+        </div>
+        <div class="hidden lg:block">
+          <img
+            src="/images/2022/11/Education-Surveys.svg"
+            alt="Education Surveys"
+            class="w-full h-auto max-w-md rounded-lg"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Features Section -->
+  <section class="pt-16 pb-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Collect staff, student, and parent feedback</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Improve course content, measure staff and student satisfaction, inform policy changes, and power academic research.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:network-chart" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Integrated CRM</h3>
+          </div>
+          <p class="text-gray-600">Import students to your CRM, track surveys, monitor engagement rates, and record the lawful basis for processing their data.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:link" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Connected Forms</h3>
+          </div>
+          <p class="text-gray-600">Connect forms to your CRM to take attendance, record absences, collect contact information, and register students for courses.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:help-circle" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Automated Quiz Scoring</h3>
+          </div>
+          <p class="text-gray-600">Engage classrooms with interactive quizzes, and display scores, grades, and customized feedback upon completion.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:group" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Departmental Collaboration</h3>
+          </div>
+          <p class="text-gray-600">Invite other department heads or admin staff to join your team, share your features, and collaborate on surveys and results.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:palette" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Branded Designs</h3>
+          </div>
+          <p class="text-gray-600">Add your institution's logo and customize survey and email designs to align with your brand guidelines.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:mask" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Separate PII from Responses</h3>
+          </div>
+          <p class="text-gray-600">Enable pseudonymization to store personally identifiable information and survey responses separately in your results.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Customer Logos -->
+  <CustomerLogos />
+
+  <!-- Integrated Solutions -->
+  <Features />
+
+  <!-- Tailor-Made Surveys Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Tailor made education surveys for any respondent</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Create comprehensive surveys that engage students, teachers, and parents.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:list-check" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Ask the Right Questions</h3>
+          </div>
+          <p class="text-gray-600">Shout offers over 20 question types: including opinion scales, multiple-choice, matrices, and picture-choice questions.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:git-branch" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Create Custom Paths</h3>
+          </div>
+          <p class="text-gray-600">Send respondents to sets of relevant questions based on courses and modules they attended using question logic.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:universal-access" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Be Inclusive of All Respondents</h3>
+          </div>
+          <p class="text-gray-600">Surveys and quizzes can be created in any language and are WIA-ARIA disability compliant to ensure accessibility.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Improve Outcomes Section -->
+  <section class="pt-16 pb-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Improve educational outcomes with feedback</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Convert education survey feedback into actionable improvements for your institution.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:time" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Turn Data into Actionable Insight</h3>
+          </div>
+          <p class="text-gray-600">Your responses automatically compiled into reports in real time, where you can view averages, individual responses, and create multiple views.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:filter" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Segment and Compare Data Sets</h3>
+          </div>
+          <p class="text-gray-600">Identify the courses and teachers that experienced the highest level of student satisfaction and understand why they performed so well.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:share-alt" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Share Results with Stakeholders</h3>
+            </div>
+          <p class="text-gray-600">Export data as a spreadsheet, download your report as a PDF, and share access to digital reports with a URL link.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Compliance Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Compliant surveys for schools and universities</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Collect education feedback while maintaining full GDPR compliance and data security.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:server" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Store Data on Compliant Servers</h3>
+          </div>
+          <p class="text-gray-600">All survey responses are stored in the United Kingdom, which has an adequacy decision with the EU.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:checkbox-checked" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Collect Explicit Consent</h3>
+          </div>
+          <p class="text-gray-600">Create consent-based contact groups for events, survey campaigns, and trips and collect record consent to contact profiles with forms.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:shield" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Collect Data in a Secure Environment</h3>
+          </div>
+          <p class="text-gray-600">Shout operates under a zero-trust framework and all our security policies are designed to meet or exceed the GDPR, UK-GDPR, and CCPA.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16">
+    <Container>
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Improve staff and student satisfaction today</h2>
+        <p class="text-lg text-gray-600 mb-8">14 Day Free Trial • Cancel Any Time • No Credit Card Required</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/signup/">Start your Free Trial</Button>
+          <Button variant="outline" href="/demo/">Book a Demo</Button>
+        </div>
+      </div>
+    </Container>
+  </section>
+</AstroshipLayout>

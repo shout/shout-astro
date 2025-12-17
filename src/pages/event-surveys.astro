@@ -1,0 +1,226 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+import CustomerLogos from "../components/customer-logos.astro";
+import Features from "../components/features.astro";
+---
+
+<AstroshipLayout
+  title="Event Surveys - Shout.com"
+  description="Whether you're planning an event or collecting feedback from attendees, Shout has everything you need to create event surveys."
+>
+  <!-- Hero Section -->
+  <section class="py-20">
+    <Container>
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+            Event <span class="text-primary">Surveys</span>
+          </h1>
+          <p class="text-lg mt-4 text-gray-600 max-w-xl">
+            Make your events the talk of the town. From conferences to fundraisers, collect the feedback you need to improve and grow your events.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 mt-6">
+            <Button href="/signup/">Start your Free Trial</Button>
+            <p class="text-gray-600 text-sm self-center">14-day Free Trial • No Credit Card Required</p>
+          </div>
+        </div>
+        <div class="hidden lg:block">
+          <img
+            src="/images/2022/11/Event-Surveys.svg"
+            alt="Event Surveys"
+            class="w-full h-auto max-w-md rounded-lg"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Features Section -->
+  <section class="pt-16 pb-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Collect feedback before, during, and after your event</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Robust features to encourage compliance and protect attendee data whilst collecting actionable feedback.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:user-check" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Collect Attendee Data</h3>
+          </div>
+          <p class="text-gray-600">Import attendees to our CRM or collect them with forms. Segment contacts to send targeted surveys.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:poll" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Measure Event NPS</h3>
+          </div>
+          <p class="text-gray-600">Ask attendees how likely they are to recommend your event to others with our Net Promoter Score question type.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:trending-up" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Benchmark Satisfaction</h3>
+          </div>
+          <p class="text-gray-600">Measure event satisfaction with a recurring survey and use crosstabs to compare results over time.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:git-branch" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Streamline with Logic</h3>
+          </div>
+          <p class="text-gray-600">Show questions based on talks attended, menu choices, and anything else to personalize your event surveys.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:palette" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Brand Surveys</h3>
+          </div>
+          <p class="text-gray-600">Add your logo, customize survey and email designs to align with your brand guidelines, and white label surveys.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:time" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Collect Live Feedback</h3>
+          </div>
+          <p class="text-gray-600">Access real time reports to learn what attendees think of your event and make changes based on live feedback.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Customer Logos -->
+  <CustomerLogos />
+
+  <!-- Integrated Solutions -->
+  <Features />
+
+  <!-- Event Planning Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Event planning made easy</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          From registration to feedback collection, manage every aspect of your event.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:list-check" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Build Your Guest List</h3>
+          </div>
+          <p class="text-gray-600">Collect RSVPs, register guests, and connect forms to our CRM to follow up with event feedback surveys.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:send" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Track Responses</h3>
+          </div>
+          <p class="text-gray-600">Enable tracking for email invitations and send reminders to those who haven't RSVP'd to lock down your guest list.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:bar-chart" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Identify Marketing Channels</h3>
+          </div>
+          <p class="text-gray-600">Ask respondents how they found out about your event and connect that data to identify the most efficient marketing channels.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Improve Event Section -->
+  <section class="pt-16 pb-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Improve your next event with actionable data</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Transform event feedback into improvements for your next event.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:filter" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Segment Feedback</h3>
+            </div>
+          <p class="text-gray-600">Create segmented views of your results and compare data sets based on CRM data, survey answers, and email metrics.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:star" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Collect Testimonials</h3>
+          </div>
+          <p class="text-gray-600">Identify your most satisfied attendees and send targeted surveys to collect reviews and testimonials.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:share-alt" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Share Results</h3>
+          </div>
+          <p class="text-gray-600">Export your report as a PDF or spreadsheet. Share access to your digital reports with stakeholders.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Compliance Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Compliant event management</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Collect event feedback while maintaining full compliance with data protection regulations.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:checkbox-checked" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Record Explicit Consent</h3>
+          </div>
+          <p class="text-gray-600">Connect event forms to contact groups marked for explicit consent and collect record consent to contact profiles.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:shield" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Organize Contacts</h3>
+          </div>
+          <p class="text-gray-600">Contact groups are tagged with a lawful basis such as Legitimate Interests or Contract for compliant management.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:mask" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Separate Personal Information</h3>
+          </div>
+          <p class="text-gray-600">Enable pseudonymization to separate any personal information from question data in your reports.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16">
+    <Container>
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Maximize your attendance with Shout</h2>
+        <p class="text-lg text-gray-600 mb-8">14 Day Free Trial • Cancel Any Time • No Credit Card Required</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/signup/">Start your Free Trial</Button>
+          <Button variant="outline" href="/demo/">Book a Demo</Button>
+        </div>
+      </div>
+    </Container>
+  </section>
+</AstroshipLayout>

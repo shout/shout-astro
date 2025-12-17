@@ -1,0 +1,192 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<AstroshipLayout
+  title="Help & Documentation - Shout.com"
+  description="Get help with Shout. Find documentation, tutorials, FAQs, and contact our support team for assistance."
+>
+  <!-- Hero Section -->
+  <section class="py-20">
+    <Container>
+      <div class="text-center max-w-3xl mx-auto">
+        <h1 class="text-5xl lg:text-6xl font-bold lg:tracking-tight mb-6">
+          Help & Documentation
+        </h1>
+        <p class="text-lg text-gray-600 mb-8">
+          Find answers to common questions, explore tutorials, and get support from our knowledgeable team.
+        </p>
+        <div class="relative max-w-md mx-auto">
+          <input
+            type="search"
+            placeholder="Search help articles..."
+            class="w-full px-6 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
+          />
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Quick Links Section -->
+  <section class="py-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Quick Links</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <a href="https://shout.com/help" class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md hover:border-primary transition-all">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:book-open" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="font-semibold text-lg">Documentation</h3>
+          </div>
+          <p class="text-gray-600 text-sm">Complete guides and documentation for all features</p>
+        </a>
+
+        <a href="https://shout.com/help" class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md hover:border-primary transition-all">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:help-circle" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="font-semibold text-lg">FAQs</h3>
+          </div>
+          <p class="text-gray-600 text-sm">Answers to frequently asked questions</p>
+        </a>
+
+        <a href="https://shout.com/help" class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md hover:border-primary transition-all">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:video" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="font-semibold text-lg">Video Tutorials</h3>
+          </div>
+          <p class="text-gray-600 text-sm">Step-by-step video guides for common tasks</p>
+        </a>
+
+        <a href="https://shout.com/help" class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md hover:border-primary transition-all">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:comment" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="font-semibold text-lg">Community</h3>
+          </div>
+          <p class="text-gray-600 text-sm">Connect with other Shout users</p>
+        </a>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Popular Topics -->
+  <section class="py-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Popular Topics</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8">
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <Icon name="bx:list-check" class="w-6 h-6 text-primary mr-3" />
+            Getting Started with Surveys
+          </h3>
+          <ul class="space-y-3">
+            <li><a href="https://shout.com/help" class="text-primary hover:underline">How to create your first survey</a></li>
+            <li><a href="https://shout.com/help" class="text-primary hover:underline">Understanding question types</a></li>
+            <li><a href="https://shout.com/help" class="text-primary hover:underline">Survey distribution methods</a></li>
+            <li><a href="https://shout.com/help" class="text-primary hover:underline">Analyzing survey results</a></li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8">
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <Icon name="bx:user" class="w-6 h-6 text-primary mr-3" />
+            Account & Billing
+          </h3>
+          <ul class="space-y-3">
+            <li><a href="https://shout.com/help" class="text-primary hover:underline">Upgrading your plan</a></li>
+            <li><a href="https://shout.com/help" class="text-primary hover:underline">Managing billing information</a></li>
+            <li><a href="https://shout.com/help" class="text-primary hover:underline">Team user management</a></li>
+            <li><a href="https://shout.com/help" class="text-primary hover:underline">Resetting your password</a></li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8">
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <Icon name="bx:shield" class="w-6 h-6 text-primary mr-3" />
+            Security & Compliance
+          </h3>
+          <ul class="space-y-3">
+            <li><a href="https://shout.com/help" class="text-primary hover:underline">GDPR compliance information</a></li>
+            <li><a href="https://shout.com/help" class="text-primary hover:underline">Data security and encryption</a></li>
+            <li><a href="https://shout.com/help" class="text-primary hover:underline">Privacy policies</a></li>
+            <li><a href="https://shout.com/help" class="text-primary hover:underline">Two-factor authentication</a></li>
+          </ul>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8">
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <Icon name="bx:wrench" class="w-6 h-6 text-primary mr-3" />
+            Advanced Features
+          </h3>
+          <ul class="space-y-3">
+            <li><a href="https://shout.com/help" class="text-primary hover:underline">Using survey logic and piping</a></li>
+            <li><a href="https://shout.com/help" class="text-primary hover:underline">API integration guide</a></li>
+            <li><a href="https://shout.com/help" class="text-primary hover:underline">White label surveys</a></li>
+            <li><a href="https://shout.com/help" class="text-primary hover:underline">Custom integrations</a></li>
+          </ul>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Support Options -->
+  <section class="py-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Still need help?</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:envelope" class="w-10 h-10 text-primary mr-3" />
+            <h3 class="text-xl font-bold">Email Support</h3>
+          </div>
+          <p class="text-gray-600 mb-4">
+            Contact our support team via email. We typically respond within 24 hours.
+          </p>
+          <a href="mailto:help@shout.com" class="inline-flex items-center text-primary hover:underline font-semibold">
+            <Icon name="bx:envelope" class="w-5 h-5 mr-2" />
+            help@shout.com
+          </a>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:phone" class="w-10 h-10 text-primary mr-3" />
+            <h3 class="text-xl font-bold">Live Chat</h3>
+          </div>
+          <p class="text-gray-600 mb-4">
+            Chat with our support team in real-time. Available Monday-Friday, 9 AM - 5 PM GMT.
+          </p>
+          <p class="inline-flex items-center text-gray-700 font-semibold">
+            <Icon name="bx:time" class="w-5 h-5 mr-2" />
+            Monday-Friday, 9 AM - 5 PM GMT
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Browse Help Center -->
+  <section class="py-16">
+    <Container>
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">
+          Browse our full help center
+        </h2>
+        <p class="text-lg text-gray-600 mb-8">
+          Access our comprehensive help documentation and knowledge base for detailed guides and information about all Shout features.
+        </p>
+        <Button href="https://shout.com/help">Visit Help Center</Button>
+      </div>
+    </Container>
+  </section>
+</AstroshipLayout>

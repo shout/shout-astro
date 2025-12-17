@@ -1,0 +1,162 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<AstroshipLayout
+  title="Customer Testimonials - Shout.com"
+  description="Discover why customers love Shout! Read our testimonials for insights on our user-friendly tools, affordable pricing, and responsive support."
+>
+  <!-- Hero Section -->
+  <section class="py-20">
+    <Container>
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h1 class="text-5xl lg:text-6xl font-bold lg:tracking-tight mb-6">
+          Shout Customers
+        </h1>
+        <p class="text-lg text-gray-600">
+          Businesses and organizations all over the world use Shout to collect feedback, generate leads, and inform action.
+        </p>
+      </div>
+
+      <div class="text-center">
+        <Button href="/signup/">Create an account</Button>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Featured Testimonials -->
+  <section class="py-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Featured Testimonials</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Find out why Shout is the right tool for your business straight from the mouth of our customers.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- David Hollinshead -->
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="mb-6">
+            <img
+              src="https://shout.com/wp-content/uploads/2024/01/1686655085497.jpg"
+              alt="David Hollinshead"
+              class="w-full h-64 object-cover rounded-lg"
+            />
+          </div>
+          <h3 class="text-2xl font-bold mb-2">David Hollinshead</h3>
+          <p class="text-gray-600 mb-4">
+            As Insight Lead for some of the most prestigious sports organisations in the UK, David has transformed businesses with data-driven insights.
+          </p>
+          <Button href="/customers/david-hollinshead/" variant="outline">Read full testimonial</Button>
+        </div>
+
+        <!-- WWT -->
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="mb-6">
+            <div class="w-full h-64 bg-gradient-to-br from-blue-100 to-blue-50 rounded-lg flex items-center justify-center">
+              <Icon name="bx:group" class="w-20 h-20 text-primary" />
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold mb-2">WWT</h3>
+          <p class="text-gray-600 mb-4">
+            WWT transformed its educational programs with instant feedback, revolutionizing the impact they have on learners and volunteers.
+          </p>
+          <Button href="/customers/wwt/" variant="outline">Read full testimonial</Button>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">More Reasons To Choose Shout</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="text-5xl font-bold text-primary mb-2">22+</div>
+          <p class="text-lg text-gray-600">Years of Experience</p>
+        </div>
+        <div class="text-center">
+          <div class="text-5xl font-bold text-primary mb-2">3M+</div>
+          <p class="text-lg text-gray-600">Happy Users</p>
+        </div>
+        <div class="text-center">
+          <div class="text-5xl font-bold text-primary mb-2">100%</div>
+          <p class="text-lg text-gray-600">Satisfaction</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Customer Reviews -->
+  <section class="py-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">What Our Customers Say</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Review 1 -->
+        <div class="bg-white rounded-lg p-8 border border-gray-200">
+          <div class="flex items-center mb-4">
+            <div class="flex gap-1">
+              <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
+              <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
+              <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
+              <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
+              <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
+            </div>
+          </div>
+          <p class="text-gray-600 mb-6 italic">
+            "Interactive and really easy to use Software. The builder is seamless, and the question types are perfect. I love the way I can structure surveys in quick and easy way."
+          </p>
+          <h4 class="font-bold text-gray-900">Ron Elius</h4>
+          <p class="text-gray-600 text-sm">B2B Copywriter – Freelance</p>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="bg-white rounded-lg p-8 border border-gray-200">
+          <div class="flex items-center mb-4">
+            <div class="flex gap-1">
+              <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
+              <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
+              <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
+              <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
+              <Icon name="bx:star" class="w-5 h-5 text-yellow-400" />
+            </div>
+          </div>
+          <p class="text-gray-600 mb-6 italic">
+            "Shout offers multiple options for customization. Moreover, our projects look perfect on any device. If you want a platform that does most of the work for you, including automatic reporting, go with Shout."
+          </p>
+          <h4 class="font-bold text-gray-900">Oana Frant</h4>
+          <p class="text-gray-600 text-sm">Consultant – the World Bank</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16">
+    <Container>
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">
+          Ready to join thousands of satisfied customers?
+        </h2>
+        <p class="text-lg text-gray-600 mb-8">
+          Start your 14-day free trial today. No credit card required.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/signup/">Start Your Free Trial</Button>
+          <Button variant="outline" href="/contact/">Contact Sales</Button>
+        </div>
+      </div>
+    </Container>
+  </section>
+</AstroshipLayout>

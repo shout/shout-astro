@@ -1,0 +1,207 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<AstroshipLayout
+  title="KwikSurveys is now Shout.com"
+  description="KwikSurveys has rebranded as Shout. If you had a KwikSurveys account, you can access all our surveys and data by logging in via Shout.com."
+>
+  <!-- Hero Section -->
+  <section class="py-20">
+    <Container>
+      <div class="text-center max-w-3xl mx-auto">
+        <h1 class="text-5xl lg:text-6xl font-bold lg:tracking-tight mb-6">
+          KwikSurveys is now Shout
+        </h1>
+        <p class="text-lg text-gray-600 mb-8">
+          In 2023 we rebranded KwikSurveys as Shout.com, privacy-focused software for creating surveys, collecting data, and growing your audience.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <Button href="/signup/">Start Your Free Trial</Button>
+          <Button variant="outline" href="/pricing/">Plans & Pricing</Button>
+        </div>
+        <p class="text-gray-600 text-sm mt-4">
+          14-Day Free Trial • Cancel Anytime • No Credit Card Required
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- What Happened Section -->
+  <section class="py-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+          What's happened to my KwikSurveys account?
+        </h2>
+      </div>
+
+      <div class="max-w-3xl">
+        <p class="text-lg text-gray-600 mb-6">
+          If you had KwikSurveys account, we've seamlessly changed this into a Shout account. You'll be able to log in with the same details and continue creating surveys, quizzes, and forms with Shout.
+        </p>
+        <p class="text-lg text-gray-600 mb-8">
+          All of your data has been kept safe and the same privacy and security policies apply to current and future projects.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-lg border border-gray-200 p-6">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:check-circle" class="w-6 h-6 text-green-500 mr-2" />
+              <h3 class="font-semibold">Log in with the same username and password</h3>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-6">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:check-circle" class="w-6 h-6 text-green-500 mr-2" />
+              <h3 class="font-semibold">All projects, data, and contacts are safe</h3>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-6">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:check-circle" class="w-6 h-6 text-green-500 mr-2" />
+              <h3 class="font-semibold">All URLs have been redirected to Shout</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Don't Have Account Section -->
+  <section class="py-16">
+    <Container>
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">
+          Don't have an account with us yet?
+        </h2>
+        <p class="text-lg text-gray-600 mb-8">
+          Start Your 14-Day Free Trial • No Credit Card Required • Cancel Anytime
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <Button href="/signup/">Start My Free Trial</Button>
+          <Button variant="outline" href="/demo/">Book a Demo</Button>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Why Change Section -->
+  <section class="py-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+          Why has KwikSurveys changed to Shout?
+        </h2>
+      </div>
+
+      <div class="max-w-3xl mx-auto mb-12">
+        <p class="text-lg text-gray-600 mb-6">
+          We've spent more than 20 years helping you conduct research and grow your business. However, we have big plans for the direction we're heading in and no longer feel that the name KwikSurveys encompasses our goals.
+        </p>
+        <p class="text-lg text-gray-600 font-semibold mb-8">
+          Which is where we introduce <span class="text-primary">Shout</span>.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-lg border border-gray-200 p-6">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:star" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="font-semibold text-lg">New name, the same trusted survey tools</h3>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-6">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:shield" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="font-semibold text-lg">A focus on privacy, security, & compliance</h3>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg border border-gray-200 p-6">
+            <div class="flex items-center mb-3">
+              <Icon name="bx:rocket" class="w-8 h-8 text-primary mr-3" />
+              <h3 class="font-semibold text-lg">Many more new features on the way</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- FAQs Section -->
+  <section class="py-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">FAQs</h2>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-6">
+        <div class="bg-white rounded-lg border border-gray-200 p-8">
+          <h3 class="text-xl font-bold mb-3">What happened to my KwikSurveys account?</h3>
+          <p class="text-gray-600">
+            Your KwikSurveys account has been seamlessly rebranded as a Shout account. You'll be able to log in with the same username and password via the Shout homepage.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8">
+          <h3 class="text-xl font-bold mb-3">Can I still create surveys with Shout?</h3>
+          <p class="text-gray-600">
+            Absolutely! We haven't removed any tools or features that were available with KwikSurveys. You'll still be able to create surveys, forms, and quizzes, manage contacts in the CRM, and craft email invitations.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8">
+          <h3 class="text-xl font-bold mb-3">What will happen to my team users?</h3>
+          <p class="text-gray-600">
+            All Organizations have been kept intact, along with all your team user accounts. The only impact this will have on team accounts and invitations is that Shout has replaced any KwikSurveys branding.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8">
+          <h3 class="text-xl font-bold mb-3">Have I lost any data?</h3>
+          <p class="text-gray-600">
+            All of your data has been kept safe and will be accessible when you log into your Shout account. This includes all existing surveys, contacts, forms, quizzes and reports.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8">
+          <h3 class="text-xl font-bold mb-3">What new features are on the way?</h3>
+          <p class="text-gray-600">
+            We're working on a range of new features, including a calculator for use in surveys, quizzes, and forms, and much more on the way to help ensure you're compliant with data protection regulations globally.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8">
+          <h3 class="text-xl font-bold mb-3">How can I contact you about my account?</h3>
+          <p class="text-gray-600">
+            You can reach out by email at <a href="mailto:help@shout.com" class="text-primary hover:underline">help@shout.com</a> if you have any questions or concerns. We're still the same devoted and hard working team, and we're always happy to help.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16 bg-gray-50">
+    <Container>
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">
+          Ready to get started with Shout?
+        </h2>
+        <p class="text-lg text-gray-600 mb-8">
+          Log in with your existing KwikSurveys credentials or start a new free trial today.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <Button href="https://identity.shout.com/Account/Login">Log In</Button>
+          <Button variant="outline" href="/signup/">Start Free Trial</Button>
+        </div>
+      </div>
+    </Container>
+  </section>
+</AstroshipLayout>

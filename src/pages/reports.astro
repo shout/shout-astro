@@ -5,6 +5,7 @@ import Button from "../components/ui/button.astro";
 import { Icon } from "astro-icon/components";
 import CustomerLogos from "../components/customer-logos.astro";
 import Features from "../components/features.astro";
+import BestReasons from "../components/best-reasons.astro";
 ---
 
 <AstroshipLayout
@@ -12,141 +13,91 @@ import Features from "../components/features.astro";
   description="With Shout's survey insights reports get an overview of your responses, filter and compare data sets, and share results with stakeholders."
 >
   <Container>
-    <!-- Main Content Section -->
+    <!-- Hero Section -->
     <section class="pt-16 pb-16">
-      <div class="mb-12">
-        <h1 class="text-5xl lg:text-6xl font-bold lg:tracking-tight">Survey Insights <span class="text-primary">Reports</span></h1>
-        <p class="text-lg mt-4 text-gray-600 max-w-3xl">
-          Get an overview of your responses, filter and compare data sets, and share results with stakeholders using our comprehensive reporting tools.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3 mt-6">
-          <Button href="/signup/">Start your Free Trial</Button>
-          <Button variant="outline" href="/demo/">Book a Demo</Button>
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+            Gain rich insights with <span class="text-primary">compliance-enabled reports</span>
+          </h1>
+          <p class="text-lg mt-4 text-gray-600 max-w-xl">
+            Create detailed views of your data, identify patterns and trends, track performance, and share reports with stakeholders.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 mt-6">
+            <Button href="/signup/">Start Your Free Trial</Button>
+            <p class="text-gray-600 text-sm self-center">14-Day Free Trial • Cancel Anytime • No Credit Card Required</p>
+          </div>
+        </div>
+        <div class="hidden lg:block">
+          <img
+            src="/images/2022/11/Compare-And-Filter-Survey-Reports.png"
+            alt="Filter And Compare Survey Data"
+            class="w-full h-auto max-w-md rounded-lg"
+            loading="eager"
+          />
         </div>
       </div>
     </section>
 
-    <!-- Reports Features Section -->
-    <section class="pt-16 pb-16 bg-gray-50">
+    <!-- Insights & Report Features -->
+    <section class="pt-16 pb-16">
+      <div class="text-center mb-4">
+        <p class="text-primary font-semibold text-sm uppercase tracking-wide">INSIGHTS & REPORT FEATURES</p>
+      </div>
       <div class="mb-12">
-        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Everything you need for data analysis</h2>
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Grow your business with data-driven decisions</h2>
         <p class="text-lg mt-4 text-gray-600">
-          Transform your survey data into actionable insights with powerful reporting and analytics tools.
+          All data is collected in real-time, from email metrics to survey results, allowing you to make informed decisions quickly.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-          <div class="flex items-center mb-3">
-            <Icon name="bx:chart" class="w-8 h-8 text-primary mr-3" />
-            <h3 class="text-lg font-semibold text-primary">Real-time Reports</h3>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:shield" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Separate PII from response data</h3>
           </div>
-          <p class="text-gray-600">View live results as responses come in with real-time reporting.</p>
+          <p class="text-gray-600">Store personally identifiable information and survey responses separately to ensure your data collection is as compliant as possible.</p>
         </div>
-        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-          <div class="flex items-center mb-3">
-            <Icon name="bx:pie-chart" class="w-8 h-8 text-primary mr-3" />
-            <h3 class="text-lg font-semibold text-primary">Visual Charts</h3>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:filter" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Filter your results</h3>
           </div>
-          <p class="text-gray-600">Display data with pie charts, bar charts, and other visualizations.</p>
+          <p class="text-gray-600">Identify patterns and trends in your reports by filtering respondents based on answers, CRM data, dates, email statistics, and other variables.</p>
         </div>
-        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-          <div class="flex items-center mb-3">
-            <Icon name="bx:filter" class="w-8 h-8 text-primary mr-3" />
-            <h3 class="text-lg font-semibold text-primary">Data Filtering</h3>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:git-compare" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Compare data sets</h3>
           </div>
-          <p class="text-gray-600">Filter responses by demographics, date ranges, and custom criteria.</p>
+          <p class="text-gray-600">Use crosstabs to create side-by-side comparisons and show the relationship between two or more questions.</p>
         </div>
-        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-          <div class="flex items-center mb-3">
-            <Icon name="bx:git-compare" class="w-8 h-8 text-primary mr-3" />
-            <h3 class="text-lg font-semibold text-primary">Cross-tabulation</h3>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:merge" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Combine filters</h3>
           </div>
-          <p class="text-gray-600">Compare responses across different segments and variables.</p>
+          <p class="text-gray-600">Create detailed views of your data based on how respondents answer multiple questions by combining filters and crosstabs.</p>
         </div>
-        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-          <div class="flex items-center mb-3">
-            <Icon name="bx:export" class="w-8 h-8 text-primary mr-3" />
-            <h3 class="text-lg font-semibold text-primary">Export Options</h3>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:envelope" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Track email performance</h3>
           </div>
-          <p class="text-gray-600">Export data to CSV, Excel, PDF, and PowerPoint formats.</p>
+          <p class="text-gray-600">When sharing your surveys via email invitation, you'll have access to open rates, click rates, and response rates alongside all other survey data.</p>
         </div>
-        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-          <div class="flex items-center mb-3">
-            <Icon name="bx:share" class="w-8 h-8 text-primary mr-3" />
-            <h3 class="text-lg font-semibold text-primary">Report Sharing</h3>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:calculator" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Automate quiz scoring</h3>
           </div>
-          <p class="text-gray-600">Share reports with stakeholders via secure links.</p>
-        </div>
-        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-          <div class="flex items-center mb-3">
-            <Icon name="bx:bookmark" class="w-8 h-8 text-primary mr-3" />
-            <h3 class="text-lg font-semibold text-primary">Custom Views</h3>
-          </div>
-          <p class="text-gray-600">Save custom report views for repeated analysis.</p>
-        </div>
-        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-          <div class="flex items-center mb-3">
-            <Icon name="bx:trending-up" class="w-8 h-8 text-primary mr-3" />
-            <h3 class="text-lg font-semibold text-primary">Trend Analysis</h3>
-          </div>
-          <p class="text-gray-600">Track trends and changes over time with comparative reporting.</p>
-        </div>
-        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-          <div class="flex items-center mb-3">
-            <Icon name="bx:calculator" class="w-8 h-8 text-primary mr-3" />
-            <h3 class="text-lg font-semibold text-primary">Statistical Analysis</h3>
-          </div>
-          <p class="text-gray-600">Perform statistical analysis with confidence intervals and significance testing.</p>
-        </div>
-        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-          <div class="flex items-center mb-3">
-            <Icon name="bx:text" class="w-8 h-8 text-primary mr-3" />
-            <h3 class="text-lg font-semibold text-primary">Text Analytics</h3>
-          </div>
-          <p class="text-gray-600">Analyze open-text responses with automated text analytics.</p>
-        </div>
-        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-          <div class="flex items-center mb-3">
-            <Icon name="bx:palette" class="w-8 h-8 text-primary mr-3" />
-            <h3 class="text-lg font-semibold text-primary">Custom Branding</h3>
-          </div>
-          <p class="text-gray-600">Brand your reports with custom logos and color schemes.</p>
-        </div>
-        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-          <div class="flex items-center mb-3">
-            <Icon name="bx:mobile" class="w-8 h-8 text-primary mr-3" />
-            <h3 class="text-lg font-semibold text-primary">Mobile Access</h3>
-          </div>
-          <p class="text-gray-600">Access reports on any device with mobile-responsive design.</p>
-        </div>
-        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-          <div class="flex items-center mb-3">
-            <Icon name="bx:calendar" class="w-8 h-8 text-primary mr-3" />
-            <h3 class="text-lg font-semibold text-primary">Scheduled Reports</h3>
-          </div>
-          <p class="text-gray-600">Schedule automatic report generation and delivery.</p>
-        </div>
-        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-          <div class="flex items-center mb-3">
-            <Icon name="bx:dashboard" class="w-8 h-8 text-primary mr-3" />
-            <h3 class="text-lg font-semibold text-primary">Dashboards</h3>
-          </div>
-          <p class="text-gray-600">Create interactive dashboards with multiple report views.</p>
-        </div>
-        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-          <div class="flex items-center mb-3">
-            <Icon name="bx:data" class="w-8 h-8 text-primary mr-3" />
-            <h3 class="text-lg font-semibold text-primary">API Access</h3>
-          </div>
-          <p class="text-gray-600">Access report data programmatically via REST API.</p>
-        </div>
-        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-          <div class="flex items-center mb-3">
-            <Icon name="bx:archive" class="w-8 h-8 text-primary mr-3" />
-            <h3 class="text-lg font-semibold text-primary">Data Archive</h3>
-          </div>
-          <p class="text-gray-600">Archive and store historical report data securely.</p>
+          <p class="text-gray-600">All you need to do is apply points to your quiz questions, and we'll calculate respondent scores automatically.</p>
         </div>
       </div>
     </section>
@@ -154,36 +105,33 @@ import Features from "../components/features.astro";
     <!-- Customer Logos -->
     <CustomerLogos />
 
-    <!-- Data Analysis Section -->
-    <section class="pt-16 pb-16">
+    <!-- Take Full Control Section -->
+    <section class="pt-16 pb-16 bg-gray-50">
       <div class="mb-12">
-        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Transform data into insights</h2>
-        <p class="text-lg mt-4 text-gray-600">
-          Powerful analytics tools help you understand your data and make informed decisions.
-        </p>
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Take full control of your data</h2>
       </div>
 
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <div class="space-y-8">
             <div>
-              <h3 class="text-2xl font-bold mb-4">Filter and segment responses</h3>
+              <h3 class="text-2xl font-bold mb-4">Analyze responses at any level</h3>
               <p class="text-gray-600 text-lg">
-                Apply filters to analyze specific segments of your data and identify trends and patterns.
+                Make sense of your results with exchangeable charts and graphs, access responses from individual respondents.
               </p>
             </div>
 
             <div>
-              <h3 class="text-2xl font-bold mb-4">Compare across variables</h3>
+              <h3 class="text-2xl font-bold mb-4">Create multiple views of your results</h3>
               <p class="text-gray-600 text-lg">
-                Use cross-tabulation to compare responses across different demographics and criteria.
+                Apply filters and crosstabs to create unique views of your data, and save these as separate reports.
               </p>
             </div>
 
             <div>
-              <h3 class="text-2xl font-bold mb-4">Share insights with stakeholders</h3>
+              <h3 class="text-2xl font-bold mb-4">Track the performance of email invitations</h3>
               <p class="text-gray-600 text-lg">
-                Export professional reports or share interactive dashboards with team members and clients.
+                When sharing your survey via email invitations, you'll find open rates and click-through rates alongside survey data in your reports.
               </p>
             </div>
           </div>
@@ -192,7 +140,7 @@ import Features from "../components/features.astro";
         <div class="lg:pl-8">
           <img
             src="/images/2022/11/Compare-And-Filter-Survey-Reports.png"
-            alt="Compare And Filter Survey Reports"
+            alt="Filter And Compare Survey Data"
             class="w-full h-auto rounded-lg shadow-lg"
             loading="lazy"
           />
@@ -200,17 +148,104 @@ import Features from "../components/features.astro";
       </div>
     </section>
 
+    <!-- Best Reasons To Choose Shout -->
+    <BestReasons />
+
+    <!-- Never Miss a Response -->
+    <section class="pt-16 pb-16 bg-gray-50">
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Never miss a response with Shout</h2>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Get notifications for responses</h3>
+              <p class="text-gray-600 text-lg">
+                No need to log in to keep up to date with your responses. Receive instant notifications by email or to your Slack workspace when someone hits submit.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Share results, in real time</h3>
+              <p class="text-gray-600 text-lg">
+                Share access to your results in one click and enable stakeholders to view all the latest data or filtered reports you've tailored for them.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Export offline copies of your data</h3>
+              <p class="text-gray-600 text-lg">
+                Download your survey report as a PDF or export your raw data as a full text or numeric spreadsheet.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:pl-8">
+          <img
+            src="/images/2022/11/Share-And-Export-Survey-Reports-e1668440752436.png"
+            alt="Share and Export Survey Reports"
+            class="w-full h-auto rounded-lg shadow-lg"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Powering compliance for teams & businesses -->
+    <section class="pt-16 pb-16">
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Powering compliance for teams & businesses</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Collect data and work on survey reports as a team, whilst ensuring everything you do complies with data protection regulations around the world.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:lock" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Role based data access control, as standard</h3>
+          </div>
+          <p class="text-gray-600">Team users will only have access to their own surveys and reports by default. Ensuring no one has access to data that isn't relevant to their role.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:group" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Compliant collaboration tools, for optimizing workflows</h3>
+          </div>
+          <p class="text-gray-600">Share report access with your team and analyze data together. Maintain your own reports for the same data set, without affecting their work.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-lg transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:shield" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Cookieless, anonymous, privacy-first data collection</h3>
+          </div>
+          <p class="text-gray-600">Shout is a cookieless survey tool, and all data anonymous by default. Track lawful basis for processing data and record consent with ease.</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <h3 class="text-2xl font-bold mb-4">Privacy-first survey reports</h3>
+        <p class="text-lg text-gray-600 mb-6">Shout is built with compliance in mind, gearing all our tools to make data collection as risk free as possible for you.</p>
+        <Button href="/security-compliance/" variant="outline">Security and Compliance</Button>
+      </div>
+    </section>
+
     <!-- Integrated Solutions -->
     <Features />
 
     <!-- Final CTA -->
-    <section class="py-16">
+    <section class="py-16 bg-gray-50">
       <div class="text-center max-w-4xl mx-auto">
-        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to analyze your data?</h2>
-        <p class="text-lg text-gray-600 mb-8">Start creating powerful reports and gaining insights from your survey data.</p>
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to gain rich insights from your data?</h2>
+        <p class="text-lg text-gray-600 mb-8">Start creating detailed views of your data, identify patterns and trends, and share results with stakeholders.</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button href="/signup/">Start your Free Trial</Button>
-          <Button variant="outline" href="/demo/">Book a Demo</Button>
+          <Button href="/signup/">Start Your Free Trial</Button>
         </div>
       </div>
     </section>

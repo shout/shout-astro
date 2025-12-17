@@ -1,0 +1,262 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+import CustomerLogos from "../components/customer-logos.astro";
+import Features from "../components/features.astro";
+---
+
+<AstroshipLayout
+  title="48% Discount for Non-Profits and Charities - Shout.com"
+  description="Non-Profits and Charitable organizations can save a whopping 48% with Shout. Get access to professional features without blowing your budget."
+>
+  <!-- Hero Section -->
+  <section class="py-20">
+    <Container>
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+            Non-Profit <span class="text-primary">Surveys</span>
+          </h1>
+          <p class="text-lg mt-4 text-gray-600 max-w-xl">
+            Save 48% on Professional features. If you work for a Non-Profit organization, you qualify for a heavy discount of our multi-user Pro plan.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 mt-6">
+            <Button href="/signup/">Start Free Trial</Button>
+            <p class="text-gray-600 text-sm self-center">14-day Free Trial • No Credit Card Required</p>
+          </div>
+        </div>
+        <div class="hidden lg:block">
+          <img
+            src="/images/2024/02/Non-Profit-Surveys.svg"
+            alt="Non-Profit Surveys"
+            class="w-full h-auto max-w-md rounded-lg"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Products Section -->
+  <section class="pt-16 pb-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Products for non-profits and charities</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          The same products at a lower cost to you. Here at Shout, we believe in the work done by Non-Profits and Charities around the world.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:poll" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Surveys</h3>
+          </div>
+          <p class="text-gray-600">Measure donor satisfaction, perform impact assessments, and inform strategies with community feedback.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:help-circle" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Quizzes</h3>
+          </div>
+          <p class="text-gray-600">Create quizzes to educate audiences about your mission, assess volunteer knowledge, and engage your donor list.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:file" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Forms</h3>
+          </div>
+          <p class="text-gray-600">Capture contact information from volunteers and donors, register event attendees, and collect sponsorship inquiries.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:calculator" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Calculators</h3>
+          </div>
+          <p class="text-gray-600">Track event budgets, showcase the impact of volunteer and education programs, and much more with custom calculators.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:group" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Shout Audience</h3>
+          </div>
+          <p class="text-gray-600">Reach millions of respondents from all over the world to quickly collect responses and power your research.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:network-chart" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Integrated CRM</h3>
+          </div>
+          <p class="text-gray-600">Import existing contacts, pass in contacts collected with forms, and craft bespoke email invitations for projects you create.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Customer Logos -->
+  <CustomerLogos />
+
+    <!-- Integrated Solutions -->
+    <Features />
+
+  <!-- Create Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+        <div class="mb-12">
+          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Create</h2>
+          <p class="text-lg mt-4 text-gray-600">
+            Access powerful survey creation tools that Non-Profits need to gather feedback and measure impact.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:list-check" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Access Over 25 Question Types</h3>
+            </div>
+            <p class="text-gray-600">Create any type of survey with opinion scales, multiple-choice, order rankings, open feedback, binary yes/no, numeric values and much more.</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:palette" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Put Your Branding Front and Center</h3>
+            </div>
+            <p class="text-gray-600">Fully customize the design of projects, add your logo, choose from a range of fonts, and add branded imagery to your surveys.</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:bulb" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">AI Question Assistant</h3>
+            </div>
+            <p class="text-gray-600">Save time on survey building with our AI question prediction assistant, that will recommend a question type based on your text.</p>
+          </div>
+        </div>
+    </Container>
+  </section>
+
+  <!-- Collect Section -->
+  <section class="pt-16 pb-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Collect</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Distribute your surveys across multiple channels to reach your stakeholders effectively.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:share-alt" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Multichannel Distribution</h3>
+          </div>
+          <p class="text-gray-600">Share your projects across multiple channels, from URL link, QR code, website embed, email invitations and more.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:group" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Purchase Responses</h3>
+          </div>
+          <p class="text-gray-600">Find the perfect survey respondents from all over the world with Shout Audience.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:hide" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Anonymous Surveys</h3>
+          </div>
+          <p class="text-gray-600">There's no need to root through settings to enable anonymous responses. With Shout, respondents are kept anonymous by default.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Analyze Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+        <div class="mb-12">
+          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Analyze</h2>
+          <p class="text-lg mt-4 text-gray-600">
+            Turn survey responses into actionable insights for your Non-Profit mission.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:time" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Monitor Results in Real-Time</h3>
+            </div>
+            <p class="text-gray-600">As soon as a response is submitted, you'll find it in your report, where you'll have access to compiled data and individual responses.</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:filter" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Easily Break Down Your Data</h3>
+            </div>
+            <p class="text-gray-600">Apply filters and comparisons based on questions, respondent information, and much more to identify patterns and trends.</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+            <div class="flex items-center mb-4">
+              <Icon name="bx:share-alt" class="w-10 h-10 text-primary mr-4" />
+              <h3 class="text-xl font-semibold text-primary">Share Reports with Stakeholders</h3>
+            </div>
+            <p class="text-gray-600">Export your results as a PDF or spreadsheet, or make your digital report accessible with a URL link.</p>
+          </div>
+        </div>
+    </Container>
+  </section>
+
+  <!-- Compliance Section -->
+  <section class="pt-16 pb-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Compliance-first survey software for non-profits</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Collect feedback while maintaining GDPR compliance and data security standards.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:server" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">UK-based Servers</h3>
+          </div>
+          <p class="text-gray-600">All survey responses are stored in the United Kingdom, which has an adequacy decision with the EU.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:checkbox-checked" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Collect and Record Consent</h3>
+          </div>
+          <p class="text-gray-600">Create consent-based contact groups for events, survey campaigns, and trips and collect record consent to contact profiles with forms.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:shield" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Zero-Trust Framework</h3>
+          </div>
+          <p class="text-gray-600">Shout operates under a zero-trust framework and all our security policies are designed to meet or exceed the GDPR, UK-GDPR, and CCPA.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16">
+    <Container>
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Professional features and a lower price</h2>
+        <p class="text-lg text-gray-600 mb-8">Get started with our 14-day Free Trial (no credit card required).</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/signup/">Start Free Trial</Button>
+          <Button variant="outline" href="/demo/">Book a Demo</Button>
+        </div>
+      </div>
+    </Container>
+  </section>
+</AstroshipLayout>

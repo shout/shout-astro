@@ -11,9 +11,9 @@ import Features from "../components/features.astro";
   title="Custom Calculator Builder: Create Interactive Lead Magnets - Shout"
   description="Build a custom calculator and embed it on your website in just a few clicks. Boost engagement, qualify leads, and increase traffic to pages."
 >
-  <Container>
-    <!-- Hero Section -->
-    <section class="py-20">
+  <!-- Hero Section -->
+  <section class="py-20">
+    <Container>
       <div class="grid lg:grid-cols-2 gap-10 items-center">
         <div>
           <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
@@ -36,10 +36,12 @@ import Features from "../components/features.astro";
           />
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Calculator Features Section -->
-    <section class="pt-16 pb-16">
+  <!-- Calculator Features Section -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Everything you need to build calculators</h2>
         <p class="text-lg mt-4 text-gray-600">
@@ -189,52 +191,62 @@ import Features from "../components/features.astro";
           <p class="text-gray-600">Calculations update instantly as users change inputs.</p>
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Customer Logos -->
-    <CustomerLogos />
+  <!-- Customer Logos -->
+  <section>
+    <Container>
+      <CustomerLogos />
+    </Container>
+  </section>
 
-    <!-- Integrated Solutions -->
-    <Features />
+  <!-- Integrated Solutions -->
+  <section>
+    <Container>
+      <Features />
+    </Container>
+  </section>
 
-    <!-- No-fuss Calculator Builder Section -->
-    <section class="pt-16 pb-16 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <div class="mb-12">
-          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">No-fuss custom calculator builder</h2>
-          <p class="text-lg mt-4 text-gray-600">
-            Create simple and complex calculators without writing a single line of code.
-          </p>
+  <!-- No-fuss Calculator Builder Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">No-fuss custom calculator builder</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Create simple and complex calculators without writing a single line of code.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:code-alt" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Take code out of the equation</h3>
+          </div>
+          <p class="text-gray-600">Our calculator builder lets you create simple and complex calculators without writing a single line of code. Focus on your ideas, not on syntax.</p>
         </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
-            <div class="flex items-center mb-4">
-              <Icon name="bx:code-alt" class="w-10 h-10 text-primary mr-4" />
-              <h3 class="text-xl font-semibold text-primary">Take code out of the equation</h3>
-            </div>
-            <p class="text-gray-600">Our calculator builder lets you create simple and complex calculators without writing a single line of code. Focus on your ideas, not on syntax.</p>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:calculator" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Build formulas in just a few clicks</h3>
           </div>
-          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
-            <div class="flex items-center mb-4">
-              <Icon name="bx:calculator" class="w-10 h-10 text-primary mr-4" />
-              <h3 class="text-xl font-semibold text-primary">Build formulas in just a few clicks</h3>
-            </div>
-            <p class="text-gray-600">Our user-friendly builder allows you to design intricate formulas quickly. Just select your questions, choose your operators, and calculate your results.</p>
+          <p class="text-gray-600">Our user-friendly builder allows you to design intricate formulas quickly. Just select your questions, choose your operators, and calculate your results.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:table" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Import your own datasets</h3>
           </div>
-          <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
-            <div class="flex items-center mb-4">
-              <Icon name="bx:table" class="w-10 h-10 text-primary mr-4" />
-              <h3 class="text-xl font-semibold text-primary">Import your own datasets</h3>
-            </div>
-            <p class="text-gray-600">Create more complex calculators by switching to our Excel-style spreadsheets, where you can import and reference datasets to build formulas.</p>
-          </div>
+          <p class="text-gray-600">Create more complex calculators by switching to our Excel-style spreadsheets, where you can import and reference datasets to build formulas.</p>
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Calculator Types Section -->
-    <section class="pt-16 pb-16">
+  <!-- Calculator Types Section -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Create any type of custom calculator</h2>
         <p class="text-lg mt-4 text-gray-600">
@@ -286,58 +298,60 @@ import Features from "../components/features.astro";
           <p class="text-gray-600">Car loan calculators, fuel efficiency, and vehicle cost estimators.</p>
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Lead Generation Section -->
-    <section class="pt-16 pb-16 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <div class="mb-12">
-          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Boost lead generation & engagement</h2>
-          <p class="text-lg mt-4 text-gray-600">
-            Interactive calculators are powerful lead magnets that provide immediate value to your visitors.
-          </p>
-        </div>
+  <!-- Lead Generation Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Boost lead generation & engagement</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Interactive calculators are powerful lead magnets that provide immediate value to your visitors.
+        </p>
+      </div>
 
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <div class="space-y-8">
-              <div>
-                <h3 class="text-2xl font-bold mb-4">Capture qualified leads</h3>
-                <p class="text-gray-600 text-lg">
-                  Require email addresses to reveal calculation results and build your prospect database with engaged leads.
-                </p>
-              </div>
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Capture qualified leads</h3>
+              <p class="text-gray-600 text-lg">
+                Require email addresses to reveal calculation results and build your prospect database with engaged leads.
+              </p>
+            </div>
 
-              <div>
-                <h3 class="text-2xl font-bold mb-4">Increase website engagement</h3>
-                <p class="text-gray-600 text-lg">
-                  Interactive calculators keep visitors on your site longer and provide immediate value that builds trust.
-                </p>
-              </div>
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Increase website engagement</h3>
+              <p class="text-gray-600 text-lg">
+                Interactive calculators keep visitors on your site longer and provide immediate value that builds trust.
+              </p>
+            </div>
 
-              <div>
-                <h3 class="text-2xl font-bold mb-4">Drive traffic to key pages</h3>
-                <p class="text-gray-600 text-lg">
-                  Use calculators as content marketing tools to attract visitors and guide them to your service pages.
-                </p>
-              </div>
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Drive traffic to key pages</h3>
+              <p class="text-gray-600 text-lg">
+                Use calculators as content marketing tools to attract visitors and guide them to your service pages.
+              </p>
             </div>
           </div>
+        </div>
 
-          <div class="lg:pl-8">
-            <img
-              src="/images/2023/09/Generate-Leads-With-Custom-Calculators.png"
-              alt="Increase Lead Generation With Custom Calculators"
-              class="w-full h-auto rounded-lg shadow-lg"
-              loading="lazy"
-            />
-          </div>
+        <div class="lg:pl-8">
+          <img
+            src="/images/2023/09/Generate-Leads-With-Custom-Calculators.png"
+            alt="Increase Lead Generation With Custom Calculators"
+            class="w-full h-auto rounded-lg shadow-lg"
+            loading="lazy"
+          />
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Results Display Section -->
-    <section class="pt-16 pb-16">
+  <!-- Results Display Section -->
+  <section class="pt-16 pb-16">
+    <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Display results instantly</h2>
         <p class="text-lg mt-4 text-gray-600">
@@ -380,10 +394,12 @@ import Features from "../components/features.astro";
           />
         </div>
       </div>
-    </section>
+    </Container>
+  </section>
 
-    <!-- Final CTA -->
-    <section class="py-16">
+  <!-- Final CTA -->
+  <section class="py-16">
+    <Container>
       <div class="text-center max-w-4xl mx-auto">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to create your first calculator?</h2>
         <p class="text-lg text-gray-600 mb-8">Join thousands of businesses using Shout to generate leads and engage customers with interactive calculators.</p>
@@ -392,7 +408,6 @@ import Features from "../components/features.astro";
           <Button variant="outline" href="/demo/">Book a Demo</Button>
         </div>
       </div>
-    </section>
-
-  </Container>
+    </Container>
+  </section>
 </AstroshipLayout>

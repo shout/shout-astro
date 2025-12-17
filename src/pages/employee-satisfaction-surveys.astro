@@ -1,0 +1,226 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+import CustomerLogos from "../components/customer-logos.astro";
+import Features from "../components/features.astro";
+---
+
+<AstroshipLayout
+  title="Employee Satisfaction Surveys - Shout.com"
+  description="Employee satisfaction surveys allow you to learn if your employees are happy, identify frictions in the workplace, and reduce employee churn."
+>
+  <!-- Hero Section -->
+  <section class="py-20">
+    <Container>
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+            Employee Satisfaction <span class="text-primary">Surveys</span>
+          </h1>
+          <p class="text-lg mt-4 text-gray-600 max-w-xl">
+            Increase staff retention with feedback. Identify the strengths and weaknesses of your company culture and improve employee engagement.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 mt-6">
+            <Button href="/signup/">Start your Free Trial</Button>
+            <p class="text-gray-600 text-sm self-center">14-day Free Trial • No Credit Card Required</p>
+          </div>
+        </div>
+        <div class="hidden lg:block">
+          <img
+            src="/images/2022/11/Employee-Satisfaction-Surveys.svg"
+            alt="Employee Satisfaction Surveys"
+            class="w-full h-auto max-w-md rounded-lg"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Features Section -->
+  <section class="pt-16 pb-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Measure satisfaction and reduce staff turnover</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Robust features to encourage compliance and protect employee data whilst collecting actionable feedback.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:check-shield" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Compliant Employee CRM</h3>
+          </div>
+          <p class="text-gray-600">Import employees to the CRM, group them based on role or seniority, and track the lawful basis for processing their data.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:poll" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Measure Your eNPS</h3>
+          </div>
+          <p class="text-gray-600">Ask employees how likely they are to recommend your business as a place to work with our Net Promoter Score question type.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:trending-up" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Benchmark Satisfaction</h3>
+          </div>
+          <p class="text-gray-600">Measure employee satisfaction with a recurring survey and use crosstabs to compare results over time.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:group" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Departmental Collaboration</h3>
+          </div>
+          <p class="text-gray-600">Invite other department heads to join your Shout team, share your features, and measure employee satisfaction from their own accounts.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:palette" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Brand Everything</h3>
+          </div>
+          <p class="text-gray-600">Add your logo, customize the designs of employee surveys and emails, and white label surveys to align with your brand guidelines.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:check-circle" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Automate Quiz Scoring</h3>
+          </div>
+          <p class="text-gray-600">Create quizzes to increase engagement, improve job satisfaction with assessments, and onboard new hires with training.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Customer Logos -->
+  <CustomerLogos />
+
+  <!-- Integrated Solutions -->
+  <Features />
+
+  <!-- Connect with Employees Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Connect with employees and track interactions</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Use professional email invitations and response tracking to maximize engagement.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:envelope" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Professional Email Invitations</h3>
+          </div>
+          <p class="text-gray-600">Build custom email invitations to target specific teams, those in leadership roles, or measure satisfaction company wide.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:send" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Track Responses and Email Engagement</h3>
+          </div>
+          <p class="text-gray-600">Track responses and send reminders to employees who're yet to respond. Email metrics are stored alongside survey responses.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:note" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Log Reports and Requests</h3>
+          </div>
+          <p class="text-gray-600">Connect forms to your employee CRM and track incident reports, time-off requests, event registration, and important information.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Transform Data Section -->
+  <section class="pt-16 pb-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Transform data into employee satisfaction</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Convert employee feedback into actionable insights for workplace improvement.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:filter" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Create Segmented Views</h3>
+          </div>
+          <p class="text-gray-600">Segment reports based on CRM information, survey responses, and question data to understand how to increase employee satisfaction.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:id-card" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Analyze Personal Experiences</h3>
+          </div>
+          <p class="text-gray-600">View full response sheets from individuals and access employee profiles in the CRM to track engagement with surveys and quizzes.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:share-alt" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Share Your Findings</h3>
+            </div>
+          <p class="text-gray-600">Export your results as a PDF or spreadsheet and share access to real time digital reports. Responses can be anonymized before sharing.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Compliance Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Compliance built in, for teams of any size</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Collect employee feedback while maintaining full GDPR compliance and data security.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:network-chart" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Integrated CRM</h3>
+          </div>
+          <p class="text-gray-600">Group employees based on department, role and seniority, and track the lawful basis for processing their data in the app.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:lock" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Private Department Accounts</h3>
+          </div>
+          <p class="text-gray-600">Team user surveys are private by default, so no one has access to survey data that isn't relevant to them.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:mask" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Separate PII from Responses</h3>
+          </div>
+          <p class="text-gray-600">Enable pseudonymization to separate any personal information from question data in your reports.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16">
+    <Container>
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Reduce employee turnover with Shout</h2>
+        <p class="text-lg text-gray-600 mb-8">14 Day Free Trial • Cancel Any Time • No Credit Card Required</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/signup/">Start your Free Trial</Button>
+          <Button variant="outline" href="/demo/">Book a Demo</Button>
+        </div>
+      </div>
+    </Container>
+  </section>
+</AstroshipLayout>
