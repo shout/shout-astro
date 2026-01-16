@@ -3,12 +3,15 @@ import Container from "../container.astro";
 import Link from "../ui/link.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
-const products = [
+const formTypes = [
   { title: "Surveys", path: "/survey-maker/" },
   { title: "Quizzes", path: "/quiz-builder/" },
   { title: "Calculators", path: "/custom-calculator-builder/" },
-  { title: "CRM", path: "/crm/" },
-  { title: "Inbox", path: "/shared-inbox/" },
+];
+
+const products = [
+  { title: "Contact Hub", path: "/crm/" },
+  { title: "Team Inbox", path: "/shared-inbox/" },
 ];
 ---
 
@@ -21,13 +24,29 @@ const products = [
             <img src="/images/logo.svg" alt="Shout.com" class="h-12 w-auto">
           </a>
           <nav class="hidden lg:flex">
-            <ul class="flex flex-row gap-1">
+            <ul class="flex flex-row items-center gap-1">
+              <li class="relative group">
+                <a href="/form-builder/" class="px-4 py-2 rounded-full text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors">
+                  Forms <span class="text-[10px] ml-0.5 align-middle">▼</span>
+                </a>
+                <div class="absolute left-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                  <ul class="bg-white rounded-lg shadow-lg border border-gray-100 py-1 min-w-[140px]">
+                    {formTypes.map((item) => (
+                      <li>
+                        <a href={item.path} class="block px-4 py-2 text-gray-600 hover:bg-gray-50 hover:text-gray-900">
+                          {item.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
               {
                 products.map((product) => (
                   <li>
                     <a
                       href={product.path}
-                      class="px-4 py-2 rounded-full text-sm font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors">
+                      class="px-4 py-2 rounded-full text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors">
                       {product.title}
                     </a>
                   </li>
@@ -42,12 +61,25 @@ const products = [
       </div>
       <MenuItems class="hidden w-full lg:w-auto mt-2 lg:hidden">
         <ul class="flex flex-col gap-1">
+          <li class="px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Forms</li>
+          {
+            formTypes.map((item) => (
+              <li>
+                <a
+                  href={item.path}
+                  class="block px-4 py-2 pl-6 text-sm font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors">
+                  {item.title}
+                </a>
+              </li>
+            ))
+          }
+          <li class="border-t border-gray-100 my-2"></li>
           {
             products.map((product) => (
               <li>
                 <a
                   href={product.path}
-                  class="block px-4 py-2 rounded-full text-sm font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors">
+                  class="block px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors">
                   {product.title}
                 </a>
               </li>
