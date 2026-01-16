@@ -1,81 +1,14 @@
 ---
 import Container from "../container.astro";
 import Link from "../ui/link.astro";
-import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
-const menuitems = [
-  {
-    title: "Product",
-    path: "#",
-    children: [
-      { title: "Survey Maker", path: "/survey-maker/" },
-      { title: "Quiz Builder", path: "/quiz-builder/" },
-      { title: "Form Builder", path: "/form-builder/" },
-      { title: "Custom Calculator Builder", path: "/custom-calculator-builder/" },
-    ],
-  },
-  {
-    title: "Features",
-    path: "#",
-    children: [
-      { title: "Integrated CRM", path: "/crm/" },
-      { title: "Teams & Collaboration", path: "/teams/" },
-      { title: "Reports & Insights", path: "/reports/" },
-      { title: "White Label Surveys", path: "/white-label-surveys/" },
-    ],
-  },
-  {
-    title: "Solutions",
-    path: "#",
-    children: [
-      { title: "Customer Satisfaction Surveys", path: "/customer-satisfaction-surveys/" },
-      { title: "Net Promoter Score Surveys", path: "/nps-surveys/" },
-      { title: "Market Research Surveys", path: "/market-research-surveys/" },
-      { title: "Event Surveys", path: "/event-surveys/" },
-      { title: "360 Feedback Surveys", path: "/360-degree-feedback-surveys/" },
-      { title: "Employee Satisfaction Surveys", path: "/employee-satisfaction-surveys/" },
-      { title: "Non-Profit Surveys", path: "/non-profit-surveys/" },
-      { title: "Education Surveys", path: "/education-surveys/" },
-      { title: "Student Surveys", path: "/student-surveys/" },
-    ],
-  },
-  {
-    title: "Compliance",
-    path: "#",
-    children: [
-      { title: "Security & Compliance", path: "/security-compliance/" },
-      { title: "About Us", path: "/about/" },
-    ],
-  },
-  {
-    title: "Pricing",
-    path: "/pricing/",
-  },
-  {
-    title: "Resources",
-    path: "#",
-    children: [
-      { title: "Customers", path: "/customers/" },
-      { title: "Blog", path: "/blog/" },
-      {
-        title: "Free Calculators",
-        children: [
-          { title: "NPS Calculator", path: "/nps-calculator/" },
-          { title: "CSAT Calculator", path: "/csat-calculator/" },
-          { title: "CAC Calculator", path: "/cac-calculator/" },
-          { title: "Discount Calculator", path: "/discount-calculator/" },
-          { title: "Response Rate Calculator", path: "/response-rate-calculator/" },
-          { title: "Lead Generation Calculator", path: "/lead-generation-calculator/" },
-          { title: "Lead Value Calculator", path: "/lead-value-calculator/" },
-          { title: "SaaS Valuation Calculator", path: "/saas-valuation-calculator/" },
-        ],
-      },
-      { title: "Help Docs", path: "/help/" },
-      { title: "Contact Us", path: "/contact/" },
-      { title: "Looking for KwikSurveys?", path: "/kwiksurveys/" },
-    ],
-  },
+const products = [
+  { title: "Surveys", path: "/survey-maker/" },
+  { title: "Quizzes", path: "/quiz-builder/" },
+  { title: "Calculators", path: "/custom-calculator-builder/" },
+  { title: "CRM", path: "/crm/" },
+  { title: "Inbox", path: "/shared-inbox/" },
 ];
 ---
 
@@ -83,45 +16,46 @@ const menuitems = [
   <header class="flex flex-col lg:flex-row justify-between items-center my-5">
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
-        <a href="/" class="flex items-center">
-          <img src="/images/logo.svg" alt="Shout.com" class="h-12 w-auto">
-        </a>
+        <div class="flex items-center gap-8">
+          <a href="/" class="flex items-center">
+            <img src="/images/logo.svg" alt="Shout.com" class="h-12 w-auto">
+          </a>
+          <nav class="hidden lg:flex">
+            <ul class="flex flex-row gap-1">
+              {
+                products.map((product) => (
+                  <li>
+                    <a
+                      href={product.path}
+                      class="px-4 py-2 rounded-full text-sm font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors">
+                      {product.title}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </nav>
+        </div>
         <div class="block lg:hidden">
           <MenuIcon class="w-4 h-4 text-gray-800" />
         </div>
       </div>
-      <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
-        <ul class="flex flex-col lg:flex-row lg:gap-3">
+      <MenuItems class="hidden w-full lg:w-auto mt-2 lg:hidden">
+        <ul class="flex flex-col gap-1">
           {
-            menuitems.map((item, index) => (
-              <>
-                {item.children && (
-                  <Dropdown
-                    title={item.title}
-                    children={item.children}
-                    lastItem={index === menuitems.length - 1}
-                  />
-                )}
-
-                {!item.children && (
-                  <li>
-                    <a
-                      href={item.path}
-                      class="flex lg:px-3 py-2 items-center text-gray-600 hover:text-gray-900">
-                      <span> {item.title}</span>
-                      {item.badge && (
-                        <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-indigo-600 rounded-full">
-                          New
-                        </span>
-                      )}
-                    </a>
-                  </li>
-                )}
-              </>
+            products.map((product) => (
+              <li>
+                <a
+                  href={product.path}
+                  class="block px-4 py-2 rounded-full text-sm font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors">
+                  {product.title}
+                </a>
+              </li>
             ))
           }
         </ul>
-        <div class="lg:hidden flex items-center mt-3 gap-4">
+        <div class="flex flex-col items-center mt-3 gap-3">
+          <Link href="/pricing/" style="muted" block size="md">Pricing</Link>
           <Link href="/login/" style="muted" block size="md">Log in</Link>
           <Link href="/signup/" size="md" block>Start Free Trial</Link>
         </div>
@@ -129,6 +63,7 @@ const menuitems = [
     </Astronav>
     <div>
       <div class="hidden lg:flex items-center gap-4">
+        <a href="/pricing/" class="text-gray-600 hover:text-gray-900">Pricing</a>
         <a href="/login/" class="text-gray-600 hover:text-gray-900">Log in</a>
         <Link href="/signup/" size="md">Start Free Trial</Link>
       </div>

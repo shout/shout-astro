@@ -1,0 +1,392 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+import CustomerLogos from "../components/customer-logos.astro";
+import BestReasons from "../components/best-reasons.astro";
+import FAQSection from "../components/faq-section.astro";
+
+const inboxFaqs = [
+  {
+    question: "Is there a free trial?",
+    answer: "<p>Yes! We offer a 14-day free trial with no credit card required. You'll have full access to all shared inbox features so you can evaluate if Shout is right for your team.</p>"
+  },
+  {
+    question: "How many team members can use the inbox?",
+    answer: "<p>All paid plans support unlimited team members. Add your entire team without worrying about per-seat pricing eating into your budget.</p>"
+  },
+  {
+    question: "Can I connect my existing email?",
+    answer: "<p>Yes, you can connect any email address to your shared inbox. Emails arrive instantly and can be assigned, tagged, and managed by your team.</p>"
+  },
+  {
+    question: "How do form submissions appear in the inbox?",
+    answer: "<p>Every form submission from your Shout forms, surveys, and quizzes arrives as a conversation in your inbox. You can reply directly, assign to team members, or convert to a support ticket.</p>"
+  },
+  {
+    question: "Can I automate responses?",
+    answer: "<p>Absolutely. Set up rules to automatically assign conversations, send instant replies, tag based on content, or route to specific team members based on form fields or keywords.</p>"
+  }
+];
+---
+
+<AstroshipLayout
+  title="Shared Inbox for Teams - Form Submissions & Email in One Place | Shout.com"
+  description="A shared inbox that brings form submissions, surveys, and emails together. Collaborate with your team on customer conversations. Start your 14-day Free Trial."
+>
+  <!-- Hero Section -->
+  <section class="py-20">
+    <Container>
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+            One inbox for <span class="text-primary">everything</span>
+          </h1>
+          <p class="text-lg mt-4 text-gray-600 max-w-xl">
+            Form submissions, survey responses, and emails all arrive in one shared inbox. Your team can collaborate on every conversation without anything slipping through the cracks.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 mt-6">
+            <Button href="/signup/">Start your Free Trial</Button>
+            <p class="text-gray-600 text-sm self-center">14-day Free Trial • No Credit Card Required</p>
+          </div>
+        </div>
+        <div class="hidden lg:block">
+          <div class="bg-white rounded-lg shadow-xl border border-gray-200 p-6">
+            <div class="flex items-center gap-3 mb-4 pb-4 border-b">
+              <div class="w-3 h-3 rounded-full bg-red-400"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+              <div class="w-3 h-3 rounded-full bg-green-400"></div>
+              <span class="ml-2 text-sm text-gray-500">Shared Inbox</span>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                <Icon name="bx:file" class="w-5 h-5 text-blue-600" />
+                <div class="flex-1">
+                  <p class="text-sm font-medium">New form submission</p>
+                  <p class="text-xs text-gray-500">Contact form - Sarah Johnson</p>
+                </div>
+                <span class="text-xs text-gray-400">2m</span>
+              </div>
+              <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                <Icon name="bx:envelope" class="w-5 h-5 text-gray-600" />
+                <div class="flex-1">
+                  <p class="text-sm font-medium">Re: Project update</p>
+                  <p class="text-xs text-gray-500">support@company.com</p>
+                </div>
+                <span class="text-xs text-gray-400">15m</span>
+              </div>
+              <div class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                <Icon name="bx:bar-chart-alt-2" class="w-5 h-5 text-gray-600" />
+                <div class="flex-1">
+                  <p class="text-sm font-medium">Survey response</p>
+                  <p class="text-xs text-gray-500">Customer satisfaction - NPS 9</p>
+                </div>
+                <span class="text-xs text-gray-400">1h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Key Features -->
+  <section class="pt-16 pb-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Everything arrives in one place</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Stop switching between apps. Form submissions, survey responses, and emails all flow into a single inbox your whole team can access.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:file" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Form Submissions</h3>
+          </div>
+          <p class="text-gray-600">Every form submission arrives as a conversation. Reply directly to the person who submitted it.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:envelope" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Team Email</h3>
+          </div>
+          <p class="text-gray-600">Connect your team email addresses. Everyone sees incoming messages and can collaborate on replies.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:bar-chart-alt-2" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Survey Responses</h3>
+          </div>
+          <p class="text-gray-600">Survey and quiz responses appear instantly. Follow up with respondents who need attention.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:user-plus" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Assign to Team</h3>
+          </div>
+          <p class="text-gray-600">Assign conversations to the right person. Everyone knows who's handling what.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:purchase-tag" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Tags & Labels</h3>
+          </div>
+          <p class="text-gray-600">Organize with tags. Filter by type, priority, or any category that fits your workflow.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:search" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Instant Search</h3>
+          </div>
+          <p class="text-gray-600">Find any conversation instantly. Search by name, email, content, or form fields.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Customer Logos -->
+  <CustomerLogos />
+
+  <!-- Forms Integration Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Forms that flow into your inbox</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Build forms with our drag-and-drop builder. Every submission becomes a conversation you can reply to.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Contact forms that start conversations</h3>
+              <p class="text-gray-600 text-lg">
+                When someone fills out your contact form, it arrives in your shared inbox. Reply directly and they receive your response by email.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Lead capture with instant follow-up</h3>
+              <p class="text-gray-600 text-lg">
+                Capture leads and respond within minutes, not hours. Assign hot leads to your sales team automatically based on form answers.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold mb-4">Support requests organized</h3>
+              <p class="text-gray-600 text-lg">
+                Support forms create tickets in your inbox. Track status, add internal notes, and resolve issues without losing context.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:pl-8">
+          <div class="bg-white rounded-lg shadow-lg border border-gray-200 p-6">
+            <div class="flex items-center gap-2 mb-4">
+              <Icon name="bx:file" class="w-6 h-6 text-blue-600" />
+              <span class="font-medium">Form Submission</span>
+              <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">New</span>
+            </div>
+            <div class="space-y-3 text-sm">
+              <div class="flex">
+                <span class="text-gray-500 w-20">Name:</span>
+                <span>Sarah Johnson</span>
+              </div>
+              <div class="flex">
+                <span class="text-gray-500 w-20">Email:</span>
+                <span>sarah@example.com</span>
+              </div>
+              <div class="flex">
+                <span class="text-gray-500 w-20">Subject:</span>
+                <span>Partnership inquiry</span>
+              </div>
+              <div class="pt-3 border-t">
+                <span class="text-gray-500 block mb-1">Message:</span>
+                <p class="text-gray-700">Hi, I'm interested in discussing a potential partnership between our companies...</p>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t flex gap-2">
+              <button class="px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium">Reply</button>
+              <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium">Assign</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Team Collaboration -->
+  <section class="py-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Built for teams</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Collaborate on conversations without stepping on each other's toes.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:group" class="w-16 h-16 text-blue-600" />
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-center">Collision Detection</h3>
+          <p class="text-gray-600 text-center">See when teammates are viewing or replying to the same conversation in real-time.</p>
+        </div>
+        <div class="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:comment-detail" class="w-16 h-16 text-blue-600" />
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-center">Internal Notes</h3>
+          <p class="text-gray-600 text-center">Leave private notes for your team that the customer never sees.</p>
+        </div>
+        <div class="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:at" class="w-16 h-16 text-blue-600" />
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-center">@Mentions</h3>
+          <p class="text-gray-600 text-center">Tag colleagues to loop them into conversations or ask for input.</p>
+        </div>
+        <div class="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:check-double" class="w-16 h-16 text-blue-600" />
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-center">Shared Drafts</h3>
+          <p class="text-gray-600 text-center">Collaborate on replies before sending. Perfect for training or sensitive responses.</p>
+        </div>
+        <div class="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:history" class="w-16 h-16 text-blue-600" />
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-center">Full History</h3>
+          <p class="text-gray-600 text-center">Every interaction is logged. See who said what and when, forever.</p>
+        </div>
+        <div class="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
+          <div class="flex justify-center mb-6">
+            <Icon name="bx:cog" class="w-16 h-16 text-blue-600" />
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-center">Automation Rules</h3>
+          <p class="text-gray-600 text-center">Auto-assign, tag, and route conversations based on content or form fields.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Best Reasons -->
+  <BestReasons />
+
+  <!-- Comparison Section -->
+  <section class="py-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">More than just email</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Unlike other shared inbox tools, Shout brings forms, surveys, and email together.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                <Icon name="bx:check" class="w-5 h-5 text-green-600" />
+              </div>
+              <div>
+                <h3 class="font-semibold mb-1">Built-in form builder</h3>
+                <p class="text-gray-600">Create forms without third-party tools. Submissions arrive in your inbox automatically.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                <Icon name="bx:check" class="w-5 h-5 text-green-600" />
+              </div>
+              <div>
+                <h3 class="font-semibold mb-1">Survey integration</h3>
+                <p class="text-gray-600">Send surveys, collect responses, and follow up—all from the same inbox.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                <Icon name="bx:check" class="w-5 h-5 text-green-600" />
+              </div>
+              <div>
+                <h3 class="font-semibold mb-1">Contact CRM included</h3>
+                <p class="text-gray-600">Every person who contacts you builds a profile. See their full history in one view.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                <Icon name="bx:check" class="w-5 h-5 text-green-600" />
+              </div>
+              <div>
+                <h3 class="font-semibold mb-1">Simple, fair pricing</h3>
+                <p class="text-gray-600">Unlimited team members on all plans. No per-seat pricing surprises.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:pl-8">
+          <div class="bg-white rounded-lg shadow-lg p-8">
+            <h3 class="text-xl font-bold mb-6 text-center">What you get with Shout</h3>
+            <div class="space-y-4">
+              <div class="flex items-center justify-between py-2 border-b">
+                <span>Shared inbox</span>
+                <Icon name="bx:check-circle" class="w-6 h-6 text-green-500" />
+              </div>
+              <div class="flex items-center justify-between py-2 border-b">
+                <span>Form builder</span>
+                <Icon name="bx:check-circle" class="w-6 h-6 text-green-500" />
+              </div>
+              <div class="flex items-center justify-between py-2 border-b">
+                <span>Survey maker</span>
+                <Icon name="bx:check-circle" class="w-6 h-6 text-green-500" />
+              </div>
+              <div class="flex items-center justify-between py-2 border-b">
+                <span>Quiz builder</span>
+                <Icon name="bx:check-circle" class="w-6 h-6 text-green-500" />
+              </div>
+              <div class="flex items-center justify-between py-2 border-b">
+                <span>Contact CRM</span>
+                <Icon name="bx:check-circle" class="w-6 h-6 text-green-500" />
+              </div>
+              <div class="flex items-center justify-between py-2">
+                <span>Unlimited team members</span>
+                <Icon name="bx:check-circle" class="w-6 h-6 text-green-500" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- FAQs -->
+  <section>
+    <Container>
+      <FAQSection title="Shared Inbox FAQs" faqs={inboxFaqs} />
+    </Container>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16">
+    <Container>
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to unify your team's inbox?</h2>
+        <p class="text-lg text-gray-600 mb-8">Join thousands of teams using Shout to manage conversations and never miss a message.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/signup/">Start your Free Trial</Button>
+          <Button variant="outline" href="/demo/">Book a Demo</Button>
+        </div>
+      </div>
+    </Container>
+  </section>
+</AstroshipLayout>

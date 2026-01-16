@@ -50,19 +50,30 @@ const crmSteps = [
   title="Integrated CRM for Research Contacts - Shout.com"
   description="Import your survey contacts, organize them into groups, track the lawful basis for processing their data, and send custom email invitations."
 >
-  <!-- Hero Section (no image) -->
-  <section class="pt-16 pb-16">
+  <!-- Hero Section -->
+  <section class="py-20">
     <Container>
-      <div class="mb-12">
-        <h1 class="text-5xl lg:text-6xl font-bold lg:tracking-tight">Connect feedback to your contacts in our <span class="text-primary">integrated CRM</span></h1>
-        <p class="text-lg mt-4 text-gray-600 max-w-3xl">
-          Manage contacts, send targeted surveys, and track your lawful basis for processing data.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3 mt-6">
-          <Button href="/signup/">Start your Free Trial</Button>
-          <Button variant="outline" href="/pricing/">Plans & Pricing</Button>
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+            Connect feedback to your <span class="text-primary">contacts</span>
+          </h1>
+          <p class="text-lg mt-4 text-gray-600 max-w-xl">
+            Manage contacts, send targeted surveys, and track your lawful basis for processing data in our integrated CRM.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 mt-6">
+            <Button href="/signup/">Start your Free Trial</Button>
+            <p class="text-gray-600 text-sm self-center">14-day Free Trial • No Credit Card Required</p>
+          </div>
         </div>
-        <p class="text-sm text-gray-500 mt-4">14-Day Free Trial • Cancel Anytime • No Credit Card Required</p>
+        <div class="hidden lg:block">
+          <img
+            src="/images/2022/11/Group-CRM-Contacts.png"
+            alt="Shout CRM - Manage contacts and send targeted surveys"
+            class="w-full h-auto rounded-lg"
+            loading="eager"
+          />
+        </div>
       </div>
     </Container>
   </section>

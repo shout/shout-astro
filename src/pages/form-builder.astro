@@ -5,6 +5,30 @@ import Button from "../components/ui/button.astro";
 import { Icon } from "astro-icon/components";
 import CustomerLogos from "../components/customer-logos.astro";
 import Features from "../components/features.astro";
+import FAQSection from "../components/faq-section.astro";
+
+const formFaqs = [
+  {
+    question: "Can I embed forms on my website?",
+    answer: "<p>Yes! You can embed forms directly on your website using our embed code, or link to a hosted form page. Forms are fully responsive and work on all devices.</p>"
+  },
+  {
+    question: "How do I collect consent for GDPR compliance?",
+    answer: "<p>Shout includes built-in consent collection features. Add consent checkboxes to your forms and we'll automatically record consent against contact profiles in the CRM.</p>"
+  },
+  {
+    question: "Can forms integrate with other tools?",
+    answer: "<p>Forms integrate with our built-in CRM, and you can set up email notifications for new submissions. Export data anytime to use with your other business tools.</p>"
+  },
+  {
+    question: "What field types are available?",
+    answer: "<p>We support text fields, email, phone, dropdowns, checkboxes, file uploads, date pickers, and more. You can also add conditional logic to show or hide fields based on responses.</p>"
+  },
+  {
+    question: "Can I receive notifications for new submissions?",
+    answer: "<p>Yes, you can set up instant email notifications whenever someone submits your form. Configure who receives notifications and customize the email content.</p>"
+  }
+];
 ---
 
 <AstroshipLayout
@@ -398,6 +422,13 @@ import Features from "../components/features.astro";
           />
         </div>
       </div>
+    </Container>
+  </section>
+
+  <!-- FAQs -->
+  <section>
+    <Container>
+      <FAQSection title="Form Builder FAQs" faqs={formFaqs} />
     </Container>
   </section>
 

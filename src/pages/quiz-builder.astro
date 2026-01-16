@@ -5,6 +5,30 @@ import Button from "../components/ui/button.astro";
 import { Icon } from "astro-icon/components";
 import CustomerLogos from "../components/customer-logos.astro";
 import Features from "../components/features.astro";
+import FAQSection from "../components/faq-section.astro";
+
+const quizFaqs = [
+  {
+    question: "How does automatic scoring work?",
+    answer: "<p>Simply mark the correct answers when building your quiz, and Shout automatically calculates scores for each participant. You can assign different point values to questions and set up pass/fail thresholds.</p>"
+  },
+  {
+    question: "Can I use quizzes for lead generation?",
+    answer: "<p>Yes! Quizzes are excellent for lead generation. You can require an email address before showing results, or gate the results behind a contact form. Quiz participants are highly engaged leads.</p>"
+  },
+  {
+    question: "What types of quiz questions can I create?",
+    answer: "<p>You can create multiple choice, true/false, image-based questions, and more. Each question type supports automatic scoring and custom feedback for correct and incorrect answers.</p>"
+  },
+  {
+    question: "Can participants see their results immediately?",
+    answer: "<p>You control when and how results are shown. Display scores immediately after completion, show correct answers with explanations, or send results via email. It's completely customizable.</p>"
+  },
+  {
+    question: "Is there a limit on quiz participants?",
+    answer: "<p>Response limits depend on your plan. All paid plans offer generous response allowances, and you can always upgrade if you need more capacity for larger audiences.</p>"
+  }
+];
 ---
 
 <AstroshipLayout
@@ -491,6 +515,13 @@ import Features from "../components/features.astro";
           />
         </div>
       </div>
+    </Container>
+  </section>
+
+  <!-- FAQs -->
+  <section>
+    <Container>
+      <FAQSection title="Quiz Builder FAQs" faqs={quizFaqs} />
     </Container>
   </section>
 

@@ -5,6 +5,30 @@ import Button from "../components/ui/button.astro";
 import { Icon } from "astro-icon/components";
 import CustomerLogos from "../components/customer-logos.astro";
 import Features from "../components/features.astro";
+import FAQSection from "../components/faq-section.astro";
+
+const calculatorFaqs = [
+  {
+    question: "Do I need coding skills to build a calculator?",
+    answer: "<p>No coding required! Our visual builder lets you create complex calculations using a simple formula interface. Just define your inputs, set up your formulas, and customize the results display.</p>"
+  },
+  {
+    question: "Can I embed calculators on my website?",
+    answer: "<p>Yes, calculators can be embedded on any website using our embed code. They're fully responsive and will look great on desktop, tablet, and mobile devices.</p>"
+  },
+  {
+    question: "How do calculators help with lead generation?",
+    answer: "<p>Calculators are highly engaging interactive content. You can require users to enter their email to see results, or include a call-to-action with their personalized output. They typically convert better than static content.</p>"
+  },
+  {
+    question: "What types of calculators can I create?",
+    answer: "<p>You can build ROI calculators, pricing calculators, savings calculators, assessment tools, quote generators, and more. If it involves calculations and user inputs, you can build it.</p>"
+  },
+  {
+    question: "Can I customize the calculator design?",
+    answer: "<p>Absolutely. Customize colors, fonts, and layout to match your brand. Add your logo, adjust spacing, and create a seamless experience that fits your website perfectly.</p>"
+  }
+];
 ---
 
 <AstroshipLayout
@@ -394,6 +418,13 @@ import Features from "../components/features.astro";
           />
         </div>
       </div>
+    </Container>
+  </section>
+
+  <!-- FAQs -->
+  <section>
+    <Container>
+      <FAQSection title="Calculator Builder FAQs" faqs={calculatorFaqs} />
     </Container>
   </section>
 

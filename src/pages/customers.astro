@@ -2,6 +2,7 @@
 import AstroshipLayout from "../layouts/AstroshipLayout.astro";
 import Container from "../components/container.astro";
 import Button from "../components/ui/button.astro";
+import Link from "../components/ui/link.astro";
 import { Icon } from "astro-icon/components";
 ---
 
@@ -22,7 +23,7 @@ import { Icon } from "astro-icon/components";
       </div>
 
       <div class="text-center">
-        <Button href="/signup/">Create an account</Button>
+        <Link href="/signup/">Create an account</Link>
       </div>
     </Container>
   </section>
@@ -38,34 +39,39 @@ import { Icon } from "astro-icon/components";
       </div>
 
       <div class="grid lg:grid-cols-2 gap-8">
-        <!-- David Hollinshead -->
+        <!-- David Hollinshead - Chelsea FC, The Jockey Club, The FA -->
         <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
           <div class="mb-6">
             <img
               src="https://shout.com/wp-content/uploads/2024/01/1686655085497.jpg"
-              alt="David Hollinshead"
+              alt="David Hollinshead - Insight Lead for Chelsea FC, The Jockey Club and The FA"
               class="w-full h-64 object-cover rounded-lg"
             />
           </div>
-          <h3 class="text-2xl font-bold mb-2">David Hollinshead</h3>
+          <p class="text-sm text-gray-500 mb-1">David Hollinshead, Insight Lead</p>
+          <h3 class="text-2xl font-bold mb-3">Chelsea FC, The Jockey Club & The FA</h3>
           <p class="text-gray-600 mb-4">
-            As Insight Lead for some of the most prestigious sports organisations in the UK, David has transformed businesses with data-driven insights.
+            Delivering data-driven insights for some of the most prestigious sports organisations in the UK, including Cheltenham Festival and Premier League football.
           </p>
-          <Button href="/customers/david-hollinshead/" variant="outline">Read full testimonial</Button>
+          <Link href="/customers/david-hollinshead/" style="outline" size="md">Read full testimonial</Link>
         </div>
 
         <!-- WWT -->
         <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
           <div class="mb-6">
-            <div class="w-full h-64 bg-gradient-to-br from-blue-100 to-blue-50 rounded-lg flex items-center justify-center">
-              <Icon name="bx:group" class="w-20 h-20 text-primary" />
+            <div class="w-full h-64 bg-gradient-to-br from-blue-100 to-blue-50 rounded-lg flex items-center justify-center p-8">
+              <img
+                src="https://shout.com/wp-content/uploads/2023/11/Wetland-Wild-life-Trust-Logo.svg"
+                alt="Wetland Wildlife Trust"
+                class="max-h-full max-w-full object-contain"
+              />
             </div>
           </div>
           <h3 class="text-2xl font-bold mb-2">WWT</h3>
           <p class="text-gray-600 mb-4">
             WWT transformed its educational programs with instant feedback, revolutionizing the impact they have on learners and volunteers.
           </p>
-          <Button href="/customers/wwt/" variant="outline">Read full testimonial</Button>
+          <Link href="/customers/wwt/" style="outline" size="md">Read full testimonial</Link>
         </div>
       </div>
     </Container>
@@ -153,8 +159,8 @@ import { Icon } from "astro-icon/components";
           Start your 14-day free trial today. No credit card required.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button href="/signup/">Start Your Free Trial</Button>
-          <Button variant="outline" href="/contact/">Contact Sales</Button>
+          <Link href="/signup/">Start Your Free Trial</Link>
+          <Link style="outline" href="/contact/">Contact Sales</Link>
         </div>
       </div>
     </Container>

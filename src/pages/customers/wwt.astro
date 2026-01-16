@@ -1,0 +1,150 @@
+---
+import AstroshipLayout from "../../layouts/AstroshipLayout.astro";
+import Container from "../../components/container.astro";
+import Button from "../../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<AstroshipLayout
+  title="WWT Use Shout to Empower Decision-Making - Shout.com"
+  description="WWT recommends Shout's intuitive design, powerful analytics, and outstanding support. Read their full testimonial here."
+>
+  <!-- Hero Section -->
+  <section class="py-16">
+    <Container>
+      <p class="text-sm text-gray-500 mb-4 flex items-center gap-2">
+        <a href="/customers/" class="hover:text-primary underline">← Back to Customer Testimonials</a>
+      </p>
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-4">
+            Wildfowl & Wetlands Trust (WWT)
+          </h1>
+          <p class="text-lg text-gray-500 mb-2">Mark Stead, Head of Learning</p>
+          <p class="text-lg text-gray-600 mb-6">
+            WWT is the UK's largest wetland charity. They work to restore wetlands and educate people about their value both in the UK and across the world.
+          </p>
+          <p class="text-gray-600 mb-8">
+            Since 1946, their mission has been to save endangered species, tackle climate change, and restore wetlands to unlock their power.
+          </p>
+          <Button href="/signup/">Start your free trial</Button>
+        </div>
+        <div class="bg-gradient-to-br from-blue-100 to-blue-50 rounded-lg p-12 flex items-center justify-center">
+          <img
+            src="https://shout.com/wp-content/uploads/2023/11/Wetland-Wild-life-Trust-Logo.svg"
+            alt="Wetland Wildlife Trust Logo"
+            class="max-w-full max-h-64"
+          />
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- What WWT loves -->
+  <section class="py-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">What WWT loves about Shout</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-6">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:bell" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Swift action on feedback</h3>
+          </div>
+          <p class="text-gray-600">
+            We love Shout's email notification feature, where we receive instant alerts for new survey responses. This ensures we stay agile, promptly addressing feedback.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-6">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:filter-alt" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Empowered decision-making</h3>
+          </div>
+          <p class="text-gray-600">
+            The ability to dissect and compare survey data effortlessly with advanced filters has optimized our decision-making process.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-6">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:rocket" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Enhanced productivity</h3>
+          </div>
+          <p class="text-gray-600">
+            Shout's intuitive interface has transformed our processes. Its user-friendly design makes it easy for our team to create, deploy, and analyze surveys quickly.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Problem solved -->
+  <section class="py-16">
+    <Container>
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">What problem Shout solved</h2>
+          <p class="text-gray-600 mb-4">
+            Initially WWT used SurveyMonkey to collect feedback, but they couldn't reconcile the high cost against the features offered. Shout's affordability was a breath of fresh air, and the <strong>cost savings didn't come at the expense of functionality</strong>.
+          </p>
+          <p class="text-gray-600 mb-4">
+            In fact, Shout not only matched but surpassed the capabilities of SurveyMonkey.
+          </p>
+          <p class="text-gray-600">
+            At the heart of WWT's mission is the commitment to education, accomplished through school visits and learning programs. Shout has been instrumental in achieving their educational goals by revolutionizing the way they gather and analyze feedback from educators who participate in their programs.
+          </p>
+        </div>
+        <div>
+          <img
+            src="https://shout.com/wp-content/uploads/2023/11/Wetland-Wilflife-Trust-Testimonial-Shout.png"
+            alt="WWT testimonial"
+            class="rounded-lg shadow-lg w-full"
+          />
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Why recommend -->
+  <section class="py-16 bg-gray-50">
+    <Container>
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <img
+            src="https://shout.com/wp-content/uploads/2023/11/Wetland-Wildlife-Survey-Created-With-Shout.png"
+            alt="Survey created with Shout by WWT"
+            class="rounded-lg shadow-lg w-full"
+          />
+        </div>
+        <div>
+          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Why WWT recommends Shout</h2>
+          <p class="text-gray-600 mb-4">
+            The support team's commitment to excellence creates an environment where you feel more than just a customer – you feel like you have a genuine and personal relationship with the team.
+          </p>
+          <p class="text-gray-600 mb-4">
+            WWT found that Shout not only provides all the essential features needed but goes beyond, offering a comprehensive suite of tools that rivals more expensive platforms.
+          </p>
+          <p class="text-gray-600">
+            Recommending Shout is a no-brainer – it's a testament to a platform that not only delivers on its promises but consistently goes above and beyond to ensure customer satisfaction.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-primary text-white">
+    <Container>
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-4">Inspired by WWT?</h2>
+        <p class="text-lg mb-8 opacity-90">
+          Sign up for Shout today to unlock a world of intuitive features and unparalleled customer service, without breaking the bank.
+        </p>
+        <Button href="/signup/" class="bg-white text-primary hover:bg-gray-100">Start creating surveys today</Button>
+      </div>
+    </Container>
+  </section>
+</AstroshipLayout>

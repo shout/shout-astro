@@ -6,6 +6,34 @@ import { Icon } from "astro-icon/components";
 import CustomerLogos from "../components/customer-logos.astro";
 import Features from "../components/features.astro";
 import BestReasons from "../components/best-reasons.astro";
+import FAQSection from "../components/faq-section.astro";
+
+const surveyFaqs = [
+  {
+    question: "Is there a free trial?",
+    answer: "<p>Yes! We offer a 14-day free trial with no credit card required. You'll have access to all features so you can fully evaluate if Shout is right for you.</p>"
+  },
+  {
+    question: "How many surveys can I create?",
+    answer: "<p>All paid plans include unlimited surveys. Create as many surveys as you need without worrying about hitting any limits.</p>"
+  },
+  {
+    question: "Can I customize the look of my surveys?",
+    answer: "<p>Absolutely. You can customize colors, fonts, add your logo, and even use custom CSS on higher plans. White-label options are available to completely remove Shout branding.</p>"
+  },
+  {
+    question: "What question types are available?",
+    answer: "<p>Shout includes 20+ question types including multiple choice, rating scales, NPS, matrix questions, file uploads, date pickers, and more. You'll have everything you need to build comprehensive surveys.</p>"
+  },
+  {
+    question: "Can I export my survey data?",
+    answer: "<p>Yes, you can export your data to CSV or Excel at any time. All your data belongs to you and can be downloaded whenever you need it.</p>"
+  },
+  {
+    question: "Is my data secure?",
+    answer: "<p>Security is our priority. We're GDPR compliant, use SSL encryption, and store data in secure UK data centers. We also offer features to help you maintain compliance with data protection regulations.</p>"
+  }
+];
 ---
 
 <AstroshipLayout
@@ -402,6 +430,13 @@ import BestReasons from "../components/best-reasons.astro";
           />
         </div>
       </div>
+    </Container>
+  </section>
+
+  <!-- FAQs -->
+  <section>
+    <Container>
+      <FAQSection title="Survey Maker FAQs" faqs={surveyFaqs} />
     </Container>
   </section>
 
