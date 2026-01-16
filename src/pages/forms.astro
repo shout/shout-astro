@@ -1,0 +1,238 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+import CustomerLogos from "../components/customer-logos.astro";
+import Features from "../components/features.astro";
+
+const tabs = [
+  {
+    id: "surveys",
+    title: "Surveys",
+    icon: "bx:poll",
+    video: "https://cdn.freeonlinesurveys.com/Free-Online-Surveys.mp4",
+    description: "Collect feedback and insights with powerful survey tools"
+  },
+  {
+    id: "quizzes",
+    title: "Quizzes",
+    icon: "bx:help-circle",
+    video: "https://cdn.freeonlinesurveys.com/Free-Online-Quizzes.mp4",
+    description: "Create engaging quizzes that educate and convert"
+  },
+  {
+    id: "forms",
+    title: "Forms",
+    icon: "bx:file",
+    video: "https://cdn.freeonlinesurveys.com/Free-Online-Forms.mp4",
+    description: "Capture leads and collect data with custom forms"
+  },
+  {
+    id: "calculators",
+    title: "Calculators",
+    icon: "bx:calculator",
+    video: "https://cdn.freeonlinesurveys.com/Interactive-Calculator-Builder.mp4",
+    description: "Build interactive calculators that drive engagement"
+  },
+];
+---
+
+<AstroshipLayout
+  title="Forms, Surveys, Quizzes & Calculators - Shout.com"
+  description="Build surveys, quizzes, forms and calculators with our easy-to-use drag and drop builder. Start your free trial today."
+>
+  <!-- Hero Section with Tabbed Video -->
+  <section class="py-16">
+    <Container>
+      <div class="text-center max-w-4xl mx-auto mb-12">
+        <h1 class="text-5xl lg:text-6xl font-bold lg:tracking-tight mb-6">
+          Build <span class="text-primary">anything</span> you need
+        </h1>
+        <p class="text-xl text-gray-600">
+          Create surveys, quizzes, forms and calculators with our intuitive drag-and-drop builder.
+        </p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="flex justify-center mb-8">
+        <div class="inline-flex bg-gray-100 rounded-full p-1 gap-1">
+          {tabs.map((tab, index) => (
+            <button
+              data-tab={tab.id}
+              class:list={[
+                "tab-button px-6 py-3 rounded-full text-sm font-medium transition-all flex items-center gap-2",
+                index === 0 ? "bg-white shadow-sm text-gray-900" : "text-gray-600 hover:text-gray-900"
+              ]}
+            >
+              <Icon name={tab.icon} class="w-5 h-5" />
+              {tab.title}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Video Container -->
+      <div class="max-w-5xl mx-auto">
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-900">
+          {tabs.map((tab, index) => (
+            <div
+              data-video-panel={tab.id}
+              class:list={[
+                "video-panel",
+                index === 0 ? "block" : "hidden"
+              ]}
+            >
+              <video
+                src={tab.video}
+                autoplay
+                muted
+                loop
+                playsinline
+                class="w-full h-auto"
+              />
+            </div>
+          ))}
+        </div>
+
+        <!-- Description below video -->
+        <div class="text-center mt-6">
+          {tabs.map((tab, index) => (
+            <p
+              data-description={tab.id}
+              class:list={[
+                "tab-description text-lg text-gray-600",
+                index === 0 ? "block" : "hidden"
+              ]}
+            >
+              {tab.description}
+            </p>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+        <Button href="/signup/" size="lg">Start your Free Trial</Button>
+        <p class="text-gray-600 text-sm self-center">14-day Free Trial - No Credit Card Required</p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Customer Logos -->
+  <CustomerLogos />
+
+  <!-- Feature Highlights -->
+  <section class="py-16">
+    <Container>
+      <div class="mb-12 text-center">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">One platform, endless possibilities</h2>
+        <p class="text-lg mt-4 text-gray-600 max-w-3xl mx-auto">
+          Whether you're collecting feedback, generating leads, or engaging your audience, Shout has the tools you need.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <a href="/survey-maker/" class="group block bg-white rounded-xl border border-gray-200 p-8 hover:shadow-lg hover:border-primary transition-all">
+          <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+            <Icon name="bx:poll" class="w-6 h-6 text-primary" />
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Surveys</h3>
+          <p class="text-gray-600">Collect feedback, measure satisfaction, and gather insights from your audience.</p>
+        </a>
+
+        <a href="/quiz-builder/" class="group block bg-white rounded-xl border border-gray-200 p-8 hover:shadow-lg hover:border-primary transition-all">
+          <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+            <Icon name="bx:help-circle" class="w-6 h-6 text-primary" />
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Quizzes</h3>
+          <p class="text-gray-600">Create engaging quizzes for lead generation, education, or entertainment.</p>
+        </a>
+
+        <a href="/form-builder/" class="group block bg-white rounded-xl border border-gray-200 p-8 hover:shadow-lg hover:border-primary transition-all">
+          <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+            <Icon name="bx:file" class="w-6 h-6 text-primary" />
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Forms</h3>
+          <p class="text-gray-600">Capture leads, register attendees, and collect data with custom forms.</p>
+        </a>
+
+        <a href="/custom-calculator-builder/" class="group block bg-white rounded-xl border border-gray-200 p-8 hover:shadow-lg hover:border-primary transition-all">
+          <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+            <Icon name="bx:calculator" class="w-6 h-6 text-primary" />
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Calculators</h3>
+          <p class="text-gray-600">Build interactive calculators for ROI, pricing, assessments, and more.</p>
+        </a>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Integrated Solutions -->
+  <Features />
+
+  <!-- Final CTA -->
+  <section class="py-16 bg-gray-50">
+    <Container>
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to get started?</h2>
+        <p class="text-lg text-gray-600 mb-8">Join thousands of businesses using Shout to collect data and engage their audience.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/signup/">Start your Free Trial</Button>
+          <Button variant="outline" href="/pricing/">View Pricing</Button>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+</AstroshipLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const videoPanels = document.querySelectorAll('.video-panel');
+    const descriptions = document.querySelectorAll('.tab-description');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const tabId = button.getAttribute('data-tab');
+
+        // Update button styles
+        tabButtons.forEach(btn => {
+          btn.classList.remove('bg-white', 'shadow-sm', 'text-gray-900');
+          btn.classList.add('text-gray-600');
+        });
+        button.classList.add('bg-white', 'shadow-sm', 'text-gray-900');
+        button.classList.remove('text-gray-600');
+
+        // Show/hide video panels
+        videoPanels.forEach(panel => {
+          if (panel.getAttribute('data-video-panel') === tabId) {
+            panel.classList.remove('hidden');
+            panel.classList.add('block');
+            // Restart video
+            const video = panel.querySelector('video');
+            if (video) {
+              video.currentTime = 0;
+              video.play();
+            }
+          } else {
+            panel.classList.add('hidden');
+            panel.classList.remove('block');
+          }
+        });
+
+        // Show/hide descriptions
+        descriptions.forEach(desc => {
+          if (desc.getAttribute('data-description') === tabId) {
+            desc.classList.remove('hidden');
+            desc.classList.add('block');
+          } else {
+            desc.classList.add('hidden');
+            desc.classList.remove('block');
+          }
+        });
+      });
+    });
+  });
+</script>
