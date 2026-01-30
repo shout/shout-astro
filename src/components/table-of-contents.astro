@@ -1,0 +1,96 @@
+---
+export interface Props {
+  sections: {
+    id: string;
+    title: string;
+  }[];
+  title?: string;
+}
+
+const { sections, title = "On this page" } = Astro.props;
+---
+
+<nav class="hidden xl:block" aria-label="Table of contents">
+  <div class="sticky top-24">
+    <h2 class="text-sm font-semibold text-gray-900 mb-4">{title}</h2>
+    <ul class="space-y-2 text-sm border-l border-gray-200">
+      {sections.map((section) => (
+        <li>
+          <a
+            href={`#${section.id}`}
+            class="toc-link block pl-4 py-1 -ml-px border-l border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-400 transition-colors"
+            data-section={section.id}
+          >
+            {section.title}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<script>
+  function initTableOfContents() {
+    const tocLinks = document.querySelectorAll('.toc-link');
+    const sections = new Map<string, Element>();
+
+    // Build map of section IDs to elements
+    tocLinks.forEach(link => {
+      const id = link.getAttribute('data-section');
+      if (id) {
+        const section = document.getElementById(id);
+        if (section) {
+          sections.set(id, section);
+        }
+      }
+    });
+
+    // Highlight active section on scroll
+    function updateActiveSection() {
+      const scrollY = window.scrollY + 100; // Offset for sticky header
+      let currentSection = '';
+
+      sections.forEach((element, id) => {
+        const rect = element.getBoundingClientRect();
+        const top = rect.top + window.scrollY;
+
+        if (scrollY >= top) {
+          currentSection = id;
+        }
+      });
+
+      tocLinks.forEach(link => {
+        const id = link.getAttribute('data-section');
+        if (id === currentSection) {
+          link.classList.add('text-primary', 'border-primary', 'font-medium');
+          link.classList.remove('text-gray-600', 'border-transparent');
+        } else {
+          link.classList.remove('text-primary', 'border-primary', 'font-medium');
+          link.classList.add('text-gray-600', 'border-transparent');
+        }
+      });
+    }
+
+    // Smooth scroll to section
+    tocLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const id = link.getAttribute('data-section');
+        if (id) {
+          const target = document.getElementById(id);
+          if (target) {
+            const top = target.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }
+        }
+      });
+    });
+
+    window.addEventListener('scroll', updateActiveSection, { passive: true });
+    updateActiveSection();
+  }
+
+  // Run on page load and after view transitions
+  initTableOfContents();
+  document.addEventListener('astro:after-swap', initTableOfContents);
+</script>

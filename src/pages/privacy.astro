@@ -1,244 +1,226 @@
 ---
 import AstroshipLayout from "../layouts/AstroshipLayout.astro";
 import Container from "../components/container.astro";
-import { Icon } from "astro-icon/components";
+import TableOfContents from "../components/table-of-contents.astro";
+
+const sections = [
+  { id: "who-are-we", title: "Who are we?" },
+  { id: "introduction", title: "Introduction" },
+  { id: "definitions", title: "Definitions" },
+  { id: "data-we-collect", title: "Data we collect" },
+  { id: "how-we-use-data", title: "How we use data" },
+  { id: "third-parties", title: "Third-party info" },
+  { id: "disclosure", title: "Disclosure" },
+  { id: "your-rights", title: "Your rights" },
+  { id: "retention", title: "Retention policy" },
+  { id: "backup", title: "Backup policy" },
+  { id: "complaints", title: "Right to complain" },
+  { id: "updates", title: "Policy updates" },
+];
 ---
 
 <AstroshipLayout
   title="Privacy Policy - Shout.com"
-  description="Shout.com Privacy Policy. Learn how we collect, use, and protect your personal data in compliance with GDPR, CCPA, and other regulations."
+  description="Shout.com Privacy Policy. Learn how we collect, use, and protect your personal data in compliance with GDPR and other regulations."
 >
   <section class="py-16">
     <Container>
-      <div class="max-w-4xl mx-auto">
-      <div class="mb-12">
-        <h1 class="text-4xl lg:text-5xl font-bold mb-4">Privacy Policy</h1>
-        <p class="text-lg text-gray-600">
-          Last Updated: December 2024
-        </p>
-      </div>
+      <div class="max-w-6xl mx-auto">
+        <div class="xl:grid xl:grid-cols-[1fr_220px] xl:gap-12">
+          <div class="max-w-4xl">
+            <div class="mb-12">
+              <h1 class="text-4xl lg:text-5xl font-bold mb-4">Privacy Policy</h1>
+            </div>
 
-      <!-- Quick Navigation -->
-      <div class="bg-blue-50 rounded-lg p-6 mb-12">
-        <h2 class="font-semibold mb-4">Privacy Topics</h2>
-        <ul class="space-y-2 text-sm grid grid-cols-1 sm:grid-cols-2">
-          <li><a href="#information-we-collect" class="text-blue-600 hover:underline">Information We Collect</a></li>
-          <li><a href="#how-we-use" class="text-blue-600 hover:underline">How We Use Information</a></li>
-          <li><a href="#legal-basis" class="text-blue-600 hover:underline">Legal Basis for Processing</a></li>
-          <li><a href="#data-retention" class="text-blue-600 hover:underline">Data Retention</a></li>
-          <li><a href="#data-rights" class="text-blue-600 hover:underline">Your Data Rights</a></li>
-          <li><a href="#contact" class="text-blue-600 hover:underline">Contact Us</a></li>
-        </ul>
-      </div>
-
-      <div class="prose prose-lg max-w-none space-y-8">
-        <!-- Overview Section -->
-        <section>
-          <div class="flex gap-4 mb-4">
-            <Icon name="bx:check-shield" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-            <div>
-              <h2 class="text-2xl font-bold mb-4">Our Privacy Commitment</h2>
-              <p class="text-gray-700 mb-4">
-                At Shout.com, we believe that privacy is a fundamental right. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal data when you use our Service.
+            <div class="prose prose-lg max-w-none">
+              <h2 id="who-are-we">Who are we?</h2>
+              <p>
+                This Privacy Policy applies to Shout and FreeOnlineSurveys (henceforth: "the Site") which are owned and operated by Problem Free Limited (registration number: 04602671) of Engineers House, 25 South Road, Portishead, BS20 7DU United Kingdom.
               </p>
-              <p class="text-gray-700">
-                Shout is a privacy-first platform, meaning data protection and security is engineered into all of our tools. We are compliant with the GDPR, UK-GDPR, CCPA, and other international data protection regulations.
+
+              <h2 id="introduction">Introduction</h2>
+              <p>
+                This privacy policy describes the information we collect about Creators and Visitors.
+              </p>
+              <p>
+                Problem Free Limited acts as a data controller for all personal data that our Creators and Visitors input, except for any personal data that is input by Respondents or that we process on behalf of Creators.
+              </p>
+              <p>
+                For any personal data input by Respondents or that we process on behalf of Creators, Problem Free Limited acts as a data processor, and Creators act as the data controllers.
+              </p>
+
+              <h2 id="definitions">Definitions</h2>
+              <p>
+                <strong>"Creators":</strong> These are account holders who use tools on the Site to create projects (surveys, quizzes, forms), collect data, or manage contacts.
+              </p>
+              <p>
+                <strong>"Visitors"</strong> are anyone who visits the Site.
+              </p>
+              <p>
+                <strong>"Respondents"</strong> are those who fill out surveys, quizzes, or forms created through the Site or have their data processed by Problem Free Limited by the Creator inputting their personal data into their account.
+              </p>
+
+              <h2 id="data-we-collect">The personal data we collect about you</h2>
+              <p>
+                In acting as a <strong>data controller</strong>, we collect the following personal data about you:
+              </p>
+              <ul>
+                <li><strong>Account information:</strong> information provided to create an account with the Site, such as names and email addresses and profile pictures.</li>
+                <li><strong>Billing information:</strong> information provided to maintain a paid subscription to the Site, such as names, email addresses, billing address, card number, and expiry dates.</li>
+                <li><strong>Contact Information:</strong> information you may share with us for providing support and transactional communications or for collecting feedback, testimonials and reviews.</li>
+                <li><strong>Social profiles:</strong> information that may be collected when inviting and suggesting others or sharing projects to Social Media platforms.</li>
+                <li><strong>Usage data:</strong> information collected to improve the performance of the Site.</li>
+                <li><strong>Web log data:</strong> our web servers keep log files that record data each time a device accesses those servers. The log files contain data about the nature of each access, including originating IP addresses, browser agent, the files viewed on our site (e.g., HTML pages, graphics, etc.), operating system versions, device type and timestamps.</li>
+                <li><strong>Application log data:</strong> personal data (e.g. error details, application performance logging, user history) may be stored in error logs, which are used to resolve bugs and ensure our Site is operating efficiently.</li>
+                <li><strong>Survey questions and answers:</strong> personal data we may collect from you when you respond to surveys, quizzes or forms created by us.</li>
+                <li><strong>Information from third parties:</strong> We collect your personal data from third parties where you give permission for that data to be shared. For example, when creating an account using the Google SSO method.</li>
+                <li><strong>Community participation data:</strong> information shared when participating in our community features, including usernames, profile information, feature suggestions, votes, comments, and forum posts.</li>
+                <li><strong>Notification preferences:</strong> your preferences for receiving email notifications about community activity, including subscribed topics, voted features, and forum threads.</li>
+              </ul>
+
+              <p>
+                In acting as <strong>data processor</strong>, we collect the following personal data from you:
+              </p>
+              <ul>
+                <li><strong>CRM data:</strong> including names, email addresses, and other personal data collected by the data controller.</li>
+                <li><strong>Survey questions and answers:</strong> personal data that may be stored with questions and answers.</li>
+                <li><strong>Image library:</strong> images that are uploaded to the image library on the Site.</li>
+                <li><strong>Organisations:</strong> names and email addresses of team users invited to the Site by Creators.</li>
+              </ul>
+              <p>
+                The lawful basis for us collecting the above personal data is for the fulfilment of a contract.
+              </p>
+
+              <h2 id="how-we-use-data">How we use the personal data we collect</h2>
+              <p>
+                We use the information collected to provide our services to you, including:
+              </p>
+              <ul>
+                <li>Providing support and answering queries about our services when you contact us.</li>
+                <li>Contacting you regarding your account, billing, or changes to the Site that may affect the services we provide to you.</li>
+                <li>To act on any violation of our Terms and Conditions.</li>
+                <li>To respond to legal requests, court orders, or lawful requests from government agencies.</li>
+                <li>To provide services upon your request.</li>
+                <li>To improve existing systems, products, and support services.</li>
+                <li>Network defence, DDOS protection, and application security.</li>
+                <li>Debugging and application optimisation.</li>
+                <li>Ensuring you can sign-up or log in to your account from a third-party integration, such as Google SSO.</li>
+                <li>To display your username and profile information in our community sections, including feature voting, suggestions, and public forums as a required part of these services.</li>
+                <li>To maintain and moderate our community features to ensure compliance with our community guidelines.</li>
+                <li>To send you notifications about updates to community content you've subscribed to or participated in.</li>
+              </ul>
+              <p>
+                We do not use the information you provide to make any automated decisions that might affect you.
+              </p>
+
+              <h3>Communications from the Site</h3>
+              <p>
+                All new Creators are sent an email confirmation message when creating an account with the Site for the purpose of verifying their registration.
+              </p>
+              <p>
+                New Creators of Shout.com will receive communications regarding their 14 Day Free Trial. These communications will be sent at intervals throughout the Free Trial, but will conclude upon the expiration of the Free Trial.
+              </p>
+              <p>
+                Occasionally, we may deem it necessary to send service-related emails to relevant Creators. For example, if the Site experiences an unexpected outage or unscheduled maintenance, it may be necessary to contact Creators to inform them of this. Generally, it's not possible to opt-out of these emails, as they are not deemed promotional.
+              </p>
+              <p>
+                If you contact us via our support email, we will send communications for as long as it is necessary to resolve an issue or answer a query submitted by you. You can, at any time, request that we no longer use this personal data to contact you. If you wish to do so, you can contact us at <a href="mailto:help@freeonlinesurveys.com">help@freeonlinesurveys.com</a> (for FreeOnlineSurveys Creators) or <a href="mailto:help@shout.com">help@shout.com</a> (for Shout Creators).
+              </p>
+
+              <h3>Community Features and Notifications</h3>
+              <p>
+                When you participate in our community features (such as feature voting, suggestions, or public forums), your username and profile information will be publicly displayed alongside your contributions as a required part of these services.
+              </p>
+              <p>
+                If you subscribe to community content or vote on features, you will receive email notifications about updates and changes to that content. You can manage your notification preferences in your account settings at any time.
+              </p>
+
+              <h2 id="third-parties">Information shared from third-parties</h2>
+              <p>
+                When you choose to register or log in using a third-party service (such as Google Sign-In), we collect your name, email address, and profile picture as permitted by your settings with that service. We use this information solely to verify your identity, create your account, and manage your user profile. This data is encrypted in transit and at rest.
+              </p>
+
+              <h2 id="disclosure">Disclosure of your personal data</h2>
+              <p>
+                We use sub-processors to deliver some of our services and to ensure your data is stored safely and securely. All sub-processors we use have the appropriate security and organisational measure in place to keep your data secure. You can find a full list of the sub-processors we use to provide this service at the following link: <a href="/173-our-sub-processors/">Our sub processors</a>.
+              </p>
+
+              <h3>Payment information</h3>
+              <p>
+                We also use the following payment processors to manage card payments taken through the Site:
+              </p>
+              <ul>
+                <li>BrainTree (<a href="https://www.braintreepayments.com/gb/legal/braintree-privacy-policy" target="_blank" rel="noopener noreferrer">BrainTree Privacy Policy</a>)</li>
+                <li>Chargebee (<a href="https://www.chargebee.com/privacy/" target="_blank" rel="noopener noreferrer">Chargebee Privacy Policy</a>)</li>
+                <li>Stripe (<a href="https://stripe.com/gb/privacy" target="_blank" rel="noopener noreferrer">Stripe Privacy Policy</a>)</li>
+                <li>LemonSqueezy (<a href="https://www.lemonsqueezy.com/privacy" target="_blank" rel="noopener noreferrer">LemonSqueezy Privacy Policy</a>)</li>
+              </ul>
+
+              <h3>Disclosure upon request</h3>
+              <p>
+                When a billing contact differs from the Creator, we may disclose account or billing information to them upon request.
+              </p>
+              <p>
+                We may disclose account details to your organisation, in cases where a Creator account belongs to the organisation itself.
+              </p>
+
+              <h3>Change of ownership</h3>
+              <p>
+                We may disclose account details if there is a change of ownership, merger or other corporate change. In this case, you agree that the successor will process the above personal data instead of Problem Free Limited following a notice given to all Problem Free Customers 1 month prior to this change.
+              </p>
+
+              <h3>Data transfers outside of the UK and EEA</h3>
+              <p>
+                Personal data for which we are the data controller may be stored or transferred outside of the UK and EEA and may be processed by third-parties for the purpose of providing Problem Free Limited with their services.
+              </p>
+              <p>
+                These services are essential to the continued operation of the Site and efficiently providing our services to you. All third party processors are subject to a data processing agreement or are bound by standard contractual clauses that guarantee compliant standards for data transfers.
+              </p>
+
+              <h2 id="your-rights">Your rights as a data subject</h2>
+              <p>
+                If you are a Creator or Visitor, you have the following rights:
+              </p>
+              <ul>
+                <li><strong>The right of access:</strong> You can access most of the data we store about you by accessing your account on the Site. If there is some data you believe we hold that is not accessible to you through your account, you may contact us at <a href="mailto:dpo@shout.com">dpo@shout.com</a>. This right can be exercised free of charge and all information provided in an accessible format, unless your request is excessive or repetitive.</li>
+                <li><strong>The right of rectification:</strong> You can rectify most personal information we hold about you from your account. If you are unable to rectify some information, you may submit a request to <a href="mailto:help@shout.com">help@shout.com</a> (for Shout Creators) or <a href="mailto:help@freeonlinesurveys.com">help@freeonlinesurveys.com</a> (for FreeOnlineSurveys Creators).</li>
+                <li><strong>The right to erasure:</strong> You can erase information collected via the Site tools, such as survey responses and CRM contacts, from inside your account. If you close your account, the personal data needed to keep that account open, such as name and email address, will be erased in line with our Retention Policy. You have the right to request that any personal data stored about you be erased, such as support tickets, reviews, or testimonials, by contacting us directly.</li>
+                <li><strong>The right to restrict processing:</strong> You do have the right to request a change in how your data is processed. As the processes we have in place are to ensure the efficient operation of the Site and the services we provide, you may be instructed to exercise your right to erasure instead.</li>
+                <li><strong>The right to object:</strong> You have the right to object to Problem Free Limited using your data for marketing purposes. You may contact <a href="mailto:dpo@shout.com">dpo@shout.com</a> to exercise this right.</li>
+              </ul>
+
+              <h2 id="retention">Retention policy</h2>
+              <p>
+                We will retain your personal data for as long as it is necessary to provide our services to you. If you wish to close your account, you may do so via your account settings on the Site or by contacting us at <a href="mailto:dpo@shout.com">dpo@shout.com</a>.
+              </p>
+              <p>
+                You can find all information about the data retention period for account details, surveys, responses, and questions by reading our <a href="/228-data-retention/">Data Retention Policy</a>.
+              </p>
+
+              <h2 id="backup">Backup Policy</h2>
+              <p>
+                We take incremental database backups every 15 minutes, which are pre-encrypted and shipped for storage. We automatically restore these backups to verify that they will work when needed.
+              </p>
+
+              <h2 id="complaints">Your right to complain</h2>
+              <p>
+                If you have a complaint about our use of your information, we would prefer you to contact us directly in the first instance so that we can address your complaint. However, you can also contact the Information Commissioner's Office via their website at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">https://ico.org.uk</a>.
+              </p>
+
+              <h2 id="updates">Updates to this privacy policy</h2>
+              <p>
+                We regularly review and, if appropriate, update this privacy policy from time to time, and as our services and use of personal data evolves. If we want to make use of your personal data in a way that we haven't previously identified, we will contact you to provide information about this and, if necessary, to ask for your consent.
+              </p>
+
+              <h2>Questions?</h2>
+              <p>
+                If you have any questions about this Privacy Policy, please contact us at <a href="mailto:help@shout.com">help@shout.com</a>.
               </p>
             </div>
           </div>
-        </section>
 
-        <!-- Information We Collect Section -->
-        <section id="information-we-collect">
-          <div class="flex gap-4 mb-4">
-            <Icon name="bx:info-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-            <div>
-              <h2 class="text-2xl font-bold mb-4">Information We Collect</h2>
-              <h3 class="text-xl font-semibold mt-6 mb-3">Information You Provide</h3>
-              <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 mb-4">
-                <li>Account registration information (name, email, organization)</li>
-                <li>Payment and billing information</li>
-                <li>Survey responses and form submissions</li>
-                <li>Customer service communications</li>
-                <li>Profile and preference information</li>
-              </ul>
-
-              <h3 class="text-xl font-semibold mt-6 mb-3">Information Collected Automatically</h3>
-              <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 mb-4">
-                <li>Log data (IP address, browser type, pages visited)</li>
-                <li>Device information (type, operating system)</li>
-                <li>Usage analytics</li>
-                <li>Cookies and similar tracking technologies</li>
-              </ul>
-
-              <h3 class="text-xl font-semibold mt-6 mb-3">Information from Third Parties</h3>
-              <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
-                <li>Payment processors</li>
-                <li>Social media platforms (if connected)</li>
-                <li>Analytics providers</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <!-- How We Use Information Section -->
-        <section id="how-we-use">
-          <div class="flex gap-4 mb-4">
-            <Icon name="bx:check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-            <div>
-              <h2 class="text-2xl font-bold mb-4">How We Use Your Information</h2>
-              <p class="text-gray-700 mb-4">
-                We use the information we collect for the following purposes:
-              </p>
-              <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 mb-4">
-                <li>To provide, maintain, and improve our Service</li>
-                <li>To process your account and transactions</li>
-                <li>To send administrative information and service updates</li>
-                <li>To respond to your inquiries and provide customer support</li>
-                <li>To enforce our Terms of Use and other agreements</li>
-                <li>To prevent fraud and unauthorized access</li>
-                <li>To comply with legal obligations</li>
-              </ul>
-              <p class="bg-yellow-50 border-l-4 border-yellow-400 p-4 text-gray-700">
-                <strong>[LEGAL REVIEW REQUIRED]</strong> - Ensure all data use purposes align with your actual business practices and have appropriate consent mechanisms in place.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Legal Basis Section -->
-        <section id="legal-basis">
-          <div class="flex gap-4 mb-4">
-            <Icon name="bx:book-open" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-            <div>
-              <h2 class="text-2xl font-bold mb-4">Legal Basis for Processing (GDPR)</h2>
-              <p class="text-gray-700 mb-4">
-                Under the GDPR, we process your personal data based on one or more of the following legal bases:
-              </p>
-              <div class="space-y-4">
-                <div class="border-l-4 border-blue-400 pl-4">
-                  <h3 class="font-semibold mb-2">Contractual Necessity</h3>
-                  <p class="text-gray-700">To provide our Service and fulfill your requests</p>
-                </div>
-                <div class="border-l-4 border-blue-400 pl-4">
-                  <h3 class="font-semibold mb-2">Legitimate Interests</h3>
-                  <p class="text-gray-700">To improve our Service, prevent fraud, and ensure security</p>
-                </div>
-                <div class="border-l-4 border-blue-400 pl-4">
-                  <h3 class="font-semibold mb-2">Consent</h3>
-                  <p class="text-gray-700">Where you have explicitly consented to marketing communications</p>
-                </div>
-                <div class="border-l-4 border-blue-400 pl-4">
-                  <h3 class="font-semibold mb-2">Legal Obligation</h3>
-                  <p class="text-gray-700">To comply with applicable laws and regulations</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Data Retention Section -->
-        <section id="data-retention">
-          <div class="flex gap-4 mb-4">
-            <Icon name="bx:time-five" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-            <div>
-              <h2 class="text-2xl font-bold mb-4">Data Retention</h2>
-              <p class="text-gray-700 mb-4">
-                We retain your personal data for as long as necessary to provide our Service and fulfill the purposes outlined in this Privacy Policy. Retention periods vary depending on the type of data:
-              </p>
-              <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 mb-4">
-                <li>Account data: Retained while your account is active and for [X years] after termination</li>
-                <li>Transaction data: Retained for [X years] for tax and accounting purposes</li>
-                <li>Survey responses: Retained according to your retention settings</li>
-                <li>Log data: Typically retained for [X days/months]</li>
-              </ul>
-              <p class="text-gray-700">
-                You may request deletion of your data at any time, subject to legal and contractual obligations. See "Your Data Rights" below.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Data Rights Section -->
-        <section id="data-rights">
-          <div class="flex gap-4 mb-4">
-            <Icon name="bx:key" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-            <div>
-              <h2 class="text-2xl font-bold mb-4">Your Data Rights</h2>
-              <p class="text-gray-700 mb-4">
-                Depending on where you are located, you may have the following rights regarding your personal data:
-              </p>
-
-              <h3 class="text-xl font-semibold mt-6 mb-3">GDPR Rights (EU/UK/EEA)</h3>
-              <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 mb-6">
-                <li><strong>Right of Access:</strong> Request a copy of your personal data</li>
-                <li><strong>Right to Rectification:</strong> Correct inaccurate data</li>
-                <li><strong>Right to Erasure:</strong> Request deletion of your data</li>
-                <li><strong>Right to Restrict Processing:</strong> Limit how we use your data</li>
-                <li><strong>Right to Data Portability:</strong> Receive your data in a portable format</li>
-                <li><strong>Right to Object:</strong> Object to certain processing activities</li>
-              </ul>
-
-              <h3 class="text-xl font-semibold mt-6 mb-3">CCPA Rights (California)</h3>
-              <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 mb-6">
-                <li><strong>Right to Know:</strong> What personal information is collected and how it's used</li>
-                <li><strong>Right to Delete:</strong> Request deletion of collected information</li>
-                <li><strong>Right to Opt-Out:</strong> Opt out of the sale or sharing of your data</li>
-                <li><strong>Right to Non-Discrimination:</strong> Not be discriminated against for exercising your rights</li>
-              </ul>
-
-              <p class="bg-yellow-50 border-l-4 border-yellow-400 p-4 text-gray-700">
-                <strong>[LEGAL REVIEW REQUIRED]</strong> - Data retention periods and rights implementations must be verified for your specific jurisdiction and data handling practices.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Data Security Section -->
-        <section>
-          <div class="flex gap-4 mb-4">
-            <Icon name="bx:lock" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-            <div>
-              <h2 class="text-2xl font-bold mb-4">Data Security</h2>
-              <p class="text-gray-700 mb-4">
-                We implement comprehensive security measures to protect your personal data, including:
-              </p>
-              <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
-                <li>Encryption in transit (TLS 1.2+) and at rest (AES 128+)</li>
-                <li>Regular security audits and penetration testing</li>
-                <li>Access controls and role-based permissions</li>
-                <li>Secure data centers with ISO 27001:2013 certification</li>
-                <li>Backup and disaster recovery procedures</li>
-              </ul>
-              <p class="text-gray-700 mt-4">
-                For more detailed security information, please see our <a href="/security/" class="text-blue-600 hover:underline">Security Policy</a>.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="mt-12 bg-gray-50 rounded-lg p-8 border border-gray-200">
-          <h2 class="text-2xl font-bold mb-4">Privacy Inquiries</h2>
-          <p class="text-gray-700 mb-6">
-            If you have any questions about this Privacy Policy or how we handle your data, please contact us.
-          </p>
-          <div class="space-y-4 mb-6">
-            <div>
-              <h3 class="font-semibold mb-2">Data Protection Officer</h3>
-              <p class="text-gray-700">Email: <a href="mailto:dpo@shout.com" class="text-blue-600 hover:underline">dpo@shout.com</a></p>
-            </div>
-            <div>
-              <h3 class="font-semibold mb-2">General Inquiries</h3>
-              <p class="text-gray-700">Email: <a href="mailto:help@shout.com" class="text-blue-600 hover:underline">help@shout.com</a></p>
-            </div>
-          </div>
-          <a href="/contact/" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
-            <Icon name="bx:message-dots" class="w-5 h-5" />
-            Contact Us
-          </a>
-        </section>
-      </div>
+          <TableOfContents sections={sections} />
+        </div>
       </div>
     </Container>
   </section>

@@ -1,277 +1,75 @@
 ---
 import AstroshipLayout from "../layouts/AstroshipLayout.astro";
 import Container from "../components/container.astro";
-import { Icon } from "astro-icon/components";
 ---
 
 <AstroshipLayout
   title="Cookie Policy - Shout.com"
-  description="Shout.com Cookie Policy. Learn about how we use cookies and similar tracking technologies on our website."
+  description="Shout.com Cookie Policy. We're a privacy-first, cookieless platform. Learn about our minimal use of cookies."
 >
   <section class="py-16">
     <Container>
       <div class="max-w-4xl mx-auto">
-      <div class="mb-12">
-        <h1 class="text-4xl lg:text-5xl font-bold mb-4">Cookie Policy</h1>
-        <p class="text-lg text-gray-600">
-          Last Updated: December 2024
-        </p>
-      </div>
+        <div class="mb-12">
+          <h1 class="text-4xl lg:text-5xl font-bold mb-4">Cookie Policy</h1>
+        </div>
 
-      <!-- Quick Navigation -->
-      <div class="bg-blue-50 rounded-lg p-6 mb-12">
-        <h2 class="font-semibold mb-4">Cookie Topics</h2>
-        <ul class="space-y-2 text-sm grid grid-cols-1 sm:grid-cols-2">
-          <li><a href="#what-are-cookies" class="text-blue-600 hover:underline">What Are Cookies?</a></li>
-          <li><a href="#types" class="text-blue-600 hover:underline">Types of Cookies</a></li>
-          <li><a href="#our-cookies" class="text-blue-600 hover:underline">Our Cookies</a></li>
-          <li><a href="#third-party" class="text-blue-600 hover:underline">Third-Party Cookies</a></li>
-          <li><a href="#manage" class="text-blue-600 hover:underline">Manage Your Cookies</a></li>
-          <li><a href="#contact" class="text-blue-600 hover:underline">Contact Us</a></li>
-        </ul>
-      </div>
-
-      <div class="prose prose-lg max-w-none space-y-8">
-        <!-- What Are Cookies Section -->
-        <section id="what-are-cookies">
-          <div class="flex gap-4 mb-4">
-            <Icon name="bx:info-circle" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-            <div>
-              <h2 class="text-2xl font-bold mb-4">What Are Cookies?</h2>
-              <p class="text-gray-700 mb-4">
-                Cookies are small text files that are stored on your device (computer, smartphone, tablet) when you visit our website or use our Service. They are widely used to improve your experience and understand how you use websites.
-              </p>
-              <p class="text-gray-700 mb-4">
-                A cookie contains information that can be read by the website that set it. The information in a cookie typically does not directly identify you, but it can store information about your browsing habits and preferences.
-              </p>
-              <p class="text-gray-700">
-                Shout.com is a privacy-first platform, and we have designed our cookie usage to minimize tracking and respect user privacy in accordance with GDPR and other regulations.
-              </p>
-            </div>
+        <div class="prose prose-lg max-w-none">
+          <div class="bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
+            <h2 class="text-xl font-bold text-green-800 mt-0 mb-3">We're a cookieless platform</h2>
+            <p class="text-green-900 mb-0">
+              Shout.com is built with privacy at its core. Unlike most websites, we don't use tracking cookies, advertising cookies, or analytics cookies. We believe your data belongs to you, not to advertisers.
+            </p>
           </div>
-        </section>
 
-        <!-- Types of Cookies Section -->
-        <section id="types">
-          <div class="flex gap-4 mb-4">
-            <Icon name="bx:list-check" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-            <div>
-              <h2 class="text-2xl font-bold mb-4">Types of Cookies</h2>
-
-              <h3 class="text-xl font-semibold mt-6 mb-3">Session Cookies</h3>
-              <p class="text-gray-700 mb-4">
-                Session cookies are temporary cookies that are deleted when you close your browser. They are essential for providing basic functionality such as authentication and secure browsing.
-              </p>
-
-              <h3 class="text-xl font-semibold mt-6 mb-3">Persistent Cookies</h3>
-              <p class="text-gray-700 mb-4">
-                Persistent cookies remain on your device after your browser is closed and are used to recognize you on future visits. They help improve your experience by remembering preferences.
-              </p>
-
-              <h3 class="text-xl font-semibold mt-6 mb-3">First-Party Cookies</h3>
-              <p class="text-gray-700 mb-4">
-                First-party cookies are set directly by shout.com and are only accessible to our website. We use these to provide essential functionality and improve your experience.
-              </p>
-
-              <h3 class="text-xl font-semibold mt-6 mb-3">Third-Party Cookies</h3>
-              <p class="text-gray-700">
-                Third-party cookies are set by other domains and are used for analytics, advertising, and other purposes. See "Third-Party Cookies" section below for details.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Our Cookies Section -->
-        <section id="our-cookies">
-          <div class="flex gap-4 mb-4">
-            <Icon name="bx:folder-open" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-            <div>
-              <h2 class="text-2xl font-bold mb-4">Cookies We Use</h2>
-
-              <h3 class="text-xl font-semibold mt-6 mb-3">Essential/Strictly Necessary Cookies</h3>
-              <p class="text-gray-700 mb-4">
-                These cookies are essential for providing basic functionality and cannot be disabled without affecting site operation:
-              </p>
-              <div class="overflow-x-auto mb-6">
-                <table class="w-full text-sm">
-                  <thead class="bg-gray-100">
-                    <tr>
-                      <th class="p-3 text-left">Cookie Name</th>
-                      <th class="p-3 text-left">Purpose</th>
-                      <th class="p-3 text-left">Duration</th>
-                    </tr>
-                  </thead>
-                  <tbody class="divide-y">
-                    <tr>
-                      <td class="p-3">_session</td>
-                      <td class="p-3">Maintains your login session</td>
-                      <td class="p-3">Session</td>
-                    </tr>
-                    <tr>
-                      <td class="p-3">_csrf</td>
-                      <td class="p-3">CSRF protection token</td>
-                      <td class="p-3">Session</td>
-                    </tr>
-                    <tr>
-                      <td class="p-3">_locale</td>
-                      <td class="p-3">Remembers your language preference</td>
-                      <td class="p-3">1 Year</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <h3 class="text-xl font-semibold mt-6 mb-3">Functional Cookies</h3>
-              <p class="text-gray-700 mb-4">
-                These cookies enhance your experience by remembering your choices:
-              </p>
-              <div class="overflow-x-auto mb-6">
-                <table class="w-full text-sm">
-                  <thead class="bg-gray-100">
-                    <tr>
-                      <th class="p-3 text-left">Cookie Name</th>
-                      <th class="p-3 text-left">Purpose</th>
-                      <th class="p-3 text-left">Duration</th>
-                    </tr>
-                  </thead>
-                  <tbody class="divide-y">
-                    <tr>
-                      <td class="p-3">_preferences</td>
-                      <td class="p-3">Stores your account preferences</td>
-                      <td class="p-3">1 Year</td>
-                    </tr>
-                    <tr>
-                      <td class="p-3">_cookie_consent</td>
-                      <td class="p-3">Remembers your cookie consent choices</td>
-                      <td class="p-3">1 Year</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <h3 class="text-xl font-semibold mt-6 mb-3">Analytics Cookies</h3>
-              <p class="text-gray-700">
-                With your consent, we use analytics cookies to understand how our website is used and to continuously improve it:
-              </p>
-              <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 mt-3">
-                <li>Google Analytics - Tracks page views and user behavior</li>
-                <li>Custom analytics - Measures feature usage and performance</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <!-- Third-Party Cookies Section -->
-        <section id="third-party">
-          <div class="flex gap-4 mb-4">
-            <Icon name="bx:link-external" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-            <div>
-              <h2 class="text-2xl font-bold mb-4">Third-Party Cookies</h2>
-              <p class="text-gray-700 mb-4">
-                We work with third-party providers for analytics and functionality. These providers may set cookies on your device:
-              </p>
-
-              <h3 class="text-xl font-semibold mt-6 mb-3">Analytics Providers</h3>
-              <div class="space-y-3 mb-6">
-                <div class="border-l-4 border-blue-400 pl-4">
-                  <h4 class="font-semibold">Google Analytics</h4>
-                  <p class="text-gray-700 text-sm">Analytics and user behavior tracking</p>
-                  <p class="text-gray-700 text-sm"><a href="https://policies.google.com/privacy" class="text-blue-600 hover:underline">View Google's Privacy Policy</a></p>
-                </div>
-              </div>
-
-              <h3 class="text-xl font-semibold mt-6 mb-3">Important Notice</h3>
-              <p class="text-gray-700 mb-4">
-                We do NOT use third-party advertising cookies. As a privacy-first platform, we do not allow advertisers to track your behavior across websites. We only use analytics cookies to improve our Service with your consent.
-              </p>
-
-              <p class="bg-yellow-50 border-l-4 border-yellow-400 p-4 text-gray-700">
-                <strong>[LEGAL REVIEW REQUIRED]</strong> - Third-party service integrations should be verified to ensure your actual third-party providers are listed and their policies are current.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Manage Your Cookies Section -->
-        <section id="manage">
-          <div class="flex gap-4 mb-4">
-            <Icon name="bx:cog" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-            <div>
-              <h2 class="text-2xl font-bold mb-4">Manage Your Cookies</h2>
-
-              <h3 class="text-xl font-semibold mt-6 mb-3">Browser Controls</h3>
-              <p class="text-gray-700 mb-4">
-                You can control and manage cookies in your browser settings. Most browsers allow you to:
-              </p>
-              <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 mb-6">
-                <li>View cookies stored on your device</li>
-                <li>Accept or reject new cookies</li>
-                <li>Delete all or specific cookies</li>
-                <li>Enable "Do Not Track" signals</li>
-              </ul>
-
-              <h3 class="text-xl font-semibold mt-6 mb-3">Cookie Consent</h3>
-              <p class="text-gray-700 mb-4">
-                When you first visit our website, we will ask for your consent to use non-essential cookies. You can:
-              </p>
-              <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4 mb-6">
-                <li>Accept all cookies</li>
-                <li>Accept only essential cookies</li>
-                <li>Customize your cookie preferences</li>
-                <li>Withdraw consent at any time</li>
-              </ul>
-
-              <h3 class="text-xl font-semibold mt-6 mb-3">Important Information</h3>
-              <p class="text-gray-700 mb-4">
-                Please note that if you disable essential cookies, some features of our website may not function properly. You will always be able to use the core Service, but some functionality may be limited.
-              </p>
-
-              <div class="bg-blue-50 border-l-4 border-blue-400 p-4 text-gray-700 mt-6">
-                <p class="font-semibold mb-2">Opt-Out of Analytics</p>
-                <p>To opt out of Google Analytics, you can install the <a href="https://tools.google.com/dlpage/gaoptout" class="text-blue-600 hover:underline">Google Analytics Opt-out Browser Add-on</a>.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Changes to Policy Section -->
-        <section>
-          <div class="flex gap-4 mb-4">
-            <Icon name="bx:history" class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-            <div>
-              <h2 class="text-2xl font-bold mb-4">Changes to This Policy</h2>
-              <p class="text-gray-700 mb-4">
-                Shout.com may update this Cookie Policy from time to time to reflect changes in our practices or legal requirements. We will notify you of significant changes by posting the updated policy on this page with an updated "Last Updated" date.
-              </p>
-              <p class="text-gray-700">
-                Your continued use of our Service following changes to this policy constitutes your acceptance of the updated terms.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="mt-12 bg-gray-50 rounded-lg p-8 border border-gray-200">
-          <h2 class="text-2xl font-bold mb-4">Questions About Our Cookies?</h2>
-          <p class="text-gray-700 mb-6">
-            If you have any questions about our use of cookies or this Cookie Policy, please contact us.
+          <h2>Our approach to cookies</h2>
+          <p>
+            Shout.com is a cookieless site and application. We've deliberately chosen not to use the tracking technologies that have become commonplace across the web. There are no third-party analytics scripts watching your every move, no advertising networks building profiles about you, and no social media trackers following you around the internet.
           </p>
-          <div class="space-y-4 mb-6">
-            <div>
-              <h3 class="font-semibold mb-2">Privacy Team</h3>
-              <p class="text-gray-700">Email: <a href="mailto:privacy@shout.com" class="text-blue-600 hover:underline">privacy@shout.com</a></p>
-            </div>
-            <div>
-              <h3 class="font-semibold mb-2">Data Protection Officer</h3>
-              <p class="text-gray-700">Email: <a href="mailto:dpo@shout.com" class="text-blue-600 hover:underline">dpo@shout.com</a></p>
-            </div>
-          </div>
-          <a href="/contact/" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
-            <Icon name="bx:message-dots" class="w-5 h-5" />
-            Contact Us
-          </a>
-        </section>
-      </div>
+          <p>
+            This isn't just a policy - it's a fundamental part of how we've built our platform. We believe that privacy-respecting software shouldn't be the exception; it should be the standard.
+          </p>
+
+          <h2>When cookies may be used</h2>
+          <p>
+            While our public website and survey/form/quiz experiences are completely cookieless, there are two limited scenarios where cookies are used:
+          </p>
+
+          <h3>1. Authentication and session management</h3>
+          <p>
+            When you log in to your Shout account, we use essential session cookies to keep you securely signed in. These cookies are strictly necessary for the application to function and contain no tracking information. They are automatically deleted when you log out or close your browser.
+          </p>
+
+          <h3>2. Optional duplicate response prevention</h3>
+          <p>
+            Creators may optionally enable a feature to prevent duplicate responses from the same device. When enabled, this places a small cookie on the Respondent's device after their response is saved. This cookie simply indicates that a response has been submitted - <strong>no personally identifiable information is collected or stored through this feature</strong>.
+          </p>
+          <p>
+            This feature is entirely optional and disabled by default. Creators choose whether to enable it based on their specific needs.
+          </p>
+
+          <h2>What we don't do</h2>
+          <ul>
+            <li>We don't use Google Analytics or any other third-party analytics</li>
+            <li>We don't use advertising cookies or retargeting pixels</li>
+            <li>We don't use social media tracking widgets</li>
+            <li>We don't sell or share your browsing data with anyone</li>
+            <li>We don't build profiles about your behaviour across websites</li>
+          </ul>
+
+          <h2>Definitions</h2>
+          <p>
+            <strong>"Creators":</strong> Account holders who use tools on Shout.com to create projects (surveys, quizzes, forms), collect data, or manage contacts.
+          </p>
+          <p>
+            <strong>"Respondents":</strong> People who fill out surveys, quizzes, or forms created through Shout.com.
+          </p>
+
+          <h2>Questions?</h2>
+          <p>
+            If you have any questions about our cookie practices or our commitment to privacy, we're happy to help. Get in touch with us at <a href="mailto:help@shout.com">help@shout.com</a>.
+          </p>
+        </div>
       </div>
     </Container>
   </section>
