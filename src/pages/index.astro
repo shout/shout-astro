@@ -28,40 +28,40 @@ import CustomerLogos from "../components/customer-logos.astro";
       <div class="max-w-5xl mx-auto mb-10" id="hero-demo">
         <div class="grid md:grid-cols-[1fr_auto_1fr] gap-4 items-stretch">
           <!-- Form side (matching Shout survey style) -->
-          <div class="bg-[#3299bb] rounded-xl shadow-lg p-5 flex flex-col relative overflow-hidden">
+          <div class="bg-[#2A98C6] rounded-xl shadow-lg p-6 pb-10 flex flex-col relative overflow-hidden">
             <!-- Yellow progress bar at top -->
             <div id="progress-bar" class="absolute top-0 left-0 w-0 h-1 bg-yellow-400 transition-all duration-500"></div>
 
             <!-- Title -->
-            <h3 class="text-xl font-bold text-white mb-5">How are we doing?</h3>
+            <h3 class="text-xl font-bold text-white mb-8">How are we doing?</h3>
 
             <!-- Question 1: Contact details -->
-            <div class="flex gap-2 mb-5">
-              <div id="bar-q1" class="flex-shrink-0 w-0.5 bg-yellow-400 rounded-full h-0 transition-all duration-300"></div>
+            <div class="flex gap-2 mb-10">
+              <div id="bar-q1" class="flex-shrink-0 w-0.5 bg-yellow-400 rounded-full h-full transition-all duration-300"></div>
               <div class="flex-1">
                 <div class="flex items-center gap-2 mb-2">
                   <span class="w-5 h-5 rounded-full border border-white/50 text-xs flex items-center justify-center text-white/70">1</span>
                   <p class="text-sm text-white">Please provide your contact details.</p>
                 </div>
-                <div class="grid grid-cols-2 gap-2 mb-2">
-                  <div class="bg-white rounded overflow-hidden">
-                    <div class="px-3 pt-1 text-[10px] text-gray-400">First Name</div>
-                    <div id="field-fname" class="px-3 pb-1.5 text-sm text-gray-700 h-5"></div>
+                <div class="grid grid-cols-2 gap-2 mb-2 ml-7">
+                  <div class="bg-white rounded overflow-hidden relative h-10">
+                    <div id="label-fname" class="absolute px-3 text-sm text-gray-400 transition-all duration-200 top-2.5">First Name</div>
+                    <div id="field-fname" class="absolute bottom-1.5 px-3 text-sm text-gray-700"></div>
                   </div>
-                  <div class="bg-white rounded overflow-hidden">
-                    <div class="px-3 pt-1 text-[10px] text-gray-400">Last Name</div>
-                    <div id="field-lname" class="px-3 pb-1.5 text-sm text-gray-700 h-5"></div>
+                  <div class="bg-white rounded overflow-hidden relative h-10">
+                    <div id="label-lname" class="absolute px-3 text-sm text-gray-400 transition-all duration-200 top-2.5">Last Name</div>
+                    <div id="field-lname" class="absolute bottom-1.5 px-3 text-sm text-gray-700"></div>
                   </div>
                 </div>
-                <div class="bg-white rounded overflow-hidden">
-                  <div class="px-3 pt-1 text-[10px] text-gray-400">Email Address</div>
-                  <div id="field-email" class="px-3 pb-1.5 text-sm text-gray-700 h-5"></div>
+                <div class="bg-white rounded overflow-hidden relative h-10 ml-7">
+                  <div id="label-email" class="absolute px-3 text-sm text-gray-400 transition-all duration-200 top-2.5">Email Address</div>
+                  <div id="field-email" class="absolute bottom-1.5 px-3 text-sm text-gray-700"></div>
                 </div>
               </div>
             </div>
 
             <!-- Question 2: Star rating -->
-            <div class="flex gap-2 mb-5">
+            <div class="flex gap-2 mb-10">
               <div id="bar-q2" class="flex-shrink-0 w-0.5 bg-yellow-400 rounded-full h-0 transition-all duration-300"></div>
               <div class="flex-1">
                 <div class="flex items-center gap-2 mb-2">
@@ -108,7 +108,7 @@ import CustomerLogos from "../components/customer-logos.astro";
           </div>
 
           <!-- Inbox side - chat style -->
-          <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-5 flex flex-col min-h-[340px]">
+          <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-6 flex flex-col min-h-[380px]">
             <div class="flex items-center gap-2 mb-3 pb-2 border-b border-gray-100">
               <Icon name="bx:chat" class="w-5 h-5 text-primary" />
               <span class="text-sm font-medium text-gray-700">Team Inbox</span>
@@ -130,14 +130,14 @@ import CustomerLogos from "../components/customer-logos.astro";
               <div id="chat-msg-2" class="flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
                 <div class="bg-amber-50 border border-amber-200 rounded-2xl rounded-tr-sm px-3 py-2 max-w-[85%]">
                   <p class="text-xs text-amber-600 font-medium mb-1">Internal note</p>
-                  <p class="text-sm text-amber-900">@Tom another happy customer! Can you follow up?</p>
+                  <p id="chat-text-2" class="text-sm text-amber-900"></p>
                 </div>
                 <div class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center text-white text-xs font-medium flex-shrink-0 mt-1">J</div>
               </div>
               <!-- Team reply (right) -->
               <div id="chat-msg-3" class="flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
                 <div class="bg-gray-900 text-white rounded-2xl rounded-tr-sm px-3 py-2 max-w-[85%]">
-                  <p class="text-sm">Thanks for the great feedback Sarah! Let us know if you need anything.</p>
+                  <p id="chat-text-3" class="text-sm"></p>
                 </div>
                 <div class="w-6 h-6 rounded-full bg-purple-500 flex items-center justify-center text-white text-xs font-medium flex-shrink-0 mt-1">T</div>
               </div>
@@ -156,39 +156,47 @@ import CustomerLogos from "../components/customer-logos.astro";
       <script>
         function runHeroAnimation() {
           const timeline = [
-            // Phase 1: Type name fields
-            { delay: 500, action: () => { document.getElementById('bar-q1').style.height = '100%'; }},
-            { delay: 800, action: () => typeText('field-fname', 'Sarah', 80) },
-            { delay: 1600, action: () => typeText('field-lname', 'Johnson', 80) },
-            { delay: 2400, action: () => typeText('field-email', 'sarah@company.com', 50) },
-            { delay: 3800, action: () => { document.getElementById('progress-bar').style.width = '33%'; }},
+            // Phase 1: Type name fields (bar-q1 already visible)
+            { delay: 500, action: () => typeText('field-fname', 'Sarah', 80) },
+            { delay: 1300, action: () => typeText('field-lname', 'Johnson', 80) },
+            { delay: 2100, action: () => typeText('field-email', 'sarah@company.com', 50) },
 
-            // Phase 2: Star rating
-            { delay: 4200, action: () => { document.getElementById('bar-q1').style.height = '0'; document.getElementById('bar-q2').style.height = '100%'; }},
-            { delay: 4600, action: () => fillStar('star-1') },
-            { delay: 4800, action: () => fillStar('star-2') },
-            { delay: 5000, action: () => fillStar('star-3') },
-            { delay: 5200, action: () => fillStar('star-4') },
-            { delay: 5600, action: () => { document.getElementById('progress-bar').style.width = '66%'; }},
+            // Phase 2: Star rating (progress + yellow bar animate together)
+            { delay: 3500, action: () => {
+              document.getElementById('progress-bar').style.width = '33%';
+              document.getElementById('bar-q1').style.height = '0';
+              document.getElementById('bar-q2').style.height = '100%';
+            }},
+            { delay: 4000, action: () => flashAndFillStars(4) },
 
-            // Phase 3: Multiple choice
-            { delay: 6000, action: () => { document.getElementById('bar-q2').style.height = '0'; document.getElementById('bar-q3').style.height = '100%'; }},
-            { delay: 6500, action: () => selectOption('option-yes') },
-            { delay: 7200, action: () => { document.getElementById('progress-bar').style.width = '100%'; }},
+            // Phase 3: Multiple choice (progress + yellow bar animate together)
+            { delay: 4700, action: () => {
+              document.getElementById('progress-bar').style.width = '66%';
+              document.getElementById('bar-q2').style.height = '0';
+              document.getElementById('bar-q3').style.height = '100%';
+            }},
+            { delay: 5200, action: () => selectOption('option-yes') },
+            { delay: 5900, action: () => { document.getElementById('progress-bar').style.width = '100%'; }},
 
             // Phase 4: Transition to inbox
-            { delay: 7800, action: () => {
+            { delay: 6500, action: () => {
               document.getElementById('arrow-icon').classList.add('scale-125', 'bg-primary/30');
               setTimeout(() => document.getElementById('arrow-icon').classList.remove('scale-125', 'bg-primary/30'), 400);
             }},
 
-            // Phase 5: Chat messages appear
-            { delay: 8300, action: () => showChatMessage('chat-msg-1') },
-            { delay: 9300, action: () => showChatMessage('chat-msg-2') },
-            { delay: 10300, action: () => showChatMessage('chat-msg-3') },
+            // Phase 5: Chat messages appear with typing
+            { delay: 7000, action: () => showChatMessage('chat-msg-1') },
+            { delay: 8000, action: () => {
+              showChatMessage('chat-msg-2');
+              typeChatText('chat-text-2', '@Tom another happy customer! Can you follow up?', 30);
+            }},
+            { delay: 10000, action: () => {
+              showChatMessage('chat-msg-3');
+              typeChatText('chat-text-3', 'Thanks for the great feedback Sarah! Let us know if you need anything.', 25);
+            }},
 
             // Reset and loop
-            { delay: 14000, action: () => resetAnimation() },
+            { delay: 18000, action: () => resetAnimation() },
           ];
 
           timeline.forEach(item => {
@@ -197,6 +205,67 @@ import CustomerLogos from "../components/customer-logos.astro";
         }
 
         function typeText(elementId, text, speed) {
+          const element = document.getElementById(elementId);
+          const labelId = elementId.replace('field-', 'label-');
+          const label = document.getElementById(labelId);
+          element.textContent = '';
+
+          // Move label up when typing starts
+          if (label) {
+            label.classList.remove('top-2.5', 'text-sm');
+            label.classList.add('top-1', 'text-[10px]');
+          }
+
+          let i = 0;
+          const interval = setInterval(() => {
+            if (i < text.length) {
+              element.textContent += text.charAt(i);
+              i++;
+            } else {
+              clearInterval(interval);
+            }
+          }, speed);
+        }
+
+        function flashAndFillStars(count) {
+          const container = document.getElementById('stars-container');
+
+          // Flash effect
+          container.classList.add('opacity-50');
+          setTimeout(() => {
+            container.classList.remove('opacity-50');
+            // Fill the stars
+            for (let i = 1; i <= count; i++) {
+              const star = document.getElementById('star-' + i);
+              star.classList.remove('text-white/40');
+              star.classList.add('text-white');
+              star.setAttribute('fill', 'currentColor');
+            }
+          }, 200);
+        }
+
+        function selectOption(optionId) {
+          const option = document.getElementById(optionId);
+          const letter = document.getElementById(optionId + '-letter');
+
+          // Pulse effect
+          option.classList.add('bg-white/20');
+          setTimeout(() => {
+            option.classList.remove('bg-white/20');
+            option.classList.add('border-white', 'bg-white/10');
+            letter.classList.remove('bg-white/5', 'text-white/70', 'border-dashed');
+            letter.classList.add('bg-white', 'text-[#2A98C6]');
+            letter.innerHTML = '<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>';
+          }, 200);
+        }
+
+        function showChatMessage(msgId) {
+          const msg = document.getElementById(msgId);
+          msg.classList.remove('opacity-0', 'translate-y-4');
+          msg.classList.add('opacity-100', 'translate-y-0');
+        }
+
+        function typeChatText(elementId, text, speed) {
           const element = document.getElementById(elementId);
           element.textContent = '';
           let i = 0;
@@ -210,46 +279,22 @@ import CustomerLogos from "../components/customer-logos.astro";
           }, speed);
         }
 
-        function fillStar(starId) {
-          const star = document.getElementById(starId);
-          star.classList.remove('text-white/40');
-          star.classList.add('text-white');
-          star.setAttribute('fill', 'currentColor');
-        }
-
-        function selectOption(optionId) {
-          const option = document.getElementById(optionId);
-          const letter = document.getElementById(optionId + '-letter');
-
-          // Pulse effect
-          option.classList.add('bg-white/20');
-          setTimeout(() => {
-            option.classList.remove('bg-white/20');
-            option.classList.add('border-white', 'bg-white/10');
-            letter.classList.remove('bg-white/5', 'text-white/70', 'border-dashed');
-            letter.classList.add('bg-white', 'text-[#3299bb]');
-            letter.innerHTML = '<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>';
-          }, 200);
-        }
-
-        function showChatMessage(msgId) {
-          const msg = document.getElementById(msgId);
-          msg.classList.remove('opacity-0', 'translate-y-4');
-          msg.classList.add('opacity-100', 'translate-y-0');
-        }
-
         function resetAnimation() {
           // Reset progress bar
           document.getElementById('progress-bar').style.width = '0';
 
-          // Reset yellow bars
-          ['bar-q1', 'bar-q2', 'bar-q3'].forEach(id => {
+          // Reset yellow bars (bar-q1 stays visible)
+          document.getElementById('bar-q1').style.height = '100%';
+          ['bar-q2', 'bar-q3'].forEach(id => {
             document.getElementById(id).style.height = '0';
           });
 
-          // Reset text fields
-          ['field-fname', 'field-lname', 'field-email'].forEach(id => {
-            document.getElementById(id).textContent = '';
+          // Reset text fields and labels
+          ['fname', 'lname', 'email'].forEach(name => {
+            document.getElementById('field-' + name).textContent = '';
+            const label = document.getElementById('label-' + name);
+            label.classList.add('top-2.5', 'text-sm');
+            label.classList.remove('top-1', 'text-[10px]');
           });
 
           // Reset stars
@@ -265,7 +310,7 @@ import CustomerLogos from "../components/customer-logos.astro";
           const letter = document.getElementById('option-yes-letter');
           option.classList.remove('border-white', 'bg-white/10');
           letter.classList.add('bg-white/5', 'text-white/70', 'border-dashed');
-          letter.classList.remove('bg-white', 'text-[#3299bb]');
+          letter.classList.remove('bg-white', 'text-[#2A98C6]');
           letter.innerHTML = 'A';
 
           // Reset chat messages
@@ -273,6 +318,11 @@ import CustomerLogos from "../components/customer-logos.astro";
             const msg = document.getElementById(id);
             msg.classList.add('opacity-0', 'translate-y-4');
             msg.classList.remove('opacity-100', 'translate-y-0');
+          });
+
+          // Reset chat text
+          ['chat-text-2', 'chat-text-3'].forEach(id => {
+            document.getElementById(id).textContent = '';
           });
 
           // Restart animation
