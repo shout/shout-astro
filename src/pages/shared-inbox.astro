@@ -6,6 +6,15 @@ import { Icon } from "astro-icon/components";
 import CustomerLogos from "../components/customer-logos.astro";
 import Features from "../components/features.astro";
 
+// Hero demo components for Forms to Conversations tab
+import HeroDemoContainer from "../components/hero-demo/HeroDemoContainer.astro";
+import FormCard from "../components/hero-demo/FormCard.astro";
+import FormQuestion from "../components/hero-demo/FormQuestion.astro";
+import TextInput from "../components/hero-demo/TextInput.astro";
+import StarRating from "../components/hero-demo/StarRating.astro";
+import MultipleChoice from "../components/hero-demo/MultipleChoice.astro";
+import ResultPanel from "../components/hero-demo/ResultPanel.astro";
+
 const tabs = [
   {
     id: "inbox",
@@ -72,14 +81,14 @@ const tabs = [
         </div>
       </div>
 
-      <!-- Video Container -->
+      <!-- Video/Demo Container -->
       <div class="max-w-5xl mx-auto">
-        <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-900">
-          {tabs.map((tab, index) => (
+        <div class="relative">
+          {tabs.filter(tab => tab.id !== "tickets").map((tab, index) => (
             <div
               data-video-panel={tab.id}
               class:list={[
-                "video-panel",
+                "video-panel rounded-2xl overflow-hidden shadow-2xl bg-gray-900",
                 index === 0 ? "block" : "hidden"
               ]}
             >
@@ -93,6 +102,95 @@ const tabs = [
               />
             </div>
           ))}
+
+          <!-- Forms to Conversations Hero Demo -->
+          <div data-video-panel="tickets" class="video-panel hidden">
+            <HeroDemoContainer id="f2c-demo" rightWidth="md:w-[60%]">
+              <FormCard slot="left" title="Contact Us" id="f2c-form" bgColor="bg-[#2A98C6]">
+                <FormQuestion number={1} question="Your details" id="f2c-q1" barVisible={true}>
+                  <div class="grid grid-cols-2 gap-2 mb-2">
+                    <TextInput id="f2c-fname" label="First Name" />
+                    <TextInput id="f2c-lname" label="Last Name" />
+                  </div>
+                  <TextInput id="f2c-email" label="Email Address" />
+                </FormQuestion>
+
+                <FormQuestion number={2} question="What can we help with?" id="f2c-q2">
+                  <MultipleChoice id="f2c-topic" optionA="Sales inquiry" optionB="Support" />
+                </FormQuestion>
+
+                <FormQuestion number={3} question="How urgent is this?" id="f2c-q3" class="">
+                  <StarRating id="f2c-urgency" />
+                </FormQuestion>
+              </FormCard>
+
+              <ResultPanel slot="right" title="Team Inbox" icon="bx:chat" id="f2c-inbox">
+                <div class="flex h-[340px]">
+                  <!-- Ticket list sidebar -->
+                  <div class="w-[140px] border-r border-gray-200 bg-gray-50/50 flex-shrink-0 overflow-hidden">
+                    <div id="f2c-ticket-new" class="px-3 py-2 bg-primary/10 border-l-2 border-primary cursor-pointer opacity-0 transition-all duration-500">
+                      <div class="flex items-center gap-2 mb-1">
+                        <div class="w-5 h-5 rounded-full bg-rose-500 flex items-center justify-center text-white text-[10px] font-medium">J</div>
+                        <span class="text-xs font-medium text-gray-800 truncate">Jane Cooper</span>
+                      </div>
+                      <p class="text-[10px] text-gray-500 truncate">Contact Us</p>
+                      <span class="inline-block mt-1 text-[8px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded">New</span>
+                    </div>
+                    <div class="px-3 py-2 border-b border-gray-100 hover:bg-gray-50 cursor-pointer opacity-60">
+                      <div class="flex items-center gap-2 mb-1">
+                        <div class="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center text-white text-[10px] font-medium">S</div>
+                        <span class="text-xs font-medium text-gray-700 truncate">Sarah Johnson</span>
+                      </div>
+                      <p class="text-[10px] text-gray-400 truncate">Feedback form</p>
+                    </div>
+                    <div class="px-3 py-2 border-b border-gray-100 hover:bg-gray-50 cursor-pointer opacity-60">
+                      <div class="flex items-center gap-2 mb-1">
+                        <div class="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center text-white text-[10px] font-medium">M</div>
+                        <span class="text-xs font-medium text-gray-700 truncate">Mike Chen</span>
+                      </div>
+                      <p class="text-[10px] text-gray-400 truncate">Product inquiry</p>
+                    </div>
+                    <div class="px-3 py-2 hover:bg-gray-50 cursor-pointer opacity-60">
+                      <div class="flex items-center gap-2 mb-1">
+                        <div class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-white text-[10px] font-medium">A</div>
+                        <span class="text-xs font-medium text-gray-700 truncate">Alex Rivera</span>
+                      </div>
+                      <p class="text-[10px] text-gray-400 truncate">Support request</p>
+                    </div>
+                  </div>
+
+                  <!-- Conversation detail -->
+                  <div class="flex-1 flex flex-col p-3">
+                    <div class="space-y-2 flex-1 flex flex-col overflow-y-auto">
+                      <div id="f2c-msg-1" class="flex gap-2 items-start opacity-0 translate-y-4 transition-all duration-500">
+                        <div class="w-5 h-5 rounded-full bg-rose-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">J</div>
+                        <div class="bg-gray-100 rounded-xl rounded-tl-sm px-2.5 py-1.5 max-w-[90%]">
+                          <p class="text-[10px] font-medium text-gray-500 mb-1">Jane Cooper</p>
+                          <div class="text-[10px] text-gray-500 mb-1.5 pb-1.5 border-b border-gray-200">
+                            <p><span class="font-medium">Topic:</span> Sales inquiry</p>
+                            <p><span class="font-medium">Urgency:</span> ★★★★☆</p>
+                          </div>
+                          <p class="text-xs text-gray-700">Hi! I'd like to learn more about your enterprise plan pricing.</p>
+                        </div>
+                      </div>
+                      <div id="f2c-msg-2" class="flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
+                        <div class="bg-gray-900 text-white rounded-xl rounded-tr-sm px-2.5 py-1.5 max-w-[85%]">
+                          <p class="text-xs">Hi Jane! Thanks for reaching out. I'd be happy to walk you through our enterprise options. Would you have time for a quick call this week?</p>
+                        </div>
+                        <div class="w-5 h-5 rounded-full bg-purple-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">T</div>
+                      </div>
+                    </div>
+                    <div class="flex gap-2 pt-2 mt-auto border-t border-gray-100">
+                      <div class="flex-1 bg-gray-50 rounded-full px-3 py-1 text-xs text-gray-400">Reply...</div>
+                      <button class="bg-gray-900 text-white w-6 h-6 rounded-full flex items-center justify-center">
+                        <Icon name="bx:send" class="w-3 h-3" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </ResultPanel>
+            </HeroDemoContainer>
+          </div>
         </div>
 
         <!-- Description below video -->
@@ -318,6 +416,8 @@ const tabs = [
     const tabButtons = document.querySelectorAll('.tab-button');
     const videoPanels = document.querySelectorAll('.video-panel');
     const descriptions = document.querySelectorAll('.tab-description');
+    let f2cAnimationRunning = false;
+    let f2cTimeouts = [];
 
     tabButtons.forEach(button => {
       button.addEventListener('click', () => {
@@ -336,7 +436,7 @@ const tabs = [
           if (panel.getAttribute('data-video-panel') === tabId) {
             panel.classList.remove('hidden');
             panel.classList.add('block');
-            // Restart video
+            // Restart video if present
             const video = panel.querySelector('video');
             if (video) {
               video.currentTime = 0;
@@ -358,7 +458,128 @@ const tabs = [
             desc.classList.remove('block');
           }
         });
+
+        // Handle Forms to Conversations animation
+        if (tabId === 'tickets') {
+          resetF2CAnimation();
+          setTimeout(() => runF2CAnimation(), 500);
+        } else {
+          stopF2CAnimation();
+        }
       });
     });
+
+    // Forms to Conversations Animation
+    function runF2CAnimation() {
+      if (f2cAnimationRunning) return;
+      f2cAnimationRunning = true;
+
+      const timeline = [
+        // Phase 1: Type name fields (q1 bar already visible)
+        { delay: 500, action: () => window['typeText_f2c-fname'] && window['typeText_f2c-fname']('Jane', 80) },
+        { delay: 1200, action: () => window['typeText_f2c-lname'] && window['typeText_f2c-lname']('Cooper', 80) },
+        { delay: 2000, action: () => window['typeText_f2c-email'] && window['typeText_f2c-email']('jane@company.com', 50) },
+
+        // Phase 2: Topic selection (progress + yellow bar)
+        { delay: 3300, action: () => {
+          window['f2c-formSetProgress'] && window['f2c-formSetProgress'](33);
+          window['hideBar_f2c-q1'] && window['hideBar_f2c-q1']();
+          window['showBar_f2c-q2'] && window['showBar_f2c-q2']();
+        }},
+        { delay: 3800, action: () => window['selectOption_f2c-topic'] && window['selectOption_f2c-topic']('a') },
+
+        // Phase 3: Urgency rating
+        { delay: 4500, action: () => {
+          window['f2c-formSetProgress'] && window['f2c-formSetProgress'](66);
+          window['hideBar_f2c-q2'] && window['hideBar_f2c-q2']();
+          window['showBar_f2c-q3'] && window['showBar_f2c-q3']();
+        }},
+        { delay: 5000, action: () => window['fillStars_f2c-urgency'] && window['fillStars_f2c-urgency'](4) },
+        { delay: 5700, action: () => window['f2c-formSetProgress'] && window['f2c-formSetProgress'](100) },
+
+        // Phase 4: Transition to inbox
+        { delay: 6300, action: () => window['f2c-demoFocusPanel'] && window['f2c-demoFocusPanel']('right') },
+
+        // Phase 5: New ticket appears in sidebar
+        { delay: 6800, action: () => {
+          const ticket = document.getElementById('f2c-ticket-new');
+          if (ticket) {
+            ticket.classList.remove('opacity-0');
+            ticket.classList.add('opacity-100');
+          }
+        }},
+
+        // Phase 6: Chat messages appear
+        { delay: 7300, action: () => showF2CMessage('f2c-msg-1') },
+        { delay: 8500, action: () => showF2CMessage('f2c-msg-2') },
+
+        // Reset and loop
+        { delay: 16000, action: () => {
+          resetF2CAnimation();
+          setTimeout(() => runF2CAnimation(), 1000);
+        }},
+      ];
+
+      timeline.forEach(item => {
+        const t = setTimeout(item.action, item.delay);
+        f2cTimeouts.push(t);
+      });
+    }
+
+    function showF2CMessage(msgId) {
+      const msg = document.getElementById(msgId);
+      if (msg) {
+        msg.classList.remove('opacity-0', 'translate-y-4');
+        msg.classList.add('opacity-100', 'translate-y-0');
+      }
+    }
+
+    function stopF2CAnimation() {
+      f2cAnimationRunning = false;
+      f2cTimeouts.forEach(t => clearTimeout(t));
+      f2cTimeouts = [];
+    }
+
+    function resetF2CAnimation() {
+      stopF2CAnimation();
+
+      // Reset progress bar
+      window['f2c-formSetProgress'] && window['f2c-formSetProgress'](0);
+
+      // Reset yellow bars (q1 stays visible)
+      window['showBar_f2c-q1'] && window['showBar_f2c-q1']();
+      window['hideBar_f2c-q2'] && window['hideBar_f2c-q2']();
+      window['hideBar_f2c-q3'] && window['hideBar_f2c-q3']();
+
+      // Reset text fields
+      window['resetText_f2c-fname'] && window['resetText_f2c-fname']();
+      window['resetText_f2c-lname'] && window['resetText_f2c-lname']();
+      window['resetText_f2c-email'] && window['resetText_f2c-email']();
+
+      // Reset multiple choice
+      window['resetOption_f2c-topic'] && window['resetOption_f2c-topic']();
+
+      // Reset stars
+      window['resetStars_f2c-urgency'] && window['resetStars_f2c-urgency']();
+
+      // Reset ticket in sidebar
+      const ticket = document.getElementById('f2c-ticket-new');
+      if (ticket) {
+        ticket.classList.add('opacity-0');
+        ticket.classList.remove('opacity-100');
+      }
+
+      // Reset chat messages
+      ['f2c-msg-1', 'f2c-msg-2'].forEach(id => {
+        const msg = document.getElementById(id);
+        if (msg) {
+          msg.classList.add('opacity-0', 'translate-y-4');
+          msg.classList.remove('opacity-100', 'translate-y-0');
+        }
+      });
+
+      // Reset focus to form
+      window['f2c-demoFocusPanel'] && window['f2c-demoFocusPanel']('left');
+    }
   });
 </script>
