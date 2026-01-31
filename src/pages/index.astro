@@ -4,6 +4,15 @@ import Container from "../components/container.astro";
 import Link from "../components/ui/link.astro";
 import { Icon } from "astro-icon/components";
 import CustomerLogos from "../components/customer-logos.astro";
+
+// Hero demo components
+import HeroDemoContainer from "../components/hero-demo/HeroDemoContainer.astro";
+import FormCard from "../components/hero-demo/FormCard.astro";
+import FormQuestion from "../components/hero-demo/FormQuestion.astro";
+import TextInput from "../components/hero-demo/TextInput.astro";
+import StarRating from "../components/hero-demo/StarRating.astro";
+import MultipleChoice from "../components/hero-demo/MultipleChoice.astro";
+import ResultPanel from "../components/hero-demo/ResultPanel.astro";
 ---
 
 <AstroshipLayout
@@ -25,195 +34,125 @@ import CustomerLogos from "../components/customer-logos.astro";
       </div>
 
       <!-- Visual: Form → Inbox flow (Animated) - Overlapping card stack -->
-      <div class="max-w-4xl mx-auto mb-10" id="hero-demo">
-        <div class="relative h-[420px] md:h-[400px]">
-          <!-- Form card (starts in front) -->
-          <div id="form-container" class="absolute left-0 md:left-[5%] top-0 w-full md:w-[55%] bg-[#2A98C6] rounded-xl shadow-2xl p-6 pb-10 flex flex-col overflow-hidden transition-all duration-700 ease-out z-20 opacity-100 scale-100">
-            <!-- Yellow progress bar at top -->
-            <div id="progress-bar" class="absolute top-0 left-0 w-0 h-1 bg-yellow-400 transition-all duration-500"></div>
+      <HeroDemoContainer id="hero-demo" rightWidth="md:w-[60%]">
+        <FormCard slot="left" title="How are we doing?" id="form-card">
+          <FormQuestion number={1} question="Please provide your contact details." id="q1" barVisible={true}>
+            <div class="grid grid-cols-2 gap-2 mb-2">
+              <TextInput id="fname" label="First Name" />
+              <TextInput id="lname" label="Last Name" />
+            </div>
+            <TextInput id="email" label="Email Address" />
+          </FormQuestion>
 
-            <!-- Title -->
-            <h3 class="text-xl font-bold text-white mb-8">How are we doing?</h3>
+          <FormQuestion number={2} question="How would you rate our service?" id="q2">
+            <StarRating id="stars" />
+          </FormQuestion>
 
-            <!-- Question 1: Contact details -->
-            <div class="flex gap-2 mb-10">
-              <div id="bar-q1" class="flex-shrink-0 w-0.5 bg-yellow-400 rounded-full h-full transition-all duration-300"></div>
-              <div class="flex-1">
-                <div class="flex items-center gap-2 mb-2">
-                  <span class="w-5 h-5 rounded-full border border-white/50 text-xs flex items-center justify-center text-white/70">1</span>
-                  <p class="text-sm text-white">Please provide your contact details.</p>
+          <FormQuestion number={3} question="Would you recommend us to a friend?" id="q3" class="">
+            <MultipleChoice id="recommend" optionA="Yes" optionB="No" />
+          </FormQuestion>
+        </FormCard>
+
+        <ResultPanel slot="right" title="Team Inbox" icon="bx:chat" id="inbox-panel">
+          <div class="flex h-[340px]">
+            <!-- Ticket list sidebar -->
+            <div class="w-[140px] border-r border-gray-200 bg-gray-50/50 flex-shrink-0 overflow-hidden">
+              <div class="px-3 py-2 bg-primary/10 border-l-2 border-primary cursor-pointer">
+                <div class="flex items-center gap-2 mb-1">
+                  <div class="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center text-white text-[10px] font-medium">S</div>
+                  <span class="text-xs font-medium text-gray-800 truncate">Sarah Johnson</span>
                 </div>
-                <div class="grid grid-cols-2 gap-2 mb-2 ml-7">
-                  <div class="bg-white rounded overflow-hidden relative h-10">
-                    <div id="label-fname" class="absolute px-3 text-sm text-gray-400 transition-all duration-200 top-2.5">First Name</div>
-                    <div id="field-fname" class="absolute bottom-1.5 px-3 text-sm text-gray-700"></div>
-                  </div>
-                  <div class="bg-white rounded overflow-hidden relative h-10">
-                    <div id="label-lname" class="absolute px-3 text-sm text-gray-400 transition-all duration-200 top-2.5">Last Name</div>
-                    <div id="field-lname" class="absolute bottom-1.5 px-3 text-sm text-gray-700"></div>
-                  </div>
+                <p class="text-[10px] text-gray-500 truncate">How are we doing?</p>
+              </div>
+              <div class="px-3 py-2 border-b border-gray-100 hover:bg-gray-50 cursor-pointer opacity-60">
+                <div class="flex items-center gap-2 mb-1">
+                  <div class="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center text-white text-[10px] font-medium">M</div>
+                  <span class="text-xs font-medium text-gray-700 truncate">Mike Chen</span>
                 </div>
-                <div class="bg-white rounded overflow-hidden relative h-10 ml-7">
-                  <div id="label-email" class="absolute px-3 text-sm text-gray-400 transition-all duration-200 top-2.5">Email Address</div>
-                  <div id="field-email" class="absolute bottom-1.5 px-3 text-sm text-gray-700"></div>
+                <p class="text-[10px] text-gray-400 truncate">Product feedback</p>
+              </div>
+              <div class="px-3 py-2 border-b border-gray-100 hover:bg-gray-50 cursor-pointer opacity-60">
+                <div class="flex items-center gap-2 mb-1">
+                  <div class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-white text-[10px] font-medium">A</div>
+                  <span class="text-xs font-medium text-gray-700 truncate">Alex Rivera</span>
                 </div>
+                <p class="text-[10px] text-gray-400 truncate">Support request</p>
+              </div>
+              <div class="px-3 py-2 hover:bg-gray-50 cursor-pointer opacity-60">
+                <div class="flex items-center gap-2 mb-1">
+                  <div class="w-5 h-5 rounded-full bg-pink-500 flex items-center justify-center text-white text-[10px] font-medium">E</div>
+                  <span class="text-xs font-medium text-gray-700 truncate">Emma Wilson</span>
+                </div>
+                <p class="text-[10px] text-gray-400 truncate">Event registration</p>
               </div>
             </div>
 
-            <!-- Question 2: Star rating -->
-            <div class="flex gap-2 mb-10">
-              <div id="bar-q2" class="flex-shrink-0 w-0.5 bg-yellow-400 rounded-full h-0 transition-all duration-300"></div>
-              <div class="flex-1">
-                <div class="flex items-center gap-2 mb-2">
-                  <span class="w-5 h-5 rounded-full border border-white/50 text-xs flex items-center justify-center text-white/70">2</span>
-                  <p class="text-sm text-white">How would you rate our service?</p>
+            <!-- Conversation detail -->
+            <div class="flex-1 flex flex-col p-3">
+              <div class="space-y-2 flex-1 flex flex-col overflow-y-auto">
+                <div id="chat-msg-1" class="flex gap-2 items-start opacity-0 translate-y-4 transition-all duration-500">
+                  <div class="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">S</div>
+                  <div class="bg-gray-100 rounded-xl rounded-tl-sm px-2.5 py-1.5 max-w-[90%]">
+                    <p class="text-[10px] font-medium text-gray-500 mb-1">Sarah Johnson</p>
+                    <div class="text-[10px] text-gray-500 mb-1.5 pb-1.5 border-b border-gray-200">
+                      <p><span class="font-medium">Rating:</span> ★★★★☆</p>
+                      <p><span class="font-medium">Recommend:</span> Yes</p>
+                    </div>
+                    <p class="text-xs text-gray-700">Looking forward to hearing from you!</p>
+                  </div>
                 </div>
-                <div class="flex gap-1 ml-7" id="stars-container">
-                  <svg id="star-1" class="w-7 h-7 text-white/40 transition-all duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                  <svg id="star-2" class="w-7 h-7 text-white/40 transition-all duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                  <svg id="star-3" class="w-7 h-7 text-white/40 transition-all duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                  <svg id="star-4" class="w-7 h-7 text-white/40 transition-all duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                  <svg id="star-5" class="w-7 h-7 text-white/40 transition-all duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <div id="chat-msg-2" class="flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
+                  <div class="bg-amber-50 border border-amber-200 rounded-xl rounded-tr-sm px-2.5 py-1.5 max-w-[85%]">
+                    <p class="text-[10px] text-amber-600 font-medium mb-0.5">Internal note</p>
+                    <p class="text-xs text-amber-900">@Tom another happy customer! Can you follow up?</p>
+                  </div>
+                  <div class="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">J</div>
+                </div>
+                <div id="chat-msg-3" class="flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
+                  <div class="bg-gray-900 text-white rounded-xl rounded-tr-sm px-2.5 py-1.5 max-w-[85%]">
+                    <p class="text-xs">Thanks for the great feedback Sarah!</p>
+                  </div>
+                  <div class="w-5 h-5 rounded-full bg-purple-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">T</div>
                 </div>
               </div>
-            </div>
-
-            <!-- Question 3: Multiple choice -->
-            <div class="flex gap-2">
-              <div id="bar-q3" class="flex-shrink-0 w-0.5 bg-yellow-400 rounded-full h-0 transition-all duration-300"></div>
-              <div class="flex-1">
-                <div class="flex items-center gap-2 mb-2">
-                  <span class="w-5 h-5 rounded-full border border-white/50 text-xs flex items-center justify-center text-white/70">3</span>
-                  <p class="text-sm text-white">Would you recommend us to a friend?</p>
-                </div>
-                <div class="grid grid-cols-2 gap-2 ml-7">
-                  <div id="option-yes" class="flex items-center border border-white/30 rounded overflow-hidden transition-all duration-300 cursor-pointer">
-                    <span id="option-yes-letter" class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">A</span>
-                    <span class="text-sm text-white px-3">Yes</span>
-                  </div>
-                  <div id="option-no" class="flex items-center border border-white/30 rounded overflow-hidden transition-all duration-300">
-                    <span class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5">B</span>
-                    <span class="text-sm text-white px-3">No</span>
-                  </div>
-                </div>
+              <div class="flex gap-2 pt-2 mt-auto border-t border-gray-100">
+                <div class="flex-1 bg-gray-50 rounded-full px-3 py-1 text-xs text-gray-400">Reply...</div>
+                <button class="bg-gray-900 text-white w-6 h-6 rounded-full flex items-center justify-center">
+                  <Icon name="bx:send" class="w-3 h-3" />
+                </button>
               </div>
             </div>
           </div>
-
-          <!-- Inbox card (starts behind, offset right) -->
-          <div id="inbox-container" class="absolute right-0 md:right-[5%] top-4 md:top-6 w-full md:w-[60%] bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden min-h-[380px] transition-all duration-700 ease-out z-10 opacity-60 scale-95">
-            <!-- Header -->
-            <div class="flex items-center justify-end gap-2 px-4 py-2 border-b border-gray-200 bg-gray-50">
-              <span class="text-sm font-medium text-gray-700">Team Inbox</span>
-              <Icon name="bx:chat" class="w-5 h-5 text-primary" />
-            </div>
-
-            <div class="flex h-[340px]">
-              <!-- Ticket list sidebar -->
-              <div class="w-[140px] border-r border-gray-200 bg-gray-50/50 flex-shrink-0 overflow-hidden">
-                <!-- Selected ticket (Sarah) -->
-                <div id="ticket-sarah" class="px-3 py-2 bg-primary/10 border-l-2 border-primary cursor-pointer">
-                  <div class="flex items-center gap-2 mb-1">
-                    <div class="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center text-white text-[10px] font-medium">S</div>
-                    <span class="text-xs font-medium text-gray-800 truncate">Sarah Johnson</span>
-                  </div>
-                  <p class="text-[10px] text-gray-500 truncate">How are we doing?</p>
-                </div>
-                <!-- Other tickets -->
-                <div class="px-3 py-2 border-b border-gray-100 hover:bg-gray-50 cursor-pointer opacity-60">
-                  <div class="flex items-center gap-2 mb-1">
-                    <div class="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center text-white text-[10px] font-medium">M</div>
-                    <span class="text-xs font-medium text-gray-700 truncate">Mike Chen</span>
-                  </div>
-                  <p class="text-[10px] text-gray-400 truncate">Product feedback</p>
-                </div>
-                <div class="px-3 py-2 border-b border-gray-100 hover:bg-gray-50 cursor-pointer opacity-60">
-                  <div class="flex items-center gap-2 mb-1">
-                    <div class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-white text-[10px] font-medium">A</div>
-                    <span class="text-xs font-medium text-gray-700 truncate">Alex Rivera</span>
-                  </div>
-                  <p class="text-[10px] text-gray-400 truncate">Support request</p>
-                </div>
-                <div class="px-3 py-2 hover:bg-gray-50 cursor-pointer opacity-60">
-                  <div class="flex items-center gap-2 mb-1">
-                    <div class="w-5 h-5 rounded-full bg-pink-500 flex items-center justify-center text-white text-[10px] font-medium">E</div>
-                    <span class="text-xs font-medium text-gray-700 truncate">Emma Wilson</span>
-                  </div>
-                  <p class="text-[10px] text-gray-400 truncate">Event registration</p>
-                </div>
-              </div>
-
-              <!-- Conversation detail -->
-              <div class="flex-1 flex flex-col p-3">
-                <div class="space-y-2 flex-1 flex flex-col overflow-y-auto" id="chat-container">
-                  <!-- Customer message with form data -->
-                  <div id="chat-msg-1" class="flex gap-2 items-start opacity-0 translate-y-4 transition-all duration-500">
-                    <div class="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">S</div>
-                    <div class="bg-gray-100 rounded-xl rounded-tl-sm px-2.5 py-1.5 max-w-[90%]">
-                      <p class="text-[10px] font-medium text-gray-500 mb-1">Sarah Johnson</p>
-                      <div class="text-[10px] text-gray-500 mb-1.5 pb-1.5 border-b border-gray-200">
-                        <p><span class="font-medium">Rating:</span> ★★★★☆</p>
-                        <p><span class="font-medium">Recommend:</span> Yes</p>
-                      </div>
-                      <p class="text-xs text-gray-700">Looking forward to hearing from you!</p>
-                    </div>
-                  </div>
-                  <!-- Internal note -->
-                  <div id="chat-msg-2" class="flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
-                    <div class="bg-amber-50 border border-amber-200 rounded-xl rounded-tr-sm px-2.5 py-1.5 max-w-[85%]">
-                      <p class="text-[10px] text-amber-600 font-medium mb-0.5">Internal note</p>
-                      <p class="text-xs text-amber-900">@Tom another happy customer! Can you follow up?</p>
-                    </div>
-                    <div class="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">J</div>
-                  </div>
-                  <!-- Team reply -->
-                  <div id="chat-msg-3" class="flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
-                    <div class="bg-gray-900 text-white rounded-xl rounded-tr-sm px-2.5 py-1.5 max-w-[85%]">
-                      <p class="text-xs">Thanks for the great feedback Sarah!</p>
-                    </div>
-                    <div class="w-5 h-5 rounded-full bg-purple-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">T</div>
-                  </div>
-                </div>
-                <!-- Input area -->
-                <div class="flex gap-2 pt-2 mt-auto border-t border-gray-100">
-                  <div class="flex-1 bg-gray-50 rounded-full px-3 py-1 text-xs text-gray-400">Reply...</div>
-                  <button class="bg-gray-900 text-white w-6 h-6 rounded-full flex items-center justify-center">
-                    <Icon name="bx:send" class="w-3 h-3" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        </ResultPanel>
+      </HeroDemoContainer>
 
       <script>
         function runHeroAnimation() {
           const timeline = [
-            // Phase 1: Type name fields (bar-q1 already visible)
-            { delay: 500, action: () => typeText('field-fname', 'Sarah', 80) },
-            { delay: 1300, action: () => typeText('field-lname', 'Johnson', 80) },
-            { delay: 2100, action: () => typeText('field-email', 'sarah@company.com', 50) },
+            // Phase 1: Type name fields (q1 bar already visible)
+            { delay: 500, action: () => window.typeText_fname('Sarah', 80) },
+            { delay: 1300, action: () => window.typeText_lname('Johnson', 80) },
+            { delay: 2100, action: () => window.typeText_email('sarah@company.com', 50) },
 
             // Phase 2: Star rating (progress + yellow bar animate together)
             { delay: 3500, action: () => {
-              document.getElementById('progress-bar').style.width = '33%';
-              document.getElementById('bar-q1').style.height = '0';
-              document.getElementById('bar-q2').style.height = '100%';
+              window['form-cardSetProgress'](33);
+              window.hideBar_q1();
+              window.showBar_q2();
             }},
-            { delay: 4000, action: () => flashAndFillStars(4) },
+            { delay: 4000, action: () => window.fillStars_stars(4) },
 
             // Phase 3: Multiple choice (progress + yellow bar animate together)
             { delay: 4700, action: () => {
-              document.getElementById('progress-bar').style.width = '66%';
-              document.getElementById('bar-q2').style.height = '0';
-              document.getElementById('bar-q3').style.height = '100%';
+              window['form-cardSetProgress'](66);
+              window.hideBar_q2();
+              window.showBar_q3();
             }},
-            { delay: 5200, action: () => selectOption('option-yes') },
-            { delay: 5900, action: () => { document.getElementById('progress-bar').style.width = '100%'; }},
+            { delay: 5200, action: () => window.selectOption_recommend('a') },
+            { delay: 5900, action: () => window['form-cardSetProgress'](100) },
 
             // Phase 4: Transition to inbox - swap card positions
-            { delay: 6500, action: () => focusContainer('inbox') },
+            { delay: 6500, action: () => window['hero-demoFocusPanel']('right') },
 
             // Phase 5: Chat messages appear
             { delay: 7000, action: () => showChatMessage('chat-msg-1') },
@@ -229,121 +168,31 @@ import CustomerLogos from "../components/customer-logos.astro";
           });
         }
 
-        function typeText(elementId, text, speed) {
-          const element = document.getElementById(elementId);
-          const labelId = elementId.replace('field-', 'label-');
-          const label = document.getElementById(labelId);
-          element.textContent = '';
-
-          // Move label up when typing starts
-          if (label) {
-            label.classList.remove('top-2.5', 'text-sm');
-            label.classList.add('top-1', 'text-[10px]');
-          }
-
-          let i = 0;
-          const interval = setInterval(() => {
-            if (i < text.length) {
-              element.textContent += text.charAt(i);
-              i++;
-            } else {
-              clearInterval(interval);
-            }
-          }, speed);
-        }
-
-        function flashAndFillStars(count) {
-          const container = document.getElementById('stars-container');
-
-          // Flash effect
-          container.classList.add('opacity-50');
-          setTimeout(() => {
-            container.classList.remove('opacity-50');
-            // Fill the stars
-            for (let i = 1; i <= count; i++) {
-              const star = document.getElementById('star-' + i);
-              star.classList.remove('text-white/40');
-              star.classList.add('text-white');
-              star.setAttribute('fill', 'currentColor');
-            }
-          }, 200);
-        }
-
-        function selectOption(optionId) {
-          const option = document.getElementById(optionId);
-          const letter = document.getElementById(optionId + '-letter');
-
-          // Pulse effect
-          option.classList.add('bg-white/20');
-          setTimeout(() => {
-            option.classList.remove('bg-white/20');
-            option.classList.add('border-white', 'bg-white/10');
-            letter.classList.remove('bg-white/5', 'text-white/70', 'border-dashed');
-            letter.classList.add('bg-white', 'text-[#2A98C6]');
-            letter.innerHTML = '<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>';
-          }, 200);
-        }
-
         function showChatMessage(msgId) {
           const msg = document.getElementById(msgId);
           msg.classList.remove('opacity-0', 'translate-y-4');
           msg.classList.add('opacity-100', 'translate-y-0');
         }
 
-        function focusContainer(target) {
-          const form = document.getElementById('form-container');
-          const inbox = document.getElementById('inbox-container');
-
-          if (target === 'form') {
-            // Form: in front, full size
-            form.classList.remove('z-10', 'scale-95', 'opacity-70', 'shadow-lg');
-            form.classList.add('z-20', 'scale-100', 'opacity-100', 'shadow-2xl');
-            // Inbox: behind, smaller, dimmed
-            inbox.classList.remove('z-20', 'scale-100', 'opacity-100', 'shadow-2xl');
-            inbox.classList.add('z-10', 'scale-95', 'opacity-60', 'shadow-lg');
-          } else {
-            // Inbox: in front, full size
-            inbox.classList.remove('z-10', 'scale-95', 'opacity-60', 'shadow-lg');
-            inbox.classList.add('z-20', 'scale-100', 'opacity-100', 'shadow-2xl');
-            // Form: behind, smaller, dimmed
-            form.classList.remove('z-20', 'scale-100', 'opacity-100', 'shadow-2xl');
-            form.classList.add('z-10', 'scale-95', 'opacity-70', 'shadow-lg');
-          }
-        }
-
         function resetAnimation() {
           // Reset progress bar
-          document.getElementById('progress-bar').style.width = '0';
+          window['form-cardSetProgress'](0);
 
-          // Reset yellow bars (bar-q1 stays visible)
-          document.getElementById('bar-q1').style.height = '100%';
-          ['bar-q2', 'bar-q3'].forEach(id => {
-            document.getElementById(id).style.height = '0';
-          });
+          // Reset yellow bars (q1 stays visible)
+          window.showBar_q1();
+          window.hideBar_q2();
+          window.hideBar_q3();
 
-          // Reset text fields and labels
-          ['fname', 'lname', 'email'].forEach(name => {
-            document.getElementById('field-' + name).textContent = '';
-            const label = document.getElementById('label-' + name);
-            label.classList.add('top-2.5', 'text-sm');
-            label.classList.remove('top-1', 'text-[10px]');
-          });
+          // Reset text fields
+          window.resetText_fname();
+          window.resetText_lname();
+          window.resetText_email();
 
           // Reset stars
-          for (let i = 1; i <= 5; i++) {
-            const star = document.getElementById('star-' + i);
-            star.classList.add('text-white/40');
-            star.classList.remove('text-white');
-            star.setAttribute('fill', 'none');
-          }
+          window.resetStars_stars();
 
-          // Reset option
-          const option = document.getElementById('option-yes');
-          const letter = document.getElementById('option-yes-letter');
-          option.classList.remove('border-white', 'bg-white/10');
-          letter.classList.add('bg-white/5', 'text-white/70', 'border-dashed');
-          letter.classList.remove('bg-white', 'text-[#2A98C6]');
-          letter.innerHTML = 'A';
+          // Reset multiple choice
+          window.resetOption_recommend();
 
           // Reset chat messages
           ['chat-msg-1', 'chat-msg-2', 'chat-msg-3'].forEach(id => {
@@ -353,7 +202,7 @@ import CustomerLogos from "../components/customer-logos.astro";
           });
 
           // Reset focus to form
-          focusContainer('form');
+          window['hero-demoFocusPanel']('left');
 
           // Restart animation
           setTimeout(runHeroAnimation, 1000);

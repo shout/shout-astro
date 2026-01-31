@@ -1,0 +1,65 @@
+---
+/**
+ * HeroDemoContainer - Overlapping card stack container for hero demos
+ *
+ * Provides the container structure with two overlapping panels that can
+ * swap focus (z-index) during animations.
+ *
+ * Slots:
+ * - left: The left/front panel (typically the form)
+ * - right: The right/back panel (typically the result - inbox, charts, etc.)
+ */
+export interface Props {
+  id?: string;
+  height?: string;
+  leftWidth?: string;
+  rightWidth?: string;
+}
+
+const {
+  id = 'hero-demo',
+  height = 'h-[420px] md:h-[400px]',
+  leftWidth = 'md:w-[55%]',
+  rightWidth = 'md:w-[60%]'
+} = Astro.props;
+---
+
+<div class="max-w-4xl mx-auto mb-10" id={id}>
+  <div class={`relative ${height}`}>
+    <!-- Left panel (starts in front) -->
+    <div
+      id={`${id}-left`}
+      class={`absolute left-0 md:left-[5%] top-0 w-full ${leftWidth} transition-all duration-700 ease-out z-20 opacity-100 scale-100`}
+    >
+      <slot name="left" />
+    </div>
+
+    <!-- Right panel (starts behind, offset) -->
+    <div
+      id={`${id}-right`}
+      class={`absolute right-0 md:right-[5%] top-4 md:top-6 w-full ${rightWidth} transition-all duration-700 ease-out z-10 opacity-60 scale-95`}
+    >
+      <slot name="right" />
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ id }}>
+  // Focus swap function - call this to switch which panel is in front
+  window[`${id}FocusPanel`] = function(target) {
+    const left = document.getElementById(`${id}-left`);
+    const right = document.getElementById(`${id}-right`);
+
+    if (target === 'left') {
+      left.classList.remove('z-10', 'scale-95', 'opacity-70');
+      left.classList.add('z-20', 'scale-100', 'opacity-100');
+      right.classList.remove('z-20', 'scale-100', 'opacity-100');
+      right.classList.add('z-10', 'scale-95', 'opacity-60');
+    } else {
+      right.classList.remove('z-10', 'scale-95', 'opacity-60');
+      right.classList.add('z-20', 'scale-100', 'opacity-100');
+      left.classList.remove('z-20', 'scale-100', 'opacity-100');
+      left.classList.add('z-10', 'scale-95', 'opacity-70');
+    }
+  };
+</script>

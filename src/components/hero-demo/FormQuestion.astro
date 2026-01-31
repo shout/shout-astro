@@ -1,0 +1,49 @@
+---
+/**
+ * FormQuestion - Question wrapper with number badge and yellow indicator bar
+ *
+ * Wraps question content with the standard Shout survey question styling.
+ */
+export interface Props {
+  number: number;
+  question: string;
+  id?: string;
+  barVisible?: boolean;
+  class?: string;
+}
+
+const {
+  number,
+  question,
+  id = `question-${number}`,
+  barVisible = false,
+  class: className = 'mb-10'
+} = Astro.props;
+---
+
+<div class={`flex gap-2 ${className}`}>
+  <div
+    id={`${id}-bar`}
+    class={`flex-shrink-0 w-0.5 bg-yellow-400 rounded-full transition-all duration-300`}
+    style={barVisible ? 'height: 100%' : 'height: 0'}
+  ></div>
+  <div class="flex-1">
+    <div class="flex items-center gap-2 mb-2">
+      <span class="w-5 h-5 rounded-full border border-white/50 text-xs flex items-center justify-center text-white/70">{number}</span>
+      <p class="text-sm text-white">{question}</p>
+    </div>
+    <div class="ml-7">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ id }}>
+  // Show/hide the yellow indicator bar
+  window[`showBar_${id}`] = function() {
+    document.getElementById(`${id}-bar`).style.height = '100%';
+  };
+  window[`hideBar_${id}`] = function() {
+    document.getElementById(`${id}-bar`).style.height = '0';
+  };
+</script>

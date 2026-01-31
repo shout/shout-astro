@@ -1,0 +1,52 @@
+---
+/**
+ * TextInput - Material-style text input with floating label
+ *
+ * Used in form demos for animated text typing.
+ */
+export interface Props {
+  id: string;
+  label: string;
+  class?: string;
+}
+
+const { id, label, class: className = '' } = Astro.props;
+---
+
+<div class={`bg-white rounded overflow-hidden relative h-10 ${className}`}>
+  <div id={`label-${id}`} class="absolute px-3 text-sm text-gray-400 transition-all duration-200 top-2.5">{label}</div>
+  <div id={`field-${id}`} class="absolute bottom-1.5 px-3 text-sm text-gray-700"></div>
+</div>
+
+<script define:vars={{ id }}>
+  // Type text into this input with animation
+  window[`typeText_${id}`] = function(text, speed = 80) {
+    const element = document.getElementById(`field-${id}`);
+    const label = document.getElementById(`label-${id}`);
+    element.textContent = '';
+
+    // Move label up when typing starts
+    if (label) {
+      label.classList.remove('top-2.5', 'text-sm');
+      label.classList.add('top-1', 'text-[10px]');
+    }
+
+    let i = 0;
+    const interval = setInterval(() => {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+      } else {
+        clearInterval(interval);
+      }
+    }, speed);
+  };
+
+  // Reset this input
+  window[`resetText_${id}`] = function() {
+    document.getElementById(`field-${id}`).textContent = '';
+    const label = document.getElementById(`label-${id}`);
+    label.classList.add('top-2.5', 'text-sm');
+    label.classList.remove('top-1', 'text-[10px]');
+  };
+</script>

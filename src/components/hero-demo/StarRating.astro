@@ -1,0 +1,58 @@
+---
+/**
+ * StarRating - Interactive star rating display
+ *
+ * Shows 5 stars that can be filled with animation.
+ */
+export interface Props {
+  id?: string;
+  starCount?: number;
+}
+
+const { id = 'stars', starCount = 5 } = Astro.props;
+---
+
+<div class="flex gap-1" id={id}>
+  {Array.from({ length: starCount }, (_, i) => (
+    <svg
+      id={`${id}-${i + 1}`}
+      class="w-7 h-7 text-white/40 transition-all duration-200"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+    >
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+    </svg>
+  ))}
+</div>
+
+<script define:vars={{ id, starCount }}>
+  // Flash and fill stars with animation
+  window[`fillStars_${id}`] = function(count) {
+    const container = document.getElementById(id);
+
+    // Flash effect
+    container.classList.add('opacity-50');
+    setTimeout(() => {
+      container.classList.remove('opacity-50');
+      // Fill the stars
+      for (let i = 1; i <= count; i++) {
+        const star = document.getElementById(`${id}-${i}`);
+        star.classList.remove('text-white/40');
+        star.classList.add('text-white');
+        star.setAttribute('fill', 'currentColor');
+      }
+    }, 200);
+  };
+
+  // Reset stars
+  window[`resetStars_${id}`] = function() {
+    for (let i = 1; i <= starCount; i++) {
+      const star = document.getElementById(`${id}-${i}`);
+      star.classList.add('text-white/40');
+      star.classList.remove('text-white');
+      star.setAttribute('fill', 'none');
+    }
+  };
+</script>

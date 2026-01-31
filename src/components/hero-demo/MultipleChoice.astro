@@ -1,0 +1,55 @@
+---
+/**
+ * MultipleChoice - A/B style multiple choice options
+ *
+ * Shows two options that can be selected with animation.
+ */
+export interface Props {
+  id?: string;
+  optionA: string;
+  optionB: string;
+}
+
+const { id = 'choice', optionA, optionB } = Astro.props;
+---
+
+<div class="grid grid-cols-2 gap-2">
+  <div id={`${id}-a`} class="flex items-center border border-white/30 rounded overflow-hidden transition-all duration-300 cursor-pointer">
+    <span id={`${id}-a-letter`} class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">A</span>
+    <span class="text-sm text-white px-3">{optionA}</span>
+  </div>
+  <div id={`${id}-b`} class="flex items-center border border-white/30 rounded overflow-hidden transition-all duration-300 cursor-pointer">
+    <span id={`${id}-b-letter`} class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">B</span>
+    <span class="text-sm text-white px-3">{optionB}</span>
+  </div>
+</div>
+
+<script define:vars={{ id }}>
+  // Select an option with animation
+  window[`selectOption_${id}`] = function(option) {
+    const optionEl = document.getElementById(`${id}-${option}`);
+    const letter = document.getElementById(`${id}-${option}-letter`);
+
+    // Pulse effect
+    optionEl.classList.add('bg-white/20');
+    setTimeout(() => {
+      optionEl.classList.remove('bg-white/20');
+      optionEl.classList.add('border-white', 'bg-white/10');
+      letter.classList.remove('bg-white/5', 'text-white/70', 'border-dashed');
+      letter.classList.add('bg-white', 'text-[#2A98C6]');
+      letter.innerHTML = '<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>';
+    }, 200);
+  };
+
+  // Reset options
+  window[`resetOption_${id}`] = function() {
+    ['a', 'b'].forEach(opt => {
+      const optionEl = document.getElementById(`${id}-${opt}`);
+      const letter = document.getElementById(`${id}-${opt}-letter`);
+      optionEl.classList.remove('border-white', 'bg-white/10');
+      letter.classList.add('bg-white/5', 'text-white/70', 'border-dashed');
+      letter.classList.remove('bg-white', 'text-[#2A98C6]');
+      letter.innerHTML = opt.toUpperCase();
+    });
+  };
+</script>
