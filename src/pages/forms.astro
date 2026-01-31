@@ -6,6 +6,15 @@ import { Icon } from "astro-icon/components";
 import CustomerLogos from "../components/customer-logos.astro";
 import Features from "../components/features.astro";
 
+// Hero demo components
+import HeroDemoContainer from "../components/hero-demo/HeroDemoContainer.astro";
+import FormCard from "../components/hero-demo/FormCard.astro";
+import FormQuestion from "../components/hero-demo/FormQuestion.astro";
+import TextInput from "../components/hero-demo/TextInput.astro";
+import StarRating from "../components/hero-demo/StarRating.astro";
+import MultipleChoice from "../components/hero-demo/MultipleChoice.astro";
+import ResultPanel from "../components/hero-demo/ResultPanel.astro";
+
 const tabs = [
   {
     id: "surveys",
@@ -45,17 +54,538 @@ const tabs = [
   <!-- Hero Section with Tabbed Video -->
   <section class="py-16">
     <Container>
-      <div class="text-center max-w-4xl mx-auto mb-12">
+      <div class="text-center max-w-4xl mx-auto mb-8">
         <h1 class="text-5xl lg:text-6xl font-bold lg:tracking-tight mb-6">
           Build <span class="text-primary">anything</span> you need
         </h1>
-        <p class="text-xl text-gray-600">
+        <p class="text-xl text-gray-600 mb-8">
           Create surveys, quizzes, forms and calculators with our intuitive drag-and-drop builder.
         </p>
+        <!-- CTA -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/signup/" size="lg">Start your Free Trial</Button>
+          <p class="text-gray-500 text-sm self-center">14-day Free Trial · No Credit Card Required</p>
+        </div>
+      </div>
+
+      <!-- Video/Demo Container -->
+      <div class="max-w-5xl mx-auto">
+        <div class="relative">
+          <!-- Forms Hero Demo -->
+          <div data-video-panel="forms" class="video-panel hidden">
+            <HeroDemoContainer id="forms-demo" rightWidth="md:w-[60%]">
+              <FormCard slot="left" title="Job Application" id="forms-form" bgColor="bg-[#2A98C6]">
+                <FormQuestion number={1} question="Your details" id="forms-q1" barVisible={true}>
+                  <div class="grid grid-cols-2 gap-2 mb-2">
+                    <TextInput id="forms-fname" label="First Name" />
+                    <TextInput id="forms-lname" label="Last Name" />
+                  </div>
+                  <TextInput id="forms-email" label="Email Address" />
+                </FormQuestion>
+
+                <FormQuestion number={2} question="Upload your CV" id="forms-q2" class="">
+                  <div id="forms-upload" class="border border-dashed border-white/30 rounded-lg p-3 text-center transition-all duration-300">
+                    <div id="forms-upload-empty" class="text-white/60">
+                      <Icon name="bx:cloud-upload" class="w-6 h-6 mx-auto mb-1" />
+                      <p class="text-xs">Click or drag to upload</p>
+                    </div>
+                    <div id="forms-upload-file" class="hidden">
+                      <div class="flex items-center justify-center gap-2 text-white">
+                        <Icon name="bx:file" class="w-5 h-5 text-green-400" />
+                        <span class="text-sm">resume.pdf</span>
+                        <Icon name="bx:check-circle" class="w-4 h-4 text-green-400" />
+                      </div>
+                    </div>
+                  </div>
+                </FormQuestion>
+              </FormCard>
+
+              <ResultPanel slot="right" title="Team Inbox" icon="bx:chat" id="forms-inbox">
+                <div class="flex h-[340px]">
+                  <!-- Ticket list sidebar -->
+                  <div class="w-[130px] border-r border-gray-200 bg-gray-50/50 flex-shrink-0 overflow-hidden">
+                    <div id="forms-ticket-new" class="px-3 py-2 bg-primary/10 border-l-2 border-primary cursor-pointer opacity-0 transition-all duration-500">
+                      <div class="flex items-center gap-2 mb-1">
+                        <div class="w-5 h-5 rounded-full bg-teal-500 flex items-center justify-center text-white text-[10px] font-medium">R</div>
+                        <span class="text-xs font-medium text-gray-800 truncate">Rachel Kim</span>
+                      </div>
+                      <p class="text-[10px] text-gray-500 truncate">Job Application</p>
+                      <span class="inline-block mt-1 text-[8px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded">New</span>
+                    </div>
+                    <div class="px-3 py-2 border-b border-gray-100 hover:bg-gray-50 cursor-pointer opacity-60">
+                      <div class="flex items-center gap-2 mb-1">
+                        <div class="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center text-white text-[10px] font-medium">S</div>
+                        <span class="text-xs font-medium text-gray-700 truncate">Sarah Johnson</span>
+                      </div>
+                      <p class="text-[10px] text-gray-400 truncate">Feedback form</p>
+                    </div>
+                    <div class="px-3 py-2 hover:bg-gray-50 cursor-pointer opacity-60">
+                      <div class="flex items-center gap-2 mb-1">
+                        <div class="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center text-white text-[10px] font-medium">M</div>
+                        <span class="text-xs font-medium text-gray-700 truncate">Mike Chen</span>
+                      </div>
+                      <p class="text-[10px] text-gray-400 truncate">Contact form</p>
+                    </div>
+                  </div>
+
+                  <!-- Conversation detail -->
+                  <div class="flex-1 flex flex-col p-3">
+                    <div class="space-y-2 flex-1 flex flex-col overflow-y-auto">
+                      <div id="forms-msg-1" class="flex gap-2 items-start opacity-0 translate-y-4 transition-all duration-500">
+                        <div class="w-5 h-5 rounded-full bg-teal-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">R</div>
+                        <div class="bg-gray-100 rounded-xl rounded-tl-sm px-2.5 py-1.5 max-w-[90%]">
+                          <p class="text-[10px] font-medium text-gray-500 mb-1">Rachel Kim</p>
+                          <p class="text-xs text-gray-700 mb-2">Hi! I'd like to apply for the Marketing Manager position.</p>
+                          <div class="flex items-center gap-2 p-1.5 bg-white rounded border border-gray-200">
+                            <Icon name="bx:file-blank" class="w-4 h-4 text-red-500" />
+                            <div class="flex-1 min-w-0">
+                              <p class="text-[10px] font-medium text-gray-700 truncate">resume.pdf</p>
+                              <p class="text-[8px] text-gray-400">245 KB</p>
+                            </div>
+                            <Icon name="bx:download" class="w-3 h-3 text-gray-400" />
+                          </div>
+                        </div>
+                      </div>
+                      <div id="forms-msg-2" class="flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
+                        <div class="bg-amber-50 border border-amber-200 rounded-xl rounded-tr-sm px-2.5 py-1.5 max-w-[85%]">
+                          <p class="text-[10px] text-amber-600 font-medium mb-0.5">Internal note</p>
+                          <p class="text-xs text-amber-900">@HR Strong candidate - 5 yrs experience</p>
+                        </div>
+                        <div class="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">J</div>
+                      </div>
+                      <div id="forms-msg-3" class="flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
+                        <div class="bg-gray-900 text-white rounded-xl rounded-tr-sm px-2.5 py-1.5 max-w-[85%]">
+                          <p class="text-xs">Thanks for applying Rachel! We'd love to schedule a call. Are you free Thursday?</p>
+                        </div>
+                        <div class="w-5 h-5 rounded-full bg-purple-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">T</div>
+                      </div>
+                    </div>
+                    <div class="flex gap-2 pt-2 mt-auto border-t border-gray-100">
+                      <div class="flex-1 bg-gray-50 rounded-full px-3 py-1 text-xs text-gray-400">Reply...</div>
+                      <button class="bg-gray-900 text-white w-6 h-6 rounded-full flex items-center justify-center">
+                        <Icon name="bx:send" class="w-3 h-3" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </ResultPanel>
+            </HeroDemoContainer>
+          </div>
+
+          <!-- Surveys Hero Demo -->
+          <div data-video-panel="surveys" class="video-panel block">
+            <HeroDemoContainer id="survey-demo" rightWidth="md:w-[55%]">
+              <FormCard slot="left" title="Customer Feedback" id="survey-form" bgColor="bg-[#2A98C6]">
+                <FormQuestion number={1} question="How would you rate our service?" id="survey-q1" barVisible={true}>
+                  <StarRating id="survey-stars" />
+                </FormQuestion>
+
+                <FormQuestion number={2} question="How likely are you to recommend us?" id="survey-q2">
+                  <!-- Likert Scale 0-10 -->
+                  <div class="mt-1 max-w-[280px]">
+                    <!-- Gradient bar -->
+                    <div class="h-1 rounded-full bg-gradient-to-r from-red-500 via-yellow-400 to-green-500 mb-2"></div>
+                    <!-- Numbers -->
+                    <div class="flex justify-between">
+                      {[0,1,2,3,4,5,6,7,8,9,10].map(n => (
+                        <button
+                          id={`survey-likert-${n}`}
+                          class="w-6 h-6 text-[10px] border border-white/30 rounded bg-white/5 text-white/70 hover:bg-white/20 transition-all duration-200 flex items-center justify-center"
+                        >
+                          {n}
+                        </button>
+                      ))}
+                    </div>
+                    <!-- Labels -->
+                    <div class="flex justify-between mt-1">
+                      <span class="text-[9px] text-white/50">Not likely</span>
+                      <span class="text-[9px] text-white/50">Very likely</span>
+                    </div>
+                  </div>
+                </FormQuestion>
+
+                <FormQuestion number={3} question="Was your issue resolved?" id="survey-q3" class="">
+                  <MultipleChoice id="survey-recommend" optionA="Yes" optionB="No" />
+                </FormQuestion>
+
+              </FormCard>
+
+              <ResultPanel slot="right" title="Survey Results" icon="bx:bar-chart-alt-2" id="survey-results">
+                <div class="p-4 space-y-6 h-[340px] overflow-y-auto">
+                  <!-- Rating Question Results -->
+                  <div id="survey-result-rating" class="opacity-0 translate-y-4 transition-all duration-500">
+                    <div class="flex items-center gap-2 mb-3">
+                      <span class="w-5 h-5 rounded bg-gray-100 text-xs flex items-center justify-center text-gray-600 font-medium">1</span>
+                      <p class="text-sm text-gray-700 font-medium">How would you rate our service?</p>
+                    </div>
+                    <!-- Star display -->
+                    <div class="flex items-center gap-1 mb-3">
+                      <span id="survey-avg-stars" class="text-2xl text-yellow-400">★★★★☆</span>
+                      <span class="text-sm text-gray-500 ml-2"><span id="survey-avg-num">4.0</span> / 5</span>
+                    </div>
+                    <!-- Rating bars -->
+                    <div class="space-y-1.5">
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs text-gray-500 w-3">5</span>
+                        <div class="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                          <div id="survey-bar-5" class="h-full bg-green-500 rounded-full transition-all duration-700" style="width: 0%"></div>
+                        </div>
+                        <span id="survey-pct-5" class="text-xs text-gray-500 w-8">0%</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs text-gray-500 w-3">4</span>
+                        <div class="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                          <div id="survey-bar-4" class="h-full bg-lime-500 rounded-full transition-all duration-700" style="width: 0%"></div>
+                        </div>
+                        <span id="survey-pct-4" class="text-xs text-gray-500 w-8">0%</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs text-gray-500 w-3">3</span>
+                        <div class="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                          <div id="survey-bar-3" class="h-full bg-yellow-500 rounded-full transition-all duration-700" style="width: 0%"></div>
+                        </div>
+                        <span id="survey-pct-3" class="text-xs text-gray-500 w-8">0%</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs text-gray-500 w-3">2</span>
+                        <div class="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                          <div id="survey-bar-2" class="h-full bg-orange-500 rounded-full transition-all duration-700" style="width: 0%"></div>
+                        </div>
+                        <span id="survey-pct-2" class="text-xs text-gray-500 w-8">0%</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs text-gray-500 w-3">1</span>
+                        <div class="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                          <div id="survey-bar-1" class="h-full bg-red-500 rounded-full transition-all duration-700" style="width: 0%"></div>
+                        </div>
+                        <span id="survey-pct-1" class="text-xs text-gray-500 w-8">0%</span>
+                      </div>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-2"><span id="survey-rating-responses">0</span> responses</p>
+                  </div>
+
+                  <!-- Recommend Question Results -->
+                  <div id="survey-result-recommend" class="opacity-0 translate-y-4 transition-all duration-500">
+                    <div class="flex items-center gap-2 mb-3">
+                      <span class="w-5 h-5 rounded bg-gray-100 text-xs flex items-center justify-center text-gray-600 font-medium">2</span>
+                      <p class="text-sm text-gray-700 font-medium">Was your issue resolved?</p>
+                    </div>
+                    <!-- Donut chart and legend -->
+                    <div class="flex items-center gap-4">
+                      <div class="relative w-24 h-24">
+                        <svg viewBox="0 0 36 36" class="w-24 h-24 transform -rotate-90">
+                          <circle cx="18" cy="18" r="14" fill="none" stroke="#e5e7eb" stroke-width="4"></circle>
+                          <circle id="survey-donut-yes" cx="18" cy="18" r="14" fill="none" stroke="#4ade80" stroke-width="4" stroke-dasharray="0 88" stroke-linecap="round" class="transition-all duration-700"></circle>
+                          <circle id="survey-donut-no" cx="18" cy="18" r="14" fill="none" stroke="#38bdf8" stroke-width="4" stroke-dasharray="0 88" stroke-linecap="round" class="transition-all duration-700"></circle>
+                        </svg>
+                      </div>
+                      <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                          <div class="w-3 h-3 rounded-sm bg-green-400"></div>
+                          <span class="text-sm text-gray-600">Yes</span>
+                          <span id="survey-yes-pct" class="text-sm font-medium text-gray-800">0%</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                          <div class="w-3 h-3 rounded-sm bg-sky-400"></div>
+                          <span class="text-sm text-gray-600">No</span>
+                          <span id="survey-no-pct" class="text-sm font-medium text-gray-800">0%</span>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-2"><span id="survey-recommend-responses">0</span> responses</p>
+                  </div>
+                </div>
+              </ResultPanel>
+            </HeroDemoContainer>
+          </div>
+
+          <!-- Quizzes Hero Demo - Typeform style -->
+          <div data-video-panel="quizzes" class="video-panel hidden">
+            <HeroDemoContainer id="quiz-demo" rightWidth="md:w-[55%]">
+              <div slot="left" class="bg-gradient-to-br from-purple-600 to-indigo-700 rounded-xl shadow-2xl overflow-hidden h-full">
+                <!-- Progress bar -->
+                <div id="quiz-progress" class="h-1 bg-yellow-400 transition-all duration-500" style="width: 0%"></div>
+
+                <!-- Question container - single question at a time, 50/50 split -->
+                <div class="h-[340px] flex flex-col">
+                  <!-- Question 1 -->
+                  <div id="quiz-q1" class="flex-1 grid grid-cols-2 transition-all duration-500">
+                    <div class="p-5 flex flex-col justify-center">
+                      <div class="flex items-center gap-2 mb-3">
+                        <span class="w-6 h-6 rounded-full bg-white/20 text-xs flex items-center justify-center text-white">1</span>
+                        <span class="text-xs text-white/60">of 3</span>
+                      </div>
+                      <h3 class="text-lg font-bold text-white mb-4">What's your main goal for learning?</h3>
+                      <div class="space-y-2">
+                        <div id="quiz-q1-a" class="flex items-center border border-white/30 rounded overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
+                          <span id="quiz-q1-a-letter" class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">A</span>
+                          <span class="text-sm text-white px-3">Career advancement</span>
+                        </div>
+                        <div id="quiz-q1-b" class="flex items-center border border-white/30 rounded overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
+                          <span id="quiz-q1-b-letter" class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">B</span>
+                          <span class="text-sm text-white px-3">Personal interest</span>
+                        </div>
+                        <div id="quiz-q1-c" class="flex items-center border border-white/30 rounded overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
+                          <span id="quiz-q1-c-letter" class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">C</span>
+                          <span class="text-sm text-white px-3">Academic requirements</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-500/30 to-indigo-600/30 flex items-center justify-center">
+                      <Icon name="bx:target-lock" class="w-24 h-24 text-white/40" />
+                    </div>
+                  </div>
+
+                  <!-- Question 2 (hidden initially) -->
+                  <div id="quiz-q2" class="flex-1 grid grid-cols-2 transition-all duration-500 hidden">
+                    <div class="p-5 flex flex-col justify-center">
+                      <div class="flex items-center gap-2 mb-3">
+                        <span class="w-6 h-6 rounded-full bg-white/20 text-xs flex items-center justify-center text-white">2</span>
+                        <span class="text-xs text-white/60">of 3</span>
+                      </div>
+                      <h3 class="text-lg font-bold text-white mb-4">How much time can you dedicate weekly?</h3>
+                      <div class="space-y-2">
+                        <div id="quiz-q2-a" class="flex items-center border border-white/30 rounded overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
+                          <span id="quiz-q2-a-letter" class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">A</span>
+                          <span class="text-sm text-white px-3">1-2 hours</span>
+                        </div>
+                        <div id="quiz-q2-b" class="flex items-center border border-white/30 rounded overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
+                          <span id="quiz-q2-b-letter" class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">B</span>
+                          <span class="text-sm text-white px-3">3-5 hours</span>
+                        </div>
+                        <div id="quiz-q2-c" class="flex items-center border border-white/30 rounded overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
+                          <span id="quiz-q2-c-letter" class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">C</span>
+                          <span class="text-sm text-white px-3">5+ hours</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-500/30 to-indigo-600/30 flex items-center justify-center">
+                      <Icon name="bx:time" class="w-24 h-24 text-white/40" />
+                    </div>
+                  </div>
+
+                  <!-- Question 3 (hidden initially) -->
+                  <div id="quiz-q3" class="flex-1 grid grid-cols-2 transition-all duration-500 hidden">
+                    <div class="p-5 flex flex-col justify-center">
+                      <div class="flex items-center gap-2 mb-3">
+                        <span class="w-6 h-6 rounded-full bg-white/20 text-xs flex items-center justify-center text-white">3</span>
+                        <span class="text-xs text-white/60">of 3</span>
+                      </div>
+                      <h3 class="text-lg font-bold text-white mb-4">What's your experience level?</h3>
+                      <div class="space-y-2">
+                        <div id="quiz-q3-a" class="flex items-center border border-white/30 rounded overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
+                          <span id="quiz-q3-a-letter" class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">A</span>
+                          <span class="text-sm text-white px-3">Beginner</span>
+                        </div>
+                        <div id="quiz-q3-b" class="flex items-center border border-white/30 rounded overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
+                          <span id="quiz-q3-b-letter" class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">B</span>
+                          <span class="text-sm text-white px-3">Intermediate</span>
+                        </div>
+                        <div id="quiz-q3-c" class="flex items-center border border-white/30 rounded overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
+                          <span id="quiz-q3-c-letter" class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">C</span>
+                          <span class="text-sm text-white px-3">Advanced</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-500/30 to-indigo-600/30 flex items-center justify-center">
+                      <Icon name="bx:medal" class="w-24 h-24 text-white/40" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <ResultPanel slot="right" title="Quiz Results" icon="bx:trophy" id="quiz-results">
+                <div class="p-4 h-[340px] flex flex-col">
+                  <!-- Score display -->
+                  <div id="quiz-score-panel" class="text-center py-4 opacity-0 translate-y-4 transition-all duration-500">
+                    <div class="w-20 h-20 mx-auto mb-3 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center">
+                      <span id="quiz-score" class="text-2xl font-bold text-white">0%</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800">Great Job!</h3>
+                    <p class="text-sm text-gray-500">You scored 3 out of 3</p>
+                  </div>
+
+                  <!-- Answer breakdown -->
+                  <div id="quiz-breakdown" class="flex-1 space-y-2 opacity-0 translate-y-4 transition-all duration-500">
+                    <p class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Your Answers</p>
+                    <div class="flex items-center gap-2 p-2 bg-green-50 rounded-lg border border-green-200">
+                      <Icon name="bx:check-circle" class="w-5 h-5 text-green-500 flex-shrink-0" />
+                      <div class="flex-1 min-w-0">
+                        <p class="text-xs text-gray-500">Q1: Main goal</p>
+                        <p class="text-sm text-gray-700 truncate">Career advancement</p>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-2 p-2 bg-green-50 rounded-lg border border-green-200">
+                      <Icon name="bx:check-circle" class="w-5 h-5 text-green-500 flex-shrink-0" />
+                      <div class="flex-1 min-w-0">
+                        <p class="text-xs text-gray-500">Q2: Time available</p>
+                        <p class="text-sm text-gray-700 truncate">3-5 hours</p>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-2 p-2 bg-green-50 rounded-lg border border-green-200">
+                      <Icon name="bx:check-circle" class="w-5 h-5 text-green-500 flex-shrink-0" />
+                      <div class="flex-1 min-w-0">
+                        <p class="text-xs text-gray-500">Q3: Experience</p>
+                        <p class="text-sm text-gray-700 truncate">Intermediate</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Recommendation -->
+                  <div id="quiz-recommendation" class="mt-3 p-3 bg-purple-50 rounded-lg border border-purple-200 opacity-0 translate-y-4 transition-all duration-500">
+                    <p class="text-xs font-medium text-purple-600 mb-1">Recommended for you</p>
+                    <p class="text-sm text-gray-700">Professional Development Track</p>
+                  </div>
+                </div>
+              </ResultPanel>
+            </HeroDemoContainer>
+          </div>
+
+          <!-- Calculators Hero Demo - 2-col form with quote + inbox -->
+          <div data-video-panel="calculators" class="video-panel hidden">
+            <HeroDemoContainer id="calc-demo" rightWidth="md:w-[60%]">
+              <div slot="left" class="bg-[#2A98C6] rounded-xl shadow-2xl overflow-hidden h-full">
+                <!-- Progress bar -->
+                <div id="calc-progress" class="h-1 bg-yellow-400 transition-all duration-500" style="width: 0%"></div>
+
+                <div class="p-5">
+                  <h3 class="text-lg font-bold text-white mb-4">Get Your Quote</h3>
+
+                  <div class="grid grid-cols-2 gap-4">
+                    <!-- Left column - inputs -->
+                    <div class="space-y-3">
+                      <div>
+                        <label class="text-xs text-white/70 block mb-1">Service Type</label>
+                        <div id="calc-service" class="bg-white/10 border border-white/20 rounded px-3 py-2 text-white text-sm">
+                          <span class="text-white/40">Select...</span>
+                        </div>
+                      </div>
+                      <div>
+                        <label class="text-xs text-white/70 block mb-1">Team Size</label>
+                        <div id="calc-team" class="bg-white/10 border border-white/20 rounded px-3 py-2 text-white text-sm">
+                          <span class="text-white/40">Select...</span>
+                        </div>
+                      </div>
+                      <div>
+                        <label class="text-xs text-white/70 block mb-1">Duration</label>
+                        <div id="calc-duration" class="bg-white/10 border border-white/20 rounded px-3 py-2 text-white text-sm">
+                          <span class="text-white/40">Select...</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Right column - live quote -->
+                    <div class="bg-white/10 rounded-lg p-3 border border-white/20">
+                      <p class="text-xs text-white/60 mb-2">Your Quote</p>
+                      <div id="calc-quote-display" class="text-center py-3">
+                        <p id="calc-total" class="text-3xl font-bold text-white">$0</p>
+                        <p class="text-xs text-white/60 mt-1">per month</p>
+                      </div>
+                      <div class="space-y-1 text-xs border-t border-white/20 pt-2 mt-2">
+                        <div class="flex justify-between text-white/70">
+                          <span>Base price</span>
+                          <span id="calc-base">$0</span>
+                        </div>
+                        <div class="flex justify-between text-white/70">
+                          <span>Team seats</span>
+                          <span id="calc-seats">$0</span>
+                        </div>
+                        <div class="flex justify-between text-white/70">
+                          <span>Duration discount</span>
+                          <span id="calc-discount" class="text-green-300">-$0</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button id="calc-submit-btn" class="w-full mt-4 bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-medium py-2 rounded-lg text-sm transition-all opacity-50">
+                    Get Quote
+                  </button>
+                </div>
+              </div>
+
+              <ResultPanel slot="right" title="Team Inbox" icon="bx:chat" id="calc-inbox">
+                <div class="flex h-[340px]">
+                  <!-- Ticket list sidebar -->
+                  <div class="w-[130px] border-r border-gray-200 bg-gray-50/50 flex-shrink-0 overflow-hidden">
+                    <div id="calc-ticket-new" class="px-3 py-2 bg-primary/10 border-l-2 border-primary cursor-pointer opacity-0 transition-all duration-500">
+                      <div class="flex items-center gap-2 mb-1">
+                        <div class="w-5 h-5 rounded-full bg-indigo-500 flex items-center justify-center text-white text-[10px] font-medium">A</div>
+                        <span class="text-xs font-medium text-gray-800 truncate">Alex Martin</span>
+                      </div>
+                      <p class="text-[10px] text-gray-500 truncate">Quote request</p>
+                      <span class="inline-block mt-1 text-[8px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded">New</span>
+                    </div>
+                    <div class="px-3 py-2 border-b border-gray-100 hover:bg-gray-50 cursor-pointer opacity-60">
+                      <div class="flex items-center gap-2 mb-1">
+                        <div class="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center text-white text-[10px] font-medium">S</div>
+                        <span class="text-xs font-medium text-gray-700 truncate">Sarah Johnson</span>
+                      </div>
+                      <p class="text-[10px] text-gray-400 truncate">Feedback form</p>
+                    </div>
+                    <div class="px-3 py-2 hover:bg-gray-50 cursor-pointer opacity-60">
+                      <div class="flex items-center gap-2 mb-1">
+                        <div class="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center text-white text-[10px] font-medium">M</div>
+                        <span class="text-xs font-medium text-gray-700 truncate">Mike Chen</span>
+                      </div>
+                      <p class="text-[10px] text-gray-400 truncate">Support</p>
+                    </div>
+                  </div>
+
+                  <!-- Conversation detail -->
+                  <div class="flex-1 flex flex-col p-3">
+                    <div class="space-y-2 flex-1 flex flex-col overflow-y-auto">
+                      <div id="calc-msg-1" class="flex gap-2 items-start opacity-0 translate-y-4 transition-all duration-500">
+                        <div class="w-5 h-5 rounded-full bg-indigo-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">A</div>
+                        <div class="bg-gray-100 rounded-xl rounded-tl-sm px-2.5 py-1.5 max-w-[90%]">
+                          <p class="text-[10px] font-medium text-gray-500 mb-1">Alex Martin</p>
+                          <div class="text-[10px] text-gray-500 mb-1.5 pb-1.5 border-b border-gray-200">
+                            <p><span class="font-medium">Service:</span> Professional</p>
+                            <p><span class="font-medium">Team:</span> 10-25 people</p>
+                            <p><span class="font-medium">Quote:</span> $199/mo</p>
+                          </div>
+                          <p class="text-xs text-gray-700">Interested in the Professional plan for our marketing team.</p>
+                        </div>
+                      </div>
+                      <div id="calc-msg-2" class="flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
+                        <div class="bg-amber-50 border border-amber-200 rounded-xl rounded-tr-sm px-2.5 py-1.5 max-w-[85%]">
+                          <p class="text-[10px] text-amber-600 font-medium mb-0.5">Internal note</p>
+                          <p class="text-xs text-amber-900">@Sales good lead - enterprise potential</p>
+                        </div>
+                        <div class="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">J</div>
+                      </div>
+                      <div id="calc-msg-3" class="flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
+                        <div class="bg-gray-900 text-white rounded-xl rounded-tr-sm px-2.5 py-1.5 max-w-[85%]">
+                          <p class="text-xs">Hi Alex! Great choice. I can offer a 15% discount for annual billing. Want to schedule a demo?</p>
+                        </div>
+                        <div class="w-5 h-5 rounded-full bg-purple-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">T</div>
+                      </div>
+                      <div id="calc-msg-4" class="flex gap-2 items-start opacity-0 translate-y-4 transition-all duration-500">
+                        <div class="w-5 h-5 rounded-full bg-[#635bff] flex items-center justify-center text-white flex-shrink-0 mt-0.5">
+                          <Icon name="bx:credit-card" class="w-3 h-3" />
+                        </div>
+                        <div class="bg-green-50 border border-green-200 rounded-xl rounded-tl-sm px-2.5 py-1.5 max-w-[90%]">
+                          <p class="text-[10px] font-medium text-green-600 mb-0.5">Stripe payment received</p>
+                          <p class="text-xs text-green-800">$199 from Quote Acceptance form</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex gap-2 pt-2 mt-auto border-t border-gray-100">
+                      <div class="flex-1 bg-gray-50 rounded-full px-3 py-1 text-xs text-gray-400">Reply...</div>
+                      <button class="bg-gray-900 text-white w-6 h-6 rounded-full flex items-center justify-center">
+                        <Icon name="bx:send" class="w-3 h-3" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </ResultPanel>
+            </HeroDemoContainer>
+          </div>
+        </div>
       </div>
 
       <!-- Tabs -->
-      <div class="flex justify-center mb-8">
+      <div class="flex justify-center mt-8 mb-4">
         <div class="inline-flex bg-gray-100 rounded-full p-1 gap-1">
           {tabs.map((tab, index) => (
             <button
@@ -72,49 +602,19 @@ const tabs = [
         </div>
       </div>
 
-      <!-- Video Container -->
-      <div class="max-w-5xl mx-auto">
-        <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-900">
-          {tabs.map((tab, index) => (
-            <div
-              data-video-panel={tab.id}
-              class:list={[
-                "video-panel",
-                index === 0 ? "block" : "hidden"
-              ]}
-            >
-              <video
-                src={tab.video}
-                autoplay
-                muted
-                loop
-                playsinline
-                class="w-full h-auto"
-              />
-            </div>
-          ))}
-        </div>
-
-        <!-- Description below video -->
-        <div class="text-center mt-6">
-          {tabs.map((tab, index) => (
-            <p
-              data-description={tab.id}
-              class:list={[
-                "tab-description text-lg text-gray-600",
-                index === 0 ? "block" : "hidden"
-              ]}
-            >
-              {tab.description}
-            </p>
-          ))}
-        </div>
-      </div>
-
-      <!-- CTA -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-        <Button href="/signup/" size="lg">Start your Free Trial</Button>
-        <p class="text-gray-600 text-sm self-center">14-day Free Trial - No Credit Card Required</p>
+      <!-- Tab Description -->
+      <div class="text-center">
+        {tabs.map((tab, index) => (
+          <p
+            data-description={tab.id}
+            class:list={[
+              "tab-description text-lg text-gray-500 max-w-2xl mx-auto",
+              index === 0 ? "block" : "hidden"
+            ]}
+          >
+            {tab.description}
+          </p>
+        ))}
       </div>
     </Container>
   </section>
@@ -193,46 +693,465 @@ const tabs = [
     const videoPanels = document.querySelectorAll('.video-panel');
     const descriptions = document.querySelectorAll('.tab-description');
 
+    // Tab cycle order
+    const tabOrder = ['surveys', 'quizzes', 'forms', 'calculators'];
+    let currentTabIndex = 0;
+
+    // Animation state
+    let surveyTimeouts = [], quizTimeouts = [], calcTimeouts = [], formsTimeouts = [];
+    let surveyRunning = false, quizRunning = false, calcRunning = false, formsRunning = false;
+
+    // Start survey animation on page load (surveys tab is default)
+    setTimeout(() => runSurveyAnimation(), 1000);
+
+    // Function to switch to a specific tab
+    function switchToTab(tabId) {
+      currentTabIndex = tabOrder.indexOf(tabId);
+
+      // Update button styles
+      tabButtons.forEach(btn => {
+        btn.classList.remove('bg-white', 'shadow-sm', 'text-gray-900');
+        btn.classList.add('text-gray-600');
+        if (btn.getAttribute('data-tab') === tabId) {
+          btn.classList.add('bg-white', 'shadow-sm', 'text-gray-900');
+          btn.classList.remove('text-gray-600');
+        }
+      });
+
+      // Show/hide video panels
+      videoPanels.forEach(panel => {
+        if (panel.getAttribute('data-video-panel') === tabId) {
+          panel.classList.remove('hidden');
+          panel.classList.add('block');
+        } else {
+          panel.classList.add('hidden');
+          panel.classList.remove('block');
+        }
+      });
+
+      // Show/hide descriptions
+      descriptions.forEach(desc => {
+        if (desc.getAttribute('data-description') === tabId) {
+          desc.classList.remove('hidden');
+          desc.classList.add('block');
+        } else {
+          desc.classList.add('hidden');
+          desc.classList.remove('block');
+        }
+      });
+
+      // Stop all animations and reset
+      stopSurveyAnimation(); resetSurveyAnimation();
+      stopQuizAnimation(); resetQuizAnimation();
+      stopCalcAnimation(); resetCalcAnimation();
+      stopFormsAnimation(); resetFormsAnimation();
+
+      // Start relevant animation
+      setTimeout(() => {
+        if (tabId === 'surveys') runSurveyAnimation();
+        else if (tabId === 'quizzes') runQuizAnimation();
+        else if (tabId === 'calculators') runCalcAnimation();
+        else if (tabId === 'forms') runFormsAnimation();
+      }, 500);
+    }
+
+    // Function to advance to next tab
+    function nextTab() {
+      currentTabIndex = (currentTabIndex + 1) % tabOrder.length;
+      switchToTab(tabOrder[currentTabIndex]);
+    }
+
     tabButtons.forEach(button => {
       button.addEventListener('click', () => {
         const tabId = button.getAttribute('data-tab');
-
-        // Update button styles
-        tabButtons.forEach(btn => {
-          btn.classList.remove('bg-white', 'shadow-sm', 'text-gray-900');
-          btn.classList.add('text-gray-600');
-        });
-        button.classList.add('bg-white', 'shadow-sm', 'text-gray-900');
-        button.classList.remove('text-gray-600');
-
-        // Show/hide video panels
-        videoPanels.forEach(panel => {
-          if (panel.getAttribute('data-video-panel') === tabId) {
-            panel.classList.remove('hidden');
-            panel.classList.add('block');
-            // Restart video
-            const video = panel.querySelector('video');
-            if (video) {
-              video.currentTime = 0;
-              video.play();
-            }
-          } else {
-            panel.classList.add('hidden');
-            panel.classList.remove('block');
-          }
-        });
-
-        // Show/hide descriptions
-        descriptions.forEach(desc => {
-          if (desc.getAttribute('data-description') === tabId) {
-            desc.classList.remove('hidden');
-            desc.classList.add('block');
-          } else {
-            desc.classList.add('hidden');
-            desc.classList.remove('block');
-          }
-        });
+        switchToTab(tabId);
       });
     });
+
+    // ========== HELPER FUNCTIONS ==========
+    function showElement(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.remove('opacity-0', 'translate-y-4');
+        el.classList.add('opacity-100', 'translate-y-0');
+      }
+    }
+
+    function hideElement(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.add('opacity-0', 'translate-y-4');
+        el.classList.remove('opacity-100', 'translate-y-0');
+      }
+    }
+
+    function selectQuizOption(btnId) {
+      const btn = document.getElementById(btnId);
+      const letter = document.getElementById(`${btnId}-letter`);
+      if (btn && letter) {
+        // Pulse effect then highlight
+        btn.classList.add('bg-white/20');
+        setTimeout(() => {
+          btn.classList.remove('bg-white/20');
+          btn.classList.add('border-white', 'bg-white/10');
+          letter.classList.remove('bg-white/5', 'text-white/70', 'border-dashed');
+          letter.classList.add('bg-white', 'text-purple-600');
+          letter.innerHTML = '<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>';
+        }, 200);
+      }
+    }
+
+    function resetQuizOption(btnId) {
+      const btn = document.getElementById(btnId);
+      const letter = document.getElementById(`${btnId}-letter`);
+      const originalLetter = btnId.slice(-1).toUpperCase(); // Get A, B, or C from the ID
+      if (btn && letter) {
+        btn.classList.remove('border-white', 'bg-white/10', 'bg-white/20');
+        letter.classList.add('bg-white/5', 'text-white/70', 'border-dashed');
+        letter.classList.remove('bg-white', 'text-purple-600');
+        letter.innerHTML = originalLetter;
+      }
+    }
+
+    // ========== SURVEY ANIMATION ==========
+    function selectLikert(num) {
+      const btn = document.getElementById(`survey-likert-${num}`);
+      if (btn) {
+        btn.classList.remove('bg-white/5', 'text-white/70', 'border-white/30');
+        btn.classList.add('bg-white', 'text-[#2A98C6]', 'border-white', 'font-bold');
+      }
+    }
+
+    function resetLikert() {
+      for (let i = 0; i <= 10; i++) {
+        const btn = document.getElementById(`survey-likert-${i}`);
+        if (btn) {
+          btn.classList.add('bg-white/5', 'text-white/70', 'border-white/30');
+          btn.classList.remove('bg-white', 'text-[#2A98C6]', 'border-white', 'font-bold');
+        }
+      }
+    }
+
+    function runSurveyAnimation() {
+      if (surveyRunning) return;
+      surveyRunning = true;
+
+      const timeline = [
+        // Q1: Star rating
+        { delay: 500, action: () => window['fillStars_survey-stars'] && window['fillStars_survey-stars'](4) },
+        { delay: 1200, action: () => {
+          window['survey-formSetProgress'] && window['survey-formSetProgress'](33);
+          window['hideBar_survey-q1'] && window['hideBar_survey-q1']();
+          window['showBar_survey-q2'] && window['showBar_survey-q2']();
+        }},
+        // Q2: Likert scale
+        { delay: 1800, action: () => selectLikert(8) },
+        { delay: 2300, action: () => {
+          window['survey-formSetProgress'] && window['survey-formSetProgress'](66);
+          window['hideBar_survey-q2'] && window['hideBar_survey-q2']();
+          window['showBar_survey-q3'] && window['showBar_survey-q3']();
+        }},
+        // Q3: Yes/No
+        { delay: 2900, action: () => window['selectOption_survey-recommend'] && window['selectOption_survey-recommend']('a') },
+        { delay: 3400, action: () => {
+          window['survey-formSetProgress'] && window['survey-formSetProgress'](100);
+        }},
+        { delay: 3900, action: () => window['survey-demoFocusPanel'] && window['survey-demoFocusPanel']('right') },
+        { delay: 4800, action: () => { showElement('survey-result-rating'); animateRatingBars(); }},
+        { delay: 6000, action: () => { showElement('survey-result-recommend'); animateDonutChart(); }},
+        { delay: 11000, action: () => nextTab() },
+      ];
+
+      timeline.forEach(item => {
+        surveyTimeouts.push(setTimeout(item.action, item.delay));
+      });
+    }
+
+    function animateRatingBars() {
+      const data = { 5: 45, 4: 35, 3: 15, 2: 3, 1: 2 };
+      document.getElementById('survey-avg-num').textContent = '4.2';
+      document.getElementById('survey-avg-stars').textContent = '★★★★☆';
+      document.getElementById('survey-rating-responses').textContent = '127';
+      Object.entries(data).forEach(([r, pct]) => {
+        const bar = document.getElementById(`survey-bar-${r}`);
+        const pctEl = document.getElementById(`survey-pct-${r}`);
+        if (bar) bar.style.width = `${pct}%`;
+        if (pctEl) pctEl.textContent = `${pct}%`;
+      });
+    }
+
+    function animateDonutChart() {
+      document.getElementById('survey-yes-pct').textContent = '78%';
+      document.getElementById('survey-no-pct').textContent = '22%';
+      document.getElementById('survey-recommend-responses').textContent = '127';
+      const yesCircle = document.getElementById('survey-donut-yes');
+      const noCircle = document.getElementById('survey-donut-no');
+      if (yesCircle) yesCircle.style.strokeDasharray = '68.64 88';
+      if (noCircle) { noCircle.style.strokeDasharray = '19.36 88'; noCircle.style.strokeDashoffset = '-68.64'; }
+    }
+
+    function stopSurveyAnimation() {
+      surveyRunning = false;
+      surveyTimeouts.forEach(t => clearTimeout(t));
+      surveyTimeouts = [];
+    }
+
+    function resetSurveyAnimation() {
+      stopSurveyAnimation();
+      window['survey-formSetProgress'] && window['survey-formSetProgress'](0);
+      window['showBar_survey-q1'] && window['showBar_survey-q1']();
+      window['hideBar_survey-q2'] && window['hideBar_survey-q2']();
+      window['hideBar_survey-q3'] && window['hideBar_survey-q3']();
+      window['resetStars_survey-stars'] && window['resetStars_survey-stars']();
+      resetLikert();
+      window['resetOption_survey-recommend'] && window['resetOption_survey-recommend']();
+      hideElement('survey-result-rating');
+      hideElement('survey-result-recommend');
+      document.getElementById('survey-avg-num').textContent = '0.0';
+      document.getElementById('survey-avg-stars').textContent = '☆☆☆☆☆';
+      document.getElementById('survey-rating-responses').textContent = '0';
+      [1,2,3,4,5].forEach(r => {
+        const bar = document.getElementById(`survey-bar-${r}`);
+        const pctEl = document.getElementById(`survey-pct-${r}`);
+        if (bar) bar.style.width = '0%';
+        if (pctEl) pctEl.textContent = '0%';
+      });
+      document.getElementById('survey-yes-pct').textContent = '0%';
+      document.getElementById('survey-no-pct').textContent = '0%';
+      document.getElementById('survey-recommend-responses').textContent = '0';
+      const yesCircle = document.getElementById('survey-donut-yes');
+      const noCircle = document.getElementById('survey-donut-no');
+      if (yesCircle) yesCircle.style.strokeDasharray = '0 88';
+      if (noCircle) { noCircle.style.strokeDasharray = '0 88'; noCircle.style.strokeDashoffset = '0'; }
+      window['survey-demoFocusPanel'] && window['survey-demoFocusPanel']('left');
+    }
+
+    // ========== QUIZ ANIMATION ==========
+    function runQuizAnimation() {
+      if (quizRunning) return;
+      quizRunning = true;
+
+      const timeline = [
+        // Q1: Select answer
+        { delay: 800, action: () => selectQuizOption('quiz-q1-a') },
+        { delay: 1500, action: () => {
+          document.getElementById('quiz-progress').style.width = '33%';
+          document.getElementById('quiz-q1').classList.add('hidden');
+          document.getElementById('quiz-q2').classList.remove('hidden');
+        }},
+        // Q2: Select answer
+        { delay: 2500, action: () => selectQuizOption('quiz-q2-b') },
+        { delay: 3200, action: () => {
+          document.getElementById('quiz-progress').style.width = '66%';
+          document.getElementById('quiz-q2').classList.add('hidden');
+          document.getElementById('quiz-q3').classList.remove('hidden');
+        }},
+        // Q3: Select answer
+        { delay: 4200, action: () => selectQuizOption('quiz-q3-b') },
+        { delay: 4900, action: () => {
+          document.getElementById('quiz-progress').style.width = '100%';
+        }},
+        // Show results
+        { delay: 5500, action: () => window['quiz-demoFocusPanel'] && window['quiz-demoFocusPanel']('right') },
+        { delay: 6000, action: () => {
+          showElement('quiz-score-panel');
+          document.getElementById('quiz-score').textContent = '100%';
+        }},
+        { delay: 6800, action: () => showElement('quiz-breakdown') },
+        { delay: 7500, action: () => showElement('quiz-recommendation') },
+        // Next tab
+        { delay: 11000, action: () => nextTab() },
+      ];
+
+      timeline.forEach(item => {
+        quizTimeouts.push(setTimeout(item.action, item.delay));
+      });
+    }
+
+    function stopQuizAnimation() {
+      quizRunning = false;
+      quizTimeouts.forEach(t => clearTimeout(t));
+      quizTimeouts = [];
+    }
+
+    function resetQuizAnimation() {
+      stopQuizAnimation();
+      document.getElementById('quiz-progress').style.width = '0%';
+      document.getElementById('quiz-q1').classList.remove('hidden');
+      document.getElementById('quiz-q2').classList.add('hidden');
+      document.getElementById('quiz-q3').classList.add('hidden');
+      ['quiz-q1-a','quiz-q1-b','quiz-q1-c','quiz-q2-a','quiz-q2-b','quiz-q2-c','quiz-q3-a','quiz-q3-b','quiz-q3-c'].forEach(resetQuizOption);
+      hideElement('quiz-score-panel');
+      hideElement('quiz-breakdown');
+      hideElement('quiz-recommendation');
+      document.getElementById('quiz-score').textContent = '0%';
+      window['quiz-demoFocusPanel'] && window['quiz-demoFocusPanel']('left');
+    }
+
+    // ========== CALCULATOR ANIMATION ==========
+    function runCalcAnimation() {
+      if (calcRunning) return;
+      calcRunning = true;
+
+      const timeline = [
+        // Fill in form fields
+        { delay: 600, action: () => {
+          document.getElementById('calc-service').innerHTML = 'Professional';
+          document.getElementById('calc-progress').style.width = '33%';
+          updateCalcQuote(99, 0, 0);
+        }},
+        { delay: 1400, action: () => {
+          document.getElementById('calc-team').innerHTML = '10-25 people';
+          document.getElementById('calc-progress').style.width = '66%';
+          updateCalcQuote(99, 100, 0);
+        }},
+        { delay: 2200, action: () => {
+          document.getElementById('calc-duration').innerHTML = 'Annual';
+          document.getElementById('calc-progress').style.width = '100%';
+          updateCalcQuote(99, 100, 20);
+          document.getElementById('calc-submit-btn').classList.remove('opacity-50');
+        }},
+        // Submit and transition
+        { delay: 3000, action: () => {
+          document.getElementById('calc-submit-btn').classList.add('bg-yellow-300');
+        }},
+        { delay: 3500, action: () => window['calc-demoFocusPanel'] && window['calc-demoFocusPanel']('right') },
+        // Show inbox messages
+        { delay: 4000, action: () => {
+          const ticket = document.getElementById('calc-ticket-new');
+          if (ticket) { ticket.classList.remove('opacity-0'); ticket.classList.add('opacity-100'); }
+        }},
+        { delay: 4500, action: () => showElement('calc-msg-1') },
+        { delay: 5800, action: () => showElement('calc-msg-2') },
+        { delay: 7200, action: () => showElement('calc-msg-3') },
+        { delay: 8600, action: () => showElement('calc-msg-4') },
+        // Next tab
+        { delay: 12000, action: () => nextTab() },
+      ];
+
+      timeline.forEach(item => {
+        calcTimeouts.push(setTimeout(item.action, item.delay));
+      });
+    }
+
+    function updateCalcQuote(base, seats, discount) {
+      const total = base + seats - discount;
+      document.getElementById('calc-base').textContent = `$${base}`;
+      document.getElementById('calc-seats').textContent = `$${seats}`;
+      document.getElementById('calc-discount').textContent = `-$${discount}`;
+      document.getElementById('calc-total').textContent = `$${total}`;
+    }
+
+    function stopCalcAnimation() {
+      calcRunning = false;
+      calcTimeouts.forEach(t => clearTimeout(t));
+      calcTimeouts = [];
+    }
+
+    function resetCalcAnimation() {
+      stopCalcAnimation();
+      document.getElementById('calc-progress').style.width = '0%';
+      document.getElementById('calc-service').innerHTML = '<span class="text-white/40">Select...</span>';
+      document.getElementById('calc-team').innerHTML = '<span class="text-white/40">Select...</span>';
+      document.getElementById('calc-duration').innerHTML = '<span class="text-white/40">Select...</span>';
+      updateCalcQuote(0, 0, 0);
+      document.getElementById('calc-submit-btn').classList.add('opacity-50');
+      document.getElementById('calc-submit-btn').classList.remove('bg-yellow-300');
+      const ticket = document.getElementById('calc-ticket-new');
+      if (ticket) { ticket.classList.add('opacity-0'); ticket.classList.remove('opacity-100'); }
+      hideElement('calc-msg-1');
+      hideElement('calc-msg-2');
+      hideElement('calc-msg-3');
+      hideElement('calc-msg-4');
+      window['calc-demoFocusPanel'] && window['calc-demoFocusPanel']('left');
+    }
+
+    // ========== FORMS ANIMATION ==========
+    function runFormsAnimation() {
+      if (formsRunning) return;
+      formsRunning = true;
+
+      const timeline = [
+        // Phase 1: Type name fields
+        { delay: 500, action: () => window['typeText_forms-fname'] && window['typeText_forms-fname']('Rachel', 80) },
+        { delay: 1200, action: () => window['typeText_forms-lname'] && window['typeText_forms-lname']('Kim', 80) },
+        { delay: 1800, action: () => window['typeText_forms-email'] && window['typeText_forms-email']('rachel@email.com', 50) },
+
+        // Phase 2: Progress and move to upload
+        { delay: 2800, action: () => {
+          window['forms-formSetProgress'] && window['forms-formSetProgress'](50);
+          window['hideBar_forms-q1'] && window['hideBar_forms-q1']();
+          window['showBar_forms-q2'] && window['showBar_forms-q2']();
+        }},
+
+        // Phase 3: File upload animation
+        { delay: 3400, action: () => {
+          const upload = document.getElementById('forms-upload');
+          if (upload) upload.classList.add('border-white', 'bg-white/10');
+        }},
+        { delay: 3800, action: () => {
+          document.getElementById('forms-upload-empty').classList.add('hidden');
+          document.getElementById('forms-upload-file').classList.remove('hidden');
+        }},
+        { delay: 4300, action: () => window['forms-formSetProgress'] && window['forms-formSetProgress'](100) },
+
+        // Phase 4: Transition to inbox
+        { delay: 5000, action: () => window['forms-demoFocusPanel'] && window['forms-demoFocusPanel']('right') },
+
+        // Phase 5: Show inbox messages
+        { delay: 5500, action: () => {
+          const ticket = document.getElementById('forms-ticket-new');
+          if (ticket) { ticket.classList.remove('opacity-0'); ticket.classList.add('opacity-100'); }
+        }},
+        { delay: 6000, action: () => showElement('forms-msg-1') },
+        { delay: 7300, action: () => showElement('forms-msg-2') },
+        { delay: 8600, action: () => showElement('forms-msg-3') },
+
+        // Next tab
+        { delay: 12000, action: () => nextTab() },
+      ];
+
+      timeline.forEach(item => {
+        formsTimeouts.push(setTimeout(item.action, item.delay));
+      });
+    }
+
+    function stopFormsAnimation() {
+      formsRunning = false;
+      formsTimeouts.forEach(t => clearTimeout(t));
+      formsTimeouts = [];
+    }
+
+    function resetFormsAnimation() {
+      stopFormsAnimation();
+
+      // Reset progress bar
+      window['forms-formSetProgress'] && window['forms-formSetProgress'](0);
+
+      // Reset yellow bars
+      window['showBar_forms-q1'] && window['showBar_forms-q1']();
+      window['hideBar_forms-q2'] && window['hideBar_forms-q2']();
+
+      // Reset text fields
+      window['resetText_forms-fname'] && window['resetText_forms-fname']();
+      window['resetText_forms-lname'] && window['resetText_forms-lname']();
+      window['resetText_forms-email'] && window['resetText_forms-email']();
+
+      // Reset file upload
+      const upload = document.getElementById('forms-upload');
+      if (upload) upload.classList.remove('border-white', 'bg-white/10');
+      document.getElementById('forms-upload-empty').classList.remove('hidden');
+      document.getElementById('forms-upload-file').classList.add('hidden');
+
+      // Reset inbox
+      const ticket = document.getElementById('forms-ticket-new');
+      if (ticket) { ticket.classList.add('opacity-0'); ticket.classList.remove('opacity-100'); }
+      hideElement('forms-msg-1');
+      hideElement('forms-msg-2');
+      hideElement('forms-msg-3');
+
+      // Reset focus to form
+      window['forms-demoFocusPanel'] && window['forms-demoFocusPanel']('left');
+    }
   });
 </script>
