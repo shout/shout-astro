@@ -33,6 +33,17 @@ import ResultPanel from "../components/hero-demo/ResultPanel.astro";
         </p>
       </div>
 
+      <!-- CTA -->
+      <div class="flex justify-center items-center gap-3 mb-8">
+        <a href="/signup/" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium bg-gray-900 text-white hover:bg-gray-800 transition-all shadow-sm">
+          Start Free Trial
+          <Icon name="bx:right-arrow-alt" class="w-5 h-5" />
+        </a>
+        <a href="/forms/" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all">
+          See what you can build
+        </a>
+      </div>
+
       <!-- Visual: Form → Inbox flow (Animated) - Overlapping card stack -->
       <HeroDemoContainer id="hero-demo" rightWidth="md:w-[60%]">
         <FormCard slot="left" title="How are we doing?" id="form-card">
@@ -53,7 +64,7 @@ import ResultPanel from "../components/hero-demo/ResultPanel.astro";
           </FormQuestion>
         </FormCard>
 
-        <ResultPanel slot="right" title="Team Inbox" icon="bx:chat" id="inbox-panel">
+        <ResultPanel slot="right" title="Team Inbox" id="inbox-panel" windowChrome={true} avatars={[{ letter: "T", color: "bg-purple-500" }, { letter: "J", color: "bg-green-500" }]}>
           <div class="flex h-[340px]">
             <!-- Ticket list sidebar -->
             <div class="w-[140px] border-r border-gray-200 bg-gray-50/50 flex-shrink-0 overflow-hidden">
@@ -213,12 +224,6 @@ import ResultPanel from "../components/hero-demo/ResultPanel.astro";
         document.addEventListener('astro:after-swap', () => setTimeout(runHeroAnimation, 1000));
       </script>
 
-      <!-- CTA -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-24">
-        <Link href="https://identity.shout.com/Account/Register">Start your Free Trial</Link>
-        <Link style="outline" href="/forms/">See what you can build</Link>
-      </div>
-      <p class="text-center text-sm text-gray-500 mt-4">14-day Free Trial · No Credit Card Required</p>
     </Container>
   </section>
 

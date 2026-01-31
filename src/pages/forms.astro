@@ -58,14 +58,31 @@ const tabs = [
         <h1 class="text-5xl lg:text-6xl font-bold lg:tracking-tight mb-6">
           Build <span class="text-primary">anything</span> you need
         </h1>
-        <p class="text-xl text-gray-600 mb-8">
+        <p class="text-xl text-gray-600">
           Create surveys, quizzes, forms and calculators with our intuitive drag-and-drop builder.
         </p>
-        <!-- CTA -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button href="/signup/" size="lg">Start your Free Trial</Button>
-          <p class="text-gray-500 text-sm self-center">14-day Free Trial · No Credit Card Required</p>
+      </div>
+
+      <!-- Tabs + CTA -->
+      <div class="flex justify-center items-center gap-3 mb-8">
+        <div class="inline-flex bg-gray-100 rounded-full p-1 gap-1">
+          {tabs.map((tab, index) => (
+            <button
+              data-tab={tab.id}
+              class:list={[
+                "tab-button px-6 py-3 rounded-full text-sm font-medium transition-all flex items-center gap-2",
+                index === 0 ? "bg-white shadow-sm text-gray-900" : "text-gray-600 hover:text-gray-900"
+              ]}
+            >
+              <Icon name={tab.icon} class="w-5 h-5" />
+              {tab.title}
+            </button>
+          ))}
         </div>
+        <a href="/signup/" class="hidden md:inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium bg-gray-900 text-white hover:bg-gray-800 transition-all shadow-sm">
+          Start Free Trial
+          <Icon name="bx:right-arrow-alt" class="w-5 h-5" />
+        </a>
       </div>
 
       <!-- Video/Demo Container -->
@@ -100,7 +117,7 @@ const tabs = [
                 </FormQuestion>
               </FormCard>
 
-              <ResultPanel slot="right" title="Team Inbox" icon="bx:chat" id="forms-inbox">
+              <ResultPanel slot="right" title="Team Inbox" id="forms-inbox" windowChrome={true} avatars={[{ letter: "T", color: "bg-purple-500" }, { letter: "J", color: "bg-green-500" }]}>
                 <div class="flex h-[340px]">
                   <!-- Ticket list sidebar -->
                   <div class="w-[130px] border-r border-gray-200 bg-gray-50/50 flex-shrink-0 overflow-hidden">
@@ -210,7 +227,7 @@ const tabs = [
 
               </FormCard>
 
-              <ResultPanel slot="right" title="Survey Results" icon="bx:bar-chart-alt-2" id="survey-results">
+              <ResultPanel slot="right" title="Survey Results" id="survey-results" windowChrome={true}>
                 <div class="p-4 space-y-6 h-[340px] overflow-y-auto">
                   <!-- Rating Question Results -->
                   <div id="survey-result-rating" class="opacity-0 translate-y-4 transition-all duration-500">
@@ -302,12 +319,24 @@ const tabs = [
           <!-- Quizzes Hero Demo - Typeform style -->
           <div data-video-panel="quizzes" class="video-panel hidden">
             <HeroDemoContainer id="quiz-demo" rightWidth="md:w-[55%]">
-              <div slot="left" class="bg-gradient-to-br from-purple-600 to-indigo-700 rounded-xl shadow-2xl overflow-hidden h-full">
-                <!-- Progress bar -->
-                <div id="quiz-progress" class="h-1 bg-yellow-400 transition-all duration-500" style="width: 0%"></div>
+              <div slot="left" class="bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden h-full flex flex-col">
+                <!-- Window chrome header -->
+                <div class="flex items-center gap-2 px-4 py-3 bg-gray-50 border-b border-gray-200">
+                  <div class="flex gap-1.5">
+                    <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                  </div>
+                  <span class="text-sm text-gray-500 ml-2">Knowledge Quiz</span>
+                </div>
 
-                <!-- Question container - single question at a time, 50/50 split -->
-                <div class="h-[340px] flex flex-col">
+                <!-- Quiz content -->
+                <div class="bg-gradient-to-br from-purple-600 to-indigo-700 flex-1 relative">
+                  <!-- Progress bar -->
+                  <div id="quiz-progress" class="absolute top-0 left-0 h-1 bg-yellow-400 transition-all duration-500" style="width: 0%"></div>
+
+                  <!-- Question container - single question at a time, 50/50 split -->
+                  <div class="h-full flex flex-col pt-1">
                   <!-- Question 1 -->
                   <div id="quiz-q1" class="flex-1 grid grid-cols-2 transition-all duration-500">
                     <div class="p-5 flex flex-col justify-center">
@@ -391,10 +420,11 @@ const tabs = [
                       <Icon name="bx:medal" class="w-24 h-24 text-white/40" />
                     </div>
                   </div>
+                  </div>
                 </div>
               </div>
 
-              <ResultPanel slot="right" title="Quiz Results" icon="bx:trophy" id="quiz-results">
+              <ResultPanel slot="right" title="Quiz Results" id="quiz-results" windowChrome={true}>
                 <div class="p-4 h-[340px] flex flex-col">
                   <!-- Score display -->
                   <div id="quiz-score-panel" class="text-center py-4 opacity-0 translate-y-4 transition-all duration-500">
@@ -444,12 +474,23 @@ const tabs = [
           <!-- Calculators Hero Demo - 2-col form with quote + inbox -->
           <div data-video-panel="calculators" class="video-panel hidden">
             <HeroDemoContainer id="calc-demo" rightWidth="md:w-[60%]">
-              <div slot="left" class="bg-[#2A98C6] rounded-xl shadow-2xl overflow-hidden h-full">
-                <!-- Progress bar -->
-                <div id="calc-progress" class="h-1 bg-yellow-400 transition-all duration-500" style="width: 0%"></div>
+              <div slot="left" class="bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden h-full flex flex-col">
+                <!-- Window chrome header -->
+                <div class="flex items-center gap-2 px-4 py-3 bg-gray-50 border-b border-gray-200">
+                  <div class="flex gap-1.5">
+                    <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                  </div>
+                  <span class="text-sm text-gray-500 ml-2">Get Your Quote</span>
+                </div>
 
-                <div class="p-5">
-                  <h3 class="text-lg font-bold text-white mb-4">Get Your Quote</h3>
+                <!-- Calculator content -->
+                <div class="bg-[#2A98C6] flex-1 relative">
+                  <!-- Progress bar -->
+                  <div id="calc-progress" class="absolute top-0 left-0 w-full h-1 bg-yellow-400 transition-all duration-500" style="width: 0%"></div>
+
+                  <div class="p-5 pt-6">
 
                   <div class="grid grid-cols-2 gap-4">
                     <!-- Left column - inputs -->
@@ -501,10 +542,11 @@ const tabs = [
                   <button id="calc-submit-btn" class="w-full mt-4 bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-medium py-2 rounded-lg text-sm transition-all opacity-50">
                     Get Quote
                   </button>
+                  </div>
                 </div>
               </div>
 
-              <ResultPanel slot="right" title="Team Inbox" icon="bx:chat" id="calc-inbox">
+              <ResultPanel slot="right" title="Team Inbox" id="calc-inbox" windowChrome={true} avatars={[{ letter: "T", color: "bg-purple-500" }, { letter: "J", color: "bg-green-500" }]}>
                 <div class="flex h-[340px]">
                   <!-- Ticket list sidebar -->
                   <div class="w-[130px] border-r border-gray-200 bg-gray-50/50 flex-shrink-0 overflow-hidden">
@@ -584,38 +626,6 @@ const tabs = [
         </div>
       </div>
 
-      <!-- Tabs -->
-      <div class="flex justify-center mt-8 mb-4">
-        <div class="inline-flex bg-gray-100 rounded-full p-1 gap-1">
-          {tabs.map((tab, index) => (
-            <button
-              data-tab={tab.id}
-              class:list={[
-                "tab-button px-6 py-3 rounded-full text-sm font-medium transition-all flex items-center gap-2",
-                index === 0 ? "bg-white shadow-sm text-gray-900" : "text-gray-600 hover:text-gray-900"
-              ]}
-            >
-              <Icon name={tab.icon} class="w-5 h-5" />
-              {tab.title}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <!-- Tab Description -->
-      <div class="text-center">
-        {tabs.map((tab, index) => (
-          <p
-            data-description={tab.id}
-            class:list={[
-              "tab-description text-lg text-gray-500 max-w-2xl mx-auto",
-              index === 0 ? "block" : "hidden"
-            ]}
-          >
-            {tab.description}
-          </p>
-        ))}
-      </div>
     </Container>
   </section>
 

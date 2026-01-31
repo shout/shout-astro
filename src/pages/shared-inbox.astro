@@ -54,14 +54,31 @@ const tabs = [
         <h1 class="text-5xl lg:text-6xl font-bold lg:tracking-tight mb-6">
           One inbox for <span class="text-primary">everything</span>
         </h1>
-        <p class="text-xl text-gray-600 mb-8">
+        <p class="text-xl text-gray-600">
           Form submissions, emails, and support tickets all in one place. Your team works together, nothing falls through the cracks.
         </p>
-        <!-- CTA -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button href="/signup/" size="lg">Start your Free Trial</Button>
-          <p class="text-gray-500 text-sm self-center">14-day Free Trial · No Credit Card Required</p>
+      </div>
+
+      <!-- Tabs + CTA -->
+      <div class="flex justify-center items-center gap-3 mb-8">
+        <div class="inline-flex bg-gray-100 rounded-full p-1 gap-1">
+          {tabs.map((tab, index) => (
+            <button
+              data-tab={tab.id}
+              class:list={[
+                "tab-button px-6 py-3 rounded-full text-sm font-medium transition-all flex items-center gap-2",
+                index === 0 ? "bg-white shadow-sm text-gray-900" : "text-gray-600 hover:text-gray-900"
+              ]}
+            >
+              <Icon name={tab.icon} class="w-5 h-5" />
+              {tab.title}
+            </button>
+          ))}
         </div>
+        <a href="/signup/" class="hidden md:inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium bg-gray-900 text-white hover:bg-gray-800 transition-all shadow-sm">
+          Start Free Trial
+          <Icon name="bx:right-arrow-alt" class="w-5 h-5" />
+        </a>
       </div>
 
       <!-- Video/Demo Container -->
@@ -80,17 +97,16 @@ const tabs = [
                 <span class="text-sm text-gray-500 ml-2">Team Inbox</span>
                 <div class="ml-auto flex items-center gap-2">
                   <div id="inbox-team-avatars" class="flex -space-x-2">
-                    <div class="w-6 h-6 rounded-full bg-purple-500 border-2 border-white flex items-center justify-center text-white text-[10px] font-medium">T</div>
-                    <div class="w-6 h-6 rounded-full bg-green-500 border-2 border-white flex items-center justify-center text-white text-[10px] font-medium">J</div>
+                    <div id="inbox-tom-avatar" class="w-6 h-6 rounded-full bg-purple-500 border-2 border-white flex items-center justify-center text-white text-[10px] font-medium opacity-50 transition-all duration-500">T</div>
                     <div id="inbox-kate-avatar" class="w-6 h-6 rounded-full bg-pink-500 border-2 border-white flex items-center justify-center text-white text-[10px] font-medium opacity-0 transition-all duration-500">K</div>
                   </div>
                   <span class="text-xs text-gray-400">online</span>
                 </div>
               </div>
 
-              <div class="flex h-[340px]">
+              <div class="flex h-[400px]">
                 <!-- Ticket list sidebar -->
-                <div class="w-[200px] border-r border-gray-200 bg-gray-50/50 overflow-hidden">
+                <div class="w-[180px] border-r border-gray-200 bg-gray-50/50 overflow-hidden flex-shrink-0">
                   <!-- New ticket -->
                   <div id="inbox-ticket-1" class="px-3 py-2.5 bg-primary/10 border-l-2 border-primary cursor-pointer transition-all duration-500">
                     <div class="flex items-center justify-between mb-1">
@@ -100,12 +116,12 @@ const tabs = [
                       </div>
                       <span class="text-[10px] text-gray-400">2m</span>
                     </div>
-                    <p class="text-[10px] text-gray-600 truncate">Pricing question for enterprise</p>
+                    <p class="text-[10px] text-gray-600 truncate">Pricing for enterprise</p>
                     <div class="flex items-center gap-1 mt-1">
-                      <span class="text-[8px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded">New</span>
+                      <span id="inbox-new-badge" class="text-[8px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded transition-all duration-300">New</span>
                       <div id="inbox-viewing-indicator" class="flex items-center gap-1 opacity-0 transition-all duration-300">
                         <div class="w-3 h-3 rounded-full bg-pink-500 flex items-center justify-center text-white text-[6px]">K</div>
-                        <span class="text-[8px] text-gray-400">viewing</span>
+                        <div id="inbox-viewing-tom" class="w-3 h-3 rounded-full bg-purple-500 flex items-center justify-center text-white text-[6px] -ml-1.5 border border-white opacity-0 transition-all duration-300">T</div>
                       </div>
                     </div>
                   </div>
@@ -120,10 +136,6 @@ const tabs = [
                       <span class="text-[10px] text-gray-400">1h</span>
                     </div>
                     <p class="text-[10px] text-gray-500 truncate">Re: Invoice question</p>
-                    <div class="flex items-center gap-1 mt-1">
-                      <div class="w-3 h-3 rounded-full bg-green-500 flex items-center justify-center text-white text-[6px]">J</div>
-                      <span class="text-[8px] text-gray-400">assigned</span>
-                    </div>
                   </div>
 
                   <div class="px-3 py-2.5 border-b border-gray-100 hover:bg-gray-50 cursor-pointer opacity-60">
@@ -136,92 +148,120 @@ const tabs = [
                     </div>
                     <p class="text-[10px] text-gray-400 truncate">Feature request</p>
                   </div>
-
-                  <div class="px-3 py-2.5 hover:bg-gray-50 cursor-pointer opacity-60">
-                    <div class="flex items-center justify-between mb-1">
-                      <div class="flex items-center gap-2">
-                        <div class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-white text-[10px] font-medium">A</div>
-                        <span class="text-xs font-medium text-gray-700">Alex Rivera</span>
-                      </div>
-                      <span class="text-[10px] text-gray-400">1d</span>
-                    </div>
-                    <p class="text-[10px] text-gray-400 truncate">Feedback form response</p>
-                  </div>
                 </div>
 
                 <!-- Conversation detail -->
-                <div class="flex-1 flex flex-col">
+                <div class="flex-1 flex flex-col min-w-0">
                   <!-- Conversation header -->
-                  <div class="px-4 py-2 border-b border-gray-100 flex items-center justify-between">
+                  <div class="px-3 py-2 border-b border-gray-100 flex items-center justify-between flex-shrink-0">
                     <div class="flex items-center gap-2">
-                      <div class="w-7 h-7 rounded-full bg-rose-500 flex items-center justify-center text-white text-xs font-medium">E</div>
+                      <div class="w-6 h-6 rounded-full bg-rose-500 flex items-center justify-center text-white text-[10px] font-medium">E</div>
                       <div>
-                        <p class="text-sm font-medium text-gray-800">Emma Wilson</p>
-                        <p class="text-[10px] text-gray-400">emma@company.com</p>
+                        <p class="text-xs font-medium text-gray-800">Emma Wilson</p>
+                        <p class="text-[9px] text-gray-400">emma@company.com</p>
                       </div>
                     </div>
-                    <div class="flex items-center gap-2">
-                      <div id="inbox-assign-btn" class="flex items-center gap-1 px-2 py-1 rounded bg-gray-100 text-[10px] text-gray-600 transition-all duration-300">
-                        <Icon name="bx:user-plus" class="w-3 h-3" />
-                        <span>Assign</span>
+                    <div id="inbox-collab-indicator" class="flex items-center gap-1 opacity-0 transition-all duration-300">
+                      <div class="flex -space-x-1">
+                        <div class="w-4 h-4 rounded-full bg-pink-500 border border-white flex items-center justify-center text-white text-[7px]">K</div>
+                        <div id="inbox-collab-tom" class="w-4 h-4 rounded-full bg-purple-500 border border-white flex items-center justify-center text-white text-[7px] opacity-0 transition-all duration-300">T</div>
                       </div>
-                      <div id="inbox-assigned-badge" class="hidden items-center gap-1 px-2 py-1 rounded bg-purple-100 text-[10px] text-purple-700">
-                        <div class="w-3 h-3 rounded-full bg-purple-500 flex items-center justify-center text-white text-[6px]">T</div>
-                        <span>Tom</span>
-                      </div>
+                      <span class="text-[9px] text-gray-400">editing</span>
                     </div>
                   </div>
 
-                  <!-- Messages -->
-                  <div id="inbox-messages" class="flex-1 p-3 space-y-3 overflow-y-auto">
+                  <!-- Messages area -->
+                  <div id="inbox-messages" class="flex-1 p-3 space-y-2 overflow-y-auto">
+                    <!-- Emma's message -->
                     <div id="inbox-msg-1" class="flex gap-2 items-start opacity-0 translate-y-4 transition-all duration-500">
-                      <div class="w-5 h-5 rounded-full bg-rose-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">E</div>
-                      <div class="max-w-[85%]">
-                        <!-- Email channel indicator -->
+                      <div class="w-5 h-5 rounded-full bg-rose-500 flex items-center justify-center text-white text-[9px] font-medium flex-shrink-0 mt-0.5">E</div>
+                      <div class="max-w-[90%]">
                         <div class="flex items-center gap-1.5 mb-1">
                           <Icon name="bx:envelope" class="w-3 h-3 text-gray-400" />
-                          <span class="text-[9px] text-gray-400">emma@company.com</span>
-                          <span class="text-[9px] text-gray-300">·</span>
-                          <span class="text-[9px] text-gray-400">via Email</span>
+                          <span class="text-[8px] text-gray-400">via Email</span>
                         </div>
-                        <div class="bg-gray-100 rounded-xl rounded-tl-sm px-3 py-2">
-                          <p class="text-xs text-gray-700">Hi there! I'm interested in upgrading to your enterprise plan. Can you tell me about volume pricing for 500+ users?</p>
-                          <p class="text-[10px] text-gray-400 mt-1">2 mins ago</p>
+                        <div class="bg-gray-100 rounded-xl rounded-tl-sm px-2.5 py-2">
+                          <p class="text-[11px] text-gray-700 leading-relaxed">Hi there! I'm interested in upgrading to your enterprise plan. Can you tell me about volume pricing for 500+ users?</p>
                         </div>
                       </div>
                     </div>
 
-                    <div id="inbox-note-1" class="flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
-                      <div class="max-w-[80%]">
+                    <!-- Internal notes thread (grouped in single bubble) -->
+                    <div id="inbox-internal-thread" class="flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
+                      <div class="max-w-[85%]">
                         <div class="text-right mb-1">
-                          <span class="text-[9px] text-gray-400">Internal note</span>
+                          <span class="text-[8px] text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded">Internal thread</span>
                         </div>
-                        <div class="bg-white border border-gray-200 rounded-xl rounded-tr-sm px-3 py-2">
-                          <p class="text-xs text-gray-600"><span class="inline-flex items-center gap-1 px-1.5 py-0.5 bg-purple-100 text-purple-700 rounded text-[10px] font-medium mr-1"><span class="w-2.5 h-2.5 rounded-full bg-purple-500 flex items-center justify-center text-white text-[6px]">T</span>Tom</span>large account opportunity - she mentioned 500+ seats</p>
-                        </div>
-                        <div class="text-right mt-1">
-                          <span class="text-[9px] text-gray-400">Assigned to </span>
-                          <span class="inline-flex items-center gap-1 px-1.5 py-0.5 bg-purple-100 text-purple-700 rounded text-[9px] font-medium"><span class="w-2.5 h-2.5 rounded-full bg-purple-500 flex items-center justify-center text-white text-[6px]">T</span>Tom</span>
+                        <div class="bg-white border border-gray-200 rounded-xl rounded-tr-sm overflow-hidden">
+                          <!-- Kate's message -->
+                          <div class="px-2.5 py-2 border-b border-gray-100">
+                            <div class="flex items-start gap-1.5">
+                              <div class="w-4 h-4 rounded-full bg-pink-500 flex items-center justify-center text-white text-[7px] font-medium flex-shrink-0 mt-0.5">K</div>
+                              <p class="text-[11px] text-gray-600"><span class="inline-flex items-center gap-0.5 px-1 py-0.5 bg-purple-100 text-purple-700 rounded text-[9px] font-medium"><span class="w-2 h-2 rounded-full bg-purple-500 flex items-center justify-center text-white text-[5px]">T</span>Tom</span> can you help with enterprise pricing? 500+ seats</p>
+                            </div>
+                          </div>
+                          <!-- Tom's reply -->
+                          <div id="inbox-internal-tom-reply" class="px-2.5 py-2 opacity-0 transition-all duration-300">
+                            <div class="flex items-start gap-1.5">
+                              <div class="w-4 h-4 rounded-full bg-purple-500 flex items-center justify-center text-white text-[7px] font-medium flex-shrink-0 mt-0.5">T</div>
+                              <p class="text-[11px] text-gray-600">On it! I'll add the details 👍</p>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                      <div class="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">J</div>
                     </div>
 
-                    <div id="inbox-msg-2" class="flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
-                      <div class="bg-gray-900 text-white rounded-xl rounded-tr-sm px-3 py-2 max-w-[80%]">
-                        <p class="text-xs">Hi Emma! We offer custom enterprise pricing for teams of 500+. I'd love to schedule a quick call to understand your needs. Are you free tomorrow?</p>
-                        <p class="text-[10px] text-gray-400 mt-1">Just now</p>
+                    <!-- Sent reply (appears at end) -->
+                    <div id="inbox-sent-reply" class="flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
+                      <div class="bg-gray-900 text-white rounded-xl rounded-tr-sm px-2.5 py-2 max-w-[85%]">
+                        <p class="text-[11px] leading-relaxed">Hi Emma! Thanks for reaching out. We offer custom pricing for 500+ users. Would you have time for a quick call?</p>
+                        <p class="text-[9px] text-gray-400 mt-1">Just now</p>
                       </div>
-                      <div class="w-5 h-5 rounded-full bg-purple-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">T</div>
+                      <div class="flex -space-x-1 flex-shrink-0 mt-0.5">
+                        <div class="w-4 h-4 rounded-full bg-pink-500 border border-white flex items-center justify-center text-white text-[7px]">K</div>
+                        <div class="w-4 h-4 rounded-full bg-purple-500 border border-white flex items-center justify-center text-white text-[7px]">T</div>
+                      </div>
                     </div>
                   </div>
 
-                  <!-- Reply input -->
-                  <div class="px-3 py-2 border-t border-gray-100">
-                    <div class="flex gap-2">
-                      <div class="flex-1 bg-gray-50 rounded-full px-3 py-1.5 text-xs text-gray-400">Reply to Emma...</div>
-                      <button class="bg-gray-900 text-white w-7 h-7 rounded-full flex items-center justify-center">
-                        <Icon name="bx:send" class="w-3.5 h-3.5" />
+                  <!-- Rich text editor (TipTap-style) -->
+                  <div id="inbox-editor" class="border-t border-gray-100 flex-shrink-0">
+                    <!-- Editor toolbar -->
+                    <div id="inbox-editor-toolbar" class="flex items-center gap-1 px-2 py-1.5 border-b border-gray-50 opacity-0 transition-all duration-300">
+                      <button class="p-1 rounded hover:bg-gray-100 text-gray-400">
+                        <Icon name="bx:bold" class="w-3.5 h-3.5" />
+                      </button>
+                      <button class="p-1 rounded hover:bg-gray-100 text-gray-400">
+                        <Icon name="bx:italic" class="w-3.5 h-3.5" />
+                      </button>
+                      <button class="p-1 rounded hover:bg-gray-100 text-gray-400">
+                        <Icon name="bx:link" class="w-3.5 h-3.5" />
+                      </button>
+                      <div class="flex-1"></div>
+                      <button id="inbox-internal-btn" class="flex items-center gap-1 px-2 py-0.5 rounded text-[9px] text-gray-500 hover:bg-gray-100 transition-colors">
+                        <Icon name="bx:comment-detail" class="w-3 h-3" />
+                        <span>Internal</span>
+                      </button>
+                    </div>
+
+                    <!-- Editor content with cursors -->
+                    <div class="relative px-3 py-2 min-h-[60px]">
+                      <!-- Placeholder -->
+                      <div id="inbox-editor-placeholder" class="text-[11px] text-gray-400">Reply to Emma...</div>
+
+                      <!-- Active editor content -->
+                      <div id="inbox-editor-content" class="text-[11px] text-gray-800 leading-relaxed hidden">
+                        <!-- Kate types start and end, leaving gap for Tom -->
+                        <span id="inbox-typed-kate1"></span>
+                        <!-- Tom fills in the middle -->
+                        <span id="inbox-typed-tom"></span><span id="inbox-cursor-tom" class="relative opacity-0 transition-all duration-300"><span class="absolute -top-4 left-0 px-1 py-0.5 bg-purple-500 text-white text-[8px] rounded whitespace-nowrap">Tom</span><span class="inline-block w-0.5 h-4 bg-purple-500 animate-pulse"></span></span>
+                        <!-- Kate's second part (typed before Tom fills gap) -->
+                        <span id="inbox-typed-kate2"></span>
+                      </div>
+
+                      <!-- Send button -->
+                      <button id="inbox-send-btn" class="absolute right-2 bottom-2 bg-gray-200 text-gray-400 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300">
+                        <Icon name="bx:send" class="w-3 h-3" />
                       </button>
                     </div>
                   </div>
@@ -251,7 +291,7 @@ const tabs = [
                 </FormQuestion>
               </FormCard>
 
-              <ResultPanel slot="right" title="Team Inbox" icon="bx:chat" id="f2c-inbox">
+              <ResultPanel slot="right" title="Team Inbox" id="f2c-inbox" windowChrome={true} avatars={[{ letter: "T", color: "bg-purple-500" }, { letter: "J", color: "bg-green-500" }]}>
                 <div class="flex h-[340px]">
                   <!-- Ticket list sidebar -->
                   <div class="w-[140px] border-r border-gray-200 bg-gray-50/50 flex-shrink-0 overflow-hidden">
@@ -581,39 +621,6 @@ const tabs = [
         </div>
 
       </div>
-
-      <!-- Tabs -->
-      <div class="flex justify-center mt-8 mb-4">
-        <div class="inline-flex bg-gray-100 rounded-full p-1 gap-1">
-          {tabs.map((tab, index) => (
-            <button
-              data-tab={tab.id}
-              class:list={[
-                "tab-button px-6 py-3 rounded-full text-sm font-medium transition-all flex items-center gap-2",
-                index === 0 ? "bg-white shadow-sm text-gray-900" : "text-gray-600 hover:text-gray-900"
-              ]}
-            >
-              <Icon name={tab.icon} class="w-5 h-5" />
-              {tab.title}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <!-- Tab Description -->
-      <div class="text-center">
-        {tabs.map((tab, index) => (
-          <p
-            data-description={tab.id}
-            class:list={[
-              "tab-description text-lg text-gray-500 max-w-2xl mx-auto",
-              index === 0 ? "block" : "hidden"
-            ]}
-          >
-            {tab.description}
-          </p>
-        ))}
-      </div>
     </Container>
   </section>
 
@@ -908,11 +915,20 @@ const tabs = [
     }
 
     // ========== SHARED INBOX ANIMATION ==========
-    function scrollInboxToBottom() {
-      const container = document.getElementById('inbox-messages');
-      if (container) {
-        container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
+    // Typewriter effect for collaborative editing
+    function typeText(elementId, text, speed = 40) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      let i = 0;
+      el.textContent = '';
+      function type() {
+        if (i < text.length) {
+          el.textContent += text.charAt(i);
+          i++;
+          inboxTimeouts.push(setTimeout(type, speed));
+        }
       }
+      type();
     }
 
     function runInboxAnimation() {
@@ -920,43 +936,122 @@ const tabs = [
       inboxRunning = true;
 
       const timeline = [
-        // Show first message (no scroll needed - it's at the top)
+        // Show Emma's message
         { delay: 500, action: () => showElement('inbox-msg-1') },
+
         // Kate joins
-        { delay: 1500, action: () => {
+        { delay: 1200, action: () => {
           const kate = document.getElementById('inbox-kate-avatar');
           if (kate) { kate.classList.remove('opacity-0'); kate.classList.add('opacity-100'); }
         }},
-        // Viewing indicator
-        { delay: 2000, action: () => {
+
+        // Viewing indicator (Kate viewing)
+        { delay: 1600, action: () => {
           const indicator = document.getElementById('inbox-viewing-indicator');
+          const badge = document.getElementById('inbox-new-badge');
           if (indicator) { indicator.classList.remove('opacity-0'); indicator.classList.add('opacity-100'); }
+          if (badge) badge.classList.add('hidden');
         }},
-        // Internal note - scroll to show it
-        { delay: 3000, action: () => {
-          showElement('inbox-note-1');
-          setTimeout(() => {
-            const note = document.getElementById('inbox-note-1');
-            if (note) note.scrollIntoView({ behavior: 'smooth', block: 'end' });
-          }, 100);
+
+        // Editor activates
+        { delay: 2000, action: () => {
+          const placeholder = document.getElementById('inbox-editor-placeholder');
+          const content = document.getElementById('inbox-editor-content');
+          const toolbar = document.getElementById('inbox-editor-toolbar');
+          const collab = document.getElementById('inbox-collab-indicator');
+          if (placeholder) placeholder.classList.add('hidden');
+          if (content) content.classList.remove('hidden');
+          if (toolbar) { toolbar.classList.remove('opacity-0'); toolbar.classList.add('opacity-100'); }
+          if (collab) { collab.classList.remove('opacity-0'); collab.classList.add('opacity-100'); }
         }},
-        // Assignment
-        { delay: 4500, action: () => {
-          const btn = document.getElementById('inbox-assign-btn');
-          const badge = document.getElementById('inbox-assigned-badge');
-          if (btn) btn.classList.add('hidden');
-          if (badge) { badge.classList.remove('hidden'); badge.classList.add('flex'); }
-        }},
-        // Reply - scroll to show it
+
+        // Kate types first part
+        { delay: 2300, action: () => typeText('inbox-typed-kate1', 'Hi Emma! Thanks for reaching out. ', 30) },
+
+        // Kate types the ending (leaving gap in middle for pricing)
+        { delay: 3800, action: () => typeText('inbox-typed-kate2', ' Would you have time for a quick call?', 30) },
+
+        // Kate opens internal thread asking Tom for help with pricing
         { delay: 5500, action: () => {
-          showElement('inbox-msg-2');
-          setTimeout(() => {
-            const msg = document.getElementById('inbox-msg-2');
-            if (msg) msg.scrollIntoView({ behavior: 'smooth', block: 'end' });
-          }, 100);
+          showElement('inbox-internal-thread');
         }},
+
+        // Tom joins (avatar becomes active)
+        { delay: 6500, action: () => {
+          const tom = document.getElementById('inbox-tom-avatar');
+          const tomViewing = document.getElementById('inbox-viewing-tom');
+          if (tom) { tom.classList.remove('opacity-50'); tom.classList.add('opacity-100'); }
+          if (tomViewing) { tomViewing.classList.remove('opacity-0'); tomViewing.classList.add('opacity-100'); }
+        }},
+
+        // Tom replies in internal thread
+        { delay: 7200, action: () => {
+          const reply = document.getElementById('inbox-internal-tom-reply');
+          if (reply) { reply.classList.remove('opacity-0'); reply.classList.add('opacity-100'); }
+        }},
+
+        // Tom's cursor appears in the gap + collab indicator shows Tom
+        { delay: 8000, action: () => {
+          const cursor = document.getElementById('inbox-cursor-tom');
+          const collabTom = document.getElementById('inbox-collab-tom');
+          if (cursor) { cursor.classList.remove('opacity-0'); cursor.classList.add('opacity-100'); }
+          if (collabTom) { collabTom.classList.remove('opacity-0'); collabTom.classList.add('opacity-100'); }
+        }},
+
+        // Tom fills in the pricing details in the middle
+        { delay: 8400, action: () => typeText('inbox-typed-tom', 'We offer custom pricing for 500+ users.', 25) },
+
+        // Tom's cursor disappears (he's done typing)
+        { delay: 10500, action: () => {
+          const cursor = document.getElementById('inbox-cursor-tom');
+          if (cursor) { cursor.classList.add('opacity-0'); cursor.classList.remove('opacity-100'); }
+        }},
+
+        // Send button activates (Tom will submit)
+        { delay: 11000, action: () => {
+          const btn = document.getElementById('inbox-send-btn');
+          if (btn) {
+            btn.classList.remove('bg-gray-200', 'text-gray-400');
+            btn.classList.add('bg-gray-900', 'text-white');
+          }
+        }},
+
+        // Tom sends: editor clears, message appears in chat
+        { delay: 11800, action: () => {
+          // Clear and reset editor
+          const content = document.getElementById('inbox-editor-content');
+          const placeholder = document.getElementById('inbox-editor-placeholder');
+          const btn = document.getElementById('inbox-send-btn');
+          const typedKate1 = document.getElementById('inbox-typed-kate1');
+          const typedTom = document.getElementById('inbox-typed-tom');
+          const typedKate2 = document.getElementById('inbox-typed-kate2');
+
+          if (typedKate1) typedKate1.textContent = '';
+          if (typedTom) typedTom.textContent = '';
+          if (typedKate2) typedKate2.textContent = '';
+          if (content) content.classList.add('hidden');
+          if (placeholder) placeholder.classList.remove('hidden');
+          if (btn) {
+            btn.classList.add('bg-gray-200', 'text-gray-400');
+            btn.classList.remove('bg-gray-900', 'text-white');
+          }
+
+          // Show sent message in chat
+          showElement('inbox-sent-reply');
+        }},
+
+        // Hide toolbar and collab indicator after send
+        { delay: 12300, action: () => {
+          const toolbar = document.getElementById('inbox-editor-toolbar');
+          const collab = document.getElementById('inbox-collab-indicator');
+          const collabTom = document.getElementById('inbox-collab-tom');
+          if (toolbar) { toolbar.classList.add('opacity-0'); toolbar.classList.remove('opacity-100'); }
+          if (collab) { collab.classList.add('opacity-0'); collab.classList.remove('opacity-100'); }
+          if (collabTom) { collabTom.classList.add('opacity-0'); collabTom.classList.remove('opacity-100'); }
+        }},
+
         // Next tab
-        { delay: 10000, action: () => nextTab() },
+        { delay: 17000, action: () => nextTab() },
       ];
 
       timeline.forEach(item => {
@@ -971,17 +1066,57 @@ const tabs = [
     }
 
     function resetInboxAnimation() {
+      // Reset messages
       hideElement('inbox-msg-1');
-      hideElement('inbox-note-1');
-      hideElement('inbox-msg-2');
+      hideElement('inbox-internal-thread');
+      hideElement('inbox-sent-reply');
+
+      // Reset avatars
       const kate = document.getElementById('inbox-kate-avatar');
+      const tom = document.getElementById('inbox-tom-avatar');
       if (kate) { kate.classList.add('opacity-0'); kate.classList.remove('opacity-100'); }
+      if (tom) { tom.classList.add('opacity-50'); tom.classList.remove('opacity-100'); }
+
+      // Reset viewing indicators
       const indicator = document.getElementById('inbox-viewing-indicator');
+      const tomViewing = document.getElementById('inbox-viewing-tom');
+      const badge = document.getElementById('inbox-new-badge');
       if (indicator) { indicator.classList.add('opacity-0'); indicator.classList.remove('opacity-100'); }
-      const btn = document.getElementById('inbox-assign-btn');
-      const badge = document.getElementById('inbox-assigned-badge');
-      if (btn) btn.classList.remove('hidden');
-      if (badge) { badge.classList.add('hidden'); badge.classList.remove('flex'); }
+      if (tomViewing) { tomViewing.classList.add('opacity-0'); tomViewing.classList.remove('opacity-100'); }
+      if (badge) badge.classList.remove('hidden');
+
+      // Reset editor
+      const placeholder = document.getElementById('inbox-editor-placeholder');
+      const content = document.getElementById('inbox-editor-content');
+      const toolbar = document.getElementById('inbox-editor-toolbar');
+      const collab = document.getElementById('inbox-collab-indicator');
+      const collabTom = document.getElementById('inbox-collab-tom');
+      if (placeholder) placeholder.classList.remove('hidden');
+      if (content) content.classList.add('hidden');
+      if (toolbar) { toolbar.classList.add('opacity-0'); toolbar.classList.remove('opacity-100'); }
+      if (collab) { collab.classList.add('opacity-0'); collab.classList.remove('opacity-100'); }
+      if (collabTom) { collabTom.classList.add('opacity-0'); collabTom.classList.remove('opacity-100'); }
+
+      // Reset cursor and typed text
+      const cursorTom = document.getElementById('inbox-cursor-tom');
+      const typedKate1 = document.getElementById('inbox-typed-kate1');
+      const typedTom = document.getElementById('inbox-typed-tom');
+      const typedKate2 = document.getElementById('inbox-typed-kate2');
+      if (cursorTom) { cursorTom.classList.add('opacity-0'); cursorTom.classList.remove('opacity-100'); }
+      if (typedKate1) typedKate1.textContent = '';
+      if (typedTom) typedTom.textContent = '';
+      if (typedKate2) typedKate2.textContent = '';
+
+      // Reset internal thread
+      const tomReply = document.getElementById('inbox-internal-tom-reply');
+      if (tomReply) { tomReply.classList.add('opacity-0'); tomReply.classList.remove('opacity-100'); }
+
+      // Reset send button
+      const btn = document.getElementById('inbox-send-btn');
+      if (btn) {
+        btn.classList.add('bg-gray-200', 'text-gray-400');
+        btn.classList.remove('bg-gray-900', 'text-white');
+      }
     }
 
     // ========== FORMS TO CONVERSATIONS ANIMATION ==========
