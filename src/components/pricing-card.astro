@@ -1,47 +1,57 @@
 ---
 import { Icon } from "astro-icon/components";
-import Link from "./ui/link.astro";
 
 const { plan } = Astro.props;
+const hasPrice = plan.price && typeof plan.price === "object";
+const hasMonthly = hasPrice && plan.price.monthly !== null;
 ---
 
-<div>
+<div class="relative pricing-card"
+  data-monthly={hasPrice ? plan.price.monthly : ""}
+  data-annual={hasPrice ? plan.price.annual : ""}>
+  {plan.popular && (
+    <div class="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+      <span class="text-sm font-medium px-4 py-1 rounded-full whitespace-nowrap" style="background-color: #FB7258; color: white;">
+        Most Popular
+      </span>
+    </div>
+  )}
   <div
-    class="flex flex-col w-full order-first lg:order-none border-2 border-[#D8DEE9] border-opacity-50 py-5 px-6 rounded-md">
+    class:list={[
+      "flex flex-col w-full border-2 py-5 px-6 rounded-md h-full",
+      plan.popular ? "border-primary" : "border-[#D8DEE9] border-opacity-50"
+    ]}>
     <div class="text-center">
       <h4 class="text-lg font-medium text-gray-400">{plan.name}</h4>
-      <p class="mt-3 text-4xl font-bold text-black md:text-4xl">
-        {
-          plan.price && typeof plan.price === "object"
-            ? plan.price.monthly
-            : plan.price
-        }
-      </p>
-      {
-        plan.price && typeof plan.price === "object" && plan.price.original && (
-          <p class="mt-1 text-xl font-medium text-gray-400 line-through md:text-2xl">
-            {plan.price.original}
-          </p>
-        )
-      }
+      {plan.description && (
+        <p class="text-sm text-gray-500 mt-1">{plan.description}</p>
+      )}
+      {hasPrice && (
+        <p class="mt-4 text-4xl font-bold text-black md:text-4xl">
+          <span class="currency-symbol">£</span>
+          <span class="price-display">{plan.price.annual}</span>
+          <span class="text-lg font-normal text-gray-500">/month</span>
+        </p>
+      )}
+      {hasPrice && (
+        <p class="mt-2 text-sm text-gray-500">
+          {hasMonthly ? (
+            <>billed annually, otherwise <span class="currency-symbol">£</span><span class="price-monthly">{plan.price.monthly}</span>/month</>
+          ) : (
+            <>billed annually</>
+          )}
+        </p>
+      )}
     </div>
     <ul class="grid mt-8 text-left gap-y-4">
       {
         plan.features.map((item) => (
           <li class="flex items-start gap-3 text-gray-800">
-            <Icon name="bx:check" class="w-6 h-6 text-primary" />
+            <Icon name="bx:check" class="w-6 h-6 text-primary flex-shrink-0" />
             <span>{item}</span>
           </li>
         ))
       }
     </ul>
-    <div class="flex mt-8">
-      <Link
-        href={plan.button.link || "#"}
-        block
-        style={plan.popular ? "primary" : "outline"}>
-        {plan.button.text || "Get Started"}
-      </Link>
-    </div>
   </div>
 </div>

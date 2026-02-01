@@ -79,7 +79,7 @@ const tabs = [
             </button>
           ))}
         </div>
-        <a href="/signup/" class="hidden md:inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium bg-gray-900 text-white hover:bg-gray-800 transition-all shadow-sm">
+        <a href="https://identity.shout.com/Account/Login" class="hidden md:inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium bg-gray-900 text-white hover:bg-gray-800 transition-all shadow-sm">
           Start Free Trial
           <Icon name="bx:right-arrow-alt" class="w-5 h-5" />
         </a>
@@ -100,7 +100,14 @@ const tabs = [
                   <TextInput id="forms-email" label="Email Address" />
                 </FormQuestion>
 
-                <FormQuestion number={2} question="Upload your CV" id="forms-q2" class="">
+                <FormQuestion number={2} question="Position & Experience" id="forms-q2">
+                  <MultipleChoice id="forms-position" optionA="Marketing Manager" optionB="Sales Lead" />
+                  <div class="mt-2">
+                    <MultipleChoice id="forms-experience" optionA="3-5 years" optionB="5+ years" />
+                  </div>
+                </FormQuestion>
+
+                <FormQuestion number={3} question="Upload your CV" id="forms-q3" class="">
                   <div id="forms-upload" class="border border-dashed border-white/30 rounded-lg p-3 text-center transition-all duration-300">
                     <div id="forms-upload-empty" class="text-white/60">
                       <Icon name="bx:cloud-upload" class="w-6 h-6 mx-auto mb-1" />
@@ -120,14 +127,19 @@ const tabs = [
               <ResultPanel slot="right" title="Team Inbox" id="forms-inbox" windowChrome={true} avatars={[{ letter: "T", color: "bg-purple-500" }, { letter: "J", color: "bg-green-500" }]}>
                 <div class="flex h-[340px]">
                   <!-- Ticket list sidebar -->
-                  <div class="w-[130px] border-r border-gray-200 bg-gray-50/50 flex-shrink-0 overflow-hidden">
+                  <div class="w-[140px] border-r border-gray-200 bg-gray-50/50 flex-shrink-0 overflow-hidden">
                     <div id="forms-ticket-new" class="px-3 py-2 bg-primary/10 border-l-2 border-primary cursor-pointer opacity-0 transition-all duration-500">
                       <div class="flex items-center gap-2 mb-1">
                         <div class="w-5 h-5 rounded-full bg-teal-500 flex items-center justify-center text-white text-[10px] font-medium">R</div>
                         <span class="text-xs font-medium text-gray-800 truncate">Rachel Kim</span>
                       </div>
                       <p class="text-[10px] text-gray-500 truncate">Job Application</p>
-                      <span class="inline-block mt-1 text-[8px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded">New</span>
+                      <div class="flex items-center gap-1 mt-1">
+                        <span id="forms-new-badge" class="text-[8px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded transition-all duration-300">New</span>
+                        <div id="forms-viewing-indicator" class="flex items-center gap-1 opacity-0 transition-all duration-300">
+                          <div class="w-3 h-3 rounded-full bg-green-500 flex items-center justify-center text-white text-[6px]">J</div>
+                        </div>
+                      </div>
                     </div>
                     <div class="px-3 py-2 border-b border-gray-100 hover:bg-gray-50 cursor-pointer opacity-60">
                       <div class="flex items-center gap-2 mb-1">
@@ -146,13 +158,39 @@ const tabs = [
                   </div>
 
                   <!-- Conversation detail -->
-                  <div class="flex-1 flex flex-col p-3">
-                    <div class="space-y-2 flex-1 flex flex-col overflow-y-auto">
-                      <div id="forms-msg-1" class="flex gap-2 items-start opacity-0 translate-y-4 transition-all duration-500">
+                  <div class="flex-1 flex flex-col min-w-0">
+                    <!-- Conversation header -->
+                    <div class="px-3 py-2 border-b border-gray-100 flex items-center justify-between flex-shrink-0">
+                      <div class="flex items-center gap-2">
+                        <div class="w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center text-white text-[10px] font-medium">R</div>
+                        <div>
+                          <p class="text-xs font-medium text-gray-800">Rachel Kim</p>
+                          <p class="text-[9px] text-gray-400">rachel@email.com</p>
+                        </div>
+                      </div>
+                      <div id="forms-collab-indicator" class="flex items-center gap-1 opacity-0 transition-all duration-300">
+                        <div class="flex -space-x-1">
+                          <div class="w-4 h-4 rounded-full bg-green-500 border border-white flex items-center justify-center text-white text-[7px]">J</div>
+                          <div id="forms-collab-tom" class="w-4 h-4 rounded-full bg-purple-500 border border-white flex items-center justify-center text-white text-[7px] opacity-0 transition-all duration-300">T</div>
+                        </div>
+                        <span class="text-[9px] text-gray-400">viewing</span>
+                      </div>
+                    </div>
+
+                    <!-- Messages area -->
+                    <div id="forms-messages" class="flex-1 p-3 space-y-2 overflow-y-auto">
+                      <!-- Form submission message -->
+                      <div id="forms-msg-1" class="hidden flex gap-2 items-start opacity-0 translate-y-4 transition-all duration-500">
                         <div class="w-5 h-5 rounded-full bg-teal-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">R</div>
                         <div class="bg-gray-100 rounded-xl rounded-tl-sm px-2.5 py-1.5 max-w-[90%]">
-                          <p class="text-[10px] font-medium text-gray-500 mb-1">Rachel Kim</p>
-                          <p class="text-xs text-gray-700 mb-2">Hi! I'd like to apply for the Marketing Manager position.</p>
+                          <div class="flex items-center gap-1.5 mb-1">
+                            <Icon name="bx:file" class="w-3 h-3 text-gray-400" />
+                            <span class="text-[8px] text-gray-400">via Job Application Form</span>
+                          </div>
+                          <div class="text-[10px] text-gray-500 mb-1.5 pb-1.5 border-b border-gray-200">
+                            <p><span class="font-medium">Position:</span> Marketing Manager</p>
+                            <p><span class="font-medium">Experience:</span> 5+ years</p>
+                          </div>
                           <div class="flex items-center gap-2 p-1.5 bg-white rounded border border-gray-200">
                             <Icon name="bx:file-blank" class="w-4 h-4 text-red-500" />
                             <div class="flex-1 min-w-0">
@@ -163,25 +201,85 @@ const tabs = [
                           </div>
                         </div>
                       </div>
-                      <div id="forms-msg-2" class="flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
-                        <div class="bg-amber-50 border border-amber-200 rounded-xl rounded-tr-sm px-2.5 py-1.5 max-w-[85%]">
-                          <p class="text-[10px] text-amber-600 font-medium mb-0.5">Internal note</p>
-                          <p class="text-xs text-amber-900">@HR Strong candidate - 5 yrs experience</p>
+
+                      <!-- Automation label message -->
+                      <div id="forms-automation" class="hidden flex justify-center opacity-0 transition-all duration-300">
+                        <div class="flex items-center gap-1.5 px-2 py-1 bg-gray-50 rounded-full border border-gray-200">
+                          <Icon name="bx:bot" class="w-3 h-3 text-purple-500" />
+                          <span class="text-[9px] text-gray-500">Automation added</span>
+                          <span class="text-[9px] bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded-full">#hiring</span>
+                          <span class="text-[9px] bg-purple-100 text-purple-700 px-1.5 py-0.5 rounded-full">#marketing</span>
                         </div>
-                        <div class="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">J</div>
                       </div>
-                      <div id="forms-msg-3" class="flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
-                        <div class="bg-gray-900 text-white rounded-xl rounded-tr-sm px-2.5 py-1.5 max-w-[85%]">
-                          <p class="text-xs">Thanks for applying Rachel! We'd love to schedule a call. Are you free Thursday?</p>
+
+                      <!-- Internal thread -->
+                      <div id="forms-internal-thread" class="hidden flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
+                        <div class="max-w-[85%]">
+                          <div class="text-right mb-1">
+                            <span class="text-[8px] text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded">Internal thread</span>
+                          </div>
+                          <div class="bg-white border border-gray-200 rounded-xl rounded-tr-sm overflow-hidden">
+                            <!-- Jane's message -->
+                            <div class="px-2.5 py-2 border-b border-gray-100">
+                              <div class="flex items-start gap-1.5">
+                                <div class="w-4 h-4 rounded-full bg-green-500 flex items-center justify-center text-white text-[7px] font-medium flex-shrink-0 mt-0.5">J</div>
+                                <p class="text-[11px] text-gray-600"><span class="inline-flex items-center gap-0.5 px-1 py-0.5 bg-purple-100 text-purple-700 rounded text-[9px] font-medium"><span class="w-2 h-2 rounded-full bg-purple-500 flex items-center justify-center text-white text-[5px]">T</span>Tom</span> great candidate for the role?</p>
+                              </div>
+                            </div>
+                            <!-- Tom's reply -->
+                            <div id="forms-internal-tom-reply" class="px-2.5 py-2 opacity-0 transition-all duration-300">
+                              <div class="flex items-start gap-1.5">
+                                <div class="w-4 h-4 rounded-full bg-purple-500 flex items-center justify-center text-white text-[7px] font-medium flex-shrink-0 mt-0.5">T</div>
+                                <p class="text-[11px] text-gray-600">Yes! 5+ yrs is perfect. Let's schedule 👍</p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        <div class="w-5 h-5 rounded-full bg-purple-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">T</div>
+                      </div>
+
+                      <!-- Sent reply -->
+                      <div id="forms-sent-reply" class="hidden flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
+                        <div class="bg-gray-900 text-white rounded-xl rounded-tr-sm px-2.5 py-2 max-w-[85%]">
+                          <p class="text-[11px] leading-relaxed">Hi Rachel! Thanks for applying. Your experience looks great - would you be free for a call Thursday?</p>
+                          <p class="text-[9px] text-gray-400 mt-1">Just now</p>
+                        </div>
+                        <div class="flex -space-x-1 flex-shrink-0 mt-0.5">
+                          <div class="w-4 h-4 rounded-full bg-green-500 border border-white flex items-center justify-center text-white text-[7px]">J</div>
+                          <div class="w-4 h-4 rounded-full bg-purple-500 border border-white flex items-center justify-center text-white text-[7px]">T</div>
+                        </div>
                       </div>
                     </div>
-                    <div class="flex gap-2 pt-2 mt-auto border-t border-gray-100">
-                      <div class="flex-1 bg-gray-50 rounded-full px-3 py-1 text-xs text-gray-400">Reply...</div>
-                      <button class="bg-gray-900 text-white w-6 h-6 rounded-full flex items-center justify-center">
-                        <Icon name="bx:send" class="w-3 h-3" />
-                      </button>
+
+                    <!-- Editor -->
+                    <div id="forms-editor" class="border-t border-gray-100 flex-shrink-0">
+                      <!-- Editor toolbar -->
+                      <div id="forms-editor-toolbar" class="flex items-center gap-1 px-2 py-1.5 border-b border-gray-50 opacity-0 transition-all duration-300">
+                        <button class="p-1 rounded hover:bg-gray-100 text-gray-400">
+                          <Icon name="bx:bold" class="w-3.5 h-3.5" />
+                        </button>
+                        <button class="p-1 rounded hover:bg-gray-100 text-gray-400">
+                          <Icon name="bx:italic" class="w-3.5 h-3.5" />
+                        </button>
+                        <button class="p-1 rounded hover:bg-gray-100 text-gray-400">
+                          <Icon name="bx:link" class="w-3.5 h-3.5" />
+                        </button>
+                        <div class="flex-1"></div>
+                        <button class="flex items-center gap-1 px-2 py-0.5 rounded text-[9px] text-gray-500 hover:bg-gray-100 transition-colors">
+                          <Icon name="bx:comment-detail" class="w-3 h-3" />
+                          <span>Internal</span>
+                        </button>
+                      </div>
+
+                      <!-- Editor content -->
+                      <div class="relative px-3 py-2 min-h-[50px]">
+                        <div id="forms-editor-placeholder" class="text-[11px] text-gray-400">Reply to Rachel...</div>
+                        <div id="forms-editor-content" class="text-[11px] text-gray-800 leading-relaxed hidden">
+                          <span id="forms-typed-text"></span><span id="forms-cursor" class="relative opacity-0 transition-all duration-300"><span class="absolute -top-4 left-0 px-1 py-0.5 bg-purple-500 text-white text-[8px] rounded whitespace-nowrap">Tom</span><span class="inline-block w-0.5 h-4 bg-purple-500 animate-pulse"></span></span>
+                        </div>
+                        <button id="forms-send-btn" class="absolute right-2 bottom-2 bg-gray-200 text-gray-400 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300">
+                          <Icon name="bx:send" class="w-3 h-3" />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -316,159 +414,165 @@ const tabs = [
             </HeroDemoContainer>
           </div>
 
-          <!-- Quizzes Hero Demo - Typeform style -->
+          <!-- Quizzes Hero Demo - Single browser with quiz + results -->
           <div data-video-panel="quizzes" class="video-panel hidden">
-            <HeroDemoContainer id="quiz-demo" rightWidth="md:w-[55%]">
-              <div slot="left" class="bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden h-full flex flex-col">
-                <!-- Window chrome header -->
-                <div class="flex items-center gap-2 px-4 py-3 bg-gray-50 border-b border-gray-200">
-                  <div class="flex gap-1.5">
-                    <div class="w-3 h-3 rounded-full bg-red-400"></div>
-                    <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
-                    <div class="w-3 h-3 rounded-full bg-green-400"></div>
-                  </div>
-                  <span class="text-sm text-gray-500 ml-2">Knowledge Quiz</span>
+            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200 max-w-4xl mx-auto">
+              <!-- Window chrome -->
+              <div class="flex items-center gap-2 px-4 py-3 bg-gray-50 border-b border-gray-200">
+                <div class="flex gap-1.5">
+                  <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                  <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                  <div class="w-3 h-3 rounded-full bg-green-400"></div>
                 </div>
+                <span class="text-sm text-gray-500 ml-2">Knowledge Quiz</span>
+              </div>
 
-                <!-- Quiz content -->
-                <div class="bg-gradient-to-br from-purple-600 to-indigo-700 flex-1 relative">
-                  <!-- Progress bar -->
-                  <div id="quiz-progress" class="absolute top-0 left-0 h-1 bg-yellow-400 transition-all duration-500" style="width: 0%"></div>
+              <!-- Quiz content area -->
+              <div class="h-[400px] relative overflow-hidden">
+                <!-- Progress bar -->
+                <div id="quiz-progress" class="absolute top-0 left-0 h-1 bg-yellow-400 transition-all duration-500 z-10" style="width: 0%"></div>
 
-                  <!-- Question container - single question at a time, 50/50 split -->
-                  <div class="h-full flex flex-col pt-1">
+                <!-- Questions container (purple background) -->
+                <div id="quiz-questions-container" class="bg-gradient-to-br from-purple-600 to-indigo-700 h-full transition-all duration-700">
                   <!-- Question 1 -->
-                  <div id="quiz-q1" class="flex-1 grid grid-cols-2 transition-all duration-500">
-                    <div class="p-5 flex flex-col justify-center">
-                      <div class="flex items-center gap-2 mb-3">
-                        <span class="w-6 h-6 rounded-full bg-white/20 text-xs flex items-center justify-center text-white">1</span>
-                        <span class="text-xs text-white/60">of 3</span>
+                  <div id="quiz-q1" class="h-full grid grid-cols-2 transition-all duration-500">
+                    <div class="p-6 flex flex-col justify-center">
+                      <div class="flex items-center gap-2 mb-4">
+                        <span class="w-7 h-7 rounded-full bg-white/20 text-sm flex items-center justify-center text-white font-medium">1</span>
+                        <span class="text-sm text-white/60">of 3</span>
                       </div>
-                      <h3 class="text-lg font-bold text-white mb-4">What's your main goal for learning?</h3>
-                      <div class="space-y-2">
-                        <div id="quiz-q1-a" class="flex items-center border border-white/30 rounded overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
-                          <span id="quiz-q1-a-letter" class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">A</span>
-                          <span class="text-sm text-white px-3">Career advancement</span>
+                      <h3 class="text-xl font-bold text-white mb-5">What's your main goal for learning?</h3>
+                      <div class="space-y-3">
+                        <div id="quiz-q1-a" class="flex items-center border border-white/30 rounded-lg overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
+                          <span id="quiz-q1-a-letter" class="w-10 h-10 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">A</span>
+                          <span class="text-sm text-white px-4">Career advancement</span>
                         </div>
-                        <div id="quiz-q1-b" class="flex items-center border border-white/30 rounded overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
-                          <span id="quiz-q1-b-letter" class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">B</span>
-                          <span class="text-sm text-white px-3">Personal interest</span>
+                        <div id="quiz-q1-b" class="flex items-center border border-white/30 rounded-lg overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
+                          <span id="quiz-q1-b-letter" class="w-10 h-10 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">B</span>
+                          <span class="text-sm text-white px-4">Personal interest</span>
                         </div>
-                        <div id="quiz-q1-c" class="flex items-center border border-white/30 rounded overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
-                          <span id="quiz-q1-c-letter" class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">C</span>
-                          <span class="text-sm text-white px-3">Academic requirements</span>
+                        <div id="quiz-q1-c" class="flex items-center border border-white/30 rounded-lg overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
+                          <span id="quiz-q1-c-letter" class="w-10 h-10 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">C</span>
+                          <span class="text-sm text-white px-4">Academic requirements</span>
                         </div>
                       </div>
                     </div>
                     <div class="bg-gradient-to-br from-purple-500/30 to-indigo-600/30 flex items-center justify-center">
-                      <Icon name="bx:target-lock" class="w-24 h-24 text-white/40" />
+                      <Icon name="bx:target-lock" class="w-32 h-32 text-white/30" />
                     </div>
                   </div>
 
                   <!-- Question 2 (hidden initially) -->
-                  <div id="quiz-q2" class="flex-1 grid grid-cols-2 transition-all duration-500 hidden">
-                    <div class="p-5 flex flex-col justify-center">
-                      <div class="flex items-center gap-2 mb-3">
-                        <span class="w-6 h-6 rounded-full bg-white/20 text-xs flex items-center justify-center text-white">2</span>
-                        <span class="text-xs text-white/60">of 3</span>
+                  <div id="quiz-q2" class="h-full grid grid-cols-2 transition-all duration-500 hidden">
+                    <div class="p-6 flex flex-col justify-center">
+                      <div class="flex items-center gap-2 mb-4">
+                        <span class="w-7 h-7 rounded-full bg-white/20 text-sm flex items-center justify-center text-white font-medium">2</span>
+                        <span class="text-sm text-white/60">of 3</span>
                       </div>
-                      <h3 class="text-lg font-bold text-white mb-4">How much time can you dedicate weekly?</h3>
-                      <div class="space-y-2">
-                        <div id="quiz-q2-a" class="flex items-center border border-white/30 rounded overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
-                          <span id="quiz-q2-a-letter" class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">A</span>
-                          <span class="text-sm text-white px-3">1-2 hours</span>
+                      <h3 class="text-xl font-bold text-white mb-5">How much time can you dedicate weekly?</h3>
+                      <div class="space-y-3">
+                        <div id="quiz-q2-a" class="flex items-center border border-white/30 rounded-lg overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
+                          <span id="quiz-q2-a-letter" class="w-10 h-10 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">A</span>
+                          <span class="text-sm text-white px-4">1-2 hours</span>
                         </div>
-                        <div id="quiz-q2-b" class="flex items-center border border-white/30 rounded overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
-                          <span id="quiz-q2-b-letter" class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">B</span>
-                          <span class="text-sm text-white px-3">3-5 hours</span>
+                        <div id="quiz-q2-b" class="flex items-center border border-white/30 rounded-lg overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
+                          <span id="quiz-q2-b-letter" class="w-10 h-10 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">B</span>
+                          <span class="text-sm text-white px-4">3-5 hours</span>
                         </div>
-                        <div id="quiz-q2-c" class="flex items-center border border-white/30 rounded overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
-                          <span id="quiz-q2-c-letter" class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">C</span>
-                          <span class="text-sm text-white px-3">5+ hours</span>
+                        <div id="quiz-q2-c" class="flex items-center border border-white/30 rounded-lg overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
+                          <span id="quiz-q2-c-letter" class="w-10 h-10 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">C</span>
+                          <span class="text-sm text-white px-4">5+ hours</span>
                         </div>
                       </div>
                     </div>
                     <div class="bg-gradient-to-br from-purple-500/30 to-indigo-600/30 flex items-center justify-center">
-                      <Icon name="bx:time" class="w-24 h-24 text-white/40" />
+                      <Icon name="bx:time" class="w-32 h-32 text-white/30" />
                     </div>
                   </div>
 
                   <!-- Question 3 (hidden initially) -->
-                  <div id="quiz-q3" class="flex-1 grid grid-cols-2 transition-all duration-500 hidden">
-                    <div class="p-5 flex flex-col justify-center">
-                      <div class="flex items-center gap-2 mb-3">
-                        <span class="w-6 h-6 rounded-full bg-white/20 text-xs flex items-center justify-center text-white">3</span>
-                        <span class="text-xs text-white/60">of 3</span>
+                  <div id="quiz-q3" class="h-full grid grid-cols-2 transition-all duration-500 hidden">
+                    <div class="p-6 flex flex-col justify-center">
+                      <div class="flex items-center gap-2 mb-4">
+                        <span class="w-7 h-7 rounded-full bg-white/20 text-sm flex items-center justify-center text-white font-medium">3</span>
+                        <span class="text-sm text-white/60">of 3</span>
                       </div>
-                      <h3 class="text-lg font-bold text-white mb-4">What's your experience level?</h3>
-                      <div class="space-y-2">
-                        <div id="quiz-q3-a" class="flex items-center border border-white/30 rounded overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
-                          <span id="quiz-q3-a-letter" class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">A</span>
-                          <span class="text-sm text-white px-3">Beginner</span>
+                      <h3 class="text-xl font-bold text-white mb-5">What's your experience level?</h3>
+                      <div class="space-y-3">
+                        <div id="quiz-q3-a" class="flex items-center border border-white/30 rounded-lg overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
+                          <span id="quiz-q3-a-letter" class="w-10 h-10 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">A</span>
+                          <span class="text-sm text-white px-4">Beginner</span>
                         </div>
-                        <div id="quiz-q3-b" class="flex items-center border border-white/30 rounded overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
-                          <span id="quiz-q3-b-letter" class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">B</span>
-                          <span class="text-sm text-white px-3">Intermediate</span>
+                        <div id="quiz-q3-b" class="flex items-center border border-white/30 rounded-lg overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
+                          <span id="quiz-q3-b-letter" class="w-10 h-10 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">B</span>
+                          <span class="text-sm text-white px-4">Intermediate</span>
                         </div>
-                        <div id="quiz-q3-c" class="flex items-center border border-white/30 rounded overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
-                          <span id="quiz-q3-c-letter" class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">C</span>
-                          <span class="text-sm text-white px-3">Advanced</span>
+                        <div id="quiz-q3-c" class="flex items-center border border-white/30 rounded-lg overflow-hidden transition-all duration-300 cursor-pointer hover:bg-white/10">
+                          <span id="quiz-q3-c-letter" class="w-10 h-10 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5 transition-all duration-300">C</span>
+                          <span class="text-sm text-white px-4">Advanced</span>
                         </div>
                       </div>
                     </div>
                     <div class="bg-gradient-to-br from-purple-500/30 to-indigo-600/30 flex items-center justify-center">
-                      <Icon name="bx:medal" class="w-24 h-24 text-white/40" />
+                      <Icon name="bx:medal" class="w-32 h-32 text-white/30" />
                     </div>
                   </div>
+                </div>
+
+                <!-- Results container (hidden initially, slides in) -->
+                <div id="quiz-results-container" class="absolute inset-0 bg-white translate-y-full transition-all duration-700">
+                  <div class="h-full flex">
+                    <!-- Left side - Answer breakdown -->
+                    <div class="w-1/2 p-6 flex flex-col">
+                      <p class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">Your Answers</p>
+                      <div class="space-y-3 flex-1">
+                        <div id="quiz-answer-1" class="flex items-center gap-3 p-3 bg-green-50 rounded-lg border border-green-200 opacity-0 -translate-x-4 transition-all duration-500">
+                          <Icon name="bx:check-circle" class="w-6 h-6 text-green-500 flex-shrink-0" />
+                          <div class="flex-1 min-w-0">
+                            <p class="text-xs text-gray-500">Q1: Main goal</p>
+                            <p class="text-sm font-medium text-gray-700">Career advancement</p>
+                          </div>
+                        </div>
+                        <div id="quiz-answer-2" class="flex items-center gap-3 p-3 bg-green-50 rounded-lg border border-green-200 opacity-0 -translate-x-4 transition-all duration-500">
+                          <Icon name="bx:check-circle" class="w-6 h-6 text-green-500 flex-shrink-0" />
+                          <div class="flex-1 min-w-0">
+                            <p class="text-xs text-gray-500">Q2: Time available</p>
+                            <p class="text-sm font-medium text-gray-700">3-5 hours</p>
+                          </div>
+                        </div>
+                        <div id="quiz-answer-3" class="flex items-center gap-3 p-3 bg-green-50 rounded-lg border border-green-200 opacity-0 -translate-x-4 transition-all duration-500">
+                          <Icon name="bx:check-circle" class="w-6 h-6 text-green-500 flex-shrink-0" />
+                          <div class="flex-1 min-w-0">
+                            <p class="text-xs text-gray-500">Q3: Experience</p>
+                            <p class="text-sm font-medium text-gray-700">Intermediate</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Recommendation -->
+                      <div id="quiz-recommendation" class="mt-4 p-4 bg-purple-50 rounded-lg border border-purple-200 opacity-0 translate-y-4 transition-all duration-500">
+                        <p class="text-xs font-medium text-purple-600 mb-1">Recommended for you</p>
+                        <p class="text-sm font-medium text-gray-700">Professional Development Track</p>
+                        <button class="mt-2 px-4 py-2 bg-purple-600 text-white text-sm font-medium rounded-lg hover:bg-purple-700 transition-colors">
+                          Get Started
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- Right side - Score display -->
+                    <div class="w-1/2 bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center p-6">
+                      <div id="quiz-score-display" class="text-center opacity-0 scale-90 transition-all duration-500">
+                        <div class="w-28 h-28 mx-auto mb-4 rounded-full bg-white/20 flex items-center justify-center">
+                          <span id="quiz-score" class="text-4xl font-bold text-white">100%</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Great Job!</h3>
+                        <p class="text-white/80">You scored 3 out of 3</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              <ResultPanel slot="right" title="Quiz Results" id="quiz-results" windowChrome={true}>
-                <div class="p-4 h-[340px] flex flex-col">
-                  <!-- Score display -->
-                  <div id="quiz-score-panel" class="text-center py-4 opacity-0 translate-y-4 transition-all duration-500">
-                    <div class="w-20 h-20 mx-auto mb-3 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center">
-                      <span id="quiz-score" class="text-2xl font-bold text-white">0%</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-gray-800">Great Job!</h3>
-                    <p class="text-sm text-gray-500">You scored 3 out of 3</p>
-                  </div>
-
-                  <!-- Answer breakdown -->
-                  <div id="quiz-breakdown" class="flex-1 space-y-2 opacity-0 translate-y-4 transition-all duration-500">
-                    <p class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Your Answers</p>
-                    <div class="flex items-center gap-2 p-2 bg-green-50 rounded-lg border border-green-200">
-                      <Icon name="bx:check-circle" class="w-5 h-5 text-green-500 flex-shrink-0" />
-                      <div class="flex-1 min-w-0">
-                        <p class="text-xs text-gray-500">Q1: Main goal</p>
-                        <p class="text-sm text-gray-700 truncate">Career advancement</p>
-                      </div>
-                    </div>
-                    <div class="flex items-center gap-2 p-2 bg-green-50 rounded-lg border border-green-200">
-                      <Icon name="bx:check-circle" class="w-5 h-5 text-green-500 flex-shrink-0" />
-                      <div class="flex-1 min-w-0">
-                        <p class="text-xs text-gray-500">Q2: Time available</p>
-                        <p class="text-sm text-gray-700 truncate">3-5 hours</p>
-                      </div>
-                    </div>
-                    <div class="flex items-center gap-2 p-2 bg-green-50 rounded-lg border border-green-200">
-                      <Icon name="bx:check-circle" class="w-5 h-5 text-green-500 flex-shrink-0" />
-                      <div class="flex-1 min-w-0">
-                        <p class="text-xs text-gray-500">Q3: Experience</p>
-                        <p class="text-sm text-gray-700 truncate">Intermediate</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Recommendation -->
-                  <div id="quiz-recommendation" class="mt-3 p-3 bg-purple-50 rounded-lg border border-purple-200 opacity-0 translate-y-4 transition-all duration-500">
-                    <p class="text-xs font-medium text-purple-600 mb-1">Recommended for you</p>
-                    <p class="text-sm text-gray-700">Professional Development Track</p>
-                  </div>
-                </div>
-              </ResultPanel>
-            </HeroDemoContainer>
+            </div>
           </div>
 
           <!-- Calculators Hero Demo - 2-col form with quote + inbox -->
@@ -546,17 +650,19 @@ const tabs = [
                 </div>
               </div>
 
-              <ResultPanel slot="right" title="Team Inbox" id="calc-inbox" windowChrome={true} avatars={[{ letter: "T", color: "bg-purple-500" }, { letter: "J", color: "bg-green-500" }]}>
+              <ResultPanel slot="right" title="Team Inbox" id="calc-inbox" windowChrome={true} avatars={[{ letter: "T", color: "bg-purple-500" }]}>
                 <div class="flex h-[340px]">
                   <!-- Ticket list sidebar -->
-                  <div class="w-[130px] border-r border-gray-200 bg-gray-50/50 flex-shrink-0 overflow-hidden">
+                  <div class="w-[140px] border-r border-gray-200 bg-gray-50/50 flex-shrink-0 overflow-hidden">
                     <div id="calc-ticket-new" class="px-3 py-2 bg-primary/10 border-l-2 border-primary cursor-pointer opacity-0 transition-all duration-500">
                       <div class="flex items-center gap-2 mb-1">
                         <div class="w-5 h-5 rounded-full bg-indigo-500 flex items-center justify-center text-white text-[10px] font-medium">A</div>
                         <span class="text-xs font-medium text-gray-800 truncate">Alex Martin</span>
                       </div>
                       <p class="text-[10px] text-gray-500 truncate">Quote request</p>
-                      <span class="inline-block mt-1 text-[8px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded">New</span>
+                      <div class="flex items-center gap-1 mt-1">
+                        <span id="calc-new-badge" class="text-[8px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded transition-all duration-300">New</span>
+                      </div>
                     </div>
                     <div class="px-3 py-2 border-b border-gray-100 hover:bg-gray-50 cursor-pointer opacity-60">
                       <div class="flex items-center gap-2 mb-1">
@@ -575,48 +681,84 @@ const tabs = [
                   </div>
 
                   <!-- Conversation detail -->
-                  <div class="flex-1 flex flex-col p-3">
-                    <div class="space-y-2 flex-1 flex flex-col overflow-y-auto">
-                      <div id="calc-msg-1" class="flex gap-2 items-start opacity-0 translate-y-4 transition-all duration-500">
+                  <div class="flex-1 flex flex-col min-w-0">
+                    <!-- Conversation header -->
+                    <div class="px-3 py-2 border-b border-gray-100 flex items-center justify-between flex-shrink-0">
+                      <div class="flex items-center gap-2">
+                        <div class="w-6 h-6 rounded-full bg-indigo-500 flex items-center justify-center text-white text-[10px] font-medium">A</div>
+                        <div>
+                          <p class="text-xs font-medium text-gray-800">Alex Martin</p>
+                          <p class="text-[9px] text-gray-400">alex@company.com</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Messages area -->
+                    <div id="calc-messages" class="flex-1 p-3 space-y-2 overflow-y-auto">
+                      <!-- Quote request message -->
+                      <div id="calc-msg-1" class="hidden flex gap-2 items-start opacity-0 translate-y-4 transition-all duration-500">
                         <div class="w-5 h-5 rounded-full bg-indigo-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">A</div>
-                        <div class="bg-gray-100 rounded-xl rounded-tl-sm px-2.5 py-1.5 max-w-[90%]">
-                          <p class="text-[10px] font-medium text-gray-500 mb-1">Alex Martin</p>
-                          <div class="text-[10px] text-gray-500 mb-1.5 pb-1.5 border-b border-gray-200">
-                            <p><span class="font-medium">Service:</span> Professional</p>
-                            <p><span class="font-medium">Team:</span> 10-25 people</p>
-                            <p><span class="font-medium">Quote:</span> $199/mo</p>
+                        <div class="bg-gray-100 rounded-xl rounded-tl-sm px-2.5 py-2 max-w-[90%]">
+                          <div class="flex items-center gap-1.5 mb-2">
+                            <Icon name="bx:calculator" class="w-3.5 h-3.5 text-gray-400" />
+                            <span class="text-[9px] text-gray-400">via Quote Calculator</span>
                           </div>
-                          <p class="text-xs text-gray-700">Interested in the Professional plan for our marketing team.</p>
+                          <div class="text-xs text-gray-600 space-y-1">
+                            <p><span class="font-medium text-gray-700">Service:</span> Professional</p>
+                            <p><span class="font-medium text-gray-700">Team:</span> 10-25 people</p>
+                            <p><span class="font-medium text-gray-700">Quote:</span> $179/mo</p>
+                          </div>
                         </div>
                       </div>
-                      <div id="calc-msg-2" class="flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
-                        <div class="bg-amber-50 border border-amber-200 rounded-xl rounded-tr-sm px-2.5 py-1.5 max-w-[85%]">
-                          <p class="text-[10px] text-amber-600 font-medium mb-0.5">Internal note</p>
-                          <p class="text-xs text-amber-900">@Sales good lead - enterprise potential</p>
-                        </div>
-                        <div class="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">J</div>
-                      </div>
-                      <div id="calc-msg-3" class="flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
-                        <div class="bg-gray-900 text-white rounded-xl rounded-tr-sm px-2.5 py-1.5 max-w-[85%]">
-                          <p class="text-xs">Hi Alex! Great choice. I can offer a 15% discount for annual billing. Want to schedule a demo?</p>
+
+                      <!-- Team reply with onboarding form -->
+                      <div id="calc-msg-2" class="hidden flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
+                        <div class="bg-gray-900 text-white rounded-xl rounded-tr-sm px-2.5 py-2 max-w-[85%]">
+                          <p class="text-[11px] leading-relaxed mb-2">Hi Alex! Great choice. Here's the signup form to get started:</p>
+                          <div class="bg-white/10 rounded-lg p-2 border border-white/20">
+                            <div class="flex items-center gap-2">
+                              <div class="w-8 h-8 rounded bg-primary/20 flex items-center justify-center">
+                                <Icon name="bx:user-plus" class="w-4 h-4 text-primary" />
+                              </div>
+                              <div class="flex-1 min-w-0">
+                                <p class="text-[10px] text-white/60">Onboarding Form</p>
+                                <p class="text-xs font-medium">Professional Plan Signup</p>
+                              </div>
+                              <Icon name="bx:link-external" class="w-3 h-3 text-white/40" />
+                            </div>
+                          </div>
                         </div>
                         <div class="w-5 h-5 rounded-full bg-purple-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">T</div>
                       </div>
-                      <div id="calc-msg-4" class="flex gap-2 items-start opacity-0 translate-y-4 transition-all duration-500">
+
+                      <!-- Customer response -->
+                      <div id="calc-msg-3" class="hidden flex gap-2 items-start opacity-0 translate-y-4 transition-all duration-500">
+                        <div class="w-5 h-5 rounded-full bg-indigo-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">A</div>
+                        <div class="bg-gray-100 rounded-xl rounded-tl-sm px-2.5 py-1.5 max-w-[90%]">
+                          <p class="text-xs text-gray-700">All signed up! Looking forward to getting started 👍</p>
+                        </div>
+                      </div>
+
+                      <!-- Payment received -->
+                      <div id="calc-msg-4" class="hidden flex gap-2 items-start opacity-0 translate-y-4 transition-all duration-500">
                         <div class="w-5 h-5 rounded-full bg-[#635bff] flex items-center justify-center text-white flex-shrink-0 mt-0.5">
                           <Icon name="bx:credit-card" class="w-3 h-3" />
                         </div>
                         <div class="bg-green-50 border border-green-200 rounded-xl rounded-tl-sm px-2.5 py-1.5 max-w-[90%]">
                           <p class="text-[10px] font-medium text-green-600 mb-0.5">Stripe payment received</p>
-                          <p class="text-xs text-green-800">$199 from Quote Acceptance form</p>
+                          <p class="text-xs text-green-800">$179.00 - Professional Plan</p>
                         </div>
                       </div>
                     </div>
-                    <div class="flex gap-2 pt-2 mt-auto border-t border-gray-100">
-                      <div class="flex-1 bg-gray-50 rounded-full px-3 py-1 text-xs text-gray-400">Reply...</div>
-                      <button class="bg-gray-900 text-white w-6 h-6 rounded-full flex items-center justify-center">
-                        <Icon name="bx:send" class="w-3 h-3" />
-                      </button>
+
+                    <!-- Editor -->
+                    <div class="border-t border-gray-100 flex-shrink-0">
+                      <div class="flex gap-2 p-3">
+                        <div class="flex-1 bg-gray-50 rounded-full px-3 py-1.5 text-xs text-gray-400">Reply to Alex...</div>
+                        <button class="bg-gray-900 text-white w-7 h-7 rounded-full flex items-center justify-center">
+                          <Icon name="bx:send" class="w-3.5 h-3.5" />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -688,7 +830,7 @@ const tabs = [
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to get started?</h2>
         <p class="text-lg text-gray-600 mb-8">Join thousands of businesses using Shout to collect data and engage their audience.</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button href="/signup/">Start your Free Trial</Button>
+          <Button href="https://identity.shout.com/Account/Login">Start your Free Trial</Button>
           <Button variant="outline" href="/pricing/">View Pricing</Button>
         </div>
       </div>
@@ -782,7 +924,7 @@ const tabs = [
     function showElement(id) {
       const el = document.getElementById(id);
       if (el) {
-        el.classList.remove('opacity-0', 'translate-y-4');
+        el.classList.remove('hidden', 'opacity-0', 'translate-y-4');
         el.classList.add('opacity-100', 'translate-y-0');
       }
     }
@@ -961,14 +1103,52 @@ const tabs = [
         { delay: 4900, action: () => {
           document.getElementById('quiz-progress').style.width = '100%';
         }},
-        // Show results
-        { delay: 5500, action: () => window['quiz-demoFocusPanel'] && window['quiz-demoFocusPanel']('right') },
-        { delay: 6000, action: () => {
-          showElement('quiz-score-panel');
-          document.getElementById('quiz-score').textContent = '100%';
+        // Slide in results container
+        { delay: 5500, action: () => {
+          const resultsContainer = document.getElementById('quiz-results-container');
+          if (resultsContainer) {
+            resultsContainer.classList.remove('translate-y-full');
+            resultsContainer.classList.add('translate-y-0');
+          }
         }},
-        { delay: 6800, action: () => showElement('quiz-breakdown') },
-        { delay: 7500, action: () => showElement('quiz-recommendation') },
+        // Show score with scale animation
+        { delay: 6000, action: () => {
+          const scoreDisplay = document.getElementById('quiz-score-display');
+          if (scoreDisplay) {
+            scoreDisplay.classList.remove('opacity-0', 'scale-90');
+            scoreDisplay.classList.add('opacity-100', 'scale-100');
+          }
+        }},
+        // Show answer breakdown items one by one
+        { delay: 6500, action: () => {
+          const answer1 = document.getElementById('quiz-answer-1');
+          if (answer1) {
+            answer1.classList.remove('opacity-0', '-translate-x-4');
+            answer1.classList.add('opacity-100', 'translate-x-0');
+          }
+        }},
+        { delay: 6800, action: () => {
+          const answer2 = document.getElementById('quiz-answer-2');
+          if (answer2) {
+            answer2.classList.remove('opacity-0', '-translate-x-4');
+            answer2.classList.add('opacity-100', 'translate-x-0');
+          }
+        }},
+        { delay: 7100, action: () => {
+          const answer3 = document.getElementById('quiz-answer-3');
+          if (answer3) {
+            answer3.classList.remove('opacity-0', '-translate-x-4');
+            answer3.classList.add('opacity-100', 'translate-x-0');
+          }
+        }},
+        // Show recommendation
+        { delay: 7600, action: () => {
+          const rec = document.getElementById('quiz-recommendation');
+          if (rec) {
+            rec.classList.remove('opacity-0', 'translate-y-4');
+            rec.classList.add('opacity-100', 'translate-y-0');
+          }
+        }},
         // Next tab
         { delay: 11000, action: () => nextTab() },
       ];
@@ -991,14 +1171,47 @@ const tabs = [
       document.getElementById('quiz-q2').classList.add('hidden');
       document.getElementById('quiz-q3').classList.add('hidden');
       ['quiz-q1-a','quiz-q1-b','quiz-q1-c','quiz-q2-a','quiz-q2-b','quiz-q2-c','quiz-q3-a','quiz-q3-b','quiz-q3-c'].forEach(resetQuizOption);
-      hideElement('quiz-score-panel');
-      hideElement('quiz-breakdown');
-      hideElement('quiz-recommendation');
-      document.getElementById('quiz-score').textContent = '0%';
-      window['quiz-demoFocusPanel'] && window['quiz-demoFocusPanel']('left');
+
+      // Reset results container
+      const resultsContainer = document.getElementById('quiz-results-container');
+      if (resultsContainer) {
+        resultsContainer.classList.add('translate-y-full');
+        resultsContainer.classList.remove('translate-y-0');
+      }
+
+      // Reset score display
+      const scoreDisplay = document.getElementById('quiz-score-display');
+      if (scoreDisplay) {
+        scoreDisplay.classList.add('opacity-0', 'scale-90');
+        scoreDisplay.classList.remove('opacity-100', 'scale-100');
+      }
+
+      // Reset answer items
+      ['quiz-answer-1', 'quiz-answer-2', 'quiz-answer-3'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.classList.add('opacity-0', '-translate-x-4');
+          el.classList.remove('opacity-100', 'translate-x-0');
+        }
+      });
+
+      // Reset recommendation
+      const rec = document.getElementById('quiz-recommendation');
+      if (rec) {
+        rec.classList.add('opacity-0', 'translate-y-4');
+        rec.classList.remove('opacity-100', 'translate-y-0');
+      }
     }
 
     // ========== CALCULATOR ANIMATION ==========
+    // Auto-scroll calculator messages
+    function calcScrollToBottom() {
+      const container = document.getElementById('calc-messages');
+      if (container) {
+        container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
+      }
+    }
+
     function runCalcAnimation() {
       if (calcRunning) return;
       calcRunning = true;
@@ -1026,17 +1239,35 @@ const tabs = [
           document.getElementById('calc-submit-btn').classList.add('bg-yellow-300');
         }},
         { delay: 3500, action: () => window['calc-demoFocusPanel'] && window['calc-demoFocusPanel']('right') },
-        // Show inbox messages
+
+        // Show ticket
         { delay: 4000, action: () => {
           const ticket = document.getElementById('calc-ticket-new');
           if (ticket) { ticket.classList.remove('opacity-0'); ticket.classList.add('opacity-100'); }
+          const badge = document.getElementById('calc-new-badge');
+          if (badge) badge.classList.remove('hidden');
         }},
-        { delay: 4500, action: () => showElement('calc-msg-1') },
-        { delay: 5800, action: () => showElement('calc-msg-2') },
-        { delay: 7200, action: () => showElement('calc-msg-3') },
-        { delay: 8600, action: () => showElement('calc-msg-4') },
+
+        // Quote request appears
+        { delay: 4500, action: () => { showElement('calc-msg-1'); calcScrollToBottom(); }},
+
+        // Hide "New" badge
+        { delay: 5200, action: () => {
+          const badge = document.getElementById('calc-new-badge');
+          if (badge) badge.classList.add('hidden');
+        }},
+
+        // Team sends payment form
+        { delay: 5800, action: () => { showElement('calc-msg-2'); calcScrollToBottom(); }},
+
+        // Customer responds
+        { delay: 7500, action: () => { showElement('calc-msg-3'); calcScrollToBottom(); }},
+
+        // Payment received
+        { delay: 9000, action: () => { showElement('calc-msg-4'); calcScrollToBottom(); }},
+
         // Next tab
-        { delay: 12000, action: () => nextTab() },
+        { delay: 13000, action: () => nextTab() },
       ];
 
       timeline.forEach(item => {
@@ -1067,16 +1298,54 @@ const tabs = [
       updateCalcQuote(0, 0, 0);
       document.getElementById('calc-submit-btn').classList.add('opacity-50');
       document.getElementById('calc-submit-btn').classList.remove('bg-yellow-300');
+
+      // Reset ticket
       const ticket = document.getElementById('calc-ticket-new');
       if (ticket) { ticket.classList.add('opacity-0'); ticket.classList.remove('opacity-100'); }
-      hideElement('calc-msg-1');
-      hideElement('calc-msg-2');
-      hideElement('calc-msg-3');
-      hideElement('calc-msg-4');
+      const badge = document.getElementById('calc-new-badge');
+      if (badge) badge.classList.remove('hidden');
+
+      // Reset messages (add hidden class back)
+      ['calc-msg-1', 'calc-msg-2', 'calc-msg-3', 'calc-msg-4'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.classList.add('hidden', 'opacity-0', 'translate-y-4');
+          el.classList.remove('opacity-100', 'translate-y-0');
+        }
+      });
+
+      // Reset scroll position
+      const messagesContainer = document.getElementById('calc-messages');
+      if (messagesContainer) messagesContainer.scrollTop = 0;
+
       window['calc-demoFocusPanel'] && window['calc-demoFocusPanel']('left');
     }
 
     // ========== FORMS ANIMATION ==========
+    // Auto-scroll messages container
+    function formsScrollToBottom() {
+      const container = document.getElementById('forms-messages');
+      if (container) {
+        container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
+      }
+    }
+
+    // Typewriter for forms editor
+    function formsTypeText(text, speed = 40) {
+      const el = document.getElementById('forms-typed-text');
+      if (!el) return;
+      let i = 0;
+      el.textContent = '';
+      function type() {
+        if (i < text.length && formsRunning) {
+          el.textContent += text.charAt(i);
+          i++;
+          formsTimeouts.push(setTimeout(type, speed));
+        }
+      }
+      type();
+    }
+
     function runFormsAnimation() {
       if (formsRunning) return;
       formsRunning = true;
@@ -1087,38 +1356,135 @@ const tabs = [
         { delay: 1200, action: () => window['typeText_forms-lname'] && window['typeText_forms-lname']('Kim', 80) },
         { delay: 1800, action: () => window['typeText_forms-email'] && window['typeText_forms-email']('rachel@email.com', 50) },
 
-        // Phase 2: Progress and move to upload
+        // Phase 2: Progress to position/experience
         { delay: 2800, action: () => {
-          window['forms-formSetProgress'] && window['forms-formSetProgress'](50);
+          window['forms-formSetProgress'] && window['forms-formSetProgress'](33);
           window['hideBar_forms-q1'] && window['hideBar_forms-q1']();
           window['showBar_forms-q2'] && window['showBar_forms-q2']();
         }},
 
-        // Phase 3: File upload animation
-        { delay: 3400, action: () => {
+        // Select position and experience
+        { delay: 3200, action: () => window['selectOption_forms-position'] && window['selectOption_forms-position']('a') },
+        { delay: 3800, action: () => window['selectOption_forms-experience'] && window['selectOption_forms-experience']('b') },
+
+        // Phase 3: Progress to CV upload
+        { delay: 4400, action: () => {
+          window['forms-formSetProgress'] && window['forms-formSetProgress'](66);
+          window['hideBar_forms-q2'] && window['hideBar_forms-q2']();
+          window['showBar_forms-q3'] && window['showBar_forms-q3']();
+        }},
+
+        // File upload animation
+        { delay: 4800, action: () => {
           const upload = document.getElementById('forms-upload');
           if (upload) upload.classList.add('border-white', 'bg-white/10');
         }},
-        { delay: 3800, action: () => {
+        { delay: 5200, action: () => {
           document.getElementById('forms-upload-empty').classList.add('hidden');
           document.getElementById('forms-upload-file').classList.remove('hidden');
         }},
-        { delay: 4300, action: () => window['forms-formSetProgress'] && window['forms-formSetProgress'](100) },
+        { delay: 5600, action: () => window['forms-formSetProgress'] && window['forms-formSetProgress'](100) },
 
         // Phase 4: Transition to inbox
-        { delay: 5000, action: () => window['forms-demoFocusPanel'] && window['forms-demoFocusPanel']('right') },
+        { delay: 6200, action: () => window['forms-demoFocusPanel'] && window['forms-demoFocusPanel']('right') },
 
-        // Phase 5: Show inbox messages
-        { delay: 5500, action: () => {
+        // Phase 5: Show ticket and form submission
+        { delay: 6700, action: () => {
           const ticket = document.getElementById('forms-ticket-new');
           if (ticket) { ticket.classList.remove('opacity-0'); ticket.classList.add('opacity-100'); }
         }},
-        { delay: 6000, action: () => showElement('forms-msg-1') },
-        { delay: 7300, action: () => showElement('forms-msg-2') },
-        { delay: 8600, action: () => showElement('forms-msg-3') },
+        { delay: 7200, action: () => { showElement('forms-msg-1'); formsScrollToBottom(); } },
+
+        // Automation adds labels
+        { delay: 7800, action: () => {
+          const auto = document.getElementById('forms-automation');
+          if (auto) { auto.classList.remove('hidden', 'opacity-0'); auto.classList.add('opacity-100'); }
+          formsScrollToBottom();
+        }},
+
+        // Jane starts viewing
+        { delay: 8500, action: () => {
+          const indicator = document.getElementById('forms-viewing-indicator');
+          const badge = document.getElementById('forms-new-badge');
+          const collab = document.getElementById('forms-collab-indicator');
+          if (indicator) { indicator.classList.remove('opacity-0'); indicator.classList.add('opacity-100'); }
+          if (badge) badge.classList.add('hidden');
+          if (collab) { collab.classList.remove('opacity-0'); collab.classList.add('opacity-100'); }
+        }},
+
+        // Internal thread appears (Jane asks Tom)
+        { delay: 9200, action: () => { showElement('forms-internal-thread'); formsScrollToBottom(); } },
+
+        // Tom joins
+        { delay: 10000, action: () => {
+          const collabTom = document.getElementById('forms-collab-tom');
+          if (collabTom) { collabTom.classList.remove('opacity-0'); collabTom.classList.add('opacity-100'); }
+        }},
+
+        // Tom replies in internal thread
+        { delay: 10600, action: () => {
+          const reply = document.getElementById('forms-internal-tom-reply');
+          if (reply) { reply.classList.remove('opacity-0'); reply.classList.add('opacity-100'); }
+          formsScrollToBottom();
+        }},
+
+        // Editor activates
+        { delay: 11200, action: () => {
+          const placeholder = document.getElementById('forms-editor-placeholder');
+          const content = document.getElementById('forms-editor-content');
+          const toolbar = document.getElementById('forms-editor-toolbar');
+          const cursor = document.getElementById('forms-cursor');
+          if (placeholder) placeholder.classList.add('hidden');
+          if (content) content.classList.remove('hidden');
+          if (toolbar) { toolbar.classList.remove('opacity-0'); toolbar.classList.add('opacity-100'); }
+          if (cursor) { cursor.classList.remove('opacity-0'); cursor.classList.add('opacity-100'); }
+        }},
+
+        // Tom types reply
+        { delay: 11500, action: () => formsTypeText('Hi Rachel! Thanks for applying. Your experience looks great - would you be free for a call Thursday?', 25) },
+
+        // Hide cursor when done typing
+        { delay: 14500, action: () => {
+          const cursor = document.getElementById('forms-cursor');
+          if (cursor) { cursor.classList.add('opacity-0'); cursor.classList.remove('opacity-100'); }
+        }},
+
+        // Send button activates
+        { delay: 15000, action: () => {
+          const btn = document.getElementById('forms-send-btn');
+          if (btn) {
+            btn.classList.remove('bg-gray-200', 'text-gray-400');
+            btn.classList.add('bg-gray-900', 'text-white');
+          }
+        }},
+
+        // Send message
+        { delay: 15600, action: () => {
+          // Clear editor
+          const content = document.getElementById('forms-editor-content');
+          const placeholder = document.getElementById('forms-editor-placeholder');
+          const toolbar = document.getElementById('forms-editor-toolbar');
+          const btn = document.getElementById('forms-send-btn');
+          const typedText = document.getElementById('forms-typed-text');
+          const collab = document.getElementById('forms-collab-indicator');
+
+          if (typedText) typedText.textContent = '';
+          if (content) content.classList.add('hidden');
+          if (placeholder) placeholder.classList.remove('hidden');
+          if (toolbar) { toolbar.classList.add('opacity-0'); toolbar.classList.remove('opacity-100'); }
+          if (btn) {
+            btn.classList.add('bg-gray-200', 'text-gray-400');
+            btn.classList.remove('bg-gray-900', 'text-white');
+          }
+          if (collab) { collab.classList.add('opacity-0'); collab.classList.remove('opacity-100'); }
+
+          // Show sent message
+          showElement('forms-sent-reply');
+          formsScrollToBottom();
+        }},
 
         // Next tab
-        { delay: 12000, action: () => nextTab() },
+        { delay: 19000, action: () => nextTab() },
       ];
 
       timeline.forEach(item => {
@@ -1141,24 +1507,70 @@ const tabs = [
       // Reset yellow bars
       window['showBar_forms-q1'] && window['showBar_forms-q1']();
       window['hideBar_forms-q2'] && window['hideBar_forms-q2']();
+      window['hideBar_forms-q3'] && window['hideBar_forms-q3']();
 
       // Reset text fields
       window['resetText_forms-fname'] && window['resetText_forms-fname']();
       window['resetText_forms-lname'] && window['resetText_forms-lname']();
       window['resetText_forms-email'] && window['resetText_forms-email']();
 
+      // Reset multiple choice
+      window['resetOption_forms-position'] && window['resetOption_forms-position']();
+      window['resetOption_forms-experience'] && window['resetOption_forms-experience']();
+
       // Reset file upload
       const upload = document.getElementById('forms-upload');
       if (upload) upload.classList.remove('border-white', 'bg-white/10');
-      document.getElementById('forms-upload-empty').classList.remove('hidden');
-      document.getElementById('forms-upload-file').classList.add('hidden');
+      document.getElementById('forms-upload-empty')?.classList.remove('hidden');
+      document.getElementById('forms-upload-file')?.classList.add('hidden');
 
-      // Reset inbox
+      // Reset inbox ticket
       const ticket = document.getElementById('forms-ticket-new');
       if (ticket) { ticket.classList.add('opacity-0'); ticket.classList.remove('opacity-100'); }
-      hideElement('forms-msg-1');
-      hideElement('forms-msg-2');
-      hideElement('forms-msg-3');
+
+      // Reset viewing indicators
+      const viewingIndicator = document.getElementById('forms-viewing-indicator');
+      const badge = document.getElementById('forms-new-badge');
+      const collab = document.getElementById('forms-collab-indicator');
+      const collabTom = document.getElementById('forms-collab-tom');
+      if (viewingIndicator) { viewingIndicator.classList.add('opacity-0'); viewingIndicator.classList.remove('opacity-100'); }
+      if (badge) badge.classList.remove('hidden');
+      if (collab) { collab.classList.add('opacity-0'); collab.classList.remove('opacity-100'); }
+      if (collabTom) { collabTom.classList.add('opacity-0'); collabTom.classList.remove('opacity-100'); }
+
+      // Reset messages (add hidden class back)
+      ['forms-msg-1', 'forms-internal-thread', 'forms-sent-reply', 'forms-automation'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.classList.add('hidden', 'opacity-0', 'translate-y-4');
+          el.classList.remove('opacity-100', 'translate-y-0');
+        }
+      });
+
+      // Reset internal thread tom reply
+      const tomReply = document.getElementById('forms-internal-tom-reply');
+      if (tomReply) { tomReply.classList.add('opacity-0'); tomReply.classList.remove('opacity-100'); }
+
+      // Reset editor
+      const placeholder = document.getElementById('forms-editor-placeholder');
+      const content = document.getElementById('forms-editor-content');
+      const toolbar = document.getElementById('forms-editor-toolbar');
+      const cursor = document.getElementById('forms-cursor');
+      const btn = document.getElementById('forms-send-btn');
+      const typedText = document.getElementById('forms-typed-text');
+      if (placeholder) placeholder.classList.remove('hidden');
+      if (content) content.classList.add('hidden');
+      if (toolbar) { toolbar.classList.add('opacity-0'); toolbar.classList.remove('opacity-100'); }
+      if (cursor) { cursor.classList.add('opacity-0'); cursor.classList.remove('opacity-100'); }
+      if (typedText) typedText.textContent = '';
+      if (btn) {
+        btn.classList.add('bg-gray-200', 'text-gray-400');
+        btn.classList.remove('bg-gray-900', 'text-white');
+      }
+
+      // Reset scroll position
+      const messagesContainer = document.getElementById('forms-messages');
+      if (messagesContainer) messagesContainer.scrollTop = 0;
 
       // Reset focus to form
       window['forms-demoFocusPanel'] && window['forms-demoFocusPanel']('left');
