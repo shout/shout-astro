@@ -1,5 +1,0 @@
-name = "shout-astro"
-compatibility_date = "2024-12-01"
-
-[pages]
-build_output_dir = "dist"
