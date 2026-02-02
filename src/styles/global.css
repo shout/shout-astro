@@ -8,8 +8,10 @@
 }
 
 /* Custom global styles */
-html {
+html,
+body {
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
 /* Custom properties for backward compatibility */
