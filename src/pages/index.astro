@@ -13,16 +13,43 @@ import TextInput from "../components/hero-demo/TextInput.astro";
 import StarRating from "../components/hero-demo/StarRating.astro";
 import MultipleChoice from "../components/hero-demo/MultipleChoice.astro";
 import ResultPanel from "../components/hero-demo/ResultPanel.astro";
+
+const tabs = [
+  {
+    id: "forms",
+    title: "Forms",
+    icon: "bx:file",
+    description: "Capture leads and collect data with custom forms"
+  },
+  {
+    id: "surveys",
+    title: "Surveys",
+    icon: "bx:poll",
+    description: "Collect feedback and insights with powerful survey tools"
+  },
+  {
+    id: "inbox",
+    title: "Shared Inbox",
+    icon: "bx:envelope-open",
+    description: "All your team's messages in one unified inbox"
+  },
+  {
+    id: "contacts",
+    title: "Contact Hub",
+    icon: "bx:user-circle",
+    description: "Complete customer profiles with full conversation history"
+  },
+];
 ---
 
 <AstroshipLayout
   title="Shout - Forms, Surveys & Shared Inbox for Teams"
   description="Build forms and surveys that flow into a shared inbox. Collect responses, reply directly, and manage conversations as a team. Start your 14-day free trial."
 >
-  <!-- Hero Section -->
+  <!-- Hero Section with Tabbed Demos -->
   <section class="py-16">
     <Container>
-      <div class="text-center max-w-4xl mx-auto mb-12">
+      <div class="text-center max-w-4xl mx-auto mb-8">
         <h1 class="text-5xl lg:text-6xl font-bold lg:tracking-tight mb-6">
           Collect responses.<br/>
           <span class="text-primary">Continue the conversation.</span>
@@ -33,199 +60,1413 @@ import ResultPanel from "../components/hero-demo/ResultPanel.astro";
         </p>
       </div>
 
-      <!-- CTA -->
+      <!-- Tabs + CTA -->
       <div class="flex justify-center items-center gap-3 mb-8">
-        <a href="https://identity.shout.com/Account/Login" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium bg-gray-900 text-white hover:bg-gray-800 transition-all shadow-sm">
+        <div class="inline-flex bg-gray-100 rounded-full p-1 gap-1">
+          {tabs.map((tab, index) => (
+            <button
+              data-tab={tab.id}
+              class:list={[
+                "tab-button px-6 py-3 rounded-full text-sm font-medium transition-all flex items-center gap-2 cursor-pointer",
+                index === 0 ? "bg-white shadow-sm text-gray-900" : "text-gray-600 hover:text-gray-900"
+              ]}
+            >
+              <Icon name={tab.icon} class="w-5 h-5" />
+              {tab.title}
+            </button>
+          ))}
+        </div>
+        <a href="https://identity.shout.com/Account/Login" class="hidden md:inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium bg-gray-900 text-white hover:bg-gray-800 transition-all shadow-sm">
           Start Free Trial
           <Icon name="bx:right-arrow-alt" class="w-5 h-5" />
         </a>
-        <a href="/forms/" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all">
-          See what you can build
-        </a>
       </div>
 
-      <!-- Visual: Form → Inbox flow (Animated) - Overlapping card stack -->
-      <HeroDemoContainer id="hero-demo" rightWidth="md:w-[60%]">
-        <FormCard slot="left" title="How are we doing?" id="form-card">
-          <FormQuestion number={1} question="Please provide your contact details." id="q1" barVisible={true}>
-            <div class="grid grid-cols-2 gap-2 mb-2">
-              <TextInput id="fname" label="First Name" />
-              <TextInput id="lname" label="Last Name" />
-            </div>
-            <TextInput id="email" label="Email Address" />
-          </FormQuestion>
+      <!-- Video/Demo Container -->
+      <div class="max-w-5xl mx-auto">
+        <div class="relative">
+          <!-- Forms Hero Demo -->
+          <div data-video-panel="forms" class="video-panel block">
+            <HeroDemoContainer id="forms-demo" rightWidth="md:w-[60%]">
+              <FormCard slot="left" title="Job Application" id="forms-form" bgColor="bg-[#2A98C6]">
+                <FormQuestion number={1} question="Your details" id="forms-q1" barVisible={true}>
+                  <div class="grid grid-cols-2 gap-2 mb-2">
+                    <TextInput id="forms-fname" label="First Name" />
+                    <TextInput id="forms-lname" label="Last Name" />
+                  </div>
+                  <TextInput id="forms-email" label="Email Address" />
+                </FormQuestion>
 
-          <FormQuestion number={2} question="How would you rate our service?" id="q2">
-            <StarRating id="stars" />
-          </FormQuestion>
+                <FormQuestion number={2} question="Position & Experience" id="forms-q2">
+                  <MultipleChoice id="forms-position" optionA="Marketing Manager" optionB="Sales Lead" />
+                  <div class="mt-2">
+                    <MultipleChoice id="forms-experience" optionA="3-5 years" optionB="5+ years" />
+                  </div>
+                </FormQuestion>
 
-          <FormQuestion number={3} question="Would you recommend us to a friend?" id="q3" class="">
-            <MultipleChoice id="recommend" optionA="Yes" optionB="No" />
-          </FormQuestion>
-        </FormCard>
-
-        <ResultPanel slot="right" title="Team Inbox" id="inbox-panel" windowChrome={true} avatars={[{ letter: "T", color: "bg-purple-500" }, { letter: "J", color: "bg-green-500" }]}>
-          <div class="flex h-[340px]">
-            <!-- Ticket list sidebar -->
-            <div class="w-[140px] border-r border-gray-200 bg-gray-50/50 flex-shrink-0 overflow-hidden">
-              <div class="px-3 py-2 bg-primary/10 border-l-2 border-primary cursor-pointer">
-                <div class="flex items-center gap-2 mb-1">
-                  <div class="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center text-white text-[10px] font-medium">S</div>
-                  <span class="text-xs font-medium text-gray-800 truncate">Sarah Johnson</span>
-                </div>
-                <p class="text-[10px] text-gray-500 truncate">How are we doing?</p>
-              </div>
-              <div class="px-3 py-2 border-b border-gray-100 hover:bg-gray-50 cursor-pointer opacity-60">
-                <div class="flex items-center gap-2 mb-1">
-                  <div class="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center text-white text-[10px] font-medium">M</div>
-                  <span class="text-xs font-medium text-gray-700 truncate">Mike Chen</span>
-                </div>
-                <p class="text-[10px] text-gray-400 truncate">Product feedback</p>
-              </div>
-              <div class="px-3 py-2 border-b border-gray-100 hover:bg-gray-50 cursor-pointer opacity-60">
-                <div class="flex items-center gap-2 mb-1">
-                  <div class="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center text-white text-[10px] font-medium">A</div>
-                  <span class="text-xs font-medium text-gray-700 truncate">Alex Rivera</span>
-                </div>
-                <p class="text-[10px] text-gray-400 truncate">Support request</p>
-              </div>
-              <div class="px-3 py-2 hover:bg-gray-50 cursor-pointer opacity-60">
-                <div class="flex items-center gap-2 mb-1">
-                  <div class="w-5 h-5 rounded-full bg-pink-500 flex items-center justify-center text-white text-[10px] font-medium">E</div>
-                  <span class="text-xs font-medium text-gray-700 truncate">Emma Wilson</span>
-                </div>
-                <p class="text-[10px] text-gray-400 truncate">Event registration</p>
-              </div>
-            </div>
-
-            <!-- Conversation detail -->
-            <div class="flex-1 flex flex-col p-3">
-              <div class="space-y-2 flex-1 flex flex-col overflow-y-auto">
-                <div id="chat-msg-1" class="flex gap-2 items-start opacity-0 translate-y-4 transition-all duration-500">
-                  <div class="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">S</div>
-                  <div class="bg-gray-100 rounded-xl rounded-tl-sm px-2.5 py-1.5 max-w-[90%]">
-                    <p class="text-[10px] font-medium text-gray-500 mb-1">Sarah Johnson</p>
-                    <div class="text-[10px] text-gray-500 mb-1.5 pb-1.5 border-b border-gray-200">
-                      <p><span class="font-medium">Rating:</span> ★★★★☆</p>
-                      <p><span class="font-medium">Recommend:</span> Yes</p>
+                <FormQuestion number={3} question="Upload your CV" id="forms-q3" class="">
+                  <div id="forms-upload" class="border border-dashed border-white/30 rounded-lg p-3 text-center transition-all duration-300">
+                    <div id="forms-upload-empty" class="text-white/60">
+                      <Icon name="bx:cloud-upload" class="w-6 h-6 mx-auto mb-1" />
+                      <p class="text-xs">Click or drag to upload</p>
                     </div>
-                    <p class="text-xs text-gray-700">Looking forward to hearing from you!</p>
+                    <div id="forms-upload-file" class="hidden">
+                      <div class="flex items-center justify-center gap-2 text-white">
+                        <Icon name="bx:file" class="w-5 h-5 text-green-400" />
+                        <span class="text-sm">resume.pdf</span>
+                        <Icon name="bx:check-circle" class="w-4 h-4 text-green-400" />
+                      </div>
+                    </div>
+                  </div>
+                </FormQuestion>
+              </FormCard>
+
+              <ResultPanel slot="right" title="Team Inbox" id="forms-inbox" windowChrome={true} avatars={[{ letter: "T", color: "bg-purple-500" }, { letter: "J", color: "bg-green-500" }]}>
+                <div class="flex h-[340px]">
+                  <!-- Ticket list sidebar -->
+                  <div class="w-[140px] border-r border-gray-200 bg-gray-50/50 flex-shrink-0 overflow-hidden">
+                    <div id="forms-ticket-new" class="px-3 py-2 bg-primary/10 border-l-2 border-primary cursor-pointer opacity-0 transition-all duration-500">
+                      <div class="flex items-center gap-2 mb-1">
+                        <div class="w-5 h-5 rounded-full bg-teal-500 flex items-center justify-center text-white text-[10px] font-medium">R</div>
+                        <span class="text-xs font-medium text-gray-800 truncate">Rachel Kim</span>
+                      </div>
+                      <p class="text-[10px] text-gray-500 truncate">Job Application</p>
+                      <div class="flex items-center gap-1 mt-1">
+                        <span id="forms-new-badge" class="text-[8px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded transition-all duration-300">New</span>
+                        <div id="forms-viewing-indicator" class="flex items-center gap-1 opacity-0 transition-all duration-300">
+                          <div class="w-3 h-3 rounded-full bg-green-500 flex items-center justify-center text-white text-[6px]">J</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="px-3 py-2 border-b border-gray-100 hover:bg-gray-50 cursor-pointer opacity-60">
+                      <div class="flex items-center gap-2 mb-1">
+                        <div class="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center text-white text-[10px] font-medium">S</div>
+                        <span class="text-xs font-medium text-gray-700 truncate">Sarah Johnson</span>
+                      </div>
+                      <p class="text-[10px] text-gray-400 truncate">Feedback form</p>
+                    </div>
+                    <div class="px-3 py-2 hover:bg-gray-50 cursor-pointer opacity-60">
+                      <div class="flex items-center gap-2 mb-1">
+                        <div class="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center text-white text-[10px] font-medium">M</div>
+                        <span class="text-xs font-medium text-gray-700 truncate">Mike Chen</span>
+                      </div>
+                      <p class="text-[10px] text-gray-400 truncate">Contact form</p>
+                    </div>
+                  </div>
+
+                  <!-- Conversation detail -->
+                  <div class="flex-1 flex flex-col min-w-0">
+                    <!-- Conversation header -->
+                    <div class="px-3 py-2 border-b border-gray-100 flex items-center justify-between flex-shrink-0">
+                      <div class="flex items-center gap-2">
+                        <div class="w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center text-white text-[10px] font-medium">R</div>
+                        <div>
+                          <p class="text-xs font-medium text-gray-800">Rachel Kim</p>
+                          <p class="text-[9px] text-gray-400">rachel@email.com</p>
+                        </div>
+                      </div>
+                      <div id="forms-collab-indicator" class="flex items-center gap-1 opacity-0 transition-all duration-300">
+                        <div class="flex -space-x-1">
+                          <div class="w-4 h-4 rounded-full bg-green-500 border border-white flex items-center justify-center text-white text-[7px]">J</div>
+                          <div id="forms-collab-tom" class="w-4 h-4 rounded-full bg-purple-500 border border-white flex items-center justify-center text-white text-[7px] opacity-0 transition-all duration-300">T</div>
+                        </div>
+                        <span class="text-[9px] text-gray-400">viewing</span>
+                      </div>
+                    </div>
+
+                    <!-- Messages area -->
+                    <div id="forms-messages" class="flex-1 p-3 space-y-2 overflow-y-auto">
+                      <!-- Form submission message -->
+                      <div id="forms-msg-1" class="hidden flex gap-2 items-start opacity-0 translate-y-4 transition-all duration-500">
+                        <div class="w-5 h-5 rounded-full bg-teal-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">R</div>
+                        <div class="bg-gray-100 rounded-xl rounded-tl-sm px-2.5 py-1.5 max-w-[90%]">
+                          <div class="flex items-center gap-1.5 mb-1">
+                            <Icon name="bx:file" class="w-3 h-3 text-gray-400" />
+                            <span class="text-[8px] text-gray-400">via Job Application Form</span>
+                          </div>
+                          <div class="text-[10px] text-gray-500 mb-1.5 pb-1.5 border-b border-gray-200">
+                            <p><span class="font-medium">Position:</span> Marketing Manager</p>
+                            <p><span class="font-medium">Experience:</span> 5+ years</p>
+                          </div>
+                          <div class="flex items-center gap-2 p-1.5 bg-white rounded border border-gray-200">
+                            <Icon name="bx:file-blank" class="w-4 h-4 text-red-500" />
+                            <div class="flex-1 min-w-0">
+                              <p class="text-[10px] font-medium text-gray-700 truncate">resume.pdf</p>
+                              <p class="text-[8px] text-gray-400">245 KB</p>
+                            </div>
+                            <Icon name="bx:download" class="w-3 h-3 text-gray-400" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Automation label message -->
+                      <div id="forms-automation" class="hidden flex justify-center opacity-0 transition-all duration-300">
+                        <div class="flex items-center gap-1.5 px-2 py-1 bg-gray-50 rounded-full border border-gray-200">
+                          <Icon name="bx:bot" class="w-3 h-3 text-purple-500" />
+                          <span class="text-[9px] text-gray-500">Automation added</span>
+                          <span class="text-[9px] bg-blue-100 text-blue-700 px-1.5 py-0.5 rounded-full">#hiring</span>
+                          <span class="text-[9px] bg-purple-100 text-purple-700 px-1.5 py-0.5 rounded-full">#marketing</span>
+                        </div>
+                      </div>
+
+                      <!-- Internal thread -->
+                      <div id="forms-internal-thread" class="hidden flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
+                        <div class="max-w-[85%]">
+                          <div class="text-right mb-1">
+                            <span class="text-[8px] text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded">Internal thread</span>
+                          </div>
+                          <div class="bg-white border border-gray-200 rounded-xl rounded-tr-sm overflow-hidden">
+                            <!-- Jane's message -->
+                            <div class="px-2.5 py-2 border-b border-gray-100">
+                              <div class="flex items-start gap-1.5">
+                                <div class="w-4 h-4 rounded-full bg-green-500 flex items-center justify-center text-white text-[7px] font-medium flex-shrink-0 mt-0.5">J</div>
+                                <p class="text-[11px] text-gray-600"><span class="inline-flex items-center gap-0.5 px-1 py-0.5 bg-purple-100 text-purple-700 rounded text-[9px] font-medium"><span class="w-2 h-2 rounded-full bg-purple-500 flex items-center justify-center text-white text-[5px]">T</span>Tom</span> great candidate for the role?</p>
+                              </div>
+                            </div>
+                            <!-- Tom's reply -->
+                            <div id="forms-internal-tom-reply" class="px-2.5 py-2 opacity-0 transition-all duration-300">
+                              <div class="flex items-start gap-1.5">
+                                <div class="w-4 h-4 rounded-full bg-purple-500 flex items-center justify-center text-white text-[7px] font-medium flex-shrink-0 mt-0.5">T</div>
+                                <p class="text-[11px] text-gray-600">Yes! 5+ yrs is perfect. Let's schedule 👍</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Sent reply -->
+                      <div id="forms-sent-reply" class="hidden flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
+                        <div class="bg-gray-900 text-white rounded-xl rounded-tr-sm px-2.5 py-2 max-w-[85%]">
+                          <p class="text-[11px] leading-relaxed">Hi Rachel! Thanks for applying. Your experience looks great - would you be free for a call Thursday?</p>
+                          <p class="text-[9px] text-gray-400 mt-1">Just now</p>
+                        </div>
+                        <div class="flex -space-x-1 flex-shrink-0 mt-0.5">
+                          <div class="w-4 h-4 rounded-full bg-green-500 border border-white flex items-center justify-center text-white text-[7px]">J</div>
+                          <div class="w-4 h-4 rounded-full bg-purple-500 border border-white flex items-center justify-center text-white text-[7px]">T</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Editor -->
+                    <div id="forms-editor" class="border-t border-gray-100 flex-shrink-0">
+                      <!-- Editor toolbar -->
+                      <div id="forms-editor-toolbar" class="flex items-center gap-1 px-2 py-1.5 border-b border-gray-50 opacity-0 transition-all duration-300">
+                        <button class="p-1 rounded hover:bg-gray-100 text-gray-400">
+                          <Icon name="bx:bold" class="w-3.5 h-3.5" />
+                        </button>
+                        <button class="p-1 rounded hover:bg-gray-100 text-gray-400">
+                          <Icon name="bx:italic" class="w-3.5 h-3.5" />
+                        </button>
+                        <button class="p-1 rounded hover:bg-gray-100 text-gray-400">
+                          <Icon name="bx:link" class="w-3.5 h-3.5" />
+                        </button>
+                        <div class="flex-1"></div>
+                        <button class="flex items-center gap-1 px-2 py-0.5 rounded text-[9px] text-gray-500 hover:bg-gray-100 transition-colors">
+                          <Icon name="bx:comment-detail" class="w-3 h-3" />
+                          <span>Internal</span>
+                        </button>
+                      </div>
+
+                      <!-- Editor content -->
+                      <div class="relative px-3 py-2 min-h-[50px]">
+                        <div id="forms-editor-placeholder" class="text-[11px] text-gray-400">Reply to Rachel...</div>
+                        <div id="forms-editor-content" class="text-[11px] text-gray-800 leading-relaxed hidden">
+                          <span id="forms-typed-text"></span><span id="forms-cursor" class="relative opacity-0 transition-all duration-300"><span class="absolute -top-4 left-0 px-1 py-0.5 bg-purple-500 text-white text-[8px] rounded whitespace-nowrap">Tom</span><span class="inline-block w-0.5 h-4 bg-purple-500 animate-pulse"></span></span>
+                        </div>
+                        <button id="forms-send-btn" class="absolute right-2 bottom-2 bg-gray-200 text-gray-400 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300">
+                          <Icon name="bx:send" class="w-3 h-3" />
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div id="chat-msg-2" class="flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
-                  <div class="bg-amber-50 border border-amber-200 rounded-xl rounded-tr-sm px-2.5 py-1.5 max-w-[85%]">
-                    <p class="text-[10px] text-amber-600 font-medium mb-0.5">Internal note</p>
-                    <p class="text-xs text-amber-900">@Tom another happy customer! Can you follow up?</p>
+              </ResultPanel>
+            </HeroDemoContainer>
+          </div>
+
+          <!-- Surveys Hero Demo -->
+          <div data-video-panel="surveys" class="video-panel hidden">
+            <HeroDemoContainer id="survey-demo" rightWidth="md:w-[55%]">
+              <FormCard slot="left" title="Customer Feedback" id="survey-form" bgColor="bg-[#2A98C6]">
+                <FormQuestion number={1} question="How would you rate our service?" id="survey-q1" barVisible={true}>
+                  <StarRating id="survey-stars" />
+                </FormQuestion>
+
+                <FormQuestion number={2} question="How likely are you to recommend us?" id="survey-q2">
+                  <!-- Likert Scale 0-10 -->
+                  <div class="mt-1 max-w-[280px]">
+                    <!-- Gradient bar -->
+                    <div class="h-1 rounded-full bg-gradient-to-r from-red-500 via-yellow-400 to-green-500 mb-2"></div>
+                    <!-- Numbers -->
+                    <div class="flex justify-between">
+                      {[0,1,2,3,4,5,6,7,8,9,10].map(n => (
+                        <button
+                          id={`survey-likert-${n}`}
+                          class="w-6 h-6 text-[10px] border border-white/30 rounded bg-white/5 text-white/70 hover:bg-white/20 transition-all duration-200 flex items-center justify-center"
+                        >
+                          {n}
+                        </button>
+                      ))}
+                    </div>
+                    <!-- Labels -->
+                    <div class="flex justify-between mt-1">
+                      <span class="text-[9px] text-white/50">Not likely</span>
+                      <span class="text-[9px] text-white/50">Very likely</span>
+                    </div>
                   </div>
-                  <div class="w-5 h-5 rounded-full bg-green-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">J</div>
+                </FormQuestion>
+
+                <FormQuestion number={3} question="Was your issue resolved?" id="survey-q3" class="">
+                  <MultipleChoice id="survey-recommend" optionA="Yes" optionB="No" />
+                </FormQuestion>
+
+              </FormCard>
+
+              <ResultPanel slot="right" title="Survey Results" id="survey-results" windowChrome={true}>
+                <div class="p-4 space-y-6 h-[340px] overflow-y-auto">
+                  <!-- Rating Question Results -->
+                  <div id="survey-result-rating" class="opacity-0 translate-y-4 transition-all duration-500">
+                    <div class="flex items-center gap-2 mb-3">
+                      <span class="w-5 h-5 rounded bg-gray-100 text-xs flex items-center justify-center text-gray-600 font-medium">1</span>
+                      <p class="text-sm text-gray-700 font-medium">How would you rate our service?</p>
+                    </div>
+                    <!-- Star display -->
+                    <div class="flex items-center gap-1 mb-3">
+                      <span id="survey-avg-stars" class="text-2xl text-yellow-400">★★★★☆</span>
+                      <span class="text-sm text-gray-500 ml-2"><span id="survey-avg-num">4.0</span> / 5</span>
+                    </div>
+                    <!-- Rating bars -->
+                    <div class="space-y-1.5">
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs text-gray-500 w-3">5</span>
+                        <div class="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                          <div id="survey-bar-5" class="h-full bg-green-500 rounded-full transition-all duration-700" style="width: 0%"></div>
+                        </div>
+                        <span id="survey-pct-5" class="text-xs text-gray-500 w-8">0%</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs text-gray-500 w-3">4</span>
+                        <div class="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                          <div id="survey-bar-4" class="h-full bg-lime-500 rounded-full transition-all duration-700" style="width: 0%"></div>
+                        </div>
+                        <span id="survey-pct-4" class="text-xs text-gray-500 w-8">0%</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs text-gray-500 w-3">3</span>
+                        <div class="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                          <div id="survey-bar-3" class="h-full bg-yellow-500 rounded-full transition-all duration-700" style="width: 0%"></div>
+                        </div>
+                        <span id="survey-pct-3" class="text-xs text-gray-500 w-8">0%</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs text-gray-500 w-3">2</span>
+                        <div class="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                          <div id="survey-bar-2" class="h-full bg-orange-500 rounded-full transition-all duration-700" style="width: 0%"></div>
+                        </div>
+                        <span id="survey-pct-2" class="text-xs text-gray-500 w-8">0%</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs text-gray-500 w-3">1</span>
+                        <div class="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                          <div id="survey-bar-1" class="h-full bg-red-500 rounded-full transition-all duration-700" style="width: 0%"></div>
+                        </div>
+                        <span id="survey-pct-1" class="text-xs text-gray-500 w-8">0%</span>
+                      </div>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-2"><span id="survey-rating-responses">0</span> responses</p>
+                  </div>
+
+                  <!-- Recommend Question Results -->
+                  <div id="survey-result-recommend" class="opacity-0 translate-y-4 transition-all duration-500">
+                    <div class="flex items-center gap-2 mb-3">
+                      <span class="w-5 h-5 rounded bg-gray-100 text-xs flex items-center justify-center text-gray-600 font-medium">2</span>
+                      <p class="text-sm text-gray-700 font-medium">Was your issue resolved?</p>
+                    </div>
+                    <!-- Donut chart and legend -->
+                    <div class="flex items-center gap-4">
+                      <div class="relative w-24 h-24">
+                        <svg viewBox="0 0 36 36" class="w-24 h-24 transform -rotate-90">
+                          <circle cx="18" cy="18" r="14" fill="none" stroke="#e5e7eb" stroke-width="4"></circle>
+                          <circle id="survey-donut-yes" cx="18" cy="18" r="14" fill="none" stroke="#4ade80" stroke-width="4" stroke-dasharray="0 88" stroke-linecap="round" class="transition-all duration-700"></circle>
+                          <circle id="survey-donut-no" cx="18" cy="18" r="14" fill="none" stroke="#38bdf8" stroke-width="4" stroke-dasharray="0 88" stroke-linecap="round" class="transition-all duration-700"></circle>
+                        </svg>
+                      </div>
+                      <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                          <div class="w-3 h-3 rounded-sm bg-green-400"></div>
+                          <span class="text-sm text-gray-600">Yes</span>
+                          <span id="survey-yes-pct" class="text-sm font-medium text-gray-800">0%</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                          <div class="w-3 h-3 rounded-sm bg-sky-400"></div>
+                          <span class="text-sm text-gray-600">No</span>
+                          <span id="survey-no-pct" class="text-sm font-medium text-gray-800">0%</span>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-3"><span id="survey-recommend-responses">0</span> responses</p>
+                  </div>
                 </div>
-                <div id="chat-msg-3" class="flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
-                  <div class="bg-gray-900 text-white rounded-xl rounded-tr-sm px-2.5 py-1.5 max-w-[85%]">
-                    <p class="text-xs">Thanks for the great feedback Sarah!</p>
+              </ResultPanel>
+            </HeroDemoContainer>
+          </div>
+
+          <!-- Shared Inbox Hero Demo -->
+          <div data-video-panel="inbox" class="video-panel hidden">
+            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
+              <!-- Window chrome -->
+              <div class="flex items-center gap-2 px-4 py-3 bg-gray-50 border-b border-gray-200">
+                <div class="flex gap-1.5">
+                  <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                  <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                  <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                </div>
+                <span class="text-sm text-gray-500 ml-2">Team Inbox</span>
+                <div class="ml-auto flex items-center gap-2">
+                  <div id="inbox-team-avatars" class="flex -space-x-2">
+                    <div id="inbox-tom-avatar" class="w-6 h-6 rounded-full bg-purple-500 border-2 border-white flex items-center justify-center text-white text-[10px] font-medium opacity-50 transition-all duration-500">T</div>
+                    <div id="inbox-kate-avatar" class="w-6 h-6 rounded-full bg-pink-500 border-2 border-white flex items-center justify-center text-white text-[10px] font-medium opacity-0 transition-all duration-500">K</div>
                   </div>
-                  <div class="w-5 h-5 rounded-full bg-purple-500 flex items-center justify-center text-white text-[10px] font-medium flex-shrink-0 mt-0.5">T</div>
+                  <span class="text-xs text-gray-400">online</span>
                 </div>
               </div>
-              <div class="flex gap-2 pt-2 mt-auto border-t border-gray-100">
-                <div class="flex-1 bg-gray-50 rounded-full px-3 py-1 text-xs text-gray-400">Reply...</div>
-                <button class="bg-gray-900 text-white w-6 h-6 rounded-full flex items-center justify-center">
-                  <Icon name="bx:send" class="w-3 h-3" />
-                </button>
+
+              <div class="flex h-[400px]">
+                <!-- Ticket list sidebar -->
+                <div class="w-[180px] border-r border-gray-200 bg-gray-50/50 overflow-hidden flex-shrink-0">
+                  <!-- New ticket -->
+                  <div id="inbox-ticket-1" class="px-3 py-2.5 bg-primary/10 border-l-2 border-primary cursor-pointer transition-all duration-500">
+                    <div class="flex items-center justify-between mb-1">
+                      <div class="flex items-center gap-2">
+                        <div class="w-5 h-5 rounded-full bg-rose-500 flex items-center justify-center text-white text-[10px] font-medium">E</div>
+                        <span class="text-xs font-medium text-gray-800">Emma Wilson</span>
+                      </div>
+                      <span class="text-[10px] text-gray-400">2m</span>
+                    </div>
+                    <p class="text-[10px] text-gray-600 truncate">Pricing for enterprise</p>
+                    <div class="flex items-center gap-1 mt-1">
+                      <span id="inbox-new-badge" class="text-[8px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded transition-all duration-300">New</span>
+                      <div id="inbox-viewing-indicator" class="flex items-center gap-1 opacity-0 transition-all duration-300">
+                        <div class="w-3 h-3 rounded-full bg-pink-500 flex items-center justify-center text-white text-[6px]">K</div>
+                        <div id="inbox-viewing-tom" class="w-3 h-3 rounded-full bg-purple-500 flex items-center justify-center text-white text-[6px] -ml-1.5 border border-white opacity-0 transition-all duration-300">T</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Existing tickets -->
+                  <div class="px-3 py-2.5 border-b border-gray-100 hover:bg-gray-50 cursor-pointer">
+                    <div class="flex items-center justify-between mb-1">
+                      <div class="flex items-center gap-2">
+                        <div class="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center text-white text-[10px] font-medium">M</div>
+                        <span class="text-xs font-medium text-gray-700">Mike Chen</span>
+                      </div>
+                      <span class="text-[10px] text-gray-400">1h</span>
+                    </div>
+                    <p class="text-[10px] text-gray-500 truncate">Re: Invoice question</p>
+                  </div>
+
+                  <div class="px-3 py-2.5 border-b border-gray-100 hover:bg-gray-50 cursor-pointer opacity-60">
+                    <div class="flex items-center justify-between mb-1">
+                      <div class="flex items-center gap-2">
+                        <div class="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center text-white text-[10px] font-medium">S</div>
+                        <span class="text-xs font-medium text-gray-700">Sarah Lee</span>
+                      </div>
+                      <span class="text-[10px] text-gray-400">3h</span>
+                    </div>
+                    <p class="text-[10px] text-gray-400 truncate">Feature request</p>
+                  </div>
+                </div>
+
+                <!-- Conversation detail -->
+                <div class="flex-1 flex flex-col min-w-0">
+                  <!-- Conversation header -->
+                  <div class="px-3 py-2 border-b border-gray-100 flex items-center justify-between flex-shrink-0">
+                    <div class="flex items-center gap-2">
+                      <div class="w-6 h-6 rounded-full bg-rose-500 flex items-center justify-center text-white text-[10px] font-medium">E</div>
+                      <div>
+                        <p class="text-xs font-medium text-gray-800">Emma Wilson</p>
+                        <p class="text-[9px] text-gray-400">emma@company.com</p>
+                      </div>
+                    </div>
+                    <div id="inbox-collab-indicator" class="flex items-center gap-1 opacity-0 transition-all duration-300">
+                      <div class="flex -space-x-1">
+                        <div class="w-4 h-4 rounded-full bg-pink-500 border border-white flex items-center justify-center text-white text-[7px]">K</div>
+                        <div id="inbox-collab-tom" class="w-4 h-4 rounded-full bg-purple-500 border border-white flex items-center justify-center text-white text-[7px] opacity-0 transition-all duration-300">T</div>
+                      </div>
+                      <span class="text-[9px] text-gray-400">editing</span>
+                    </div>
+                  </div>
+
+                  <!-- Messages area -->
+                  <div id="inbox-messages" class="flex-1 p-3 space-y-2 overflow-y-auto">
+                    <!-- Emma's message -->
+                    <div id="inbox-msg-1" class="hidden flex gap-2 items-start opacity-0 translate-y-4 transition-all duration-500">
+                      <div class="w-5 h-5 rounded-full bg-rose-500 flex items-center justify-center text-white text-[9px] font-medium flex-shrink-0 mt-0.5">E</div>
+                      <div class="max-w-[90%]">
+                        <div class="flex items-center gap-1.5 mb-1">
+                          <Icon name="bx:envelope" class="w-3 h-3 text-gray-400" />
+                          <span class="text-[8px] text-gray-400">via Email</span>
+                        </div>
+                        <div class="bg-gray-100 rounded-xl rounded-tl-sm px-2.5 py-2">
+                          <p class="text-[11px] text-gray-700 leading-relaxed">Hi there! I'm interested in upgrading to your enterprise plan. Can you tell me about volume pricing for 500+ users?</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Internal notes thread (grouped in single bubble) -->
+                    <div id="inbox-internal-thread" class="hidden flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
+                      <div class="max-w-[85%]">
+                        <div class="text-right mb-1">
+                          <span class="text-[8px] text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded">Internal thread</span>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-xl rounded-tr-sm overflow-hidden">
+                          <!-- Kate's message -->
+                          <div class="px-2.5 py-2 border-b border-gray-100">
+                            <div class="flex items-start gap-1.5">
+                              <div class="w-4 h-4 rounded-full bg-pink-500 flex items-center justify-center text-white text-[7px] font-medium flex-shrink-0 mt-0.5">K</div>
+                              <p class="text-[11px] text-gray-600"><span class="inline-flex items-center gap-0.5 px-1 py-0.5 bg-purple-100 text-purple-700 rounded text-[9px] font-medium"><span class="w-2 h-2 rounded-full bg-purple-500 flex items-center justify-center text-white text-[5px]">T</span>Tom</span> can you help with enterprise pricing? 500+ seats</p>
+                            </div>
+                          </div>
+                          <!-- Tom's reply -->
+                          <div id="inbox-internal-tom-reply" class="px-2.5 py-2 opacity-0 transition-all duration-300">
+                            <div class="flex items-start gap-1.5">
+                              <div class="w-4 h-4 rounded-full bg-purple-500 flex items-center justify-center text-white text-[7px] font-medium flex-shrink-0 mt-0.5">T</div>
+                              <p class="text-[11px] text-gray-600">On it! I'll add the details 👍</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Sent reply with onboarding form -->
+                    <div id="inbox-sent-reply" class="hidden flex gap-2 items-start justify-end opacity-0 translate-y-4 transition-all duration-500">
+                      <div class="bg-gray-900 text-white rounded-xl rounded-tr-sm px-2.5 py-2 max-w-[85%]">
+                        <p class="text-[11px] leading-relaxed mb-2">Hi Emma! Great news - we can offer $45/user for 500+ seats. Here's the signup form:</p>
+                        <div class="bg-white/10 rounded-lg p-2 border border-white/20">
+                          <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded bg-primary/20 flex items-center justify-center">
+                              <Icon name="bx:building" class="w-4 h-4 text-primary" />
+                            </div>
+                            <div class="flex-1 min-w-0">
+                              <p class="text-[10px] text-white/60">Onboarding Form</p>
+                              <p class="text-xs font-medium">Enterprise Plan Signup</p>
+                            </div>
+                            <Icon name="bx:link-external" class="w-3 h-3 text-white/40" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="flex -space-x-1 flex-shrink-0 mt-0.5">
+                        <div class="w-4 h-4 rounded-full bg-pink-500 border border-white flex items-center justify-center text-white text-[7px]">K</div>
+                        <div class="w-4 h-4 rounded-full bg-purple-500 border border-white flex items-center justify-center text-white text-[7px]">T</div>
+                      </div>
+                    </div>
+
+                    <!-- Emma's response -->
+                    <div id="inbox-emma-response" class="hidden flex gap-2 items-start opacity-0 translate-y-4 transition-all duration-500">
+                      <div class="w-5 h-5 rounded-full bg-rose-500 flex items-center justify-center text-white text-[9px] font-medium flex-shrink-0 mt-0.5">E</div>
+                      <div class="bg-gray-100 rounded-xl rounded-tl-sm px-2.5 py-1.5 max-w-[90%]">
+                        <p class="text-[11px] text-gray-700">All signed up for 500 seats! Looking forward to rolling this out 👍</p>
+                      </div>
+                    </div>
+
+                    <!-- Payment received -->
+                    <div id="inbox-payment" class="hidden flex gap-2 items-start opacity-0 translate-y-4 transition-all duration-500">
+                      <div class="w-5 h-5 rounded-full bg-[#635bff] flex items-center justify-center text-white flex-shrink-0 mt-0.5">
+                        <Icon name="bx:credit-card" class="w-3 h-3" />
+                      </div>
+                      <div class="bg-green-50 border border-green-200 rounded-xl rounded-tl-sm px-2.5 py-1.5 max-w-[90%]">
+                        <p class="text-[10px] font-medium text-green-600 mb-0.5">Stripe payment received</p>
+                        <p class="text-xs text-green-800">$22,500.00 - Enterprise Plan (500 seats)</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Rich text editor (TipTap-style) -->
+                  <div id="inbox-editor" class="border-t border-gray-100 flex-shrink-0">
+                    <!-- Editor toolbar -->
+                    <div id="inbox-editor-toolbar" class="flex items-center gap-1 px-2 py-1.5 border-b border-gray-50 opacity-0 transition-all duration-300">
+                      <button class="p-1 rounded hover:bg-gray-100 text-gray-400">
+                        <Icon name="bx:bold" class="w-3.5 h-3.5" />
+                      </button>
+                      <button class="p-1 rounded hover:bg-gray-100 text-gray-400">
+                        <Icon name="bx:italic" class="w-3.5 h-3.5" />
+                      </button>
+                      <button class="p-1 rounded hover:bg-gray-100 text-gray-400">
+                        <Icon name="bx:link" class="w-3.5 h-3.5" />
+                      </button>
+                      <div class="flex-1"></div>
+                      <button id="inbox-internal-btn" class="flex items-center gap-1 px-2 py-0.5 rounded text-[9px] text-gray-500 hover:bg-gray-100 transition-colors">
+                        <Icon name="bx:comment-detail" class="w-3 h-3" />
+                        <span>Internal</span>
+                      </button>
+                    </div>
+
+                    <!-- Editor content with cursors -->
+                    <div class="relative px-3 py-2 min-h-[60px]">
+                      <!-- Placeholder -->
+                      <div id="inbox-editor-placeholder" class="text-[11px] text-gray-400">Reply to Emma...</div>
+
+                      <!-- Active editor content -->
+                      <div id="inbox-editor-content" class="text-[11px] text-gray-800 leading-relaxed hidden">
+                        <!-- Kate types start and end, leaving gap for Tom -->
+                        <span id="inbox-typed-kate1"></span>
+                        <!-- Tom fills in the middle -->
+                        <span id="inbox-typed-tom"></span><span id="inbox-cursor-tom" class="relative opacity-0 transition-all duration-300"><span class="absolute -top-4 left-0 px-1 py-0.5 bg-purple-500 text-white text-[8px] rounded whitespace-nowrap">Tom</span><span class="inline-block w-0.5 h-4 bg-purple-500 animate-pulse"></span></span>
+                        <!-- Kate's second part (typed before Tom fills gap) -->
+                        <span id="inbox-typed-kate2"></span>
+                      </div>
+
+                      <!-- Send button -->
+                      <button id="inbox-send-btn" class="absolute right-2 bottom-2 bg-gray-200 text-gray-400 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300">
+                        <Icon name="bx:send" class="w-3 h-3" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </ResultPanel>
-      </HeroDemoContainer>
 
-      <script>
-        function runHeroAnimation() {
-          const timeline = [
-            // Phase 1: Type name fields (q1 bar already visible)
-            { delay: 500, action: () => window.typeText_fname('Sarah', 80) },
-            { delay: 1300, action: () => window.typeText_lname('Johnson', 80) },
-            { delay: 2100, action: () => window.typeText_email('sarah@company.com', 50) },
+          <!-- Contact Hub Hero Demo -->
+          <div data-video-panel="contacts" class="video-panel hidden">
+            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
+              <!-- Window chrome -->
+              <div class="flex items-center gap-2 px-4 py-3 bg-gray-50 border-b border-gray-200">
+                <div class="flex gap-1.5">
+                  <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                  <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                  <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                </div>
+                <span class="text-sm text-gray-500 ml-2">Contact Hub</span>
+              </div>
 
-            // Phase 2: Star rating (progress + yellow bar animate together)
-            { delay: 3500, action: () => {
-              window['form-cardSetProgress'](33);
-              window.hideBar_q1();
-              window.showBar_q2();
-            }},
-            { delay: 4000, action: () => window.fillStars_stars(4) },
+              <div class="flex h-[400px]">
+                <!-- Contact list sidebar -->
+                <div class="w-[160px] border-r border-gray-200 bg-gray-50/50 overflow-hidden flex-shrink-0">
+                  <div class="px-2 py-2 border-b border-gray-200">
+                    <div class="flex items-center gap-1.5 bg-white rounded-lg px-2 py-1 border border-gray-200">
+                      <Icon name="bx:search" class="w-3 h-3 text-gray-400" />
+                      <span class="text-[10px] text-gray-400">Search...</span>
+                    </div>
+                  </div>
 
-            // Phase 3: Multiple choice (progress + yellow bar animate together)
-            { delay: 4700, action: () => {
-              window['form-cardSetProgress'](66);
-              window.hideBar_q2();
-              window.showBar_q3();
-            }},
-            { delay: 5200, action: () => window.selectOption_recommend('a') },
-            { delay: 5900, action: () => window['form-cardSetProgress'](100) },
+                  <div id="contact-emma" class="px-2 py-2 bg-primary/10 border-l-2 border-primary cursor-pointer">
+                    <div class="flex items-center gap-2">
+                      <div class="w-6 h-6 rounded-full bg-rose-500 flex items-center justify-center text-white text-[10px] font-medium">E</div>
+                      <div class="flex-1 min-w-0">
+                        <span class="text-[11px] font-medium text-gray-800 block truncate">Emma Wilson</span>
+                        <span class="text-[9px] text-gray-400">Acme Corp</span>
+                      </div>
+                    </div>
+                  </div>
 
-            // Phase 4: Transition to inbox - swap card positions
-            { delay: 6500, action: () => window['hero-demoFocusPanel']('right') },
+                  <div class="px-2 py-2 border-b border-gray-100 hover:bg-gray-50 cursor-pointer opacity-60">
+                    <div class="flex items-center gap-2">
+                      <div class="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-white text-[10px] font-medium">J</div>
+                      <div class="flex-1 min-w-0">
+                        <span class="text-[11px] font-medium text-gray-700 block truncate">James Lee</span>
+                        <span class="text-[9px] text-gray-400">TechStart</span>
+                      </div>
+                    </div>
+                  </div>
 
-            // Phase 5: Chat messages appear
-            { delay: 7000, action: () => showChatMessage('chat-msg-1') },
-            { delay: 8000, action: () => showChatMessage('chat-msg-2') },
-            { delay: 9500, action: () => showChatMessage('chat-msg-3') },
+                  <div class="px-2 py-2 hover:bg-gray-50 cursor-pointer opacity-60">
+                    <div class="flex items-center gap-2">
+                      <div class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center text-white text-[10px] font-medium">S</div>
+                      <div class="flex-1 min-w-0">
+                        <span class="text-[11px] font-medium text-gray-700 block truncate">Sarah Chen</span>
+                        <span class="text-[9px] text-gray-400">DataFlow</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-            // Reset and loop
-            { delay: 18000, action: () => resetAnimation() },
-          ];
+                <!-- Contact detail - Two column layout -->
+                <div class="flex-1 flex flex-col overflow-hidden">
+                  <!-- Contact header -->
+                  <div class="px-4 py-2.5 border-b border-gray-100 bg-gradient-to-r from-gray-50 to-white flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-rose-500 flex items-center justify-center text-white text-sm font-medium">E</div>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center gap-2">
+                        <h3 class="text-sm font-semibold text-gray-800">Emma Wilson</h3>
+                        <span id="contact-status" class="px-1.5 py-0.5 rounded text-[9px] font-medium bg-amber-100 text-amber-700 opacity-0 transition-all duration-500">Prospect</span>
+                      </div>
+                      <p class="text-[10px] text-gray-500">VP of Operations · Acme Corp · emma@acmecorp.com</p>
+                    </div>
+                    <button class="flex items-center gap-1.5 px-3 py-1.5 bg-gray-900 text-white text-xs font-medium rounded-lg hover:bg-gray-800 transition-colors flex-shrink-0">
+                      <Icon name="bx:message-square-dots" class="w-3.5 h-3.5" />
+                      <span>Start Conversation</span>
+                    </button>
+                  </div>
 
-          timeline.forEach(item => {
-            setTimeout(item.action, item.delay);
-          });
-        }
+                  <!-- Two column content -->
+                  <div class="flex-1 flex overflow-hidden">
+                    <!-- Left column - Activity -->
+                    <div class="w-1/2 p-3 border-r border-gray-100 overflow-y-auto overflow-x-hidden">
+                      <p class="text-[10px] font-medium text-gray-400 uppercase tracking-wide mb-2">Recent Activity</p>
+                      <div class="space-y-2.5 pr-1">
+                        <div id="contact-activity-1" class="flex gap-2.5 items-start opacity-0 translate-x-4 transition-all duration-500">
+                          <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <Icon name="bx:dollar" class="w-3.5 h-3.5 text-green-600" />
+                          </div>
+                          <div class="flex-1 min-w-0">
+                            <p class="text-xs text-gray-700">Payment received - <span class="font-medium">$2,400</span></p>
+                            <p class="text-[10px] text-gray-400">Today, 10:23 AM</p>
+                          </div>
+                        </div>
 
-        function showChatMessage(msgId) {
-          const msg = document.getElementById(msgId);
-          msg.classList.remove('opacity-0', 'translate-y-4');
-          msg.classList.add('opacity-100', 'translate-y-0');
-        }
+                        <div id="contact-activity-2" class="flex gap-2.5 items-start opacity-0 translate-x-4 transition-all duration-500">
+                          <div class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <Icon name="bx:poll" class="w-3.5 h-3.5 text-blue-600" />
+                          </div>
+                          <div class="flex-1 min-w-0">
+                            <p class="text-xs text-gray-700">Completed NPS Survey - Score <span class="font-medium text-green-600">9</span></p>
+                            <p class="text-[10px] text-gray-400">Yesterday, 3:45 PM</p>
+                          </div>
+                        </div>
 
-        function resetAnimation() {
-          // Reset progress bar
-          window['form-cardSetProgress'](0);
+                        <div id="contact-activity-3" class="flex gap-2.5 items-start opacity-0 translate-x-4 transition-all duration-500">
+                          <div class="w-6 h-6 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <Icon name="bx:mouse" class="w-3.5 h-3.5 text-purple-600" />
+                          </div>
+                          <div class="flex-1 min-w-0">
+                            <p class="text-xs text-gray-700">Clicked email link - <span class="text-gray-500">Pricing update</span></p>
+                            <p class="text-[10px] text-gray-400">Yesterday, 11:20 AM</p>
+                          </div>
+                        </div>
 
-          // Reset yellow bars (q1 stays visible)
-          window.showBar_q1();
-          window.hideBar_q2();
-          window.hideBar_q3();
+                        <div id="contact-activity-4" class="flex gap-2.5 items-start opacity-0 translate-x-4 transition-all duration-500">
+                          <div class="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <Icon name="bx:file" class="w-3.5 h-3.5 text-amber-600" />
+                          </div>
+                          <div class="flex-1 min-w-0">
+                            <p class="text-xs text-gray-700">Submitted Quote Request form</p>
+                            <p class="text-[10px] text-gray-400">Jan 28, 2:15 PM</p>
+                          </div>
+                        </div>
 
-          // Reset text fields
-          window.resetText_fname();
-          window.resetText_lname();
-          window.resetText_email();
+                        <div id="contact-activity-5" class="flex gap-2.5 items-start opacity-0 translate-x-4 transition-all duration-500">
+                          <div class="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <Icon name="bx:chat" class="w-3.5 h-3.5 text-gray-600" />
+                          </div>
+                          <div class="flex-1 min-w-0">
+                            <p class="text-xs text-gray-700">First conversation started</p>
+                            <p class="text-[10px] text-gray-400">Jan 27, 9:00 AM</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
 
-          // Reset stars
-          window.resetStars_stars();
+                    <!-- Right column - Metrics -->
+                    <div class="w-1/2 p-3 overflow-y-auto overflow-x-hidden bg-gray-50/30">
+                      <p class="text-[10px] font-medium text-gray-400 uppercase tracking-wide mb-2">Overview</p>
+                      <div class="grid grid-cols-2 gap-2">
+                        <!-- NPS Score with gauge -->
+                        <div id="contact-nps-card" class="bg-white rounded-lg p-2.5 border border-gray-100 opacity-0 translate-y-4 transition-all duration-500">
+                          <div class="flex items-center justify-between mb-1.5">
+                            <span class="text-[9px] font-medium text-gray-500 uppercase">NPS</span>
+                            <span class="text-lg font-bold text-green-600">9</span>
+                          </div>
+                          <!-- NPS gauge -->
+                          <div class="relative h-2 bg-gradient-to-r from-red-400 via-yellow-400 to-green-400 rounded-full">
+                            <div id="contact-nps-marker" class="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-white border-2 border-green-500 rounded-full shadow-md transition-all duration-700" style="left: 0%"></div>
+                          </div>
+                        </div>
 
-          // Reset multiple choice
-          window.resetOption_recommend();
+                        <!-- Forms Submitted -->
+                        <div id="contact-stat-1" class="bg-white rounded-lg p-2.5 border border-gray-100 opacity-0 translate-y-4 transition-all duration-500">
+                          <p class="text-[9px] text-gray-500 uppercase mb-1">Forms</p>
+                          <p class="text-lg font-bold text-gray-800">4</p>
+                        </div>
 
-          // Reset chat messages
-          ['chat-msg-1', 'chat-msg-2', 'chat-msg-3'].forEach(id => {
-            const msg = document.getElementById(id);
-            msg.classList.add('opacity-0', 'translate-y-4');
-            msg.classList.remove('opacity-100', 'translate-y-0');
-          });
+                        <!-- Click Rate -->
+                        <div id="contact-stat-2" class="bg-white rounded-lg p-2.5 border border-gray-100 opacity-0 translate-y-4 transition-all duration-500">
+                          <p class="text-[9px] text-gray-500 uppercase mb-1">Click Rate</p>
+                          <p class="text-lg font-bold text-primary">68%</p>
+                        </div>
 
-          // Reset focus to form
-          window['hero-demoFocusPanel']('left');
-
-          // Restart animation
-          setTimeout(runHeroAnimation, 1000);
-        }
-
-        // Start animation when page loads and after view transitions
-        document.addEventListener('DOMContentLoaded', () => setTimeout(runHeroAnimation, 1000));
-        document.addEventListener('astro:after-swap', () => setTimeout(runHeroAnimation, 1000));
-      </script>
-
+                        <!-- Value -->
+                        <div id="contact-value-card" class="bg-green-50 rounded-lg p-2.5 border border-green-200 opacity-0 translate-y-4 transition-all duration-500">
+                          <p class="text-[9px] text-green-600 font-medium uppercase mb-1">Value</p>
+                          <p class="text-lg font-bold text-green-700">$12,400</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </Container>
   </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const videoPanels = document.querySelectorAll('.video-panel');
+
+      // Tab order for auto-cycling
+      const tabOrder = ['forms', 'surveys', 'inbox', 'contacts'];
+      let currentTabIndex = 0;
+
+      // Animation state
+      let formsTimeouts = [], surveyTimeouts = [], inboxTimeouts = [], contactsTimeouts = [];
+      let formsRunning = false, surveyRunning = false, inboxRunning = false, contactsRunning = false;
+
+      // Start forms animation on load (forms tab is default)
+      setTimeout(() => runFormsAnimation(), 1000);
+
+      function switchToTab(tabId) {
+        currentTabIndex = tabOrder.indexOf(tabId);
+
+        // Update button styles
+        tabButtons.forEach(btn => {
+          btn.classList.remove('bg-white', 'shadow-sm', 'text-gray-900');
+          btn.classList.add('text-gray-600');
+          if (btn.getAttribute('data-tab') === tabId) {
+            btn.classList.add('bg-white', 'shadow-sm', 'text-gray-900');
+            btn.classList.remove('text-gray-600');
+          }
+        });
+
+        // Show/hide panels
+        videoPanels.forEach(panel => {
+          if (panel.getAttribute('data-video-panel') === tabId) {
+            panel.classList.remove('hidden');
+            panel.classList.add('block');
+          } else {
+            panel.classList.add('hidden');
+            panel.classList.remove('block');
+          }
+        });
+
+        // Stop and reset all animations
+        stopFormsAnimation(); resetFormsAnimation();
+        stopSurveyAnimation(); resetSurveyAnimation();
+        stopInboxAnimation(); resetInboxAnimation();
+        stopContactsAnimation(); resetContactsAnimation();
+
+        // Start relevant animation
+        setTimeout(() => {
+          if (tabId === 'forms') runFormsAnimation();
+          else if (tabId === 'surveys') runSurveyAnimation();
+          else if (tabId === 'inbox') runInboxAnimation();
+          else if (tabId === 'contacts') runContactsAnimation();
+        }, 500);
+      }
+
+      function nextTab() {
+        currentTabIndex = (currentTabIndex + 1) % tabOrder.length;
+        switchToTab(tabOrder[currentTabIndex]);
+      }
+
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const tabId = button.getAttribute('data-tab');
+          switchToTab(tabId);
+        });
+      });
+
+      // Helper functions
+      function showElement(id) {
+        const el = document.getElementById(id);
+        if (el) {
+          el.classList.remove('hidden', 'opacity-0', 'translate-y-4');
+          el.classList.add('opacity-100', 'translate-y-0');
+        }
+      }
+
+      function hideElement(id) {
+        const el = document.getElementById(id);
+        if (el) {
+          el.classList.add('opacity-0', 'translate-y-4');
+          el.classList.remove('opacity-100', 'translate-y-0');
+        }
+      }
+
+      // ========== FORMS ANIMATION ==========
+      function formsScrollToBottom() {
+        const container = document.getElementById('forms-messages');
+        if (container) {
+          container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
+        }
+      }
+
+      function formsTypeText(text, speed = 40) {
+        const el = document.getElementById('forms-typed-text');
+        if (!el) return;
+        let i = 0;
+        el.textContent = '';
+        function type() {
+          if (i < text.length && formsRunning) {
+            el.textContent += text.charAt(i);
+            i++;
+            formsTimeouts.push(setTimeout(type, speed));
+          }
+        }
+        type();
+      }
+
+      function runFormsAnimation() {
+        if (formsRunning) return;
+        formsRunning = true;
+
+        const timeline = [
+          // Phase 1: Type name fields
+          { delay: 500, action: () => window['typeText_forms-fname'] && window['typeText_forms-fname']('Rachel', 80) },
+          { delay: 1200, action: () => window['typeText_forms-lname'] && window['typeText_forms-lname']('Kim', 80) },
+          { delay: 1800, action: () => window['typeText_forms-email'] && window['typeText_forms-email']('rachel@email.com', 50) },
+
+          // Phase 2: Progress to position/experience
+          { delay: 2800, action: () => {
+            window['forms-formSetProgress'] && window['forms-formSetProgress'](33);
+            window['hideBar_forms-q1'] && window['hideBar_forms-q1']();
+            window['showBar_forms-q2'] && window['showBar_forms-q2']();
+          }},
+
+          // Select position and experience
+          { delay: 3200, action: () => window['selectOption_forms-position'] && window['selectOption_forms-position']('a') },
+          { delay: 3800, action: () => window['selectOption_forms-experience'] && window['selectOption_forms-experience']('b') },
+
+          // Phase 3: Progress to CV upload
+          { delay: 4400, action: () => {
+            window['forms-formSetProgress'] && window['forms-formSetProgress'](66);
+            window['hideBar_forms-q2'] && window['hideBar_forms-q2']();
+            window['showBar_forms-q3'] && window['showBar_forms-q3']();
+          }},
+
+          // File upload animation
+          { delay: 4800, action: () => {
+            const upload = document.getElementById('forms-upload');
+            if (upload) upload.classList.add('border-white', 'bg-white/10');
+          }},
+          { delay: 5200, action: () => {
+            document.getElementById('forms-upload-empty').classList.add('hidden');
+            document.getElementById('forms-upload-file').classList.remove('hidden');
+          }},
+          { delay: 5600, action: () => window['forms-formSetProgress'] && window['forms-formSetProgress'](100) },
+
+          // Phase 4: Transition to inbox
+          { delay: 6200, action: () => window['forms-demoFocusPanel'] && window['forms-demoFocusPanel']('right') },
+
+          // Phase 5: Show ticket and form submission
+          { delay: 6700, action: () => {
+            const ticket = document.getElementById('forms-ticket-new');
+            if (ticket) { ticket.classList.remove('opacity-0'); ticket.classList.add('opacity-100'); }
+          }},
+          { delay: 7200, action: () => { showElement('forms-msg-1'); formsScrollToBottom(); } },
+
+          // Automation adds labels
+          { delay: 7800, action: () => {
+            const auto = document.getElementById('forms-automation');
+            if (auto) { auto.classList.remove('hidden', 'opacity-0'); auto.classList.add('opacity-100'); }
+            formsScrollToBottom();
+          }},
+
+          // Jane starts viewing
+          { delay: 8500, action: () => {
+            const indicator = document.getElementById('forms-viewing-indicator');
+            const badge = document.getElementById('forms-new-badge');
+            const collab = document.getElementById('forms-collab-indicator');
+            if (indicator) { indicator.classList.remove('opacity-0'); indicator.classList.add('opacity-100'); }
+            if (badge) badge.classList.add('hidden');
+            if (collab) { collab.classList.remove('opacity-0'); collab.classList.add('opacity-100'); }
+          }},
+
+          // Internal thread appears (Jane asks Tom)
+          { delay: 9200, action: () => { showElement('forms-internal-thread'); formsScrollToBottom(); } },
+
+          // Tom joins
+          { delay: 10000, action: () => {
+            const collabTom = document.getElementById('forms-collab-tom');
+            if (collabTom) { collabTom.classList.remove('opacity-0'); collabTom.classList.add('opacity-100'); }
+          }},
+
+          // Tom replies in internal thread
+          { delay: 10600, action: () => {
+            const reply = document.getElementById('forms-internal-tom-reply');
+            if (reply) { reply.classList.remove('opacity-0'); reply.classList.add('opacity-100'); }
+            formsScrollToBottom();
+          }},
+
+          // Editor activates
+          { delay: 11200, action: () => {
+            const placeholder = document.getElementById('forms-editor-placeholder');
+            const content = document.getElementById('forms-editor-content');
+            const toolbar = document.getElementById('forms-editor-toolbar');
+            const cursor = document.getElementById('forms-cursor');
+            if (placeholder) placeholder.classList.add('hidden');
+            if (content) content.classList.remove('hidden');
+            if (toolbar) { toolbar.classList.remove('opacity-0'); toolbar.classList.add('opacity-100'); }
+            if (cursor) { cursor.classList.remove('opacity-0'); cursor.classList.add('opacity-100'); }
+          }},
+
+          // Tom types reply
+          { delay: 11500, action: () => formsTypeText('Hi Rachel! Thanks for applying. Your experience looks great - would you be free for a call Thursday?', 25) },
+
+          // Hide cursor when done typing
+          { delay: 14500, action: () => {
+            const cursor = document.getElementById('forms-cursor');
+            if (cursor) { cursor.classList.add('opacity-0'); cursor.classList.remove('opacity-100'); }
+          }},
+
+          // Send button activates
+          { delay: 15000, action: () => {
+            const btn = document.getElementById('forms-send-btn');
+            if (btn) {
+              btn.classList.remove('bg-gray-200', 'text-gray-400');
+              btn.classList.add('bg-gray-900', 'text-white');
+            }
+          }},
+
+          // Send message
+          { delay: 15600, action: () => {
+            // Clear editor
+            const content = document.getElementById('forms-editor-content');
+            const placeholder = document.getElementById('forms-editor-placeholder');
+            const toolbar = document.getElementById('forms-editor-toolbar');
+            const btn = document.getElementById('forms-send-btn');
+            const typedText = document.getElementById('forms-typed-text');
+            const collab = document.getElementById('forms-collab-indicator');
+
+            if (typedText) typedText.textContent = '';
+            if (content) content.classList.add('hidden');
+            if (placeholder) placeholder.classList.remove('hidden');
+            if (toolbar) { toolbar.classList.add('opacity-0'); toolbar.classList.remove('opacity-100'); }
+            if (btn) {
+              btn.classList.add('bg-gray-200', 'text-gray-400');
+              btn.classList.remove('bg-gray-900', 'text-white');
+            }
+            if (collab) { collab.classList.add('opacity-0'); collab.classList.remove('opacity-100'); }
+
+            // Show sent message
+            showElement('forms-sent-reply');
+            formsScrollToBottom();
+          }},
+
+          // Next tab
+          { delay: 19000, action: () => nextTab() },
+        ];
+
+        timeline.forEach(item => {
+          formsTimeouts.push(setTimeout(item.action, item.delay));
+        });
+      }
+
+      function stopFormsAnimation() {
+        formsRunning = false;
+        formsTimeouts.forEach(t => clearTimeout(t));
+        formsTimeouts = [];
+      }
+
+      function resetFormsAnimation() {
+        stopFormsAnimation();
+
+        // Reset progress bar
+        window['forms-formSetProgress'] && window['forms-formSetProgress'](0);
+
+        // Reset yellow bars
+        window['showBar_forms-q1'] && window['showBar_forms-q1']();
+        window['hideBar_forms-q2'] && window['hideBar_forms-q2']();
+        window['hideBar_forms-q3'] && window['hideBar_forms-q3']();
+
+        // Reset text fields
+        window['resetText_forms-fname'] && window['resetText_forms-fname']();
+        window['resetText_forms-lname'] && window['resetText_forms-lname']();
+        window['resetText_forms-email'] && window['resetText_forms-email']();
+
+        // Reset multiple choice
+        window['resetOption_forms-position'] && window['resetOption_forms-position']();
+        window['resetOption_forms-experience'] && window['resetOption_forms-experience']();
+
+        // Reset file upload
+        const upload = document.getElementById('forms-upload');
+        if (upload) upload.classList.remove('border-white', 'bg-white/10');
+        document.getElementById('forms-upload-empty')?.classList.remove('hidden');
+        document.getElementById('forms-upload-file')?.classList.add('hidden');
+
+        // Reset inbox ticket
+        const ticket = document.getElementById('forms-ticket-new');
+        if (ticket) { ticket.classList.add('opacity-0'); ticket.classList.remove('opacity-100'); }
+
+        // Reset viewing indicators
+        const viewingIndicator = document.getElementById('forms-viewing-indicator');
+        const badge = document.getElementById('forms-new-badge');
+        const collab = document.getElementById('forms-collab-indicator');
+        const collabTom = document.getElementById('forms-collab-tom');
+        if (viewingIndicator) { viewingIndicator.classList.add('opacity-0'); viewingIndicator.classList.remove('opacity-100'); }
+        if (badge) badge.classList.remove('hidden');
+        if (collab) { collab.classList.add('opacity-0'); collab.classList.remove('opacity-100'); }
+        if (collabTom) { collabTom.classList.add('opacity-0'); collabTom.classList.remove('opacity-100'); }
+
+        // Reset messages
+        ['forms-msg-1', 'forms-automation', 'forms-internal-thread', 'forms-sent-reply'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) {
+            el.classList.add('hidden', 'opacity-0', 'translate-y-4');
+            el.classList.remove('opacity-100', 'translate-y-0');
+          }
+        });
+
+        // Reset internal thread reply
+        const tomReply = document.getElementById('forms-internal-tom-reply');
+        if (tomReply) { tomReply.classList.add('opacity-0'); tomReply.classList.remove('opacity-100'); }
+
+        // Reset editor
+        const placeholder = document.getElementById('forms-editor-placeholder');
+        const content = document.getElementById('forms-editor-content');
+        const toolbar = document.getElementById('forms-editor-toolbar');
+        const typedText = document.getElementById('forms-typed-text');
+        const cursor = document.getElementById('forms-cursor');
+        const btn = document.getElementById('forms-send-btn');
+
+        if (typedText) typedText.textContent = '';
+        if (placeholder) placeholder.classList.remove('hidden');
+        if (content) content.classList.add('hidden');
+        if (toolbar) { toolbar.classList.add('opacity-0'); toolbar.classList.remove('opacity-100'); }
+        if (cursor) { cursor.classList.add('opacity-0'); cursor.classList.remove('opacity-100'); }
+        if (btn) {
+          btn.classList.add('bg-gray-200', 'text-gray-400');
+          btn.classList.remove('bg-gray-900', 'text-white');
+        }
+
+        // Reset scroll position
+        const messagesContainer = document.getElementById('forms-messages');
+        if (messagesContainer) messagesContainer.scrollTop = 0;
+
+        window['forms-demoFocusPanel'] && window['forms-demoFocusPanel']('left');
+      }
+
+      // ========== SURVEY ANIMATION ==========
+      function selectLikert(num) {
+        const btn = document.getElementById(`survey-likert-${num}`);
+        if (btn) {
+          btn.classList.remove('bg-white/5', 'text-white/70', 'border-white/30');
+          btn.classList.add('bg-white', 'text-[#2A98C6]', 'border-white', 'font-bold');
+        }
+      }
+
+      function resetLikert() {
+        for (let i = 0; i <= 10; i++) {
+          const btn = document.getElementById(`survey-likert-${i}`);
+          if (btn) {
+            btn.classList.add('bg-white/5', 'text-white/70', 'border-white/30');
+            btn.classList.remove('bg-white', 'text-[#2A98C6]', 'border-white', 'font-bold');
+          }
+        }
+      }
+
+      function animateRatingBars() {
+        const data = { 5: 45, 4: 35, 3: 15, 2: 3, 1: 2 };
+        document.getElementById('survey-avg-num').textContent = '4.2';
+        document.getElementById('survey-avg-stars').textContent = '★★★★☆';
+        document.getElementById('survey-rating-responses').textContent = '127';
+        Object.entries(data).forEach(([r, pct]) => {
+          const bar = document.getElementById(`survey-bar-${r}`);
+          const pctEl = document.getElementById(`survey-pct-${r}`);
+          if (bar) bar.style.width = `${pct}%`;
+          if (pctEl) pctEl.textContent = `${pct}%`;
+        });
+      }
+
+      function animateDonutChart() {
+        document.getElementById('survey-yes-pct').textContent = '78%';
+        document.getElementById('survey-no-pct').textContent = '22%';
+        document.getElementById('survey-recommend-responses').textContent = '127';
+        const yesCircle = document.getElementById('survey-donut-yes');
+        const noCircle = document.getElementById('survey-donut-no');
+        if (yesCircle) yesCircle.style.strokeDasharray = '68.64 88';
+        if (noCircle) { noCircle.style.strokeDasharray = '19.36 88'; noCircle.style.strokeDashoffset = '-68.64'; }
+      }
+
+      function runSurveyAnimation() {
+        if (surveyRunning) return;
+        surveyRunning = true;
+
+        const timeline = [
+          // Q1: Star rating
+          { delay: 500, action: () => window['fillStars_survey-stars'] && window['fillStars_survey-stars'](4) },
+          { delay: 1200, action: () => {
+            window['survey-formSetProgress'] && window['survey-formSetProgress'](33);
+            window['hideBar_survey-q1'] && window['hideBar_survey-q1']();
+            window['showBar_survey-q2'] && window['showBar_survey-q2']();
+          }},
+          // Q2: Likert scale
+          { delay: 1800, action: () => selectLikert(8) },
+          { delay: 2300, action: () => {
+            window['survey-formSetProgress'] && window['survey-formSetProgress'](66);
+            window['hideBar_survey-q2'] && window['hideBar_survey-q2']();
+            window['showBar_survey-q3'] && window['showBar_survey-q3']();
+          }},
+          // Q3: Yes/No
+          { delay: 2900, action: () => window['selectOption_survey-recommend'] && window['selectOption_survey-recommend']('a') },
+          { delay: 3400, action: () => {
+            window['survey-formSetProgress'] && window['survey-formSetProgress'](100);
+          }},
+          { delay: 3900, action: () => window['survey-demoFocusPanel'] && window['survey-demoFocusPanel']('right') },
+          { delay: 4800, action: () => { showElement('survey-result-rating'); animateRatingBars(); }},
+          { delay: 6000, action: () => { showElement('survey-result-recommend'); animateDonutChart(); }},
+          { delay: 11000, action: () => nextTab() },
+        ];
+
+        timeline.forEach(item => {
+          surveyTimeouts.push(setTimeout(item.action, item.delay));
+        });
+      }
+
+      function stopSurveyAnimation() {
+        surveyRunning = false;
+        surveyTimeouts.forEach(t => clearTimeout(t));
+        surveyTimeouts = [];
+      }
+
+      function resetSurveyAnimation() {
+        stopSurveyAnimation();
+        window['survey-formSetProgress'] && window['survey-formSetProgress'](0);
+        window['showBar_survey-q1'] && window['showBar_survey-q1']();
+        window['hideBar_survey-q2'] && window['hideBar_survey-q2']();
+        window['hideBar_survey-q3'] && window['hideBar_survey-q3']();
+        window['resetStars_survey-stars'] && window['resetStars_survey-stars']();
+        resetLikert();
+        window['resetOption_survey-recommend'] && window['resetOption_survey-recommend']();
+        hideElement('survey-result-rating');
+        hideElement('survey-result-recommend');
+        document.getElementById('survey-avg-num').textContent = '0.0';
+        document.getElementById('survey-avg-stars').textContent = '☆☆☆☆☆';
+        document.getElementById('survey-rating-responses').textContent = '0';
+        [1,2,3,4,5].forEach(r => {
+          const bar = document.getElementById(`survey-bar-${r}`);
+          const pctEl = document.getElementById(`survey-pct-${r}`);
+          if (bar) bar.style.width = '0%';
+          if (pctEl) pctEl.textContent = '0%';
+        });
+        document.getElementById('survey-yes-pct').textContent = '0%';
+        document.getElementById('survey-no-pct').textContent = '0%';
+        document.getElementById('survey-recommend-responses').textContent = '0';
+        const yesCircle = document.getElementById('survey-donut-yes');
+        const noCircle = document.getElementById('survey-donut-no');
+        if (yesCircle) yesCircle.style.strokeDasharray = '0 88';
+        if (noCircle) { noCircle.style.strokeDasharray = '0 88'; noCircle.style.strokeDashoffset = '0'; }
+        window['survey-demoFocusPanel'] && window['survey-demoFocusPanel']('left');
+      }
+
+      // ========== INBOX ANIMATION ==========
+      function inboxScrollToBottom() {
+        const container = document.getElementById('inbox-messages');
+        if (container) {
+          container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
+        }
+      }
+
+      function typeText(elementId, text, speed = 40) {
+        const el = document.getElementById(elementId);
+        if (!el) return;
+        let i = 0;
+        el.textContent = '';
+        function type() {
+          if (i < text.length) {
+            el.textContent += text.charAt(i);
+            i++;
+            inboxTimeouts.push(setTimeout(type, speed));
+          }
+        }
+        type();
+      }
+
+      function runInboxAnimation() {
+        if (inboxRunning) return;
+        inboxRunning = true;
+
+        const timeline = [
+          // Show Emma's message
+          { delay: 500, action: () => showElement('inbox-msg-1') },
+
+          // Kate joins
+          { delay: 1200, action: () => {
+            const kate = document.getElementById('inbox-kate-avatar');
+            if (kate) { kate.classList.remove('opacity-0'); kate.classList.add('opacity-100'); }
+          }},
+
+          // Viewing indicator (Kate viewing)
+          { delay: 1600, action: () => {
+            const indicator = document.getElementById('inbox-viewing-indicator');
+            const badge = document.getElementById('inbox-new-badge');
+            if (indicator) { indicator.classList.remove('opacity-0'); indicator.classList.add('opacity-100'); }
+            if (badge) badge.classList.add('hidden');
+          }},
+
+          // Kate opens internal thread asking Tom for help with pricing
+          { delay: 2200, action: () => {
+            showElement('inbox-internal-thread');
+            inboxScrollToBottom();
+          }},
+
+          // Tom joins (avatar becomes active)
+          { delay: 3000, action: () => {
+            const tom = document.getElementById('inbox-tom-avatar');
+            const tomViewing = document.getElementById('inbox-viewing-tom');
+            const collab = document.getElementById('inbox-collab-indicator');
+            if (tom) { tom.classList.remove('opacity-50'); tom.classList.add('opacity-100'); }
+            if (tomViewing) { tomViewing.classList.remove('opacity-0'); tomViewing.classList.add('opacity-100'); }
+            if (collab) { collab.classList.remove('opacity-0'); collab.classList.add('opacity-100'); }
+          }},
+
+          // Tom replies in internal thread
+          { delay: 3800, action: () => {
+            const reply = document.getElementById('inbox-internal-tom-reply');
+            if (reply) { reply.classList.remove('opacity-0'); reply.classList.add('opacity-100'); }
+          }},
+
+          // Show sent reply with onboarding form
+          { delay: 5000, action: () => {
+            showElement('inbox-sent-reply');
+            inboxScrollToBottom();
+          }},
+
+          // Hide collab indicators after send
+          { delay: 5500, action: () => {
+            const collab = document.getElementById('inbox-collab-indicator');
+            const collabTom = document.getElementById('inbox-collab-tom');
+            if (collab) { collab.classList.add('opacity-0'); collab.classList.remove('opacity-100'); }
+            if (collabTom) { collabTom.classList.add('opacity-0'); collabTom.classList.remove('opacity-100'); }
+          }},
+
+          // Emma responds - she signed up!
+          { delay: 7000, action: () => {
+            showElement('inbox-emma-response');
+            inboxScrollToBottom();
+          }},
+
+          // Payment notification appears
+          { delay: 9000, action: () => {
+            showElement('inbox-payment');
+            inboxScrollToBottom();
+          }},
+
+          // Next tab
+          { delay: 14000, action: () => nextTab() },
+        ];
+
+        timeline.forEach(item => {
+          inboxTimeouts.push(setTimeout(item.action, item.delay));
+        });
+      }
+
+      function stopInboxAnimation() {
+        inboxRunning = false;
+        inboxTimeouts.forEach(t => clearTimeout(t));
+        inboxTimeouts = [];
+      }
+
+      function resetInboxAnimation() {
+        // Reset all messages (with hidden class like forms)
+        ['inbox-msg-1', 'inbox-internal-thread', 'inbox-sent-reply', 'inbox-emma-response', 'inbox-payment'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) {
+            el.classList.add('hidden', 'opacity-0', 'translate-y-4');
+            el.classList.remove('opacity-100', 'translate-y-0');
+          }
+        });
+
+        // Reset avatars
+        const kate = document.getElementById('inbox-kate-avatar');
+        const tom = document.getElementById('inbox-tom-avatar');
+        if (kate) { kate.classList.add('opacity-0'); kate.classList.remove('opacity-100'); }
+        if (tom) { tom.classList.add('opacity-50'); tom.classList.remove('opacity-100'); }
+
+        // Reset viewing indicators
+        const indicator = document.getElementById('inbox-viewing-indicator');
+        const tomViewing = document.getElementById('inbox-viewing-tom');
+        const badge = document.getElementById('inbox-new-badge');
+        if (indicator) { indicator.classList.add('opacity-0'); indicator.classList.remove('opacity-100'); }
+        if (tomViewing) { tomViewing.classList.add('opacity-0'); tomViewing.classList.remove('opacity-100'); }
+        if (badge) badge.classList.remove('hidden');
+
+        // Reset collab indicators
+        const collab = document.getElementById('inbox-collab-indicator');
+        const collabTom = document.getElementById('inbox-collab-tom');
+        if (collab) { collab.classList.add('opacity-0'); collab.classList.remove('opacity-100'); }
+        if (collabTom) { collabTom.classList.add('opacity-0'); collabTom.classList.remove('opacity-100'); }
+
+        // Reset internal thread reply
+        const internalReply = document.getElementById('inbox-internal-tom-reply');
+        if (internalReply) { internalReply.classList.add('opacity-0'); internalReply.classList.remove('opacity-100'); }
+
+        // Reset scroll position
+        const messagesContainer = document.getElementById('inbox-messages');
+        if (messagesContainer) messagesContainer.scrollTop = 0;
+      }
+
+      // ========== CONTACT HUB ANIMATION ==========
+      function runContactsAnimation() {
+        if (contactsRunning) return;
+        contactsRunning = true;
+
+        const timeline = [
+          // Show status badge
+          { delay: 400, action: () => showElement('contact-status') },
+          // Show NPS card with gauge animation
+          { delay: 800, action: () => {
+            showElement('contact-nps-card');
+            setTimeout(() => {
+              const marker = document.getElementById('contact-nps-marker');
+              if (marker) marker.style.left = '90%'; // 9/10 = 90%
+            }, 200);
+          }},
+          // Show stats
+          { delay: 1200, action: () => showElement('contact-stat-1') },
+          { delay: 1400, action: () => showElement('contact-stat-2') },
+          { delay: 1800, action: () => showElement('contact-value-card') },
+          // Show activity items (most recent first, top to bottom)
+          { delay: 2200, action: () => showElement('contact-activity-1') },
+          { delay: 2500, action: () => showElement('contact-activity-2') },
+          { delay: 2800, action: () => showElement('contact-activity-3') },
+          { delay: 3100, action: () => showElement('contact-activity-4') },
+          { delay: 3400, action: () => showElement('contact-activity-5') },
+          { delay: 10000, action: () => nextTab() },
+        ];
+
+        timeline.forEach(item => {
+          contactsTimeouts.push(setTimeout(item.action, item.delay));
+        });
+      }
+
+      function stopContactsAnimation() {
+        contactsRunning = false;
+        contactsTimeouts.forEach(t => clearTimeout(t));
+        contactsTimeouts = [];
+      }
+
+      function resetContactsAnimation() {
+        // Reset activity items
+        ['contact-activity-1', 'contact-activity-2', 'contact-activity-3', 'contact-activity-4', 'contact-activity-5'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) {
+            el.classList.add('opacity-0', 'translate-x-4');
+            el.classList.remove('opacity-100', 'translate-x-0');
+          }
+        });
+        // Reset metrics
+        hideElement('contact-status');
+        hideElement('contact-nps-card');
+        hideElement('contact-stat-1');
+        hideElement('contact-stat-2');
+        hideElement('contact-value-card');
+        // Reset NPS marker
+        const marker = document.getElementById('contact-nps-marker');
+        if (marker) marker.style.left = '0%';
+      }
+    });
+
+    // Also run on astro view transitions
+    document.addEventListener('astro:after-swap', () => {
+      setTimeout(() => {
+        // Re-initialize if needed
+      }, 1000);
+    });
+  </script>
 
   <!-- Customer Logos -->
   <CustomerLogos />

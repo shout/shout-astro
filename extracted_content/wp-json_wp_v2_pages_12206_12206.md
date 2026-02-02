@@ -1,1 +1,0 @@
-{"id":12206,"date":"2022\-11\-02T12:29:30","date\_gmt":"2022\-11\-02T12:29:30","guid":{"rendered":"http:\\/\\/shout.com\\/?page\_id\=12206"},"modified":"2024\-05\-23T15:02:12","modified\_gmt":"2024\-05\-23T15:02:12","slug":"crm","status":"publish","type":"page","link":"https:\\/\\/wp\-stagesh.bugfree.co.uk\\/crm\\/","title":{"rendered":"CRM"},"content":{"rendered":"\\n

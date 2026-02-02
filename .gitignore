@@ -57,3 +57,11 @@ ENV/
 # Temporary files
 *.tmp
 *.temp
+
+# Migration/dev artifacts
+extracted_content/
+*.py
+CLAUDE.md
+BLOG_REVIEW_NEEDED.md
+MIGRATION_REPORT.md
+*-content.md
