@@ -3,6 +3,30 @@ import AstroshipLayout from "../layouts/AstroshipLayout.astro";
 import Container from "../components/container.astro";
 import Button from "../components/ui/button.astro";
 import { Icon } from "astro-icon/components";
+import FAQSection from "../components/faq-section.astro";
+
+const csatFaqs = [
+  {
+    question: "What is CSAT?",
+    answer: "<p>CSAT stands for Customer Satisfaction Score. It's a metric businesses use to measure how satisfied customers are with your products, services, or overall experiences. The assumption is that the more satisfied your customers are, the more likely you are to retain them.</p><p>Typically, CSAT is measured through surveys where customers are asked to rate their experience on a scale of 1-5 (Very Dissatisfied to Very Satisfied).</p>"
+  },
+  {
+    question: "How do I collect CSAT data?",
+    answer: "<p>Customer satisfaction is measured by running a survey after a recent interaction or touchpoint in the customer journey. For instance, say that a customer has recently purchased a product from your store. You'd then follow up with a CSAT survey that asks them to rate different elements of their experience, ranging from the quality of the product to the helpfulness of employees.</p><p>Your CSAT question would look a little something like this: <strong>'How satisfied are you with the quality of [product]?'</strong></p>"
+  },
+  {
+    question: "What is the CSAT question scale?",
+    answer: "<p>Typically, the scale for a CSAT question would range from 1-5, with two negative options, one neutral option, and two positive options:</p><ul style='margin-left: 1.5em; margin-top: 0.5em;'><li>Very Dissatisfied</li><li>Dissatisfied</li><li>Neutral (or 'Neither Satisfied or Dissatisfied')</li><li>Satisfied</li><li>Very Satisfied</li></ul>"
+  },
+  {
+    question: "How is CSAT calculated?",
+    answer: "<p>CSAT score is calculated by taking the percentage of positive responses (e.g., those who chose 'Satisfied' or 'Very Satisfied') and expressing it as a score out of 100.</p><p><strong>CSAT formula:</strong> Number of Satisfied Customers / Total Number of Responses × 100</p>"
+  },
+  {
+    question: "What is a good CSAT score?",
+    answer: "<p>A higher CSAT score indicates a higher level of customer satisfaction, while a lower score suggests that improvements may be needed. Generally, CSAT scores can be broken down into four categories:</p><ul style='margin-left: 1.5em; margin-top: 0.5em;'><li><strong>0-50:</strong> Need Improvements</li><li><strong>50-70:</strong> Average</li><li><strong>70-90:</strong> Good</li><li><strong>90-100:</strong> Excellent</li></ul>"
+  }
+];
 ---
 
 <AstroshipLayout
@@ -12,339 +36,144 @@ import { Icon } from "astro-icon/components";
   <!-- Hero Section -->
   <section class="py-20">
     <Container>
-      <div class="grid lg:grid-cols-2 gap-10 items-center">
-        <div>
-          <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
-            CSAT <span class="text-primary">Calculator</span>
-          </h1>
-          <p class="text-lg mt-4 text-gray-600 max-w-xl">
-            Use our free CSAT calculator to find your customer satisfaction score based on survey responses.
-          </p>
-        </div>
-        <div class="hidden lg:flex justify-center items-center">
-          <div class="w-24 h-24 text-primary">
-            <Icon name="bx:smile" class="w-full h-full" />
-          </div>
-        </div>
+      <div class="max-w-4xl">
+        <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+          CSAT <span class="text-primary">Calculator</span>
+        </h1>
+        <p class="text-lg mt-4 text-gray-600 max-w-2xl">
+          Calculate your CSAT score
+        </p>
+        <p class="text-base mt-2 text-gray-600 max-w-2xl">
+          Use our free CSAT calculator to find your customer satisfaction score, based on survey responses.
+        </p>
       </div>
     </Container>
   </section>
 
   <!-- Calculator Section -->
-  <section class="pt-16 pb-16 bg-gray-50">
-    <Container>
-        <div class="mb-12">
-          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Calculate your CSAT score</h2>
-          <p class="text-lg mt-4 text-gray-600">
-            Enter your satisfaction responses and we'll calculate your CSAT score instantly.
-          </p>
-        </div>
-
-        <div class="bg-white rounded-lg border border-gray-200 p-8 max-w-2xl">
-          <div class="space-y-6">
-            <!-- Very Satisfied Input -->
-            <div>
-              <label for="verySatisfied" class="block text-lg font-semibold mb-2">Very Satisfied</label>
-              <input
-                type="number"
-                id="verySatisfied"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="Enter number of very satisfied responses"
-                min="0"
-              />
-            </div>
-
-            <!-- Satisfied Input -->
-            <div>
-              <label for="satisfied" class="block text-lg font-semibold mb-2">Satisfied</label>
-              <input
-                type="number"
-                id="satisfied"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="Enter number of satisfied responses"
-                min="0"
-              />
-            </div>
-
-            <!-- Neutral Input -->
-            <div>
-              <label for="neutral" class="block text-lg font-semibold mb-2">Neutral</label>
-              <input
-                type="number"
-                id="neutral"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="Enter number of neutral responses"
-                min="0"
-              />
-            </div>
-
-            <!-- Dissatisfied Input -->
-            <div>
-              <label for="dissatisfied" class="block text-lg font-semibold mb-2">Dissatisfied</label>
-              <input
-                type="number"
-                id="dissatisfied"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="Enter number of dissatisfied responses"
-                min="0"
-              />
-            </div>
-
-            <!-- Very Dissatisfied Input -->
-            <div>
-              <label for="veryDissatisfied" class="block text-lg font-semibold mb-2">Very Dissatisfied</label>
-              <input
-                type="number"
-                id="veryDissatisfied"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="Enter number of very dissatisfied responses"
-                min="0"
-              />
-            </div>
-
-            <!-- Calculate Button -->
-            <button
-              id="calculateBtn"
-              onclick="calculateCSAT()"
-              class="w-full bg-primary text-white font-semibold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity mt-8"
-            >
-              Calculate CSAT Score
-            </button>
-          </div>
-
-          <!-- Results Section -->
-          <div id="results" class="mt-12 hidden">
-            <div class="bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg p-8 border border-primary/20">
-              <h3 class="text-lg font-semibold mb-4">Your CSAT Score</h3>
-              <div class="text-5xl font-bold text-primary mb-2">
-                <span id="csatResult">0</span>%
-              </div>
-              <p id="csatInterpretation" class="text-gray-600 text-lg mb-6"></p>
-
-              <div class="grid md:grid-cols-3 gap-6 mt-8">
-                <div class="bg-white rounded-lg p-4 text-center border border-gray-200">
-                  <div class="text-3xl font-bold text-primary mb-2">
-                    <span id="satisfiedPercent">0</span>%
-                  </div>
-                  <p class="text-gray-600 font-semibold">Satisfied</p>
-                </div>
-                <div class="bg-white rounded-lg p-4 text-center border border-gray-200">
-                  <div class="text-3xl font-bold text-gray-600 mb-2">
-                    <span id="neutralPercent">0</span>%
-                  </div>
-                  <p class="text-gray-600 font-semibold">Neutral</p>
-                </div>
-                <div class="bg-white rounded-lg p-4 text-center border border-gray-200">
-                  <div class="text-3xl font-bold text-red-500 mb-2">
-                    <span id="dissatisfiedPercent">0</span>%
-                  </div>
-                  <p class="text-gray-600 font-semibold">Dissatisfied</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    </Container>
-  </section>
-
-  <!-- Formula Section -->
-  <section class="pt-16 pb-16">
+  <section class="py-16">
     <Container>
       <div class="mb-12">
-        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">How CSAT is calculated</h2>
-        <p class="text-lg mt-4 text-gray-600">
-          CSAT measures the percentage of satisfied customers based on survey responses.
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-4">Calculate your CSAT score</h2>
+        <p class="text-lg text-gray-600">
+          Enter the number of satisfied and dissatisfied respondents, and our free CSAT calculator will calculate your customer satisfaction score.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <div class="bg-gray-50 rounded-lg p-8 border border-gray-200">
-            <h3 class="text-2xl font-bold mb-6">CSAT Formula</h3>
-            <div class="bg-white rounded-lg p-6 border border-primary/20 mb-6">
-              <p class="text-lg text-gray-700 text-center">
-                <strong>CSAT = (Satisfied Customers / Total Responses) × 100</strong>
-              </p>
-            </div>
-            <div class="space-y-4">
-              <div>
-                <h4 class="font-semibold mb-2">Step 1: Identify Satisfied Responses</h4>
-                <p class="text-gray-600">
-                  Count responses marked as "Satisfied" or "Very Satisfied"
-                </p>
-              </div>
-              <div>
-                <h4 class="font-semibold mb-2">Step 2: Calculate Total Responses</h4>
-                <p class="text-gray-600">
-                  Sum all responses across all satisfaction levels
-                </p>
-              </div>
-              <div>
-                <h4 class="font-semibold mb-2">Step 3: Divide and Multiply</h4>
-                <p class="text-gray-600">
-                  (Satisfied / Total) × 100 = CSAT %
-                </p>
-              </div>
-            </div>
+      <!-- Embedded Calculator -->
+      <div class="bg-white rounded-lg p-8 border border-gray-200">
+        <script id="shoutscript" type="text/javascript" src="https://shout.com/ShoutEmbed/embed.min.js"></script>
+        <div shout-embed data-sh-form="l36QnDWa" data-sh-height="600px" sh-preview="true" sh-cog-off="true" style="border-radius: 20px; overflow:hidden;"></div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- How to Use Section -->
+  <section class="py-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">How to use the CSAT Calculator</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:poll" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Create a CSAT survey</h3>
           </div>
+          <p class="text-gray-600">Design a survey with a Likert scale question (Very Dissatisfied to Very Satisfied) to measure customer satisfaction with your product or service.</p>
         </div>
-
-        <div class="space-y-6">
-          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-            <div class="flex items-center mb-4">
-              <Icon name="bx:trending-up" class="w-8 h-8 text-primary mr-3" />
-              <h3 class="text-lg font-semibold">Score Ranges</h3>
-            </div>
-            <ul class="text-gray-600 space-y-2">
-              <li>0-50: Need Improvements</li>
-              <li>50-70: Average</li>
-              <li>70-90: Good</li>
-              <li>90-100: Excellent</li>
-            </ul>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:checkbox-checked" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Collect responses</h3>
           </div>
-
-          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-            <div class="flex items-center mb-4">
-              <Icon name="bx:info-circle" class="w-8 h-8 text-primary mr-3" />
-              <h3 class="text-lg font-semibold">CSAT Scale</h3>
-            </div>
-            <p class="text-gray-600">
-              CSAT typically uses a 5-point Likert scale (Very Dissatisfied to Very Satisfied) to measure customer satisfaction with specific interactions or services.
-            </p>
+          <p class="text-gray-600">Send the survey to your customers and collect responses. Keep track of how many selected each satisfaction level.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:calculator" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Calculate your score</h3>
           </div>
+          <p class="text-gray-600">Enter the number of satisfied and dissatisfied respondents into the calculator above to instantly see your CSAT score.</p>
         </div>
       </div>
     </Container>
   </section>
 
-  <!-- Shout Features Section -->
-  <section class="pt-16 pb-16 bg-gray-50">
+  <!-- Measure Satisfaction Section -->
+  <section class="py-16">
     <Container>
-        <div class="mb-12">
-          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Measure satisfaction with Shout</h2>
-          <p class="text-lg mt-4 text-gray-600">
-            Use our survey platform to collect satisfaction data and calculate CSAT automatically.
-          </p>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Measure satisfaction with Shout</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Use a Likert scale to ask customers to rate how satisfied they are with your product or service.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:list-ul" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">One-click Likert scales</h3>
+          </div>
+          <p class="text-gray-600">Select our Matrix question type and choose from a range of pre-made scales, e.g. Very Dissatisfied – Very Satisfied.</p>
         </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-            <div class="flex items-center mb-3">
-              <Icon name="bx:grid-alt" class="w-8 h-8 text-primary mr-3" />
-              <h3 class="text-lg font-semibold text-primary">Likert Scale Questions</h3>
-            </div>
-            <p class="text-gray-600">Use our matrix question type with pre-made satisfaction scales.</p>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:filter" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Segment your customers</h3>
           </div>
-
-          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-            <div class="flex items-center mb-3">
-              <Icon name="bx:filter" class="w-8 h-8 text-primary mr-3" />
-              <h3 class="text-lg font-semibold text-primary">Segment Customers</h3>
-            </div>
-            <p class="text-gray-600">Filter results by satisfaction levels to identify improvement areas.</p>
-          </div>
-
-          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-            <div class="flex items-center mb-3">
-              <Icon name="bx:calculator" class="w-8 h-8 text-primary mr-3" />
-              <h3 class="text-lg font-semibold text-primary">Auto-Calculate CSAT</h3>
-            </div>
-            <p class="text-gray-600">We calculate your CSAT score automatically from survey responses.</p>
-          </div>
-
-          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-            <div class="flex items-center mb-3">
-              <Icon name="bx:palette" class="w-8 h-8 text-primary mr-3" />
-              <h3 class="text-lg font-semibold text-primary">Custom Branding</h3>
-            </div>
-            <p class="text-gray-600">Add your logo and customize designs for brand consistency.</p>
-          </div>
-
-          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-            <div class="flex items-center mb-3">
-              <Icon name="bx:shield" class="w-8 h-8 text-primary mr-3" />
-              <h3 class="text-lg font-semibold text-primary">Collect Consent</h3>
-            </div>
-            <p class="text-gray-600">Record consent before following up with dissatisfied customers.</p>
-          </div>
-
-          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-            <div class="flex items-center mb-3">
-              <Icon name="bx:star" class="w-8 h-8 text-primary mr-3" />
-              <h3 class="text-lg font-semibold text-primary">Collect Reviews</h3>
-            </div>
-            <p class="text-gray-600">Ask satisfied customers for testimonials to use as social proof.</p>
-          </div>
+          <p class="text-gray-600">Filter your customer satisfaction survey reports by satisfaction, and save each segment as a unique view of your audience.</p>
         </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:poll" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Calculate your NPS score</h3>
+          </div>
+          <p class="text-gray-600">Measure customer loyalty and identify your advocates with an NPS survey, where we calculate your score for you.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:palette" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Brand everything</h3>
+          </div>
+          <p class="text-gray-600">Add your logo, customize designs, and enable white labelling to remove all Shout branding from surveys and emails.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:lock" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Collect consent</h3>
+          </div>
+          <p class="text-gray-600">Collect and record explicit consent from customers to follow up with more surveys and collect additional feedback.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:star" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Ask for social proof</h3>
+          </div>
+          <p class="text-gray-600">Collect reviews and testimonials from your happiest customers in a survey or redirect them to review sites upon submission.</p>
+        </div>
+      </div>
     </Container>
   </section>
 
-  <!-- Final CTA -->
-  <section class="py-16">
+  <!-- FAQs -->
+  <section>
+    <Container>
+      <FAQSection title="CSAT Calculator FAQs" faqs={csatFaqs} />
+    </Container>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-gray-50">
     <Container>
       <div class="text-center max-w-4xl mx-auto">
-        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to measure satisfaction?</h2>
-        <p class="text-lg text-gray-600 mb-8">Start collecting satisfaction feedback and improving your products and services with Shout.</p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button href="https://identity.shout.com/Account/Login">Create CSAT Survey</Button>
-          <Button variant="outline" href="/customer-satisfaction-surveys/">Learn More</Button>
-        </div>
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Want to create a calculator just like this?</h2>
+        <p class="text-lg text-gray-600 mb-8">Engage your audience, increase traffic, and boost lead generation with expertly crafted calculators.</p>
+        <Button href="https://identity.shout.com/Account/Register">Start Your Free Trial</Button>
+        <p class="text-gray-600 text-sm mt-6">14-Day Free Trial • No Credit Card Required • Cancel Anytime</p>
       </div>
     </Container>
   </section>
 </AstroshipLayout>
-
-<script is:inline>
-function calculateCSAT() {
-  const verySatisfied = parseInt(document.getElementById('verySatisfied').value) || 0;
-  const satisfied = parseInt(document.getElementById('satisfied').value) || 0;
-  const neutral = parseInt(document.getElementById('neutral').value) || 0;
-  const dissatisfied = parseInt(document.getElementById('dissatisfied').value) || 0;
-  const veryDissatisfied = parseInt(document.getElementById('veryDissatisfied').value) || 0;
-
-  const total = verySatisfied + satisfied + neutral + dissatisfied + veryDissatisfied;
-
-  if (total === 0) {
-    alert('Please enter at least one response');
-    return;
-  }
-
-  const satisfiedTotal = verySatisfied + satisfied;
-  const csat = Math.round((satisfiedTotal / total) * 100);
-  const satisfiedPercent = Math.round((satisfiedTotal / total) * 100);
-  const neutralPercent = Math.round((neutral / total) * 100);
-  const dissatisfiedTotal = dissatisfied + veryDissatisfied;
-  const dissatisfiedPercent = Math.round((dissatisfiedTotal / total) * 100);
-
-  // Update results
-  document.getElementById('csatResult').textContent = csat;
-  document.getElementById('satisfiedPercent').textContent = satisfiedPercent;
-  document.getElementById('neutralPercent').textContent = neutralPercent;
-  document.getElementById('dissatisfiedPercent').textContent = dissatisfiedPercent;
-
-  // Interpretation
-  let interpretation = '';
-  if (csat >= 90) {
-    interpretation = 'Excellent - Your customers are highly satisfied';
-  } else if (csat >= 70) {
-    interpretation = 'Good - Overall positive customer satisfaction';
-  } else if (csat >= 50) {
-    interpretation = 'Average - There is room for improvement';
-  } else {
-    interpretation = 'Needs Improvement - Focus on addressing customer concerns';
-  }
-
-  document.getElementById('csatInterpretation').textContent = interpretation;
-  document.getElementById('results').classList.remove('hidden');
-
-  // Scroll to results
-  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-// Allow Enter key to calculate
-document.getElementById('veryDissatisfied').addEventListener('keypress', function(e) {
-  if (e.key === 'Enter') {
-    calculateCSAT();
-  }
-});
-</script>

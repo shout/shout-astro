@@ -1,0 +1,181 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+import FAQSection from "../components/faq-section.astro";
+
+const responseRateFaqs = [
+  {
+    question: "What is survey response rate?",
+    answer: "<p>Survey response rate is a metric that shows the percentage of people invited to respond to a survey that submitted a response.</p><p>Typically, you would use this metric to determine how representative a sample is of your intended audience. But it's also a great indicator of how successful your campaign has been.</p>"
+  },
+  {
+    question: "How is response rate calculated?",
+    answer: "<p>Survey response rates are calculated by dividing the total number of survey responses by the number of invitations sent to an audience (sample size). You then multiply that value by 100 for your response rate.</p><p><strong>Survey response rate formula = Survey Responses / Survey Invitations * 100</strong></p><p>For example, if you receive 1200 responses from a sample of 1500, you will have a response rate of 80.00%</p>"
+  },
+  {
+    question: "Response rate vs completion rate",
+    answer: "<p>Some people believe the terms response rate and completion rate are synonymous. But, in online survey research, they are considered two separate metrics.</p><p>Where response rate is meant to identify the percentage of your sample to respond to your survey, completion rate illustrates the percentage of respondents who completed your survey.</p><p>How is this different? Well, respondents may submit a partial response to your survey but dropout before completion. Completion rate identifies respondents who reach the end of your survey.</p><p>So, it's likely that your survey response rate will usually be higher than your completion rate.</p>"
+  },
+  {
+    question: "Why is survey response rate important?",
+    answer: "<p>Your survey response rate is meant to determine whether your respondents are representative of a wider sample. A low response rate would mean your results is not representative, whereas a high response rate would indicate a representative set of results.</p><p>If you're struggling to find survey respondents, take a look at how to increase survey response rates.</p>"
+  }
+];
+---
+
+<AstroshipLayout
+  title="Survey Response Rate Calculator - Shout.com"
+  description="Use our survey response rate calculator to determine how many of your participants responded in relation to those invited."
+>
+  <!-- Hero Section -->
+  <section class="py-20">
+    <Container>
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+            Survey Response Rate <span class="text-primary">Calculator</span>
+          </h1>
+          <p class="text-lg mt-4 text-gray-600 max-w-xl">
+            Calculate your response rate. Track how well your survey has performed with respondents with our free survey response rate calculator.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- How to Use Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">How to use the survey response rate calculator</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:poll" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Create a survey</h3>
+          </div>
+          <p class="text-gray-600">Create a survey and distribute it to your audience via email, social media, website embed, or any other channel.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:bar-chart-alt-2" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Track invitations</h3>
+          </div>
+          <p class="text-gray-600">Keep track of the total number of people you invited to take your survey and the number who actually responded.</p>
+        </div>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:calculator" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Calculate your rate</h3>
+          </div>
+          <p class="text-gray-600">Enter your total invitations and responses into the calculator above to instantly see your survey response rate.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Calculator Embed Section -->
+  <section class="pt-16 pb-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-4">Calculate your response rate</h2>
+        <p class="text-lg text-gray-600">
+          Enter the total number of survey invitations sent and the number of responses received. We'll calculate your survey response rate for you.
+        </p>
+      </div>
+
+      <!-- Embedded Calculator -->
+      <div class="bg-white rounded-lg p-8 border border-gray-200">
+        <script id="shoutscript" type="text/javascript" src="https://shout.com/ShoutEmbed/embed.min.js"></script>
+        <div shout-embed data-sh-form="fyVtttzj" data-sh-height="600px" sh-preview="true" sh-cog-off="true" style="border-radius: 20px; overflow:hidden;"></div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- FAQs -->
+  <section>
+    <Container>
+      <FAQSection title="Survey Response Rate Calculator FAQs" faqs={responseRateFaqs} />
+    </Container>
+  </section>
+
+  <!-- Get More Responses Section -->
+  <section class="pt-16 pb-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Get more survey responses with Shout</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Collect feedback from your customers to identify your strengths and weaknesses, and grow your business as a whole.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:globe" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Global targeting</h3>
+          </div>
+          <p class="text-gray-600">Find the perfect respondents for your surveys using a huge variety of targeting criteria with Shout Audience.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:share-alt" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Omnidirectional feedback</h3>
+          </div>
+          <p class="text-gray-600">Maximize your response rates by sharing your survey via email invitation, website embed, QR code, URL link, and more.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:palette" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Beautiful designs</h3>
+          </div>
+          <p class="text-gray-600">Customize every element of your survey's design to ensure it stands out to respondents and keep them engaged.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:user" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Personalize everything</h3>
+          </div>
+          <p class="text-gray-600">Build surveys with personal information about your respondents and increase responses rates by up to 48%.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:bell" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Send reminders</h3>
+          </div>
+          <p class="text-gray-600">Import respondents to our CRM to track responses and send gentle reminders to those yet to respond to your survey.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:gift" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Incentivise responses</h3>
+          </div>
+          <p class="text-gray-600">Offer incentives to those who complete your survey and send them to a promotional page using our Exit Page Redirect.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Custom Calculator CTA Section -->
+  <section class="py-16 bg-gray-50">
+    <Container>
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Want to create a calculator just like this?</h2>
+        <p class="text-lg text-gray-600 mb-8">
+          Engage your audience, increase traffic, and boost lead generation with expertly crafted calculators.
+        </p>
+        <Button href="https://identity.shout.com/Account/Register">Start Your Free Trial</Button>
+        <p class="text-gray-600 text-sm mt-6">14-Day Free Trial • No Credit Card Required • Cancel Anytime</p>
+      </div>
+    </Container>
+  </section>
+</AstroshipLayout>

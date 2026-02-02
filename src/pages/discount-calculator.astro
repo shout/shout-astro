@@ -3,6 +3,26 @@ import AstroshipLayout from "../layouts/AstroshipLayout.astro";
 import Container from "../components/container.astro";
 import Button from "../components/ui/button.astro";
 import { Icon } from "astro-icon/components";
+import FAQSection from "../components/faq-section.astro";
+
+const discountFaqs = [
+  {
+    question: "What is a discount?",
+    answer: "<p>Discounts are a reduction in the price of a product or service. Common types of discounts are percentage discounts (e.g. 10% off), fixed amount discounts (e.g. $20 off), or special promotions like buy-one-get-one-free (BOGO) offers. They're often seen in sales promotions, clearance events, seasonal discounts, and loyalty programs. For example, a store might offer a 25% discount on all winter clothing at the end of the season to clear out inventory and make room for new items.</p>"
+  },
+  {
+    question: "How does the discount calculator work?",
+    answer: "<p>Shout's discount calculator is very simple. Just enter the original price of a product or service and then the discounted price, and we'll calculate the discount this reduction represents. So, if your original price was $50 and the discounted price is $40, this would be a discount of 20%.</p>"
+  },
+  {
+    question: "What is the discount formula?",
+    answer: "<p>The formula for calculating a discount is easy, simply subtract the final price from the original price, divide that by the original price, and multiply that by 100. This will leave you with a value expressed as a percentage.</p><p><strong>Discount formula = (Original Price – Final Price) / Original Price * 100</strong></p>"
+  },
+  {
+    question: "How do I calculate the original price from a discount percentage?",
+    answer: "<p>To calculate the original price using the discount percentage and the discounted price, you can rearrange the formula for calculating the discounted price. Here's the formula:</p><p><strong>Original price = Final Price / 1 – (Discount Percentage / 100)</strong></p><p>Here are the individual steps for this formula:</p><ol><li>Divide the discount percentage by 100 to express it as a fraction.</li><li>Subtract the fraction from 1.</li><li>Divide the final price by this value.</li></ol><p>For example, let's say that the final sale price of a product was $68, with a 20% discount on the original price. 20 / 100 = 0.2, then 1 – 0.2 = 0.8, and finally 68 / 0.8 = 85. So the original price of this product is $85.</p>"
+  }
+];
 ---
 
 <AstroshipLayout
@@ -18,288 +38,247 @@ import { Icon } from "astro-icon/components";
             Discount <span class="text-primary">Calculator</span>
           </h1>
           <p class="text-lg mt-4 text-gray-600 max-w-xl">
-            Calculate the discount percentage for any product or service based on original and final price.
+            Calculate the discount percentage for a product or service, based on the original and final price.
           </p>
-        </div>
-        <div class="hidden lg:flex justify-center items-center">
-          <div class="w-24 h-24 text-primary">
-            <Icon name="bx:purchase-tag" class="w-full h-full" />
+          <div class="flex flex-col sm:flex-row gap-3 mt-6">
+            <p class="text-gray-600 text-sm self-center">Enter original and final price to calculate discount</p>
           </div>
+        </div>
+        <div class="hidden lg:block">
+          <img
+            src="/images/2023/09/discount-calculator.png"
+            alt="Free Discount Calculator Tool"
+            class="w-full h-auto max-w-md rounded-lg"
+            loading="eager"
+          />
         </div>
       </div>
     </Container>
   </section>
 
-  <!-- Calculator Section -->
+  <!-- Embedded Calculator -->
   <section class="pt-16 pb-16 bg-gray-50">
     <Container>
-        <div class="mb-12">
-          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Calculate discount percentage</h2>
-          <p class="text-lg mt-4 text-gray-600">
-            Enter the original and final price to find the discount percentage.
-          </p>
-        </div>
-
-        <div class="bg-white rounded-lg border border-gray-200 p-8 max-w-2xl">
-          <div class="space-y-6">
-            <!-- Original Price Input -->
-            <div>
-              <label for="originalPrice" class="block text-lg font-semibold mb-2">Original Price ($)</label>
-              <input
-                type="number"
-                id="originalPrice"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="Enter original price"
-                min="0"
-                step="0.01"
-              />
-              <p class="text-sm text-gray-500 mt-2">Price before discount was applied</p>
-            </div>
-
-            <!-- Final Price Input -->
-            <div>
-              <label for="finalPrice" class="block text-lg font-semibold mb-2">Final Price ($)</label>
-              <input
-                type="number"
-                id="finalPrice"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="Enter final/sale price"
-                min="0"
-                step="0.01"
-              />
-              <p class="text-sm text-gray-500 mt-2">Price after discount was applied</p>
-            </div>
-
-            <!-- Calculate Button -->
-            <button
-              id="calculateBtn"
-              onclick="calculateDiscount()"
-              class="w-full bg-primary text-white font-semibold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity mt-8"
-            >
-              Calculate Discount
-            </button>
-          </div>
-
-          <!-- Results Section -->
-          <div id="results" class="mt-12 hidden">
-            <div class="bg-gradient-to-r from-primary/10 to-primary/5 rounded-lg p-8 border border-primary/20">
-              <h3 class="text-lg font-semibold mb-4">Your Discount</h3>
-              <div class="text-5xl font-bold text-primary mb-2">
-                <span id="discountPercent">0</span>%
-              </div>
-              <p class="text-gray-600 text-lg mb-6">discount applied</p>
-
-              <div class="grid md:grid-cols-3 gap-6 mt-8">
-                <div class="bg-white rounded-lg p-4 border border-gray-200">
-                  <p class="text-gray-600 font-semibold mb-2">Original Price</p>
-                  <div class="text-2xl font-bold text-gray-700">
-                    $<span id="originalDisplay">0</span>
-                  </div>
-                </div>
-                <div class="bg-white rounded-lg p-4 border border-gray-200">
-                  <p class="text-gray-600 font-semibold mb-2">Discount Amount</p>
-                  <div class="text-2xl font-bold text-primary">
-                    $<span id="discountAmount">0</span>
-                  </div>
-                </div>
-                <div class="bg-white rounded-lg p-4 border border-gray-200">
-                  <p class="text-gray-600 font-semibold mb-2">Final Price</p>
-                  <div class="text-2xl font-bold text-primary">
-                    $<span id="finalDisplay">0</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    </Container>
-  </section>
-
-  <!-- Formula Section -->
-  <section class="pt-16 pb-16">
-    <Container>
       <div class="mb-12">
-        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">How discount is calculated</h2>
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Calculate your discount</h2>
         <p class="text-lg mt-4 text-gray-600">
-          The discount percentage shows what percentage off the original price was offered.
+          Simply enter the original price (before discount) and the final price (after discount), and we'll calculate the discount applied to the product or service, expressed as a percentage.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <div class="bg-gray-50 rounded-lg p-8 border border-gray-200">
-            <h3 class="text-2xl font-bold mb-6">Discount Formula</h3>
-            <div class="bg-white rounded-lg p-6 border border-primary/20 mb-6">
-              <p class="text-lg text-gray-700 text-center">
-                <strong>Discount % = ((Original - Final) / Original) × 100</strong>
-              </p>
-            </div>
-            <div class="space-y-4">
-              <div>
-                <h4 class="font-semibold mb-2">Step 1: Find the Difference</h4>
-                <p class="text-gray-600">
-                  Subtract final price from original price
-                </p>
-              </div>
-              <div>
-                <h4 class="font-semibold mb-2">Step 2: Divide by Original</h4>
-                <p class="text-gray-600">
-                  Divide the difference by the original price
-                </p>
-              </div>
-              <div>
-                <h4 class="font-semibold mb-2">Step 3: Multiply by 100</h4>
-                <p class="text-gray-600">
-                  Multiply by 100 to get the percentage
-                </p>
-              </div>
+      <!-- Embedded Calculator -->
+      <div class="bg-white rounded-lg p-8 border border-gray-200">
+        <script id="shoutscript" type="text/javascript" src="https://shout.com/ShoutEmbed/embed.min.js"></script>
+        <div shout-embed data-sh-form="K1aC0463" data-sh-height="600px" sh-preview="true" sh-cog-off="true" style="border-radius: 20px; overflow:hidden;"></div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- How to Use Section -->
+  <section class="pt-16 pb-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">How to use the discount calculator</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-start mb-4">
+            <Icon name="bx:dollar-circle" class="w-10 h-10 text-primary mr-4 mt-1 flex-shrink-0" />
+            <div>
+              <h3 class="text-xl font-semibold text-primary mb-2">Enter original price</h3>
+              <p class="text-gray-600">Input the original price of the product or service before any discount was applied.</p>
             </div>
           </div>
         </div>
 
-        <div class="space-y-6">
-          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-            <div class="flex items-center mb-4">
-              <Icon name="bx:math" class="w-8 h-8 text-primary mr-3" />
-              <h3 class="text-lg font-semibold">Example Calculation</h3>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-start mb-4">
+            <Icon name="bx:calculator" class="w-10 h-10 text-primary mr-4 mt-1 flex-shrink-0" />
+            <div>
+              <h3 class="text-xl font-semibold text-primary mb-2">Enter final price</h3>
+              <p class="text-gray-600">Input the discounted price (the price after the discount has been applied).</p>
             </div>
-            <p class="text-gray-600 mb-4">
-              If an item costs $50 originally and is on sale for $40:
-            </p>
-            <ul class="text-gray-600 space-y-2 text-sm">
-              <li>Difference: $50 - $40 = $10</li>
-              <li>Divide by original: $10 / $50 = 0.2</li>
-              <li>Multiply by 100: 0.2 × 100 = 20%</li>
-            </ul>
           </div>
+        </div>
 
-          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-            <div class="flex items-center mb-4">
-              <Icon name="bx:info-circle" class="w-8 h-8 text-primary mr-3" />
-              <h3 class="text-lg font-semibold">Common Discounts</h3>
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-start mb-4">
+            <Icon name="bx:math" class="w-10 h-10 text-primary mr-4 mt-1 flex-shrink-0" />
+            <div>
+              <h3 class="text-xl font-semibold text-primary mb-2">Automatic calculation</h3>
+              <p class="text-gray-600">Our calculator automatically computes the discount percentage based on the prices you entered.</p>
             </div>
-            <ul class="text-gray-600 space-y-2 text-sm">
-              <li>10% off: Pay 90% of original</li>
-              <li>25% off: Pay 75% of original</li>
-              <li>50% off: Pay 50% of original</li>
-              <li>BOGO: 50% off when buying 2</li>
-            </ul>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-start mb-4">
+            <Icon name="bx:check-circle" class="w-10 h-10 text-primary mr-4 mt-1 flex-shrink-0" />
+            <div>
+              <h3 class="text-xl font-semibold text-primary mb-2">Get your result</h3>
+              <p class="text-gray-600">Instantly see the discount percentage and understand exactly how much was taken off the original price.</p>
+            </div>
           </div>
         </div>
       </div>
     </Container>
   </section>
 
-  <!-- Shout Features Section -->
+  <!-- Why Use Our Calculator Section -->
   <section class="pt-16 pb-16 bg-gray-50">
     <Container>
-        <div class="mb-12">
-          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Create custom calculators with Shout</h2>
-          <p class="text-lg mt-4 text-gray-600">
-            Build interactive calculators like this one without writing any code.
-          </p>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Why use our discount calculator?</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Our free discount calculator makes it easy to understand pricing and discounts.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:rocket" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Fast & Accurate</h3>
+          </div>
+          <p class="text-gray-600">Get instant, accurate discount calculations without any guesswork.</p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-            <div class="flex items-center mb-3">
-              <Icon name="bx:code-alt" class="w-8 h-8 text-primary mr-3" />
-              <h3 class="text-lg font-semibold text-primary">No Code Needed</h3>
-            </div>
-            <p class="text-gray-600">Create calculators without writing any code.</p>
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:lock-open" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">100% Free</h3>
           </div>
-
-          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-            <div class="flex items-center mb-3">
-              <Icon name="bx:question-mark" class="w-8 h-8 text-primary mr-3" />
-              <h3 class="text-lg font-semibold text-primary">20+ Question Types</h3>
-            </div>
-            <p class="text-gray-600">Numeric fields, sliders, dropdowns, and more.</p>
-          </div>
-
-          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-            <div class="flex items-center mb-3">
-              <Icon name="bx:code-block" class="w-8 h-8 text-primary mr-3" />
-              <h3 class="text-lg font-semibold text-primary">Easy Embedding</h3>
-            </div>
-            <p class="text-gray-600">Embed on your website with simple code snippet.</p>
-          </div>
-
-          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-            <div class="flex items-center mb-3">
-              <Icon name="bx:table" class="w-8 h-8 text-primary mr-3" />
-              <h3 class="text-lg font-semibold text-primary">Import Datasets</h3>
-            </div>
-            <p class="text-gray-600">Import Excel spreadsheets for complex calculations.</p>
-          </div>
-
-          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-            <div class="flex items-center mb-3">
-              <Icon name="bx:user" class="w-8 h-8 text-primary mr-3" />
-              <h3 class="text-lg font-semibold text-primary">Lead Capture</h3>
-            </div>
-            <p class="text-gray-600">Gate results behind email capture forms.</p>
-          </div>
-
-          <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
-            <div class="flex items-center mb-3">
-              <Icon name="bx:mobile" class="w-8 h-8 text-primary mr-3" />
-              <h3 class="text-lg font-semibold text-primary">Mobile Responsive</h3>
-            </div>
-            <p class="text-gray-600">Works perfectly on all devices and screen sizes.</p>
-          </div>
+          <p class="text-gray-600">No sign-up required. No hidden fees. Completely free to use anytime.</p>
         </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:mobile" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Mobile Friendly</h3>
+          </div>
+          <p class="text-gray-600">Works perfectly on smartphones, tablets, and desktop computers.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:shield" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Secure & Private</h3>
+          </div>
+          <p class="text-gray-600">Your calculations are private and never stored on our servers.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:bulb" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Educational</h3>
+          </div>
+          <p class="text-gray-600">Learn the formula and understand how discount calculations work.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:time-five" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Always Available</h3>
+          </div>
+          <p class="text-gray-600">Access the calculator anytime, anywhere, without downloading anything.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- FAQs -->
+  <section>
+    <Container>
+      <FAQSection title="Discount Calculator FAQs" faqs={discountFaqs} />
+    </Container>
+  </section>
+
+  <!-- CTA Section for Custom Calculators -->
+  <section class="py-16">
+    <Container>
+      <div class="text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Want to create a calculator just like this?</h2>
+        <p class="text-lg text-gray-600 mb-8">Engage your audience, increase traffic, and boost lead generation with expertly crafted calculators. Shout makes it easy to build custom calculators without any coding required.</p>
+        <Button href="https://identity.shout.com/Account/Register">Start Your Free Trial</Button>
+        <p class="text-gray-600 text-sm mt-4">14-Day Free Trial • No Credit Card Required • Cancel Anytime</p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Why Create With Shout Section -->
+  <section class="pt-16 pb-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Why create a calculator with Shout?</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Easily build custom calculators with personalized results in just a few minutes.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:code-alt" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">No need for a developer</h3>
+          </div>
+          <p class="text-gray-600">Create stunning calculators (for any purpose) in just a few clicks and without writing a single line of code.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:list-check" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Huge variety of questions</h3>
+          </div>
+          <p class="text-gray-600">Make calculators your own with access to over 20 question types, from numeric fields and sliders to multiple-choice.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:code-block" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Easily embed calculators</h3>
+          </div>
+          <p class="text-gray-600">Embed calculators on your website, where they'll be fully responsive across all devices and browsers.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:table" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Import your own datasets</h3>
+          </div>
+          <p class="text-gray-600">Used to building formulas in Excel? Simply import your existing spreadsheet and switch to our Excel-style builder.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:envelope" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Email-gate results</h3>
+          </div>
+          <p class="text-gray-600">Power your lead generation by adding a lead capture form and only showing results once the form is submitted.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-3">
+            <Icon name="bx:pointer" class="w-8 h-8 text-primary mr-3" />
+            <h3 class="text-lg font-semibold text-primary">Custom calls-to-action</h3>
+          </div>
+          <p class="text-gray-600">Add a CTA to results blocks to encourage respondents to visit your website, social media profile, or contact you via email.</p>
+        </div>
+      </div>
     </Container>
   </section>
 
   <!-- Final CTA -->
-  <section class="py-16">
+  <section class="py-16 bg-gray-50">
     <Container>
       <div class="text-center max-w-4xl mx-auto">
-        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to create your calculator?</h2>
-        <p class="text-lg text-gray-600 mb-8">Build interactive calculators and embed them on your website to boost engagement and generate leads.</p>
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Ready to create your first calculator?</h2>
+        <p class="text-lg text-gray-600 mb-8">Join thousands of businesses using Shout to generate leads and engage customers with interactive calculators.</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button href="https://identity.shout.com/Account/Login">Create a Calculator</Button>
+          <Button href="https://identity.shout.com/Account/Register">Start Your Free Trial</Button>
           <Button variant="outline" href="/custom-calculator-builder/">Learn More</Button>
         </div>
       </div>
     </Container>
   </section>
 </AstroshipLayout>
-
-<script is:inline>
-function calculateDiscount() {
-  const originalPrice = parseFloat(document.getElementById('originalPrice').value) || 0;
-  const finalPrice = parseFloat(document.getElementById('finalPrice').value) || 0;
-
-  if (originalPrice === 0) {
-    alert('Please enter the original price');
-    return;
-  }
-
-  if (finalPrice > originalPrice) {
-    alert('Final price cannot be higher than original price');
-    return;
-  }
-
-  const discountAmount = originalPrice - finalPrice;
-  const discountPercent = Math.round((discountAmount / originalPrice) * 100);
-
-  // Update results
-  document.getElementById('discountPercent').textContent = discountPercent;
-  document.getElementById('originalDisplay').textContent = originalPrice.toFixed(2);
-  document.getElementById('discountAmount').textContent = discountAmount.toFixed(2);
-  document.getElementById('finalDisplay').textContent = finalPrice.toFixed(2);
-  document.getElementById('results').classList.remove('hidden');
-
-  // Scroll to results
-  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-// Allow Enter key to calculate
-document.getElementById('finalPrice').addEventListener('keypress', function(e) {
-  if (e.key === 'Enter') {
-    calculateDiscount();
-  }
-});
-</script>

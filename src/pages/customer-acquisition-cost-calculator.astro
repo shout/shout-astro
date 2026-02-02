@@ -1,0 +1,151 @@
+---
+import AstroshipLayout from "../layouts/AstroshipLayout.astro";
+import Container from "../components/container.astro";
+import Button from "../components/ui/button.astro";
+import { Icon } from "astro-icon/components";
+import FAQSection from "../components/faq-section.astro";
+
+const cacFaqs = [
+  {
+    question: "What is customer acquisition cost (CAC)?",
+    answer: "<p>Customer Acquisition Cost (CAC) refers to the average amount of money a business spends to acquire a new customer. It is a crucial metric for companies as it helps in understanding the effectiveness of their marketing and sales efforts.</p><p>It's a great metric to use alongside your conversion rate, which can help you understand why you may have a high CAC. If you're CAC is too high, then it's likely that certain sales or marketing strategies aren't working for your business.</p>"
+  },
+  {
+    question: "How do you calculate customer acquisition cost?",
+    answer: "<p>To calculate CAC, you would typically divide the total costs associated with acquiring customers (such as marketing cost, sales team salaries, ad spend, etc.) by the number of customers acquired during a specific period.</p><p>Let's go over the CAC formula below:</p><p><strong>Customer acquisition cost formula: (Cost of Sales + Cost of Marketing) / Number of New Customers.</strong></p><p>For example, if a company spends $10,000 on marketing and sales activities in a month and acquires 100 new customers during that same period, the CAC would be $100 per customer ($10,000 ÷ 100 = $100).</p>"
+  },
+  {
+    question: "What is a normal cost per acquisition?",
+    answer: "<p>As a general guideline, a CAC that is lower than the average lifetime value (LTV) of a customer is considered desirable. The LTV represents the total revenue a customer is expected to generate for the business over their entire relationship.</p><p>By ensuring that the CAC is lower than the LTV, a company can maintain profitability and achieve a positive return on investment (ROI) from their customer acquisition efforts.</p>"
+  },
+  {
+    question: "Why is customer acquisition cost important?",
+    answer: "<p><strong>Profitability Analysis:</strong> Understanding how much it costs to acquire a customer helps businesses determine the viability of their marketing and sales efforts. By comparing the CAC to the average revenue generated from each customer (or their lifetime value), companies can assess whether they are acquiring customers profitably.</p><p><strong>Forecasting and Budgeting:</strong> Knowing the cost of acquiring customers allows businesses to forecast future expenses more accurately and set realistic budgets for marketing and sales activities. It helps prevent overspending on customer acquisition efforts and ensures that resources are allocated effectively to achieve growth targets.</p><p><strong>Business Growth:</strong> Maintaining a healthy balance between CAC and customer lifetime value (LTV) is crucial for sustainable business growth. By optimizing CAC and LTV ratios, companies can scale their customer acquisition efforts while ensuring profitability and maximizing long-term revenue.</p><p><strong>Resource Allocation:</strong> CAC provides insights into the effectiveness of different marketing channels and campaigns for a product or service. By analyzing CAC across various channels, businesses can allocate resources more efficiently, focusing on channels that deliver the best return on investment (ROI) and optimizing or eliminating underperforming ones.</p>"
+  }
+];
+---
+
+<AstroshipLayout
+  title="Customer Acquisition Cost Calculator - Shout.com"
+  description="A completely free customer acquisition cost calculator to help you find the CAS for your business, based on your sales and marketing spend."
+>
+  <!-- Hero Section -->
+  <section class="py-20">
+    <Container>
+      <div class="max-w-4xl">
+        <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+          Customer Acquisition Cost <span class="text-primary">Calculator</span>
+        </h1>
+        <p class="text-lg mt-4 text-gray-600 max-w-2xl">
+          Calculate your customer acquisition cost
+        </p>
+        <p class="text-base mt-2 text-gray-600 max-w-2xl">
+          Use our free CAC calculator to calculate the cost of acquiring new customers for your business.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Calculator Section -->
+  <section class="py-16">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-4">Calculate your customer acquisition cost</h2>
+        <p class="text-lg text-gray-600">
+          Enter your total sales and marketing spend, and the number of new customers acquired during this period. We'll calculate your CAC for you.
+        </p>
+      </div>
+
+      <!-- Embedded Calculator -->
+      <div class="bg-white rounded-lg p-8 border border-gray-200">
+        <script id="shoutscript" type="text/javascript" src="https://shout.com/ShoutEmbed/embed.min.js"></script>
+        <div shout-embed data-sh-form="4v6ABKrL" data-sh-height="600px" sh-preview="true" sh-cog-off="true" style="border-radius: 20px; overflow:hidden;"></div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-16 bg-gray-50">
+    <Container>
+      <div class="mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Increase customer acquisition with Shout</h2>
+        <p class="text-lg mt-4 text-gray-600">
+          Learn more about who your customers are and why they converted to help grow your business.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:search" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Identify your target audience</h3>
+          </div>
+          <p class="text-gray-600">Segment your audience based on demographics, psychographics and more to find out who your ideal customers are.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:globe" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Reach prospects anywhere</h3>
+          </div>
+          <p class="text-gray-600">Shout supports multi-channel distribution, enabling you to collect feedback via email, social media, web embed and more.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:comment-dots" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Increase word-of-mouth</h3>
+          </div>
+          <p class="text-gray-600">Find your most loyal customers with an NPS survey, who're more likely to become advocates and recommend you to others.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:palette" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Put your brand front-and-center</h3>
+          </div>
+          <p class="text-gray-600">Choose from a range of sleek themes, customize their designs, add your logo, and finish with our white-label feature.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:test-tube" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Conduct experiments with content</h3>
+          </div>
+          <p class="text-gray-600">Split test content such as text, images, and videos to identify what is most likely to convert leads into customers.</p>
+        </div>
+
+        <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
+          <div class="flex items-center mb-4">
+            <Icon name="bx:bell" class="w-10 h-10 text-primary mr-4" />
+            <h3 class="text-xl font-semibold text-primary">Never miss customer feedback</h3>
+          </div>
+          <p class="text-gray-600">Monitor your reports in real time and receive response notifications via email so you can action feedback instantly.</p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- FAQs -->
+  <section>
+    <Container>
+      <FAQSection title="CAC Calculator FAQs" faqs={cacFaqs} />
+    </Container>
+  </section>
+
+  <!-- Custom Calculator CTA Section -->
+  <section class="py-16 bg-gray-50">
+    <Container>
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Want to create a calculator just like this?</h2>
+        <p class="text-lg text-gray-600 mb-4">
+          Engage your audience, increase traffic, and boost lead generation with expertly crafted calculators.
+        </p>
+        <Button href="https://identity.shout.com/Account/Register">Start Your Free Trial</Button>
+        <p class="text-sm text-gray-600">
+          14-Day Free Trial • No Credit Card Required • Cancel Anytime
+        </p>
+      </div>
+    </Container>
+  </section>
+</AstroshipLayout>

@@ -1,0 +1,92 @@
+# Cloudflare Pages redirects
+# Format: /old-path /new-path [status-code]
+# https://developers.cloudflare.com/pages/configuration/redirects/
+
+# ===========================================
+# Removed calculators - redirect to custom calculator builder
+# ===========================================
+/sample-size-calculator/ /custom-calculator-builder/ 301
+/margin-of-error-calculator/ /custom-calculator-builder/ 301
+/statistical-significance-calculator/ /custom-calculator-builder/ 301
+/cart-abandonment-rate-calculator/ /custom-calculator-builder/ 301
+
+# ===========================================
+# Removed comparison pages - redirect to homepage
+# ===========================================
+/surveymonkey-alternative/ / 301
+/typeform-alternative/ / 301
+/smart-survey-alternative/ / 301
+/compare/shout-vs-google-forms/ / 301
+
+# ===========================================
+# Survey features - redirect to forms page
+# ===========================================
+/survey-features/ /forms/ 301
+
+# ===========================================
+# Category archive pages - redirect to blog
+# ===========================================
+/category/* /blog/ 301
+
+# ===========================================
+# Author archive pages - redirect to blog
+# ===========================================
+/author/* /blog/ 301
+
+# ===========================================
+# Development/release notes - redirect to blog
+# ===========================================
+/development/ /blog/ 301
+/development/* /blog/ 301
+
+# ===========================================
+# Blog category root pages - redirect to blog
+# ===========================================
+/customer-experience/ /blog/ 301
+/customer-feedback/ /blog/ 301
+/email-marketing/ /blog/ 301
+/quiz-design/ /blog/ 301
+/survey-design/ /blog/ 301
+/business/ /blog/ 301
+/digital-marketing/ /blog/ 301
+/content-marketing/ /blog/ 301
+/compliance/ /blog/ 301
+/landing-pages/ /blog/ 301
+/lead-generation/ /blog/ 301
+/employee-experience/ /blog/ 301
+/employees/ /blog/ 301
+/websites/ /blog/ 301
+/calculators/ /blog/ 301
+/sales/ /blog/ 301
+/seo/ /blog/ 301
+/communications/ /blog/ 301
+/guest-post/ /blog/ 301
+
+# ===========================================
+# Blog posts from category URLs - redirect to /blog/[slug]
+# These use splats to capture the article slug
+# ===========================================
+/customer-experience/:slug /blog/:slug 301
+/customer-feedback/:slug /blog/:slug 301
+/email-marketing/:slug /blog/:slug 301
+/quiz-design/:slug /blog/:slug 301
+/survey-design/:slug /blog/:slug 301
+/business/:slug /blog/:slug 301
+/digital-marketing/:slug /blog/:slug 301
+/content-marketing/:slug /blog/:slug 301
+/compliance/:slug /blog/:slug 301
+/landing-pages/:slug /blog/:slug 301
+/lead-generation/:slug /blog/:slug 301
+/employee-experience/:slug /blog/:slug 301
+/employees/:slug /blog/:slug 301
+/websites/:slug /blog/:slug 301
+/calculators/:slug /blog/:slug 301
+/sales/:slug /blog/:slug 301
+/seo/:slug /blog/:slug 301
+/communications/:slug /blog/:slug 301
+/guest-post/:slug /blog/:slug 301
+
+# ===========================================
+# Blog pagination - redirect to blog index
+# ===========================================
+/blog/page/* /blog/ 301

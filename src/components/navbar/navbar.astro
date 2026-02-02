@@ -4,12 +4,15 @@ import Link from "../ui/link.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
 const products = [
+  { title: "Overview", path: "/", matches: ["/"] },
   { title: "Forms", path: "/forms/", matches: ["/forms/", "/survey-maker/", "/quiz-builder/", "/form-builder/", "/custom-calculator-builder/"] },
   { title: "Shared Inbox", path: "/shared-inbox/", matches: ["/shared-inbox/", "/crm/"] },
 ];
 
 const currentPath = Astro.url.pathname;
-const isActive = (product: typeof products[0]) => product.matches.some(p => currentPath.startsWith(p));
+const isActive = (product: typeof products[0]) => product.matches.some(p =>
+  p === "/" ? currentPath === "/" : currentPath.startsWith(p)
+);
 ---
 
 <Container>
@@ -69,7 +72,7 @@ const isActive = (product: typeof products[0]) => product.matches.some(p => curr
         </ul>
         <div class="flex flex-col items-center mt-3 gap-3">
           <Link href="/pricing/" style="muted" block size="md">Pricing</Link>
-          <Link href="/login/" style="muted" block size="md">Log in</Link>
+          <Link href="https://identity.shout.com/Account/Login" style="muted" block size="md">Log in</Link>
           <Link href="https://identity.shout.com/Account/Login" size="md" block>Start Free Trial</Link>
         </div>
       </MenuItems>
@@ -77,7 +80,7 @@ const isActive = (product: typeof products[0]) => product.matches.some(p => curr
     <div>
       <div class="hidden lg:flex items-center gap-4">
         <a href="/pricing/" class="text-gray-600 hover:text-gray-900">Pricing</a>
-        <a href="/login/" class="text-gray-600 hover:text-gray-900">Log in</a>
+        <a href="https://identity.shout.com/Account/Login" class="text-gray-600 hover:text-gray-900">Log in</a>
         <Link href="https://identity.shout.com/Account/Login" size="md">Start Free Trial</Link>
       </div>
     </div>
