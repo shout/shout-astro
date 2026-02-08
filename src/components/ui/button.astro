@@ -4,6 +4,7 @@ interface Props {
   block?: boolean;
   style?: "outline" | "primary" | "inverted";
   class?: string;
+  href?: string;
   [x: string]: any;
 }
 
@@ -12,6 +13,7 @@ const {
   style = "primary",
   block,
   class: className,
+  href,
   ...rest
 } = Astro.props;
 
@@ -25,16 +27,27 @@ const styles = {
   primary:
     "bg-black text-white hover:bg-slate-900  border-2 border-transparent",
 };
+
+const classes = [
+  "rounded-sm text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200",
+  block && "w-full block",
+  sizes[size],
+  styles[style],
+  className,
+];
+
+const Tag = href ? "a" : "button";
 ---
 
-<button
-  {...rest}
-  class:list={[
-    "rounded-sm text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200",
-    block && "w-full",
-    sizes[size],
-    styles[style],
-    className,
-  ]}
-  ><slot />
-</button>
+{href ? (
+  <a
+    href={href}
+    {...rest}
+    class:list={classes}
+  ><slot /></a>
+) : (
+  <button
+    {...rest}
+    class:list={classes}
+  ><slot /></button>
+)}

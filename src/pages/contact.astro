@@ -7,14 +7,14 @@ import { Icon } from "astro-icon/components";
 
 <AstroshipLayout
   title="Contact Us - Shout.com"
-  description="Get in touch with our team. Book a demo, ask questions, or learn more about our privacy-first survey platform."
+  description="Get in touch with our team. Ask questions or learn more about our privacy-first survey platform."
 >
   <!-- Hero Section -->
   <section class="py-20 text-center">
     <Container>
       <h1 class="text-5xl lg:text-6xl font-bold lg:tracking-tight mb-6">Get in Touch</h1>
       <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-        Have questions about Shout? Want to see our platform in action? We're here to help.
+        Have questions about Shout? We're here to help. Drop us an email and we'll get back to you as soon as possible.
       </p>
     </Container>
   </section>
@@ -22,28 +22,16 @@ import { Icon } from "astro-icon/components";
   <!-- Contact Options Section -->
   <section class="py-16 bg-gray-50">
     <Container>
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Demo Request -->
-        <div class="bg-white rounded-lg border-2 border-primary p-8 hover:shadow-md transition-shadow">
-          <div class="flex justify-center mb-4">
-            <Icon name="bx:video" class="w-12 h-12 text-primary" />
-          </div>
-          <h3 class="text-xl font-bold text-center mb-3">Book a Demo</h3>
-          <p class="text-gray-600 mb-6 text-center">See our privacy-first survey software in action. A member of our team will show you how to use Shout to create surveys, manage contacts, and analyze data.</p>
-          <div class="text-center">
-            <Button href="/demo/">Schedule Demo</Button>
-          </div>
-        </div>
-
+      <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
         <!-- Sales Inquiry -->
         <div class="bg-white rounded-lg border border-gray-200 p-8 hover:shadow-md transition-shadow">
           <div class="flex justify-center mb-4">
             <Icon name="bx:briefcase" class="w-12 h-12 text-primary" />
           </div>
           <h3 class="text-xl font-bold text-center mb-3">Sales Inquiries</h3>
-          <p class="text-gray-600 mb-6 text-center">Ready to get started or have questions about our plans? Our sales team can help you choose the right solution for your business.</p>
-          <div class="text-center">
-            <Button variant="outline" href="mailto:sales@shout.com">Contact Sales</Button>
+          <p class="text-gray-600 mb-6 text-center">Ready to get started or have questions about our plans? We can help you choose the right solution for your business.</p>
+          <div>
+            <Button style="outline" block href="mailto:help@shout.com">Contact Sales</Button>
           </div>
         </div>
 
@@ -54,121 +42,21 @@ import { Icon } from "astro-icon/components";
           </div>
           <h3 class="text-xl font-bold text-center mb-3">Customer Support</h3>
           <p class="text-gray-600 mb-6 text-center">Already a customer? Get help with your account, technical questions, or billing inquiries from our support team.</p>
-          <div class="text-center">
-            <Button variant="outline" href="/help/">Get Support</Button>
+          <div class="flex flex-col gap-3">
+            <Button style="outline" href="mailto:help@shout.com">Contact Support</Button>
+            <Button style="outline" href="/help/">Help Centre</Button>
           </div>
         </div>
       </div>
-    </Container>
-  </section>
 
-  <!-- Contact Form Section -->
-  <section class="py-16">
-    <Container>
-      <div class="grid lg:grid-cols-3 gap-12 mb-12">
-        <div class="lg:col-span-2">
-          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mb-6">Send us a message</h2>
-          <p class="text-lg text-gray-600 mb-8">Fill out the form below and we'll get back to you within 24 hours.</p>
-
-          <form class="space-y-6 bg-white rounded-lg border border-gray-200 p-8">
-            <div class="grid md:grid-cols-2 gap-6">
-              <div>
-                <label for="firstName" class="block font-semibold text-gray-900 mb-2">First Name *</label>
-                <input type="text" id="firstName" name="firstName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
-              </div>
-              <div>
-                <label for="lastName" class="block font-semibold text-gray-900 mb-2">Last Name *</label>
-                <input type="text" id="lastName" name="lastName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
-              </div>
-            </div>
-
-            <div>
-              <label for="email" class="block font-semibold text-gray-900 mb-2">Email Address *</label>
-              <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
-            </div>
-
-            <div>
-              <label for="company" class="block font-semibold text-gray-900 mb-2">Company</label>
-              <input type="text" id="company" name="company" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
-            </div>
-
-            <div>
-              <label for="subject" class="block font-semibold text-gray-900 mb-2">Subject *</label>
-              <select id="subject" name="subject" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
-                <option value="">Please select...</option>
-                <option value="demo">Request a Demo</option>
-                <option value="sales">Sales Inquiry</option>
-                <option value="support">Technical Support</option>
-                <option value="billing">Billing Question</option>
-                <option value="partnership">Partnership Opportunity</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="message" class="block font-semibold text-gray-900 mb-2">Message *</label>
-              <textarea id="message" name="message" rows="5" required placeholder="Tell us how we can help you..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"></textarea>
-            </div>
-
-            <div class="flex items-center">
-              <input type="checkbox" id="newsletter" name="newsletter" value="yes" class="w-4 h-4">
-              <label for="newsletter" class="ml-2 text-gray-700">I'd like to receive updates about Shout features and news</label>
-            </div>
-
-            <Button href="#" class="w-full text-center">Send Message</Button>
-          </form>
-        </div>
-
-        <div>
-          <h3 class="text-2xl font-bold mb-8">Other ways to reach us</h3>
-
-          <div class="space-y-6">
-            <div class="bg-white rounded-lg border border-gray-200 p-6">
-              <h4 class="font-bold mb-2 flex items-center">
-                <Icon name="bx:envelope" class="w-5 h-5 text-primary mr-2" />
-                Email
-              </h4>
-              <p><a href="mailto:hello@shout.com" class="text-primary hover:underline">hello@shout.com</a></p>
-            </div>
-
-            <div class="bg-white rounded-lg border border-gray-200 p-6">
-              <h4 class="font-bold mb-2 flex items-center">
-                <Icon name="bx:chat" class="w-5 h-5 text-primary mr-2" />
-                Live Chat
-              </h4>
-              <p class="text-gray-600">Available Monday-Friday, 9 AM - 5 PM GMT</p>
-            </div>
-
-            <div class="bg-white rounded-lg border border-gray-200 p-6">
-              <h4 class="font-bold mb-3 flex items-center">
-                <Icon name="bx:link" class="w-5 h-5 text-primary mr-2" />
-                Social Media
-              </h4>
-              <div class="space-y-2">
-                <a href="https://twitter.com/ShoutSurveys" target="_blank" rel="noopener" class="block text-primary hover:underline">Twitter</a>
-                <a href="https://linkedin.com/company/shoutsurveys" target="_blank" rel="noopener" class="block text-primary hover:underline">LinkedIn</a>
-              </div>
-            </div>
-
-            <div class="bg-white rounded-lg border border-gray-200 p-6">
-              <h4 class="font-bold mb-2 flex items-center">
-                <Icon name="bx:building" class="w-5 h-5 text-primary mr-2" />
-                Office
-              </h4>
-              <p class="text-gray-600">
-                Shout.com<br>
-                United Kingdom<br>
-                <span class="text-sm italic">Remote-first company</span>
-              </p>
-            </div>
-          </div>
-        </div>
+      <div class="text-center mt-8">
+        <p class="text-gray-600">Or email us directly at <a href="mailto:help@shout.com" class="text-primary font-medium hover:underline">help@shout.com</a></p>
       </div>
     </Container>
   </section>
 
   <!-- FAQ Section -->
-  <section class="py-16 bg-gray-50">
+  <section class="py-16">
     <Container>
       <div class="mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Frequently Asked Questions</h2>
@@ -181,12 +69,12 @@ import { Icon } from "astro-icon/components";
 
         <div class="bg-white rounded-lg border border-gray-200 p-8">
           <h3 class="text-lg font-bold mb-3">Do you offer training?</h3>
-          <p class="text-gray-600">Yes! We provide comprehensive onboarding, documentation, and can arrange personalized training sessions for your team.</p>
+          <p class="text-gray-600">We provide comprehensive onboarding and documentation. Personalised training sessions for your team are also available as a paid service — get in touch for details.</p>
         </div>
 
         <div class="bg-white rounded-lg border border-gray-200 p-8">
           <h3 class="text-lg font-bold mb-3">Is my data secure?</h3>
-          <p class="text-gray-600">Absolutely. We use enterprise-grade security with UK-based servers, ISO certification, and built-in GDPR compliance.</p>
+          <p class="text-gray-600">Absolutely. We use enterprise-grade security with UK-based, ISO-certified data centres and built-in GDPR compliance.</p>
         </div>
 
         <div class="bg-white rounded-lg border border-gray-200 p-8">
@@ -201,10 +89,9 @@ import { Icon } from "astro-icon/components";
 
         <div class="bg-white rounded-lg border border-gray-200 p-8">
           <h3 class="text-lg font-bold mb-3">Do you offer discounts for nonprofits?</h3>
-          <p class="text-gray-600">Yes! Schools and nonprofits can save 48% on our Pro plan. Contact us for more information about eligibility.</p>
+          <p class="text-gray-600">Yes! We offer discounted pricing for schools and nonprofits. Contact us for more information about eligibility.</p>
         </div>
       </div>
     </Container>
   </section>
 </AstroshipLayout>
-
