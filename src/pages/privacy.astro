@@ -16,6 +16,7 @@ const sections = [
   { id: "backup", title: "Backup policy" },
   { id: "complaints", title: "Right to complain" },
   { id: "updates", title: "Policy updates" },
+  { id: "children", title: "Children's data" },
 ];
 ---
 
@@ -30,6 +31,7 @@ const sections = [
           <div class="max-w-4xl">
             <div class="mb-12">
               <h1 class="text-4xl lg:text-5xl font-bold mb-4">Privacy Policy</h1>
+              <p class="text-gray-500 text-sm">Last updated: 8 February 2026</p>
             </div>
 
             <div class="prose prose-lg max-w-none">
@@ -39,6 +41,10 @@ const sections = [
               </p>
 
               <h2 id="introduction">Introduction</h2>
+              <div class="not-prose bg-primary/10 border border-primary/20 rounded-xl p-6 mb-6">
+                <p class="text-base font-semibold text-gray-900 mb-1">Are you a survey, form, or quiz respondent?</p>
+                <p class="text-base text-gray-700 mb-0">If you have responded to a survey, form, or quiz, or have communicated with someone via our shared inbox, please refer to our <a href="/respondent-privacy/" class="text-primary font-medium underline hover:text-primary/80">Respondent Privacy Policy</a> instead.</p>
+              </div>
               <p>
                 This privacy policy describes the information we collect about Creators and Visitors.
               </p>
@@ -51,13 +57,13 @@ const sections = [
 
               <h2 id="definitions">Definitions</h2>
               <p>
-                <strong>"Creators":</strong> These are account holders who use tools on the Site to create projects (surveys, quizzes, forms), collect data, or manage contacts.
+                <strong>"Creators":</strong> These are account holders who use tools on the Site to create projects (surveys, quizzes, forms), collect data, manage contacts, or manage conversations via the shared inbox.
               </p>
               <p>
                 <strong>"Visitors"</strong> are anyone who visits the Site.
               </p>
               <p>
-                <strong>"Respondents"</strong> are those who fill out surveys, quizzes, or forms created through the Site or have their data processed by Problem Free Limited by the Creator inputting their personal data into their account.
+                <strong>"Respondents"</strong> are those who fill out surveys, quizzes, or forms created through the Site, communicate with Creators via the shared inbox (including email), or have their data processed by Problem Free Limited by the Creator inputting their personal data into their account.
               </p>
 
               <h2 id="data-we-collect">The personal data we collect about you</h2>
@@ -65,18 +71,21 @@ const sections = [
                 In acting as a <strong>data controller</strong>, we collect the following personal data about you:
               </p>
               <ul>
-                <li><strong>Account information:</strong> information provided to create an account with the Site, such as names and email addresses and profile pictures.</li>
-                <li><strong>Billing information:</strong> information provided to maintain a paid subscription to the Site, such as names, email addresses, billing address, card number, and expiry dates.</li>
-                <li><strong>Contact Information:</strong> information you may share with us for providing support and transactional communications or for collecting feedback, testimonials and reviews.</li>
-                <li><strong>Social profiles:</strong> information that may be collected when inviting and suggesting others or sharing projects to Social Media platforms.</li>
-                <li><strong>Usage data:</strong> information collected to improve the performance of the Site.</li>
-                <li><strong>Web log data:</strong> our web servers keep log files that record data each time a device accesses those servers. The log files contain data about the nature of each access, including originating IP addresses, browser agent, the files viewed on our site (e.g., HTML pages, graphics, etc.), operating system versions, device type and timestamps.</li>
-                <li><strong>Application log data:</strong> personal data (e.g. error details, application performance logging, user history) may be stored in error logs, which are used to resolve bugs and ensure our Site is operating efficiently.</li>
-                <li><strong>Survey questions and answers:</strong> personal data we may collect from you when you respond to surveys, quizzes or forms created by us.</li>
-                <li><strong>Information from third parties:</strong> We collect your personal data from third parties where you give permission for that data to be shared. For example, when creating an account using the Google SSO method.</li>
-                <li><strong>Community participation data:</strong> information shared when participating in our community features, including usernames, profile information, feature suggestions, votes, comments, and forum posts.</li>
-                <li><strong>Notification preferences:</strong> your preferences for receiving email notifications about community activity, including subscribed topics, voted features, and forum threads.</li>
+                <li><strong>Account information:</strong> information provided to create an account with the Site, such as names and email addresses and profile pictures. <em>(Lawful basis: contract)</em></li>
+                <li><strong>Billing information:</strong> information provided to maintain a paid subscription to the Site, such as names, email addresses, billing address, card number, and expiry dates. <em>(Lawful basis: contract)</em></li>
+                <li><strong>Contact Information:</strong> information you may share with us for providing support and transactional communications or for collecting feedback, testimonials and reviews. <em>(Lawful basis: contract / legitimate interests)</em></li>
+                <li><strong>Social profiles:</strong> information that may be collected when inviting and suggesting others or sharing projects to Social Media platforms. <em>(Lawful basis: consent)</em></li>
+                <li><strong>Usage data:</strong> information collected to improve the performance of the Site. <em>(Lawful basis: legitimate interests)</em></li>
+                <li><strong>Web log data:</strong> our web servers keep log files that record data each time a device accesses those servers. The log files contain data about the nature of each access, including originating IP addresses, browser agent, the files viewed on our site (e.g., HTML pages, graphics, etc.), operating system versions, device type and timestamps. <em>(Lawful basis: legitimate interests)</em></li>
+                <li><strong>Application log data:</strong> personal data (e.g. error details, application performance logging, user history) may be stored in error logs, which are used to resolve bugs and ensure our Site is operating efficiently. <em>(Lawful basis: legitimate interests)</em></li>
+                <li><strong>Survey questions and answers:</strong> personal data we may collect from you when you respond to surveys, quizzes or forms created by us. <em>(Lawful basis: consent)</em></li>
+                <li><strong>Information from third parties:</strong> We collect your personal data from third parties where you give permission for that data to be shared. For example, when creating an account using the Google SSO method. <em>(Lawful basis: consent)</em></li>
+                <li><strong>Community participation data:</strong> information shared when participating in our community features, including usernames, profile information, feature suggestions, votes, comments, and forum posts. <em>(Lawful basis: contract / legitimate interests)</em></li>
+                <li><strong>Notification preferences:</strong> your preferences for receiving email notifications about community activity, including subscribed topics, voted features, and forum threads. <em>(Lawful basis: contract)</em></li>
               </ul>
+              <p>
+                Where we rely on <strong>legitimate interests</strong> as a lawful basis, we have assessed that our interests do not override your fundamental rights and freedoms. Our legitimate interests include maintaining the security of the Site, improving our services, and ensuring the Site operates efficiently.
+              </p>
 
               <p>
                 In acting as <strong>data processor</strong>, we collect the following personal data from you:
@@ -84,11 +93,17 @@ const sections = [
               <ul>
                 <li><strong>CRM data:</strong> including names, email addresses, and other personal data collected by the data controller.</li>
                 <li><strong>Survey questions and answers:</strong> personal data that may be stored with questions and answers.</li>
+                <li><strong>Inbox and conversation data:</strong> message content, email addresses, attachments, and timestamps collected through the shared inbox when Respondents communicate with Creators via email or form submissions.</li>
                 <li><strong>Image library:</strong> images that are uploaded to the image library on the Site.</li>
                 <li><strong>Organisations:</strong> names and email addresses of team users invited to the Site by Creators.</li>
               </ul>
               <p>
-                The lawful basis for us collecting the above personal data is for the fulfilment of a contract.
+                The lawful basis for us collecting the above data as a processor is for the fulfilment of a contract with the Creator, who acts as the data controller.
+              </p>
+
+              <h3>Cookies and tracking technologies</h3>
+              <p>
+                We use cookies and similar technologies on the Site. For full details of the cookies we use, why we use them, and how you can control them, please see our <a href="/cookies/">Cookie Policy</a>.
               </p>
 
               <h2 id="how-we-use-data">How we use the personal data we collect</h2>
@@ -105,6 +120,8 @@ const sections = [
                 <li>Network defence, DDOS protection, and application security.</li>
                 <li>Debugging and application optimisation.</li>
                 <li>Ensuring you can sign-up or log in to your account from a third-party integration, such as Google SSO.</li>
+                <li>Receiving, routing, and storing messages in the shared inbox so Creators can manage and reply to conversations from form submissions and email in one place.</li>
+                <li>Sending replies on behalf of Creators to Respondents via the shared inbox.</li>
                 <li>To display your username and profile information in our community sections, including feature voting, suggestions, and public forums as a required part of these services.</li>
                 <li>To maintain and moderate our community features to ensure compliance with our community guidelines.</li>
                 <li>To send you notifications about updates to community content you've subscribed to or participated in.</li>
@@ -139,10 +156,13 @@ const sections = [
               <p>
                 When you choose to register or log in using a third-party service (such as Google Sign-In), we collect your name, email address, and profile picture as permitted by your settings with that service. We use this information solely to verify your identity, create your account, and manage your user profile. This data is encrypted in transit and at rest.
               </p>
+              <p>
+                Shout's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a>, including the Limited Use requirements.
+              </p>
 
               <h2 id="disclosure">Disclosure of your personal data</h2>
               <p>
-                We use sub-processors to deliver some of our services and to ensure your data is stored safely and securely. All sub-processors we use have the appropriate security and organisational measure in place to keep your data secure. You can find a full list of the sub-processors we use to provide this service at the following link: <a href="/173-our-sub-processors/">Our sub processors</a>.
+                We use sub-processors to deliver some of our services and to ensure your data is stored safely and securely. All sub-processors we use have the appropriate security and organisational measure in place to keep your data secure. You can find a full list of the sub-processors we use to provide this service at the following link: <a href="https://shout.com/help/article/173-our-sub-processors" target="_blank" rel="noopener noreferrer">Our sub processors</a>.
               </p>
 
               <h3>Payment information</h3>
@@ -171,10 +191,10 @@ const sections = [
 
               <h3>Data transfers outside of the UK and EEA</h3>
               <p>
-                Personal data for which we are the data controller may be stored or transferred outside of the UK and EEA and may be processed by third-parties for the purpose of providing Problem Free Limited with their services.
+                Personal data for which we are the data controller may be stored or transferred outside of the UK and EEA and may be processed by third-parties for the purpose of providing Problem Free Limited with their services. This primarily includes transfers to the United States for infrastructure and service delivery.
               </p>
               <p>
-                These services are essential to the continued operation of the Site and efficiently providing our services to you. All third party processors are subject to a data processing agreement or are bound by standard contractual clauses that guarantee compliant standards for data transfers.
+                These services are essential to the continued operation of the Site and efficiently providing our services to you. All third-party processors are subject to a data processing agreement and, where required, are bound by the UK International Data Transfer Agreement (IDTA) or the UK Addendum to the EU Standard Contractual Clauses to ensure compliant standards for international data transfers.
               </p>
 
               <h2 id="your-rights">Your rights as a data subject</h2>
@@ -182,19 +202,23 @@ const sections = [
                 If you are a Creator or Visitor, you have the following rights:
               </p>
               <ul>
-                <li><strong>The right of access:</strong> You can access most of the data we store about you by accessing your account on the Site. If there is some data you believe we hold that is not accessible to you through your account, you may contact us at <a href="mailto:dpo@shout.com">dpo@shout.com</a>. This right can be exercised free of charge and all information provided in an accessible format, unless your request is excessive or repetitive.</li>
+                <li><strong>The right of access:</strong> You can access most of the data we store about you by accessing your account on the Site. If there is some data you believe we hold that is not accessible to you through your account, you may contact us at <a href="mailto:help@shout.com">help@shout.com</a>. This right can be exercised free of charge and all information provided in an accessible format, unless your request is excessive or repetitive.</li>
                 <li><strong>The right of rectification:</strong> You can rectify most personal information we hold about you from your account. If you are unable to rectify some information, you may submit a request to <a href="mailto:help@shout.com">help@shout.com</a> (for Shout Creators) or <a href="mailto:help@freeonlinesurveys.com">help@freeonlinesurveys.com</a> (for FreeOnlineSurveys Creators).</li>
-                <li><strong>The right to erasure:</strong> You can erase information collected via the Site tools, such as survey responses and CRM contacts, from inside your account. If you close your account, the personal data needed to keep that account open, such as name and email address, will be erased in line with our Retention Policy. You have the right to request that any personal data stored about you be erased, such as support tickets, reviews, or testimonials, by contacting us directly.</li>
+                <li><strong>The right to erasure:</strong> You can erase information collected via the Site tools, such as survey responses, CRM contacts, and inbox conversations, from inside your account. If you close your account, the personal data needed to keep that account open, such as name and email address, will be erased in line with our Retention Policy. You have the right to request that any personal data stored about you be erased, such as support tickets, reviews, or testimonials, by contacting us directly.</li>
                 <li><strong>The right to restrict processing:</strong> You do have the right to request a change in how your data is processed. As the processes we have in place are to ensure the efficient operation of the Site and the services we provide, you may be instructed to exercise your right to erasure instead.</li>
-                <li><strong>The right to object:</strong> You have the right to object to Problem Free Limited using your data for marketing purposes. You may contact <a href="mailto:dpo@shout.com">dpo@shout.com</a> to exercise this right.</li>
+                <li><strong>The right to data portability:</strong> Where we process your data based on consent or contract, you have the right to receive the personal data you have provided to us in a structured, commonly used, and machine-readable format, and to request that we transmit that data to another controller where technically feasible.</li>
+                <li><strong>The right to object:</strong> You have the right to object to Problem Free Limited using your data for marketing purposes. You may contact <a href="mailto:help@shout.com">help@shout.com</a> to exercise this right.</li>
               </ul>
+              <p>
+                If you are a <strong>Respondent</strong>, please refer to the privacy policy provided by the Creator whose survey, form, or inbox you interacted with. Creators act as the data controller for Respondent data, and you should contact them directly to exercise your rights. Creators may then contact us to action your request. For further information, please see our <a href="/respondent-privacy/">Respondent Privacy Policy</a>.
+              </p>
 
               <h2 id="retention">Retention policy</h2>
               <p>
-                We will retain your personal data for as long as it is necessary to provide our services to you. If you wish to close your account, you may do so via your account settings on the Site or by contacting us at <a href="mailto:dpo@shout.com">dpo@shout.com</a>.
+                We will retain your personal data for as long as it is necessary to provide our services to you. If you wish to close your account, you may do so via your account settings on the Site or by contacting us at <a href="mailto:help@shout.com">help@shout.com</a>.
               </p>
               <p>
-                You can find all information about the data retention period for account details, surveys, responses, and questions by reading our <a href="/228-data-retention/">Data Retention Policy</a>.
+                You can find all information about the data retention period for account details, surveys, responses, questions, and inbox conversations by reading our <a href="https://shout.com/help/article/228-data-retention" target="_blank" rel="noopener noreferrer">Data Retention Policy</a>.
               </p>
 
               <h2 id="backup">Backup Policy</h2>
@@ -210,6 +234,11 @@ const sections = [
               <h2 id="updates">Updates to this privacy policy</h2>
               <p>
                 We regularly review and, if appropriate, update this privacy policy from time to time, and as our services and use of personal data evolves. If we want to make use of your personal data in a way that we haven't previously identified, we will contact you to provide information about this and, if necessary, to ask for your consent.
+              </p>
+
+              <h2 id="children">Children's data</h2>
+              <p>
+                The Site is not intended for use by anyone under the age of 16. As set out in our <a href="/terms/">Terms and Conditions</a>, you must be at least 16 years old to create an account or use our services. We do not knowingly collect personal data from children under 16. If we become aware that we have collected personal data from a child under 16, we will take steps to delete that data promptly.
               </p>
 
               <h2>Questions?</h2>
