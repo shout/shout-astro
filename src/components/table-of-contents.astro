@@ -10,8 +10,8 @@ export interface Props {
 const { sections, title = "On this page" } = Astro.props;
 ---
 
-<nav class="hidden xl:block" aria-label="Table of contents">
-  <div class="sticky top-24">
+<nav class="hidden xl:block xl:sticky xl:top-24 xl:self-start xl:h-fit" aria-label="Table of contents">
+  <div>
     <h2 class="text-sm font-semibold text-gray-900 mb-4">{title}</h2>
     <ul class="space-y-2 text-sm border-l border-gray-200">
       {sections.map((section) => (
