@@ -1,0 +1,78 @@
+---
+/**
+ * SurveyHeroDemo - Static survey card for solution page heroes
+ *
+ * Renders a FormCard with 3 questions using existing hero-demo components.
+ * No animations or JavaScript — just a static visual.
+ */
+import FormCard from "./hero-demo/FormCard.astro";
+import FormQuestion from "./hero-demo/FormQuestion.astro";
+
+export interface Question {
+  question: string;
+  type: "stars" | "choice" | "likert";
+  options?: [string, string];
+}
+
+export interface Props {
+  title: string;
+  questions: [Question, Question, Question];
+}
+
+const { title, questions } = Astro.props;
+---
+
+<div class="hidden lg:block">
+  <FormCard title={title} id={`hero-${title.replace(/\s+/g, '-').toLowerCase()}`}>
+    {questions.map((q, i) => (
+      <FormQuestion number={i + 1} question={q.question} barVisible={i === 0} class={i === 2 ? '' : 'mb-10'}>
+        {q.type === "stars" && (
+          <div class="flex gap-1">
+            {[1,2,3,4,5].map(n => (
+              <svg
+                class={`w-7 h-7 transition-all duration-200 ${n <= 4 ? 'text-white' : 'text-white/40'}`}
+                viewBox="0 0 24 24"
+                fill={n <= 4 ? 'currentColor' : 'none'}
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            ))}
+          </div>
+        )}
+
+        {q.type === "choice" && (
+          <div class="grid grid-cols-2 gap-2">
+            <div class="flex items-center border border-white bg-white/10 rounded overflow-hidden">
+              <span class="w-8 h-8 border-r border-white/30 text-sm flex items-center justify-center bg-white text-[#2A98C6]">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <span class="text-sm text-white px-3">{q.options?.[0] ?? "Yes"}</span>
+            </div>
+            <div class="flex items-center border border-white/30 rounded overflow-hidden">
+              <span class="w-8 h-8 border-r border-dashed border-white/30 text-sm flex items-center justify-center text-white/70 bg-white/5">B</span>
+              <span class="text-sm text-white px-3">{q.options?.[1] ?? "No"}</span>
+            </div>
+          </div>
+        )}
+
+        {q.type === "likert" && (
+          <div class="flex gap-1">
+            {[0,1,2,3,4,5,6,7,8,9,10].map(n => (
+              <button
+                class={`w-7 h-7 rounded text-xs flex items-center justify-center border transition-all duration-200 cursor-default ${
+                  n === 8
+                    ? 'bg-white text-[#2A98C6] border-white font-bold'
+                    : 'bg-white/10 text-white/70 border-white/30'
+                }`}
+              >
+                {n}
+              </button>
+            ))}
+          </div>
+        )}
+      </FormQuestion>
+    ))}
+  </FormCard>
+</div>

@@ -5,6 +5,7 @@ import Button from "../components/ui/button.astro";
 import { Icon } from "astro-icon/components";
 import CustomerLogos from "../components/customer-logos.astro";
 import Features from "../components/features.astro";
+import SurveyHeroDemo from "../components/survey-hero-demo.astro";
 ---
 
 <AstroshipLayout
@@ -27,14 +28,14 @@ import Features from "../components/features.astro";
             <p class="text-gray-600 text-sm self-center">14-day Free Trial • No Credit Card Required</p>
           </div>
         </div>
-        <div class="hidden lg:block">
-          <img
-            src="/images/2024/02/Non-Profit-Surveys.svg"
-            alt="Non-Profit Surveys"
-            class="w-full h-auto max-w-md rounded-lg"
-            loading="eager"
-          />
-        </div>
+        <SurveyHeroDemo
+          title="Volunteer Feedback"
+          questions={[
+            { question: "Rate your volunteering experience", type: "stars" },
+            { question: "Would you volunteer again?", type: "choice", options: ["Yes", "No"] },
+            { question: "How supported did you feel?", type: "likert" },
+          ]}
+        />
       </div>
     </Container>
   </section>
@@ -254,7 +255,6 @@ import Features from "../components/features.astro";
         <p class="text-lg text-gray-600 mb-8">Get started with our 14-day Free Trial (no credit card required).</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <Button href="https://identity.shout.com/Account/Register">Start Free Trial</Button>
-          <Button variant="outline" href="/demo/">Book a Demo</Button>
         </div>
       </div>
     </Container>
