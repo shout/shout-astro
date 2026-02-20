@@ -10,6 +10,7 @@ const sections = [
   { id: "data-we-collect", title: "Data we collect" },
   { id: "how-we-use-data", title: "How we use data" },
   { id: "third-parties", title: "Third-party info" },
+  { id: "gmail-integration", title: "Gmail integration" },
   { id: "disclosure", title: "Disclosure" },
   { id: "your-rights", title: "Your rights" },
   { id: "retention", title: "Retention policy" },
@@ -31,7 +32,7 @@ const sections = [
           <div class="max-w-4xl">
             <div class="mb-12">
               <h1 class="text-4xl lg:text-5xl font-bold mb-4">Privacy Policy</h1>
-              <p class="text-gray-500 text-sm">Last updated: 8 February 2026</p>
+              <p class="text-gray-500 text-sm">Last updated: 20 February 2026</p>
             </div>
 
             <div class="prose prose-lg max-w-none">
@@ -154,10 +155,21 @@ const sections = [
 
               <h2 id="third-parties">Information shared from third-parties</h2>
               <p>
-                When you choose to register or log in using a third-party service (such as Google Sign-In), we collect your name, email address, and profile picture as permitted by your settings with that service. We use this information solely to verify your identity, create your account, and manage your user profile. This data is encrypted in transit and at rest.
+                When you choose to register or log in using a third-party service (such as Google Sign-In), we collect your name, email address, and profile picture as permitted by your settings with that service. We use your basic profile information to verify your identity, create your account, and manage your user profile. Additional permissions, such as Gmail integration, are governed by the specific terms outlined below. This data is encrypted in transit and at rest.
               </p>
               <p>
                 Shout's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a>, including the Limited Use requirements.
+              </p>
+
+              <h3 id="gmail-integration">Gmail Integration and Email Sending</h3>
+              <p>
+                If you choose to connect your Gmail account to Shout to use our shared inbox email features, we will request permission to send emails on your behalf (using the <code>gmail.send</code> scope). We use this permission strictly to allow you to compose and send messages and replies to respondents directly from the Shout platform using your connected Gmail address.
+              </p>
+              <p>
+                To provide this functionality, Shout will process the content of emails you compose within our platform, along with the recipient email addresses and sending timestamps. <strong>We do not use this permission to read, access, scan, or delete your existing or incoming emails.</strong> The data processed through this integration is used exclusively to facilitate your sending requests and to maintain your outgoing message history within your Shout shared inbox.
+              </p>
+              <p>
+                We do not sell this data or share your Gmail sending capabilities with any unauthorised third parties. You may disconnect your Gmail account from Shout at any time via your account settings, which will immediately revoke our ability to send emails on your behalf.
               </p>
 
               <h2 id="disclosure">Disclosure of your personal data</h2>
