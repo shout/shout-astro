@@ -206,24 +206,18 @@ import Cta from "../components/cta.astro";
         });
 
         // Accordion sync: one section open at a time, synced across plans
-        let syncing = false;
-        paid.addEventListener('toggle', (e) => {
-          if (syncing) return;
-          const det = e.target as HTMLDetailsElement;
+        paid.addEventListener('click', (e) => {
+          const summary = (e.target as HTMLElement).closest('summary');
+          if (!summary) return;
+          const det = summary.parentElement as HTMLDetailsElement;
           if (!det?.dataset?.accordionIdx) return;
+          e.preventDefault();
           const idx = det.dataset.accordionIdx;
-          syncing = true;
-          if (det.open) {
-            paid.querySelectorAll<HTMLDetailsElement>('details[data-accordion-idx]').forEach(el => {
-              el.open = el.dataset.accordionIdx === idx;
-            });
-          } else {
-            paid.querySelectorAll<HTMLDetailsElement>(`details[data-accordion-idx="${idx}"]`).forEach(el => {
-              el.open = false;
-            });
-          }
-          syncing = false;
-        }, true);
+          const willOpen = !det.open;
+          paid.querySelectorAll<HTMLDetailsElement>('details[data-accordion-idx]').forEach(el => {
+            el.open = willOpen && el.dataset.accordionIdx === idx;
+          });
+        });
       }
     </script>
 
