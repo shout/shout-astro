@@ -14,9 +14,9 @@ import Cta from "../components/cta.astro";
 
     <div class="flex justify-end mb-4 max-w-screen-lg mx-auto">
       <div class="inline-flex items-center bg-gray-100 rounded-full p-1" id="billing-toggle">
-        <button class="px-4 py-1.5 text-sm font-medium rounded-full transition-colors bg-white text-gray-900 shadow-sm" data-period="annual">Yearly (save 44%)</button>
-        <button class="px-4 py-1.5 text-sm font-medium rounded-full transition-colors text-gray-500" data-period="monthly">Monthly</button>
-        <button class="px-4 py-1.5 text-sm font-medium rounded-full transition-colors text-gray-500" data-period="student">Student & Non-profit</button>
+        <button class="px-4 py-1.5 text-sm font-medium rounded-full transition-colors bg-white text-gray-900 shadow-sm cursor-pointer" data-period="annual">Yearly (save 44%)</button>
+        <button class="px-4 py-1.5 text-sm font-medium rounded-full transition-colors text-gray-500 hover:text-gray-700 cursor-pointer" data-period="monthly">Monthly</button>
+        <button class="px-4 py-1.5 text-sm font-medium rounded-full transition-colors text-gray-500 hover:text-gray-700 cursor-pointer" data-period="student">Student & Non-profit</button>
       </div>
     </div>
 
@@ -287,10 +287,10 @@ import Cta from "../components/cta.astro";
             buttons.forEach(b => {
               if (b.dataset.period === period) {
                 b.classList.add('bg-white', 'text-gray-900', 'shadow-sm');
-                b.classList.remove('text-gray-500');
+                b.classList.remove('text-gray-500', 'hover:text-gray-700');
               } else {
                 b.classList.remove('bg-white', 'text-gray-900', 'shadow-sm');
-                b.classList.add('text-gray-500');
+                b.classList.add('text-gray-500', 'hover:text-gray-700');
               }
             });
             // Show/hide plan containers
