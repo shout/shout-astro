@@ -29,6 +29,9 @@ export interface Props {
   ctaText?: string;
   ctaLink?: string;
   trialLabel?: string;
+  specialPriceLabel?: string;
+  specialPriceLabelMonthly?: string;
+  specialPriceLink?: string;
   seeAllLabel?: string;
   seeAllLink?: string;
 }
@@ -55,6 +58,9 @@ const {
   ctaText = "Get Started",
   ctaLink = "#",
   trialLabel,
+  specialPriceLabel,
+  specialPriceLabelMonthly,
+  specialPriceLink,
   seeAllLabel,
   seeAllLink,
 } = Astro.props;
@@ -88,6 +94,11 @@ const buttonLabel = trialLabel ? `${ctaText} — ${trialLabel}` : ctaText;
       </p>
       {billingNote && (
         <p class="mt-1 text-sm text-gray-400 billing-note" data-annual-note={billingNote} data-monthly-note={billingNoteMonthly || billingNote}>{billingNote}</p>
+      )}
+      {specialPriceLabel && (
+        <a href={specialPriceLink || "#"} class="mt-1 inline-block text-sm text-gray-400 hover:text-gray-600 transition-colors special-price" data-annual-label={specialPriceLabel} data-monthly-label={specialPriceLabelMonthly || specialPriceLabel}>
+          <span class="special-price-text">{specialPriceLabel}</span> &rarr;
+        </a>
       )}
     </div>
     {ctaLink !== "#" && (

@@ -14,8 +14,9 @@ import Cta from "../components/cta.astro";
 
     <div class="flex justify-end mb-4 max-w-screen-lg mx-auto">
       <div class="inline-flex items-center bg-gray-100 rounded-full p-1" id="billing-toggle">
+        <button class="px-4 py-1.5 text-sm font-medium rounded-full transition-colors bg-white text-gray-900 shadow-sm" data-period="annual">Yearly (save 44%)</button>
         <button class="px-4 py-1.5 text-sm font-medium rounded-full transition-colors text-gray-500" data-period="monthly">Monthly</button>
-        <button class="px-4 py-1.5 text-sm font-medium rounded-full transition-colors bg-white text-gray-900 shadow-sm" data-period="annual">Annual</button>
+        <button class="px-4 py-1.5 text-sm font-medium rounded-full transition-colors text-gray-500" data-period="student">Student & Non-profit</button>
       </div>
     </div>
 
@@ -195,6 +196,46 @@ import Cta from "../components/cta.astro";
       </div>
     </div>
 
+    <!-- Student & Non-profit plans (hidden by default) -->
+    <div id="student-plans" class="rounded-3xl p-6 pt-5 bg-white shadow-lg border border-gray-200 max-w-3xl mx-auto hidden">
+      <div class="grid md:grid-cols-2 md:divide-x md:divide-gray-100 gap-5">
+        <PricingCard
+          name="Student"
+          description="Verified students get Essentials features at a reduced price"
+          price="2.99"
+          period="/month"
+          billingNote="billed annually · or £7.99/mo monthly"
+          topFeatures={["Unlimited responses", "1 user", "Your logo and brand", "100MB file uploads", "Low AI usage", "Cross-tabulation"]}
+          topFeatureIcons={["bx:infinite", "bx:user", "bx:star", "bx:cloud-upload", "bx:bxs-brain", "bx:bar-chart-alt-2"]}
+          topFeatureTooltips={["", "", "", "", "", "Compare answers across different questions to uncover patterns and insights — for example, product interest broken down by age group and location."]}
+          includes="All Essentials features"
+          seeAllLabel="See all features"
+          seeAllLink="#compare-plans"
+        />
+        <PricingCard
+          name="Schools & Non-profit"
+          description="Registered schools and non-profits get Plus features at a reduced price"
+          price="12.99"
+          period="/month"
+          billingNote="billed annually"
+          topFeatures={["Unlimited responses", "3 users", "No Shout branding", "1GB file uploads", "Medium AI usage", "Cross-tabulation"]}
+          topFeatureIcons={["bx:infinite", "bx:bxs-group", "bx:bxs-star-half", "bx:cloud-upload", "bx:bxs-brain", "bx:bar-chart-alt-2"]}
+          topFeatureTooltips={["", "", "", "", "", "Compare answers across different questions to uncover patterns and insights — for example, product interest broken down by age group and location."]}
+          includes="All Plus features"
+          seeAllLabel="See all features"
+          seeAllLink="#compare-plans"
+        />
+      </div>
+      <div class="mt-6 text-center">
+        <a
+          href="https://identity.shout.com/Account/Register"
+          class="inline-block px-10 py-3 rounded-lg text-sm font-semibold transition-colors bg-[#FB7258] text-white hover:bg-[#e5603d] shadow-sm">
+          Start your free trial
+        </a>
+        <p class="mt-2 text-sm text-gray-400">All paid trials include full Plus features for 14 days. No credit card required.</p>
+      </div>
+    </div>
+
     <script>
       const paid = document.getElementById('paid-plans');
       if (paid) {
@@ -235,13 +276,16 @@ import Cta from "../components/cta.astro";
 
       // Billing toggle
       const toggle = document.getElementById('billing-toggle');
+      const studentPlans = document.getElementById('student-plans');
       if (toggle) {
         const buttons = toggle.querySelectorAll('button');
         buttons.forEach(btn => {
           btn.addEventListener('click', () => {
-            const isAnnual = btn.dataset.period === 'annual';
+            const period = btn.dataset.period;
+            const isAnnual = period === 'annual';
+            const isStudent = period === 'student';
             buttons.forEach(b => {
-              if (b.dataset.period === btn.dataset.period) {
+              if (b.dataset.period === period) {
                 b.classList.add('bg-white', 'text-gray-900', 'shadow-sm');
                 b.classList.remove('text-gray-500');
               } else {
@@ -249,16 +293,32 @@ import Cta from "../components/cta.astro";
                 b.classList.add('text-gray-500');
               }
             });
-            document.querySelectorAll('[data-annual-price]').forEach(el => {
-              const priceSpan = el.querySelector('.plan-price');
-              if (priceSpan) {
-                priceSpan.textContent = isAnnual ? el.dataset.annualPrice! : el.dataset.monthlyPrice!;
-              }
-            });
-            document.querySelectorAll('.billing-note').forEach(el => {
-              const note = el as HTMLElement;
-              note.textContent = isAnnual ? note.dataset.annualNote! : note.dataset.monthlyNote!;
-            });
+            // Show/hide plan containers
+            if (isStudent) {
+              paid?.classList.add('hidden');
+              studentPlans?.classList.remove('hidden');
+            } else {
+              paid?.classList.remove('hidden');
+              studentPlans?.classList.add('hidden');
+              // Swap prices for monthly/annual
+              paid?.querySelectorAll('[data-annual-price]').forEach(el => {
+                const priceSpan = el.querySelector('.plan-price');
+                if (priceSpan) {
+                  priceSpan.textContent = isAnnual ? el.dataset.annualPrice! : el.dataset.monthlyPrice!;
+                }
+              });
+              paid?.querySelectorAll('.billing-note').forEach(el => {
+                const note = el as HTMLElement;
+                note.textContent = isAnnual ? note.dataset.annualNote! : note.dataset.monthlyNote!;
+              });
+              paid?.querySelectorAll('.special-price').forEach(el => {
+                const link = el as HTMLElement;
+                const textSpan = link.querySelector('.special-price-text');
+                if (textSpan) {
+                  textSpan.textContent = isAnnual ? link.dataset.annualLabel! : link.dataset.monthlyLabel!;
+                }
+              });
+            }
           });
         });
       }
