@@ -12,14 +12,23 @@ import Cta from "../components/cta.astro";
       <p class="text-lg mt-4 text-gray-500">Choose the perfect plan for your needs. Always flexible to scale up or down.</p>
     </div>
 
+    <div class="flex justify-end mb-4 max-w-screen-lg mx-auto">
+      <div class="inline-flex items-center bg-gray-100 rounded-full p-1" id="billing-toggle">
+        <button class="px-4 py-1.5 text-sm font-medium rounded-full transition-colors text-gray-500" data-period="monthly">Monthly</button>
+        <button class="px-4 py-1.5 text-sm font-medium rounded-full transition-colors bg-white text-gray-900 shadow-sm" data-period="annual">Annual</button>
+      </div>
+    </div>
+
     <div id="paid-plans" class="rounded-3xl p-6 pt-5 bg-white shadow-lg border border-gray-200 max-w-screen-lg mx-auto">
       <div class="grid md:grid-cols-3 md:divide-x md:divide-gray-100 gap-5">
         <PricingCard
           name="Essentials"
           description="Remove limits and add your branding"
           price="12.99"
+          monthlyPrice="20"
           period="/month"
           billingNote="billed annually"
+          billingNoteMonthly="billed monthly"
           topFeatures={["Unlimited responses", "1 user", "Your logo and brand", "100MB file uploads", "Low AI usage", "Cross-tabulation"]}
           topFeatureIcons={["bx:infinite", "bx:user", "bx:star", "bx:cloud-upload", "bx:bxs-brain", "bx:bar-chart-alt-2"]}
           topFeatureTooltips={["", "", "", "", "", "Compare answers across different questions to uncover patterns and insights — for example, product interest broken down by age group and location."]}
@@ -68,8 +77,10 @@ import Cta from "../components/cta.astro";
           name="Plus"
           description="Analytics, payments and collaboration"
           price="25"
+          monthlyPrice="45"
           period="/month"
           billingNote="billed annually"
+          billingNoteMonthly="billed monthly"
           topFeatures={["Unlimited responses", "3 users", "No Shout branding", "1GB file uploads", "Medium AI usage", "Cross-tabulation"]}
           topFeatureIcons={["bx:infinite", "bx:bxs-group", "bx:bxs-star-half", "bx:cloud-upload", "bx:bxs-brain", "bx:bar-chart-alt-2"]}
           topFeatureTooltips={["", "", "", "", "", "Compare answers across different questions to uncover patterns and insights — for example, product interest broken down by age group and location."]}
@@ -122,8 +133,10 @@ import Cta from "../components/cta.astro";
           name="Business"
           description="White-label with custom domains and support"
           price="59"
+          monthlyPrice="99"
           period="/month"
           billingNote="billed annually"
+          billingNoteMonthly="billed monthly"
           topFeatures={["Unlimited responses", "5 users", "Use your domain", "10GB file uploads", "High AI usage", "Cross-tabulation"]}
           topFeatureIcons={["bx:infinite", "bx:bxs-group", "bx:bxs-star", "bx:cloud-upload", "bx:bxs-brain", "bx:bar-chart-alt-2"]}
           topFeatureTooltips={["", "", "", "", "", "Compare answers across different questions to uncover patterns and insights — for example, product interest broken down by age group and location."]}
@@ -216,6 +229,36 @@ import Cta from "../components/cta.astro";
           const willOpen = !det.open;
           paid.querySelectorAll<HTMLDetailsElement>('details[data-accordion-idx]').forEach(el => {
             el.open = willOpen && el.dataset.accordionIdx === idx;
+          });
+        });
+      }
+
+      // Billing toggle
+      const toggle = document.getElementById('billing-toggle');
+      if (toggle) {
+        const buttons = toggle.querySelectorAll('button');
+        buttons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const isAnnual = btn.dataset.period === 'annual';
+            buttons.forEach(b => {
+              if (b.dataset.period === btn.dataset.period) {
+                b.classList.add('bg-white', 'text-gray-900', 'shadow-sm');
+                b.classList.remove('text-gray-500');
+              } else {
+                b.classList.remove('bg-white', 'text-gray-900', 'shadow-sm');
+                b.classList.add('text-gray-500');
+              }
+            });
+            document.querySelectorAll('[data-annual-price]').forEach(el => {
+              const priceSpan = el.querySelector('.plan-price');
+              if (priceSpan) {
+                priceSpan.textContent = isAnnual ? el.dataset.annualPrice! : el.dataset.monthlyPrice!;
+              }
+            });
+            document.querySelectorAll('.billing-note').forEach(el => {
+              const note = el as HTMLElement;
+              note.textContent = isAnnual ? note.dataset.annualNote! : note.dataset.monthlyNote!;
+            });
           });
         });
       }
