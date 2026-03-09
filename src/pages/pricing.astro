@@ -1,94 +1,231 @@
 ---
 import AstroshipLayout from "../layouts/AstroshipLayout.astro";
 import Container from "../components/container.astro";
-import Sectionhead from "../components/sectionhead.astro";
 import PricingCard from "../components/pricing-card.astro";
 import Cta from "../components/cta.astro";
-
-const pricing = [
-  {
-    name: "Essentials",
-    description: "Forms, surveys & quizzes.",
-    price: {
-      monthly: 20,
-      annual: 12.99,
-    },
-    popular: false,
-    features: [
-      "Unlimited forms, surveys & quizzes",
-      "Unlimited responses",
-      "20+ question types with logic",
-      "10,000 contacts",
-      "3,000 email invitations/month",
-      "Charts, reports & exports",
-      "Partial submissions",
-    ],
-    button: {
-      text: "Choose Essentials",
-      link: "https://identity.shout.com/Account/Register",
-    },
-  },
-  {
-    name: "Pro",
-    description: "Forms + Shared Inbox for teams.",
-    price: {
-      monthly: null,
-      annual: 25,
-    },
-    popular: true,
-    features: [
-      "Everything in Essentials, plus:",
-      "3 team members",
-      "Shared Inbox",
-      "3 calculators",
-      "1GB file uploads",
-      "Stripe payments",
-      "NPS & advanced analytics",
-      "A/B testing",
-      "5,000 email invitations/month",
-    ],
-    button: {
-      text: "Choose Pro",
-      link: "https://identity.shout.com/Account/Register",
-    },
-  },
-  {
-    name: "Business",
-    description: "White-label with advanced compliance.",
-    price: {
-      monthly: null,
-      annual: 59,
-    },
-    popular: false,
-    features: [
-      "Everything in Pro, plus:",
-      "5-10 team members",
-      "5GB file uploads",
-      "Remove Shout branding",
-      "Host on your domain",
-      "Custom URL slug",
-      "7,000 email invitations/month",
-    ],
-    button: {
-      text: "Choose Business",
-      link: "https://identity.shout.com/Account/Register",
-    },
-  },
-];
 ---
 
 <AstroshipLayout title="Pricing - Shout.com">
   <Container>
-    <Sectionhead>
-      <Fragment slot="title">Simple, Transparent Pricing</Fragment>
-      <Fragment slot="desc">
-        Choose the perfect plan for your needs. Always flexible to scale up or down.
-      </Fragment>
-    </Sectionhead>
-
-    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-screen-lg mt-16 pt-4">
-      {pricing.map((item) => <PricingCard plan={item} />)}
+    <div class="text-center pt-12 pb-8">
+      <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Simple, Transparent Pricing</h1>
+      <p class="text-lg mt-4 text-gray-500">Choose the perfect plan for your needs. Always flexible to scale up or down.</p>
     </div>
+
+    <div id="paid-plans" class="rounded-3xl p-6 pt-5 bg-white shadow-lg border border-gray-200 max-w-screen-lg mx-auto">
+      <div class="grid md:grid-cols-3 md:divide-x md:divide-gray-100 gap-5">
+        <PricingCard
+          name="Essentials"
+          description="Remove limits and add your branding"
+          price="12.99"
+          period="/month"
+          billingNote="billed annually"
+          topFeatures={["Unlimited responses", "1 user", "Your logo and brand", "100MB file uploads", "Low AI usage", "Cross-tabulation"]}
+          topFeatureIcons={["bx:infinite", "bx:user", "bx:star", "bx:cloud-upload", "bx:bxs-brain", "bx:bar-chart-alt-2"]}
+          topFeatureTooltips={["", "", "", "", "", "Compare answers across different questions to uncover patterns and insights — for example, product interest broken down by age group and location."]}
+          topFeatureDisabled={[false, false, false, false, false, true]}
+          accordions={[
+            {
+              icon: "bx:file",
+              title: "Forms & quizzes",
+              description: "Unlock unlimited collection",
+              items: [
+                { icon: "bx:time", text: "No collection time limits" },
+                { icon: "bx:transfer", text: "Partial submissions", tooltip: "Capture responses from people who started your form but didn't finish. Any page or section they completed is saved, so you don't lose valuable data." },
+                { icon: "bx:help-circle", text: "Quiz scoring" },
+                { icon: "bx:download", text: "Excel & PDF export" },
+              ]
+            },
+            {
+              icon: "bx:group",
+              title: "Contacts",
+              badge: "10,000 contacts",
+              description: "Know everything about every contact — forms, conversations, and notes",
+              items: [
+                { icon: "bx:user-plus", text: "Forms → contacts", tooltip: "Every form response automatically creates or updates a contact. Link questions to contact fields like name, email, or company to build your database as you collect responses." },
+                { icon: "bx:edit", text: "Prefill forms", tooltip: "When a known contact opens your form, their details are filled in automatically — saving them time and improving completion rates." },
+                { icon: "bx:filter", text: "Lists & segments", tooltip: "Lists help you organise contacts and manage consent — like email marketing opt-ins. Segments are saved filters that automatically group contacts by their attributes or activity." },
+                { icon: "bx:envelope", text: "Email survey invitations" },
+              ]
+            },
+            {
+              icon: "bx:bxs-inbox",
+              title: "Inbox",
+              badge: "Coming soon",
+              description: "Respond directly to feedback and leads with a unified inbox",
+              items: [
+                { icon: "bx:log-in", text: "Unified inbox", tooltip: "Keep form submissions, customer enquiries, and support messages out of your personal email. Everything customer-facing lives in one dedicated place — so nothing gets lost and your private inbox stays clean." },
+                { icon: "bx:reply", text: "Reply to respondents", tooltip: "Reply to anyone who submits a form, directly from your inbox. Connect your Gmail or Outlook account to send from your own company email address." },
+                { icon: "bx:at", text: "Connect email accounts", tooltip: "Forward emails from sales@, support@, or any address into your inbox. Send replies via your connected Gmail or Outlook account." },
+                { icon: "bx:chat", text: "Social messaging" },
+              ]
+            }
+          ]}
+          seeAllLabel="See all features"
+          seeAllLink="#compare-plans"
+        />
+        <PricingCard
+          name="Plus"
+          description="Analytics, payments and collaboration"
+          price="25"
+          period="/month"
+          billingNote="billed annually"
+          topFeatures={["Unlimited responses", "3 users", "No Shout branding", "1GB file uploads", "Medium AI usage", "Cross-tabulation"]}
+          topFeatureIcons={["bx:infinite", "bx:bxs-group", "bx:bxs-star-half", "bx:cloud-upload", "bx:bxs-brain", "bx:bar-chart-alt-2"]}
+          topFeatureTooltips={["", "", "", "", "", "Compare answers across different questions to uncover patterns and insights — for example, product interest broken down by age group and location."]}
+          popular={true}
+          accordions={[
+            {
+              icon: "bx:file",
+              title: "Forms & quizzes",
+              description: "Everything in Essentials, and...",
+              items: [
+                { icon: "bx:calculator", text: "3 calculators" },
+                { icon: "bx:credit-card", text: "Stripe payments" },
+                { icon: "bx:edit", text: "Collaborative editing" },
+                { icon: "bx:map", text: "Address autofill (UK/US)" },
+                { icon: "bx:link-external", text: "Survey redirection" },
+                { icon: "bx:transfer", text: "Text & answer piping" },
+                { icon: "bx:git-compare", text: "A/B testing" },
+              ]
+            },
+            {
+              icon: "bx:group",
+              title: "Contacts",
+              badge: "25,000 contacts",
+              description: "Know everything about every contact — forms, conversations, and notes",
+              items: [
+                { icon: "bx:user-plus", text: "Forms → contacts", tooltip: "Every form response automatically creates or updates a contact. Link questions to contact fields like name, email, or company to build your database as you collect responses." },
+                { icon: "bx:edit", text: "Prefill forms", tooltip: "When a known contact opens your form, their details are filled in automatically — saving them time and improving completion rates." },
+                { icon: "bx:filter", text: "Lists & segments", tooltip: "Lists help you organise contacts and manage consent — like email marketing opt-ins. Segments are saved filters that automatically group contacts by their attributes or activity." },
+                { icon: "bx:envelope", text: "Email survey invitations" },
+              ]
+            },
+            {
+              icon: "bx:bxs-inbox",
+              title: "Inbox",
+              badge: "Coming soon",
+              description: "Respond to feedback and leads as a team with a shared inbox",
+              items: [
+                { icon: "bx:log-in", text: "Shared team inbox", tooltip: "A shared workspace for your whole team to manage form responses, customer enquiries, and support messages — separate from everyone's personal email. See who's handling what, so nothing falls through the cracks." },
+                { icon: "bx:reply", text: "Reply to respondents", tooltip: "Reply to anyone who submits a form, directly from your inbox. Connect your Gmail or Outlook account to send from your own company email address." },
+                { icon: "bx:user-check", text: "Assignment & routing", tooltip: "Assign conversations to team members and route incoming messages to the right person automatically." },
+                { icon: "bx:at", text: "Connect email accounts", tooltip: "Forward emails from sales@, support@, or any address into your inbox. Send replies via your connected Gmail or Outlook account." },
+                { icon: "bx:chat", text: "Social messaging" },
+              ]
+            }
+          ]}
+          seeAllLabel="See all features"
+          seeAllLink="#compare-plans"
+        />
+        <PricingCard
+          name="Business"
+          description="White-label with custom domains and support"
+          price="59"
+          period="/month"
+          billingNote="billed annually"
+          topFeatures={["Unlimited responses", "5 users", "Use your domain", "10GB file uploads", "High AI usage", "Cross-tabulation"]}
+          topFeatureIcons={["bx:infinite", "bx:bxs-group", "bx:bxs-star", "bx:cloud-upload", "bx:bxs-brain", "bx:bar-chart-alt-2"]}
+          topFeatureTooltips={["", "", "", "", "", "Compare answers across different questions to uncover patterns and insights — for example, product interest broken down by age group and location."]}
+          accordions={[
+            {
+              icon: "bx:file",
+              title: "Forms & quizzes",
+              description: "Everything in Plus, and...",
+              items: [
+                { icon: "bx:calculator", text: "Unlimited calculators" },
+                { icon: "bx:support", text: "Priority support" },
+                { icon: "bx:link", text: "Custom URL slug" },
+                { icon: "bx:money", text: "Purchase order / wire payments" },
+                { icon: "bx:user-plus", text: "Additional seats available" },
+                { icon: "bx:star", text: "Higher AI limits" },
+              ]
+            },
+            {
+              icon: "bx:group",
+              title: "Contacts",
+              badge: "50,000 contacts",
+              description: "Know everything about every contact — forms, conversations, and notes",
+              items: [
+                { icon: "bx:user-plus", text: "Forms → contacts", tooltip: "Every form response automatically creates or updates a contact. Link questions to contact fields like name, email, or company to build your database as you collect responses." },
+                { icon: "bx:edit", text: "Prefill forms", tooltip: "When a known contact opens your form, their details are filled in automatically — saving them time and improving completion rates." },
+                { icon: "bx:filter", text: "Lists & segments", tooltip: "Lists help you organise contacts and manage consent — like email marketing opt-ins. Segments are saved filters that automatically group contacts by their attributes or activity." },
+                { icon: "bx:envelope", text: "Email survey invitations" },
+              ]
+            },
+            {
+              icon: "bx:bxs-inbox",
+              title: "Inbox",
+              badge: "Coming soon",
+              description: "Respond to feedback and leads as a team with a shared inbox",
+              items: [
+                { icon: "bx:log-in", text: "Shared team inbox", tooltip: "A shared workspace for your whole team to manage form responses, customer enquiries, and support messages — separate from everyone's personal email. See who's handling what, so nothing falls through the cracks." },
+                { icon: "bx:reply", text: "Reply to respondents", tooltip: "Reply to anyone who submits a form, directly from your inbox. Connect your Gmail or Outlook account to send from your own company email address." },
+                { icon: "bx:user-check", text: "Assignment & routing", tooltip: "Assign conversations to team members and route incoming messages to the right person automatically." },
+                { icon: "bx:at", text: "Connect email accounts", tooltip: "Forward emails from sales@, support@, or any address into your inbox. Send replies via your connected Gmail or Outlook account." },
+                { icon: "bx:chat", text: "Social messaging" },
+              ]
+            }
+          ]}
+          seeAllLabel="See all features"
+          seeAllLink="#compare-plans"
+        />
+      </div>
+      <!-- CTA -->
+      <div class="mt-6 text-center">
+        <a
+          href="https://identity.shout.com/Account/Register"
+          class="inline-block px-10 py-3 rounded-lg text-sm font-semibold transition-colors bg-[#FB7258] text-white hover:bg-[#e5603d] shadow-sm">
+          Start your free trial
+        </a>
+        <p class="mt-2 text-sm text-gray-400">All paid trials include full Plus features for 14 days. No credit card required.</p>
+      </div>
+    </div>
+
+    <script>
+      const paid = document.getElementById('paid-plans');
+      if (paid) {
+        let activeIdx: string | null = null;
+        paid.addEventListener('mouseover', (e) => {
+          const row = (e.target as HTMLElement).closest('.top-feature-row') as HTMLElement | null;
+          const idx = row?.dataset.topRow ?? null;
+          if (idx === activeIdx) return;
+          if (activeIdx !== null) {
+            paid.querySelectorAll(`.top-feature-row[data-top-row="${activeIdx}"]`).forEach(el => el.classList.remove('bg-gray-50'));
+          }
+          activeIdx = idx;
+          if (idx !== null) {
+            paid.querySelectorAll(`.top-feature-row[data-top-row="${idx}"]`).forEach(el => el.classList.add('bg-gray-50'));
+          }
+        });
+        paid.addEventListener('mouseleave', () => {
+          if (activeIdx !== null) {
+            paid.querySelectorAll(`.top-feature-row[data-top-row="${activeIdx}"]`).forEach(el => el.classList.remove('bg-gray-50'));
+            activeIdx = null;
+          }
+        });
+
+        // Accordion sync: one section open at a time, synced across plans
+        let syncing = false;
+        paid.addEventListener('toggle', (e) => {
+          if (syncing) return;
+          const det = e.target as HTMLDetailsElement;
+          if (!det?.dataset?.accordionIdx) return;
+          const idx = det.dataset.accordionIdx;
+          syncing = true;
+          if (det.open) {
+            paid.querySelectorAll<HTMLDetailsElement>('details[data-accordion-idx]').forEach(el => {
+              el.open = el.dataset.accordionIdx === idx;
+            });
+          } else {
+            paid.querySelectorAll<HTMLDetailsElement>(`details[data-accordion-idx="${idx}"]`).forEach(el => {
+              el.open = false;
+            });
+          }
+          syncing = false;
+        }, true);
+      }
+    </script>
 
     <Cta />
 
@@ -130,402 +267,376 @@ const pricing = [
     </div>
 
     <!-- Feature Comparison Table -->
-    <div class="mt-24 mb-24">
-      <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12">
+    <div id="compare-plans" class="mt-24 mb-24">
+      <h2 class="text-3xl lg:text-4xl font-bold text-center mb-4">
         Compare Plans
       </h2>
+      <p class="text-center text-gray-500 mb-12 max-w-2xl mx-auto">A detailed look at what's included in each plan.</p>
 
-      <div class="max-w-screen-lg mx-auto max-h-[600px] overflow-y-auto border border-gray-200 rounded-lg">
-        <table class="w-full divide-y divide-gray-200 compare-table">
-          <thead class="bg-gray-100 sticky top-0 z-20 shadow-[0_2px_0_0_#e5e7eb]">
-            <tr>
-              <th class="w-1/2 px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-gray-100">
-                Features
-              </th>
-              <th class="w-1/6 px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider bg-gray-100">
-                Essentials
-              </th>
-              <th class="w-1/6 px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider bg-gray-100">
-                Pro
-              </th>
-              <th class="w-1/6 px-4 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider bg-gray-100">
-                Business
-              </th>
-            </tr>
-          </thead>
-          <tbody class="bg-white divide-y divide-gray-200">
-            <!-- Basic Usage -->
-            <tr class="sticky top-[41px] z-10" style="box-shadow: 0 -4px 0 0 white;">
-              <td colspan="4" class="px-4 py-3 text-sm font-bold text-gray-900 bg-gray-50">
-                Basic Usage
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Surveys</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">Unlimited</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">Unlimited</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">Unlimited</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Forms</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">Unlimited</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">Unlimited</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">Unlimited</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Quizzes</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">Unlimited</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">Unlimited</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">Unlimited</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Calculators</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">—</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">3</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">3</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Form responses</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">Unlimited</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">Unlimited</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">Unlimited</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Contacts</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">10,000</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">10,000</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">10,000</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Team members</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">1</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">3</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">5-10</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">File upload</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">—</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">1GB</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">5GB</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Stripe payments</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">—</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">Unlimited</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">Unlimited</td>
-            </tr>
+      <div class="max-w-screen-lg mx-auto bg-white rounded-3xl p-6 md:p-10 shadow-sm">
+        <!-- Plan column headers -->
+        <div class="hidden md:grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 mb-6 px-4">
+          <div></div>
+          <div class="text-center text-sm font-semibold text-gray-900">Essentials</div>
+          <div class="text-center text-sm font-semibold text-gray-900">Plus</div>
+          <div class="text-center text-sm font-semibold text-gray-900">Business</div>
+        </div>
 
-            <!-- Form Builder -->
-            <tr class="sticky top-[41px] z-10" style="box-shadow: 0 -4px 0 0 white;">
-              <td colspan="4" class="px-4 py-3 text-sm font-bold text-gray-900 bg-gray-50">
-                Form Builder
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Question logic</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Over 20 question types</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Single question per page forms</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Multi-question per page forms</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Themes & design customization</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Images & videos</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Answer randomization</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Custom exit pages</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Progress bar</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Mandatory questions</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Answer validation</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Net Promoter Score</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">—</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Text & answer piping</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">—</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Hidden fields</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">—</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Address auto-fill</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">—</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">A/B testing</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">—</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Redirect to URL on completion</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">—</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Remove Shout branding</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">—</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">—</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
+        <!-- Basic Usage -->
+        <details class="group mb-4" open>
+          <summary class="flex items-center justify-between cursor-pointer mb-1 px-4 py-2 rounded-lg hover:bg-gray-50 select-none">
+            <h3 class="text-lg font-bold text-gray-900">Basic Usage</h3>
+            <svg class="w-5 h-5 text-gray-400 transition-transform duration-200 group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </summary>
+          <div class="space-y-0">
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Surveys, Forms & Quizzes</span>
+              <span class="text-sm text-gray-500 text-center">Unlimited</span>
+              <span class="text-sm text-gray-500 text-center">Unlimited</span>
+              <span class="text-sm text-gray-500 text-center">Unlimited</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">Calculators</span>
+              <span class="text-sm text-gray-400 text-center">—</span>
+              <span class="text-sm text-gray-500 text-center">3</span>
+              <span class="text-sm text-gray-500 text-center">Unlimited</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Form responses</span>
+              <span class="text-sm text-gray-500 text-center">Unlimited</span>
+              <span class="text-sm text-gray-500 text-center">Unlimited</span>
+              <span class="text-sm text-gray-500 text-center">Unlimited</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">Contacts</span>
+              <span class="text-sm text-gray-500 text-center">10,000</span>
+              <span class="text-sm text-gray-500 text-center">25,000</span>
+              <span class="text-sm text-gray-500 text-center">50,000</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Users</span>
+              <span class="text-sm text-gray-500 text-center">1</span>
+              <span class="text-sm text-gray-500 text-center">3</span>
+              <span class="text-sm text-gray-500 text-center">5</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">File upload</span>
+              <span class="text-sm text-gray-500 text-center">100MB</span>
+              <span class="text-sm text-gray-500 text-center">1GB</span>
+              <span class="text-sm text-gray-500 text-center">10GB</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Stripe payments</span>
+              <span class="text-sm text-gray-400 text-center">—</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">Collection time limit</span>
+              <span class="text-sm text-gray-500 text-center">Unlimited</span>
+              <span class="text-sm text-gray-500 text-center">Unlimited</span>
+              <span class="text-sm text-gray-500 text-center">Unlimited</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Partial submissions</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">AI generation</span>
+              <span class="text-sm text-gray-500 text-center">Low</span>
+              <span class="text-sm text-gray-500 text-center">Medium</span>
+              <span class="text-sm text-gray-500 text-center">High</span>
+            </div>
+          </div>
+        </details>
 
-            <!-- Collecting Responses -->
-            <tr class="sticky top-[41px] z-10" style="box-shadow: 0 -4px 0 0 white;">
-              <td colspan="4" class="px-4 py-3 text-sm font-bold text-gray-900 bg-gray-50">
-                Collecting Responses
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">URL link</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">QR code</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Email invitations</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">3,000/month</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">5,000/month</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">7,000/month</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Integrated CRM</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Response tracking</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Partial submissions</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Web embed</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Pop up forms</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Slideout forms</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Audience (purchase responses)</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Advanced targeting (Audience)</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">—</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Custom URL slug</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">—</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">—</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Host forms on your domain</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">—</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">—</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
+        <!-- Form Builder -->
+        <details class="group mb-4">
+          <summary class="flex items-center justify-between cursor-pointer mb-1 px-4 py-2 rounded-lg hover:bg-gray-50 select-none">
+            <h3 class="text-lg font-bold text-gray-900">Form Builder</h3>
+            <svg class="w-5 h-5 text-gray-400 transition-transform duration-200 group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </summary>
+          <div class="space-y-0">
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Question logic</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">20+ question types</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Single & multi-question pages</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">Themes & design customization</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Images & videos</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">Answer randomization</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Custom exit pages</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">Progress bar</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Mandatory questions</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">Answer validation</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Net Promoter Score</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">Text & answer piping</span>
+              <span class="text-sm text-gray-400 text-center">—</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Hidden fields</span>
+              <span class="text-sm text-gray-400 text-center">—</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">Address autofill</span>
+              <span class="text-sm text-gray-400 text-center">—</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">A/B testing</span>
+              <span class="text-sm text-gray-400 text-center">—</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">Redirect to URL on completion</span>
+              <span class="text-sm text-gray-400 text-center">—</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Remove Shout branding</span>
+              <span class="text-sm text-gray-400 text-center">—</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+          </div>
+        </details>
 
-            <!-- Reports & Analysis -->
-            <tr class="sticky top-[41px] z-10" style="box-shadow: 0 -4px 0 0 white;">
-              <td colspan="4" class="px-4 py-3 text-sm font-bold text-gray-900 bg-gray-50">
-                Reports & Analysis
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Charts and graphs</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Cross-tabulation</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Custom reports</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Hide and Group answers</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Make reports public (URL link)</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Segment by CRM data</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Individual responses</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Tracked responses</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Export as PDF</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Export as spreadsheet</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">NPS chart</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">—</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Collaborate on reports</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">—</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
+        <!-- Collecting Responses -->
+        <details class="group mb-4">
+          <summary class="flex items-center justify-between cursor-pointer mb-1 px-4 py-2 rounded-lg hover:bg-gray-50 select-none">
+            <h3 class="text-lg font-bold text-gray-900">Collecting Responses</h3>
+            <svg class="w-5 h-5 text-gray-400 transition-transform duration-200 group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </summary>
+          <div class="space-y-0">
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">URL link</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">QR code</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Email invitations</span>
+              <span class="text-sm text-gray-500 text-center">3,000/mo</span>
+              <span class="text-sm text-gray-500 text-center">5,000/mo</span>
+              <span class="text-sm text-gray-500 text-center">7,000/mo</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">Integrated CRM</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Response tracking</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">Web embed</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Pop up & slideout forms</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">Custom URL slug</span>
+              <span class="text-sm text-gray-400 text-center">—</span>
+              <span class="text-sm text-gray-400 text-center">—</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Host forms on your domain</span>
+              <span class="text-sm text-gray-400 text-center">—</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+          </div>
+        </details>
 
-            <!-- Shared Inbox -->
-            <tr class="sticky top-[41px] z-10" style="box-shadow: 0 -4px 0 0 white;">
-              <td colspan="4" class="px-4 py-3 text-sm font-bold text-gray-900 bg-gray-50">
-                Shared Inbox
-              </td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Outgoing ticket emails</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">—</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">20/day</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">Contact us</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Custom SMTP</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">—</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Send with Gmail</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">—</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">Coming soon</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">Coming soon</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-sm text-gray-900">Collaboration</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">—</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-              <td class="px-4 py-3 text-sm text-gray-500 text-center">✔</td>
-            </tr>
-          </tbody>
-        </table>
+        <!-- Reports & Analysis -->
+        <details class="group mb-4">
+          <summary class="flex items-center justify-between cursor-pointer mb-1 px-4 py-2 rounded-lg hover:bg-gray-50 select-none">
+            <h3 class="text-lg font-bold text-gray-900">Reports & Analysis</h3>
+            <svg class="w-5 h-5 text-gray-400 transition-transform duration-200 group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </summary>
+          <div class="space-y-0">
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Charts and graphs</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">Individual responses</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Cross-tabulation</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">Custom reports</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Hide and group answers</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">Public report sharing</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Segment by CRM data</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">Tracked responses</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Export as PDF & spreadsheet</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">NPS chart</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Collaborate on reports</span>
+              <span class="text-sm text-gray-400 text-center">—</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+          </div>
+        </details>
+
+        <!-- Form Response Inbox -->
+        <details class="group mb-4">
+          <summary class="flex items-center justify-between cursor-pointer mb-1 px-4 py-2 rounded-lg hover:bg-gray-50 select-none">
+            <h3 class="text-lg font-bold text-gray-900">Form Response Inbox</h3>
+            <svg class="w-5 h-5 text-gray-400 transition-transform duration-200 group-open:rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" /></svg>
+          </summary>
+          <div class="space-y-0">
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Outgoing ticket emails</span>
+              <span class="text-sm text-gray-400 text-center">—</span>
+              <span class="text-sm text-gray-500 text-center">20/day</span>
+              <span class="text-sm text-gray-500 text-center">Contact us</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">Custom SMTP (required)</span>
+              <span class="text-sm text-gray-400 text-center">—</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3 rounded-lg bg-gray-50/70">
+              <span class="text-sm text-gray-700">Send with Gmail / Outlook</span>
+              <span class="text-sm text-gray-400 text-center">—</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+            <div class="grid grid-cols-[2fr_1fr_1fr_1fr] gap-2 px-4 py-3">
+              <span class="text-sm text-gray-700">Collaboration</span>
+              <span class="text-sm text-gray-400 text-center">—</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+              <span class="text-sm text-[#FB7258] text-center">✔</span>
+            </div>
+          </div>
+        </details>
       </div>
     </div>
 
